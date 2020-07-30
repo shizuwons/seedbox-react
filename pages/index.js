@@ -397,8 +397,6 @@ export default function Home() {
         step = 7;
       }
     });
-
-    $(":input").cSelect();
   }, []);
   
   return (
