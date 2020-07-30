@@ -2,10 +2,15 @@
   "name": "test-app",
   "version": "0.1.0",
   "private": true,
+  // "scripts": {
+  //   "dev": "next dev",
+  //   "build": "next build",
+  //   "start": "next start"
+  // },
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "next": "9.4.4",
