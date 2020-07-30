@@ -1,0 +1,169 @@
+@media only screen and (min-width: 1200px) {
+    .con {
+        max-width: 1400px !important;
+    }
+}
+
+@media only screen and (max-width: 1320px) {
+    .conheader {
+        display: none !important;
+    }
+    .navbar {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 397px) {
+    .imglogo {
+        width: 180px !important;
+    }
+}
+
+@media only screen and (max-width: 511px) {
+  #mapid {
+      display:none !important;
+  }
+  .coltable {
+      margin-top: 10px !important;
+  }
+}
+
+@font-face {
+    font-family: "muli";
+    src: url("../Font/Muli/muli/Muli.ttf");
+}
+
+@font-face {
+    font-family: "Muli";
+    src: url("../Font/Muli/muli/Muli.ttf");
+}
+
+@font-face {
+    font-family: "Keep Calm";
+    src: url("../Font/keep calm/KeepCalm-Medium.ttf");
+}
+
+body, html {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: white;
+}
+
+.padd {
+    font-family: Muli Semibold;
+    color: #424242;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.btnservices:hover, .btnpackages:hover, .btnfinddoctor:hover, .btnclinic:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    color: #00C853 !important;
+}
+
+.btnlogin {
+    border: 2px solid #00C853;
+    background-color: transparent;
+    border-radius: 25px;
+    font-family: Muli;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.btnlogin:hover {
+    color: white !important;
+    background-color: #00C853;
+}
+
+#mapid {
+    height: 92vh;
+    width: 92vw;
+}
+
+.txtsearch {
+    font-family: muli;
+    font-size: 14px;
+    color: black !important;
+    width: 90%;
+    border: 1px solid lightgray;
+    padding: 8px 10px;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-top: 25px;
+    background: url(../Image/search.png) no-repeat scroll 7px 12px;
+    padding-left: 30px;
+    background-size: 15px;
+}
+
+.btnsearch {
+    font-family: muli semibold;
+    font-size: 14px;
+    color: white;
+    border: 0px;
+    padding: 8px 18px;
+    background-color: #00C853;
+    -webkit-box-shadow: 7px 2px 5px -4px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: 7px 2px 5px -4px rgba(0, 0, 0, 0.24);
+    box-shadow: 7px 2px 5px -4px rgba(0, 0, 0, 0.24);
+    margin-left: 5px;
+}
+
+.coldiv {
+    width: 768px !important;
+}
+
+.divLocation {
+    width: 320px;
+    padding-left: 15px;
+    overflow-y: scroll;
+    max-height: 80vh;
+    height: 80vh;
+    margin-bottom: 40px;
+}
+
+.lbllocation {
+    font-family: muli semibold;
+    font-size: 15px;
+    color: #212121;
+    margin-left: 5px;
+}
+
+.pLocation2 {
+    font-family: muli;
+    font-size: 14px;
+    color: #424242;
+    margin-left: 18px;
+    margin-top: 5px;
+}
+
+.pContactNumber {
+    font-family: muli;
+    font-size: 14px;
+    color: #424242;
+    margin-left: 18px;
+    margin-top: -10px;
+}
+
+tr {
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+tr:hover * {
+    background-color: #00C853;
+    color: white;
+}
+
+#myTable {
+    border-collapse: collapse;
+    /* Collapse borders */
+    width: 100%;
+}
+

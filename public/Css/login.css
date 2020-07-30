@@ -1,0 +1,313 @@
+body, html {
+  widows: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1300px !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .con {
+    max-width: 1400px !important;
+  }
+}
+
+@media only screen and (max-width: 986px) {
+  .colright {
+    display: none !important;
+  }
+  .maincontainer {
+    height: 100vh;
+    background: linear-gradient( to right, #F5F5F5 0%, #F5F5F5 50%, #f5f5f5 50%, #f5f5f5 100%) !important;
+  }
+}
+
+@media only screen and (max-width: 762px) {
+  .txtpassword, .txtusername, .btnlogin {
+    width: 100% !important;
+  }
+  .txtpassword {
+    width: 100% !important;
+  }
+  .txtusername {
+    width: 100% !important;
+  }
+  .psignin {
+    margin-top: 20px !important;
+  }
+}
+
+@media only screen and (max-width: 762px) {
+  .lblforgot {
+    float: none !important;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .imglogo {
+    width: 70px !important;
+  }
+  .psignin {
+    font-size: 25px !important;
+  }
+  .psignin1 {
+    font-size: 15px !important;
+  }
+  .txtusername {
+    margin-top: -15px !important;
+  }
+  .txtpassword {
+    margin-top: -5px !important;
+  }
+  .lblrememberme {
+    margin-left: 10px !important;
+  }
+  .lblforgot {
+    margin-left: 10px !important;
+    margin-top: -5px !important;
+  }
+  .btnlogin {
+    height: 40px !important;
+  }
+}
+
+.maincontainer {
+  background-color: #f5f5f5;
+  height: 100vh;
+  background-image: url('') , url('../Image/2-1.jpg');
+  background-repeat: no-repeat, no-repeat;
+  background-size: 50% 100%;
+  background-position: left top, right top;
+}
+
+.maincontainer1 {
+  height: 100vh;
+  background: linear-gradient( to right, #F5F5F5 0%, #F5F5F5 50%, #1976D2 50%, #1976D2 100%);
+}
+
+.btnservices, .btnpackages, .btncontact, .btnregister {
+  color: white;
+  font-family: muli semibold;
+  letter-spacing: .0.7px;
+}
+
+.psignin {
+  color: #233645;
+  font-family: hind;
+  font-size: 35px;
+  margin-top: 70px;
+  font-weight: bold;
+}
+
+.psignin1 {
+  color: #424242;
+  font-family: hind;
+  font-size: 18px;
+  margin-top: -5px;
+}
+
+.pusername {
+  font-family: hind semibold;
+  font-size: 15px;
+  color: #424242;
+  margin-top: 50px;
+}
+
+input[type="text"] {
+  box-sizing: border-box;
+  width: 400px;
+  height: calc(3em + 2px);
+  margin: 0 0 1em;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1.5em;
+  resize: none;
+  outline: none;
+}
+
+input[type="text"][required]:focus {
+  border-color: #00C853;
+}
+
+input[type="text"][required]:focus+label[placeholder]:before {
+  color: #00C853;
+}
+
+input[type="text"][required]:focus+label[placeholder]:before, input[type="text"][required]:valid+label[placeholder]:before {
+  transition-duration: 0.2s;
+  -webkit-transform: translate(0, -1.5em) scale(0.9, 0.9);
+  transform: translate(0, -1.5em) scale(0.9, 0.9);
+}
+
+input[type="text"][required]:invalid+label[placeholder][alt]:before {
+  content: attr(alt);
+}
+
+input[type="text"][required]+label[placeholder] {
+  display: block;
+  pointer-events: none;
+  line-height: 1.25em;
+  margin-top: calc(-3em - 2px);
+  margin-bottom: calc((3em - 1em) + 2px);
+}
+
+input[type="text"][required]+label[placeholder]:before {
+  content: attr(placeholder);
+  display: inline-block;
+  margin: 0 calc(1em + 2px);
+  padding: 0 2px;
+  color: #898989;
+  white-space: nowrap;
+  transition: 0.3s ease-in-out;
+  background-image: linear-gradient(to bottom, #fff, #fff);
+  background-size: 100% 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input[type="password"] {
+  box-sizing: border-box;
+  width: 400px;
+  height: calc(3em + 2px);
+  margin: 0 0 1em;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1.5em;
+  resize: none;
+  outline: none;
+}
+
+input[type="password"][required]:focus {
+  border-color: #00C853;
+}
+
+input[type="password"][required]:focus+label[placeholder]:before {
+  color: #00C853;
+}
+
+input[type="password"][required]:focus+label[placeholder]:before, input[type="password"][required]:valid+label[placeholder]:before {
+  transition-duration: 0.2s;
+  -webkit-transform: translate(0, -1.5em) scale(0.9, 0.9);
+  transform: translate(0, -1.5em) scale(0.9, 0.9);
+}
+
+input[type="password"][required]:invalid+label[placeholder][alt]:before {
+  content: attr(alt);
+}
+
+input[type="password"][required]+label[placeholder] {
+  display: block;
+  pointer-events: none;
+  line-height: 1.25em;
+  margin-top: calc(-3em - 2px);
+  margin-bottom: calc((3em - 1em) + 2px);
+}
+
+input[type="password"][required]+label[placeholder]:before {
+  content: attr(placeholder);
+  display: inline-block;
+  margin: 0 calc(1em + 2px);
+  padding: 0 2px;
+  color: #898989;
+  white-space: nowrap;
+  transition: 0.3s ease-in-out;
+  background-image: linear-gradient(to bottom, #fff, #fff);
+  background-size: 100% 5px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.txtusername {
+  background: url(../Image/username.png) no-repeat 97.25% 15px white;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.txtpassword {
+  background: url(../Image/password.png) no-repeat 97.25% 15px white;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.lblrememberme, .lblforgot {
+  font-family: hind;
+  color: #424242;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.lblforgot {
+  margin-top: 7px;
+}
+
+.lblrememberme:hover, .lblforgot:hover {
+  transition: all 0.2s;
+  color: #00C853;
+}
+
+.div1 {
+  width: 400px;
+}
+
+.btnlogin {
+  color: white;
+  background-color: #00C853;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 0px;
+  margin-top: 15px;
+  width: 400px;
+  cursor: pointer;
+  outline: none;
+}
+
+.btnlogin:hover {
+  transition: all 0.2s;
+  background-color: #00E676;
+}
+
+.lbldonthave {
+  color: #424242;
+  font-size: 15px;
+  font-family: hind semibold;
+  margin-top: 20px;
+}
+
+.lblsign {
+  color: #1976D2;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.phealth {
+  color: #1976D2;
+  font-family: Mont DEMO;
+  font-size: 70px;
+  background-color: white;
+  padding: 0px 10px;
+  font-weight: bold;
+  width: max-content;
+}
+
+.phealth1 {
+  font-family: hind;
+  color: white;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.psubtext {
+  font-family: hind;
+  font-size: 18px;
+  color: white;
+  margin-top: 10px;
+}
+
+.txtfirstname, .txtlastname {
+  width: 210px !important;
+}

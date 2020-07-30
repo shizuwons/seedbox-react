@@ -1,0 +1,608 @@
+@media only screen and (min-width: 1200px) {
+    .con {
+        max-width: 1400px !important;
+    }
+    .conBox {
+        max-width: 1100px !important;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .consubscribe {
+        margin-top: 30px;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        clear: both;
+        text-align: center !important;
+        float: none !important;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .psubscribe {
+        text-align: center !important;
+    }
+    .btnsubscribe {
+        width: auto !important;
+        margin-top: 10px !important;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .conheader {
+        display: none !important;
+    }
+    .pWe {
+        font-size: 1.4rem !important;
+    }
+    .pOur {
+        font-size: 1.2rem !important;
+    }
+    .pSub {
+        width: 100% !important;
+        font-size: 0.9rem !important;
+    }
+    .conNavbar {
+        padding: 10px 0px;
+    }
+    .pLocation {
+        font-size: 1.5rem !important;
+    }
+    .imgMap {
+        margin-right: 10px !important;
+        margin-top: 5px !important;
+    }
+    .pAddress {
+        margin-left: 25px !important;
+        margin-top: -20px !important;
+    }
+    .row1 {
+        height: 300px !important;
+    }
+    .colLeft {
+        padding-left: 15px !important;
+    }
+    .colBox {
+        margin-top: 10px !important;
+    }
+    .box {
+        width: 107% !important;
+    }
+}
+
+body, html {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.padd {
+    font-family: Manrope;
+    font-weight: 500;
+    color: #424242;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.btnservices:hover, .btnpackages:hover, .btnfinddoctor:hover, .btnclinic:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    color: #00C853 !important;
+}
+
+.btnlogin {
+    border: 2px solid #00C853;
+    background-color: transparent;
+    border-radius: 25px;
+    font-family: Manrope;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.btnlogin:hover {
+    color: white !important;
+    background-color: #00C853;
+}
+
+.pLocation {
+    font-family: Manrope;
+    color: #08172c;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.pAddress {
+    font-family: Manrope;
+    color: #424242;
+    font-size: 0.9rem;
+    margin-left: 8px;
+}
+
+.divLeftImg {
+    background: url(../Image/Clinics/ayala1.jpg);
+    background-size: cover;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid lightgray;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.divLeftImg:hover, .divRightImg:hover, .divRightImg1:hover {
+    border: 1px solid #00C853;
+    filter: brightness(70%);
+}
+
+.divRightImg {
+    background: url(../Image/Clinics/ayala2.jpg);
+    background-size: cover;
+    height: 48.5%;
+    border-top-right-radius: 10px;
+    border: 1px solid lightgray;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    transition: all 0.2;
+}
+
+.divRightImg1 {
+    background: url(../Image/Clinics/ayala3.jpg);
+    background-size: cover;
+    height: 48.5%;
+    margin-top: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid lightgray;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.divShade {
+    background-color: black;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.14);
+    border-bottom-right-radius: 10px;
+    position: relative;
+}
+
+.pMorePhotos {
+    font-family: Manrope;
+    color: white;
+    font-size: 4rem;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.divImage {
+    background-color: rgb(0, 200, 83, 0.1);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.pNumber {
+    font-family: Manrope;
+    color: #424242;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.pTitleBox {
+    font-family: Manrope;
+    color: #424242;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.pOur {
+    font-family: Manrope;
+    color: #08172c;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.hr1 {
+    background-color: #00C853;
+    height: 2px;
+    width: 55px;
+    margin: 0 auto;
+}
+
+.card {
+    border: 0px;
+    margin-top: 10px;
+}
+
+.card-img-top, .card-body {
+    padding-left: 0px;
+}
+
+.card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: .5rem;
+}
+
+.card-title {
+    font-family: Manrope;
+    color: #00C853;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card-text {
+    font-family: Manrope;
+    color: #08172c;
+    font-size: 0.9rem;
+}
+
+.pmorelinks {
+    font-family: muli;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+.pfooterlinks {
+    font-family: muli;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.pfooterlinks:hover {
+    color: #00C853;
+}
+
+.pcopyright {
+    font-family: muli semibold;
+    color: white;
+    font-size: 13px;
+    margin-top: 10px;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+.psubscribe {
+    color: white;
+    font-family: Muli;
+    font-size: 14px;
+}
+
+.btnsubscribe {
+    font-family: muli;
+    color: #424242;
+    border-radius: 25px;
+    padding: 15px 20px;
+    font-size: 15px;
+    margin-left: 20px;
+    border: 0px;
+    width: 350px;
+    margin-top: -20px;
+}
+
+.hrfooter {
+    width: 100%;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 0 none;
+    margin-top: 50px;
+}
+
+.ptime {
+    font-family: muli;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+.ptel {
+    font-family: muli;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    margin-left: 45px;
+    margin-top: -10px !important;
+}
+
+.pNumberTab {
+    font-family: Manrope;
+    color: #757575;
+    font-size: 1.1rem;
+    font-size: 600;
+    transition: all 0.2;
+}
+
+.pDay {
+    font-family: Manrope;
+    color: #08172c;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: -10px;
+    margin-bottom: 0px;
+    transition: all 0.2s;
+}
+
+.colDate {
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 15px;
+    width: 100%;
+}
+
+.colDate:hover {
+    background-color: #00C853;
+}
+
+.colDate:hover p {
+    transition: all 0.2s;
+    color: white;
+}
+
+:root {
+    --color-one: #34D1D1;
+    --color-two: #2F2235;
+    --color-three: #3F3244;
+    --color-four: #F2F2F2;
+    --color-five: #D1D2D3;
+    --color-six: #666666;
+    --color-seven: #000000;
+    --color-eight: #ffffff;
+}
+
+.accordion {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    width: 100%;
+}
+
+.accordion__content {
+    order: 1;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.accordion__label {
+    font-family: Manrope;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: block;
+    cursor: pointer;
+    flex-grow: 1;
+    text-align: center;
+    padding: 1% 5% 1% 5%;
+    margin-right: 1px;
+    transition: all 0.2s;
+}
+
+.accordion__label:hover {
+    color: #00C853;
+}
+
+.accordion__radio {
+    display: none;
+}
+
+.accordion input[type="radio"] {
+    display: none;
+}
+
+.accordion input[type="radio"]+label {
+    color: var(--color-six);
+    z-index: 1;
+}
+
+.accordion input[type="radio"]:hover {
+    color: #00C853;
+}
+
+.accordion input[type="radio"]:checked+label {
+    transition: all 1s;
+    color: #00C853;
+    background-color: white;
+    font-weight: 600;
+    border-bottom: 2px solid #00C853;
+}
+
+.accordion input[type="radio"]:checked+label+.accordion__content {
+    display: flex;
+    margin-right: 0;
+}
+
+@media (max-width: 900px) {
+    .accordion {
+        border: 1px solid var(--color-five);
+    }
+    .accordion-tab--status {
+        display: inline;
+    }
+    .accordion__content, .accordion__label {
+        order: initial;
+    }
+    .accordion__content {
+        flex-direction: column;
+    }
+    .accordion__label {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.2em;
+        padding: 5% 6% 5% 6%;
+    }
+    .accordion__label:last-child {
+        background-color: magenta;
+    }
+    .accordion__content__image__container {
+        width: 100%;
+    }
+    .accordion__content__text {
+        font-size: 0.9em;
+        margin: 4% 5% 4% 5%;
+    }
+    .accordion__content__text__title {
+        margin: 2% 0 2% 0;
+    }
+    .accordion__content__text__horizontal-line {
+        width: 100%;
+    }
+    .accordion input[type="radio"]+label span:after {
+        content: '+';
+    }
+    .accordion input[type="radio"]:checked+label span:after {
+        content: '—';
+    }
+    .accordion input[type="radio"]:checked+label {
+        border: none;
+    }
+    .accordion input[type="radio"]:checked+label+.accordion {
+        border: none;
+    }
+    .accordion input[type="radio"]:checked+label+.accordion__content {
+        border: none;
+    }
+}
+
+.pDoctor {
+    font-family: Manrope;
+    color: #08172c;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.pTimeDoctor {
+    font-family: Manrope;
+    color: #08172c;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-top: -14px;
+    margin-bottom: 0px;
+}
+
+.box {
+    background-color: #f6f7fb;
+    padding: 20px;
+    border-left: 2px solid #00C853;
+    height: 100px;
+}
+
+.draw-border {
+    font-family: Manrope;
+    font-weight: 500;
+    padding: 10px;
+    width: 200px;
+    box-shadow: inset 0 0 0 2px #08172c;
+    color: #08172c;
+    -webkit-transition: color 0.25s 0.0833333333s;
+    transition: color 0.25s 0.0833333333s;
+    position: relative;
+    outline: none !important;
+}
+
+.draw-border::before, .draw-border::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.draw-border::before {
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+}
+
+.draw-border::after {
+    border-top-width: 2px;
+    border-right-width: 2px;
+}
+
+.draw-border:hover {
+    color: #00C853;
+}
+
+.draw-border:hover::before, .draw-border:hover::after {
+    border-color: #00C853;
+    -webkit-transition: border-color 0s, width 0.1s, height 0.1s;
+    transition: border-color 0s, width 0.1s, height 0.1s;
+    width: 100%;
+    height: 100%;
+}
+
+.draw-border:hover::before {
+    -webkit-transition-delay: 0s, 0s, 0.25s;
+    transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+    -webkit-transition-delay: 0s, 0.25s, 0s;
+    transition-delay: 0s, 0.25s, 0s;
+}
+
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.lb-next {
+    background: url(../Image/right.png) no-repeat scroll right 48% transparent !important;
+}
+
+.lb-prev {
+    background: url(../Image/left.png) no-repeat scroll left 48% transparent !important;
+}
+
+.lb-close {
+    background: url(../Image/close.png) no-repeat scroll left 48% transparent !important;
+}
+
+.lb-nav a.lb-next, .lb-nav a.lb-prev {
+    opacity: 1;
+}
+
+.card-deck {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    align-items: stretch;
+}
+
+.card-deck .card {
+    display: block;
+    flex-basis: 23.3%;
+    /* change this value for each breakpoint*/
+}

@@ -1,0 +1,365 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+    background-color: #fafafa;
+}
+
+@media only screen and (min-width: 1200px) {
+    .con {
+        max-width: 1400px !important;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .span {
+        display: block !important;
+    }
+    .pTitle {
+        font-size: 2rem !important;
+        margin-top: -15px !important;
+    }
+    .navbar-toggler-icon {
+        display: none !important;
+    }
+    .conContent {
+        margin-top: -70px !important;
+    }
+    .conBody {
+        margin-top: -125px !important;
+    }
+    .box {
+        display: block !important;
+        width: auto !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        padding: 0px !important;
+    }
+    .divIcon {
+        width: 43% !important;
+        background-color: white;
+        box-shadow: 5px 10px 30px #89898929;
+        border-radius: 10px;
+        margin: 0 auto;
+        padding: 30px;
+        margin: 10px;
+        max-height: 100px !important;
+        min-height: 100px !important;
+    }
+    .divIconlast {
+        background-color: white;
+        box-shadow: 5px 10px 30px #89898929;
+        border-radius: 10px;
+        margin: 0 auto;
+        padding: 30px;
+        margin: 10px;
+        max-height: 100px !important;
+        min-height: 100px !important;
+    }
+    .pBox {
+        font-size: 0.8rem !important;
+    }
+    .imgIcon {
+        width: 40% !important;
+    }
+    .imgInvest {
+        width: 29% !important;
+    }
+    .imgLast {
+        width: 20% !important;
+        margin-top: 5px !important;
+    }
+    .row1 {
+        margin-top: 70px !important;
+    }
+    .colImage {
+        margin-top: 40px !important;
+    }
+    .pHow {
+        font-size: 1.4rem !important;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .imgLeaf {
+        width: 70px !important;
+    }
+    .txtEmail, .txtPassword {
+        width: 100% !important;
+    }
+}
+
+@font-face {
+    font-family: "Proxima Regular";
+    src: url("../Fonts/ProximaNova-Regular.otf");
+}
+
+@font-face {
+    font-family: "Proxima Bold";
+    src: url("../Fonts/Proxima Nova Bold.otf");
+}
+
+@font-face {
+    font-family: "Proxima Extrabold";
+    src: url("../Fonts/Proxima Nova Extrabold.otf");
+}
+
+@font-face {
+    font-family: "Opensans Extrabold";
+    src: url("../Fonts/Proxima Nova Extrabold.otf");
+}
+
+@font-face {
+    font-family: "Opensans Bold";
+    src: url("../Fonts/OpenSans-Bold.otf");
+}
+
+.nav-link {
+    font-family: "Proxima Regular" !important;
+    color: #404040;
+    font-size: 1.1rem;
+    margin-left: 15px;
+}
+
+.btnhome {
+    font-family: "Proxima Extrabold" !important;
+    color: #13C95C;
+}
+
+.pTitle {
+    font-family: "Opensans Extrabold" !important;
+    color: #13C95C;
+    font-size: 5rem;
+    margin-bottom: 0px;
+}
+
+.pSubtitle {
+    font-family: "Proxima Bold" !important;
+    color: #222222;
+    margin-bottom: 0px;
+}
+
+.btnLearnmore {
+    font-family: "Proxima Bold" !important;
+    text-align: center;
+    background: #13C95C 0% 0% no-repeat padding-box;
+    border-radius: 26px;
+    opacity: 1;
+    box-shadow: 0 2px 12px -6px #13C95C !important;
+    letter-spacing: -0.9px;
+    color: #FAFAFA;
+    opacity: 1;
+    border: 0px;
+    padding: 5px;
+    width: 150px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.box {
+    width: 810px;
+    background: #FAFAFA;
+    box-shadow: 5px 10px 30px #89898929;
+    border-radius: 52px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.pBox {
+    font-family: "Proxima Bold";
+    font-size: 1.1rem;
+    color: #404040;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.col1 {
+    padding: 0px !important;
+}
+
+.modal-content {
+    border: 0px !important;
+    border-radius: 73px !important;
+    box-shadow: 0px 5px 6px #00000029;
+}
+
+.pLogin {
+    font-family: "Open Sans";
+    color: #404040;
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #1A1A1A;
+    opacity: 1;
+    /* Firefox */
+}
+
+.txtEmail {
+    font-family: "Proxima Regular";
+    font-size: 1rem;
+    color: #1A1A1A;
+    border: 0px;
+    border-bottom: 1px solid #BEBEBE;
+    margin: 0 auto;
+    display: block;
+    width: 350px;
+}
+
+.pForgot {
+    font-family: "Proxima Regular";
+    font-size: 1rem;
+    color: #1A1A1A;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 15px;
+}
+
+.btnSubmit {
+    float: right;
+    width: 113px;
+    background: #13C95C;
+    padding: 5px;
+    box-shadow: 0px 5px 6px #00000029;
+    opacity: 1;
+    border: 0px;
+    color: white;
+    font-family: Proxima Regular;
+    border-radius: 11px;
+}
+
+.btnSubmit1 {
+    width: 113px;
+    background: #13C95C;
+    padding: 5px;
+    box-shadow: 0px 5px 6px #00000029;
+    opacity: 1;
+    border: 0px;
+    color: white;
+    font-family: Proxima Regular;
+    margin-top: 10px;
+    border-radius: 11px;
+}
+
+.pOr {
+    font-family: "Proxima Bold";
+    font-size: 1rem;
+    color: #13C95C;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+hr {
+    width: 120% !important;
+}
+
+.btnFacebook {
+    font-family: "Proxima Bold";
+    color: #fafafa;
+    background: #4267B2 0% 0% no-repeat padding-box;
+    box-shadow: 0px 5px 6px #00000029;
+    border-radius: 6px;
+    border: 0px;
+    padding: 8px;
+    width: 100%;
+}
+
+.btnGoogle {
+    font-family: "Proxima Bold";
+    color: #1A1A1A;
+    background: #EFEFEF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 5px 6px #00000029;
+    border-radius: 6px;
+    border: 0px;
+    padding: 8px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.pDont {
+    font-family: "Proxima Bold";
+    color: #1A1A1A;
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+}
+
+.pSignup {
+    font-family: "Proxima Bold";
+    color: #13C95C;
+    text-align: center;
+    margin-top: -5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.modal-backdrop {
+    background-color: transparent !important;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: 5px 10px 30px #89898929;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-top-right-radius: 18px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #1A1A1A;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #13C95C;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.pHow {
+    font-family: "Proxima Bold";
+    color: #13C95C;
+    font-size: 3rem;
+    text-align: center;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 5px;
+    margin-top: 20px !important;
+    box-shadow: 0px 3px 6px #00000029;
+}
+
+.pGuide {
+    font-family: "Proxima Regular";
+    color: #13C95C;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    margin-left: 5px;
+}

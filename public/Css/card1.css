@@ -1,0 +1,261 @@
+@font-face {
+    font-family: "muli";
+    src: url("../Font/Muli/muli/Muli.ttf");
+}
+
+@font-face {
+    font-family: "Muli";
+    src: url("../Font/Muli/muli/Muli.ttf");
+}
+
+@font-face {
+    font-family: "Keep Calm";
+    src: url("../Font/keep calm/KeepCalm-Medium.ttf");
+}
+
+@media only screen and (min-width: 1200px) {
+    .con {
+        max-width: 1400px !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .col-md-6 {
+        margin-top: 20px !important;
+    }
+    .colinfo {
+        padding-bottom: 50px !important;
+    }
+    .lblusername {
+        display: none;
+    }
+    .dropdown-toggle::after {
+        display: none;
+    }
+    .row1 {
+        padding: 0px !important;
+        padding-right: 10px !important;
+        margin-top: -10px;
+    }
+    .dropdownMenuLink {
+        width: 50px !important;
+        padding: 0px !important;
+    }
+    .dropdown-menu {
+        text-align: left;
+        width: 100px !important;
+    }
+    .btncard {
+        width: 100% !important;
+    }
+    .pfooter {
+        font-size: 0.9rem !important;
+    }
+    .btncard {
+        margin-bottom: 70px !important;
+    }
+    body {
+        overflow-y: scroll !important;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .btnlogout {
+        visibility: visible !important;
+    }
+}
+
+@media only screen and (max-width: 411px) {
+    .pinfo {
+        font-size: 25px !important;
+    }
+    .pinfo1 {
+        font-size: 15px !important;
+    }
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: #F5F5F5;
+    overflow: hidden;
+}
+
+.conbody {
+    height: calc(100vh - 100px) !important;
+}
+
+.btnhome:hover, .btnpackage:hover, .btnabout:hover, .btnlogout:hover {
+    color: #00C853 !important;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.imgprof {
+    width: 30px;
+    border-radius: 50px;
+    margin-right: 0px;
+}
+
+.dropdown-toggle:hover {
+    color: #00C853 !important;
+}
+
+.pinfo {
+    font-family: Avenir LT Std 45;
+    font-weight: bold;
+    font-size: 35px;
+    color: #424242;
+}
+
+.pinfo1 {
+    font-family: Muli Semibold;
+    color: #424242;
+    font-size: 17px;
+    margin-top: -5px;
+}
+
+.pname {
+    font-family: Muli;
+    color: #757575;
+    font-size: 14px;
+}
+
+.txtname {
+    font-family: Muli Semibold;
+    color: #424242;
+    font-size: 15px;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid #BDBDBD;
+    background: url(../Image/user.png);
+    background-repeat: no-repeat;
+    background-position: 2px 13px;
+    background-size: 17px;
+    padding: 8px 30px;
+    outline: none;
+    margin-top: -12px !important;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.txtname:focus {
+    border-color: #00C853;
+    background: url(../Image/usergreen.png);
+    background-repeat: no-repeat;
+    background-position: 2px 13px;
+    background-size: 17px;
+}
+
+.txtcardnumber {
+    font-family: Muli Semibold;
+    color: #424242;
+    font-size: 15px;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid #BDBDBD;
+    background: url(../Image/cardnumber.png);
+    background-repeat: no-repeat;
+    background-position: 2px 13px;
+    background-size: 17px;
+    padding: 8px 30px;
+    outline: none;
+    margin-top: -12px !important;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.txtcardnumber:focus {
+    border-color: #00C853;
+    background: url(../Image/cardnumbergreen.png);
+    background-repeat: no-repeat;
+    background-position: 2px 13px;
+    background-size: 17px;
+}
+
+.txtexpiry {
+    font-family: Muli Semibold;
+    color: #424242;
+    font-size: 15px;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid #BDBDBD;
+    background: url(../Image/calendar.png);
+    background-repeat: no-repeat;
+    background-position: 2px 13px;
+    background-size: 17px;
+    padding: 8px 30px;
+    outline: none;
+    margin-top: -12px !important;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.txtexpiry:focus {
+    border-color: #00C853;
+    background: url(../Image/calendargreen.png);
+    background-repeat: no-repeat;
+    background-position: 2px 13px;
+    background-size: 17px;
+}
+
+.txtcvc {
+    font-family: Muli Semibold;
+    color: #424242;
+    font-size: 15px;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid #BDBDBD;
+    background: url(../Image/lock.png);
+    background-repeat: no-repeat;
+    background-position: 2px 13px;
+    background-size: 17px;
+    padding: 8px 30px;
+    outline: none;
+    margin-top: -12px !important;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.txtcvc:focus {
+    border-color: #00C853;
+    background: url(../Image/lockgreen.png);
+    background-repeat: no-repeat;
+    background-position: 2px 13px;
+    background-size: 17px;
+}
+
+.btncard {
+    font-family: Muli Semibold;
+    color: #616161;
+    background-color: white;
+    margin-top: 45px;
+    border: 1px solid #00C853;
+    border-radius: 25px;
+    padding: 10px;
+    width: 200px;
+    outline: none !important;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btncard:hover {
+    color: white;
+    background-color: #00C853;
+}
+
+.footer {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.pfooter {
+    font-family: Muli;
+    color: white;
+    padding-top: 10px;
+    font-size: 1rem;
+}

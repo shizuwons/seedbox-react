@@ -1,0 +1,312 @@
+@media only screen and (min-width: 1200px) {
+    .con {
+        max-width: 1400px !important;
+    }
+}
+
+@media only screen and (max-width: 1317px) {
+    .conheader {
+        display: none !important;
+    }
+    .connav {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    .pquestion {
+        font-size: 35px !important;
+    }
+}
+
+@media only screen and (max-width: 433px) {
+    .pquestion {
+        font-size: 30px !important;
+    }
+}
+
+@media only screen and (max-width: 392px) {
+    .pquestion {
+        font-size: 25px !important;
+    }
+    .pquestion1 {
+        font-size: 13px !important;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .consubscribe {
+        margin-top: 30px;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        clear: both;
+        text-align: center !important;
+        float: none !important;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .psubscribe {
+        text-align: center !important;
+    }
+    .btnsubscribe {
+        width: auto !important;
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 572px) {
+    .col-location {
+        margin-top: 20px;
+    }
+}
+
+body,
+html {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.padd {
+    font-family: Muli Semibold;
+    color: #424242;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.btnservices:hover,
+.btnpackages:hover,
+.btnfinddoctor:hover,
+.btnclinic:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    color: #00C853 !important;
+}
+
+.btncontact {
+    color: #00C853 !important;
+    padding: 10px 20px 10px 20px !important;
+    border: 2px solid #00C853;
+    background-color: transparent;
+    border-radius: 25px;
+    font-family: Muli;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.btncontact:hover {
+    color: white !important;
+    background-color: #00C853;
+}
+
+.hrheader {
+    width: 97%;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #E0E0E0;
+    border: 0 none;
+}
+
+.pquestion {
+    font-family: Avenir LT Std 45;
+    font-weight: bold;
+    font-size: 55px;
+    color: #424242;
+    margin-top: 5%;
+}
+
+.pquestion1 {
+    font-family: muli semibold;
+    font-size: 15px;
+    color: #757575;
+    margin-top: -10px;
+}
+
+.accordion a {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    color: #424242;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border-bottom: 1px solid #e5e5e5;
+    font-family: hind;
+}
+
+.accordion a:hover,
+.accordion a:hover::after {
+    cursor: pointer;
+    color: #00C853;
+}
+
+.accordion a.active {
+    color: #00C853;
+    border-bottom: 1px solid #00C853;
+}
+
+.accordion a::after {
+    font-family: 'Keep Calm';
+    content: '+';
+    position: absolute;
+    float: right;
+    right: 1rem;
+    font-size: 1rem;
+    color: #424242;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.accordion a.active::after {
+    font-family: 'Keep Calm';
+    content: '-';
+    color: #00C853;
+}
+
+.accordion .content {
+    opacity: 0;
+    padding: 0 1rem;
+    max-height: 0;
+    border-bottom: 1px solid #e5e5e5;
+    overflow: hidden;
+    clear: both;
+    -webkit-transition: all 0.2s ease 0.15s;
+    -o-transition: all 0.2s ease 0.15s;
+    transition: all 0.2s ease 0.15s;
+}
+
+.accordion .content p {
+    font-size: 1rem;
+    font-family: hind;
+}
+
+.accordion .content.active {
+    opacity: 1;
+    padding-top: 1em;
+    max-height: 100%;
+    -webkit-transition: all 0.35s ease 0.15s;
+    -o-transition: all 0.35s ease 0.15s;
+    transition: all 0.35s ease 0.15s;
+}
+
+.pready {
+    font-family: Hind Semibold;
+    font-size: 30px;
+    color: #424242;
+    margin-top: 15px;
+}
+
+.ready1 {
+    font-family: hind Semibold;
+    font-size: 15px;
+    color: #9E9E9E;
+}
+
+.btnbuynow {
+    color: #00C853 !important;
+    padding: 10px 20px 10px 20px !important;
+    border: 2px solid #00C853;
+    background-color: transparent;
+    border-radius: 25px;
+    font-family: Muli;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.2s;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btnbuynow:hover {
+    color: white !important;
+    background-color: #00C853;
+}
+
+
+/* Footer */
+
+.psubscribe {
+    color: white;
+    font-family: Muli;
+    font-size: 14px;
+}
+
+.btnsubscribe {
+    font-family: muli;
+    color: #424242;
+    border-radius: 25px;
+    padding: 15px 20px;
+    font-size: 15px;
+    margin-left: 20px;
+    border: 0px;
+    width: 350px;
+}
+
+.hrfooter {
+    width: 100%;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 0 none;
+    margin-top: 50px;
+}
+
+.ptime {
+    font-family: muli;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+.ptel {
+    font-family: muli;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    margin-left: 45px;
+    margin-top: -10px !important;
+}
+
+.pmorelinks {
+    font-family: muli;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+.pfooterlinks {
+    font-family: muli;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.pfooterlinks:hover {
+    color: #00C853;
+}
+
+.pcopyright {
+    font-family: muli semibold;
+    color: white;
+    font-size: 13px;
+    margin-top: 10px;
+    margin: auto;
+    padding-bottom: 10px;
+}

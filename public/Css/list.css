@@ -1,0 +1,213 @@
+@font-face {
+    font-family: "muli";
+    src: url("../Font/Muli/muli/Muli.ttf");
+}
+
+@font-face {
+    font-family: "Muli";
+    src: url("../Font/Muli/muli/Muli.ttf");
+}
+
+@font-face {
+    font-family: "Keep Calm";
+    src: url("../Font/keep calm/KeepCalm-Medium.ttf");
+}
+
+@media only screen and (min-width: 1200px) {
+    .con {
+        max-width: 1400px !important;
+    }
+}
+
+@media only screen and (max-width: 753px) {
+    .txtsearch {
+        width: 100% !important;
+    }
+    .btnadd {
+        width: 100% !important;
+    }
+    .rowtable {
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .btnadd {
+        float:none !important;
+        margin-top: 10px;
+    }
+}
+
+
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: #F5F5F5;
+}
+
+.btnhome:hover , .btnpackage:hover , .btnabout:hover {
+    color: #00C853 !important;
+}
+
+ul{ list-style-type: none; }
+.imgprof {
+    width: 30px;
+    border-radius: 50px;
+    margin-right: 2px;
+}
+
+.dropdown-toggle:hover {
+    color: #00C853 !important;
+}
+
+.pmembers {
+    font-family: Keep Calm;
+    font-weight: bold;
+    color: #424242;
+    font-size: 1.8rem;
+    margin-left: 12px;
+}
+
+sup {
+    font-family: Muli;
+    color: #424242;
+    border-radius: 25px;
+    border: 1px solid #BDBDBD;
+    font-size: 1rem;
+    background-color: white !important;
+    padding: 4px 11px;
+    margin-left: 10px;
+    vertical-align: text-top;
+}
+
+.btnadd {
+    font-family: Muli Semibold;
+    color: white;
+    border-radius: 40px;
+    border: 0px;
+    background-color: #00C853;
+    padding: 8px 20px;
+    float: right;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none !important;
+}
+
+table {
+    border-collapse: seperate;
+    width: 100%;
+    margin-bottom: 5rem !important;
+}
+
+
+th {
+    font-family: Muli;
+    color: #424242;
+    font-weight: bold;
+}
+
+td {
+    font-family: Muli;
+    color: #212121;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+tr:hover {
+    background-color: white;
+    border-left: 3px solid #00C853;
+}
+
+.tdate {
+    font-family: Muli Semibold;
+}
+
+.txtsearch {
+    font-family: muli semibold;
+    color: #424242;
+    border: 1px solid #424242;
+    width: 300px;
+    padding: 9px 45px;
+    border-radius: 25px;
+    outline: none;
+    background-image: url('../Image/search.png');
+    background-position: 20px 13px;
+    background-size: 17px;
+    background-repeat: no-repeat;
+    font-size: 1rem;
+}
+
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table { 
+          width: 100%; 
+	}
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+        padding-left: 30%; 
+        margin-bottom: 10px;
+	}
+
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		/* Label the data */
+		content: attr(data-column);
+        
+
+
+		color: #000;
+		font-weight: bold;
+	}
+
+}
+
+.footer {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid lightgray;
+}
+
+.pcopy {
+    font-family: Muli Semibold;
+    color: #424242;
+    font-size: 0.9rem;
+    letter-spacing: -0.5px;
+}
+

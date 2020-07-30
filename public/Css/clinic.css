@@ -1,0 +1,514 @@
+@media only screen and (min-width: 1200px) {
+    .con {
+        max-width: 1400px !important;
+    }
+    .conBox {
+        max-width: 1100px !important;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .conheader {
+        display: none !important;
+    }
+    .pWe {
+        font-size: 1.4rem !important;
+    }
+    .pOur {
+        font-size: 1.2rem !important;
+    }
+    .pSub {
+        width: 100% !important;
+        font-size: 0.9rem !important;
+    }
+    .conNavbar {
+        padding: 10px 0px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .consubscribe {
+        margin-top: 30px;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        clear: both;
+        text-align: center !important;
+        float: none !important;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .psubscribe {
+        text-align: center !important;
+    }
+    .btnsubscribe {
+        width: auto !important;
+        margin-top: 10px !important;
+    }
+}
+
+body, html {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.padd {
+    font-family: Roboto;
+    font-weight: 500;
+    color: #424242;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.btnservices:hover, .btnpackages:hover, .btnfinddoctor:hover, .btnclinic:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    color: #00C853 !important;
+}
+
+.btnlogin {
+    border: 2px solid #00C853;
+    background-color: transparent;
+    border-radius: 25px;
+    font-family: Muli;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.btnlogin:hover {
+    color: white !important;
+    background-color: #00C853;
+}
+
+.maincontainer {
+    height: 55vh;
+    position: relative;
+}
+
+#mapid, #mapid2 {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+
+.bgwhite {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 58%, rgba(255, 255, 255, 0.2) 100%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+}
+
+.imgBox1 {
+    background-color: #fee9ec;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.imgBox2 {
+    background-color: #e6f9f1;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.imgBox3 {
+    background-color: #fff1eb;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.box {}
+
+.pTitleBox {
+    font-family: Manrope;
+    color: #212121;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-left: 10px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.pText {
+    font-family: Manrope;
+    color: gray;
+    font-size: 0.9rem;
+}
+
+.pCall {
+    font-family: Manrope;
+    color: #f33252;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: -10px;
+}
+
+.pCall>span {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.pOur {
+    font-family: Manrope;
+    color: #212121;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.card {
+    border: 0px;
+    padding: 0px;
+    margin-top: 10px;
+}
+
+.card-img-top {
+    max-height: 220px !important;
+    min-height: 220px !important;
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.14);
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.14);
+}
+
+.card-title {
+    font-family: Manrope;
+    color: #212121;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.card-text {
+    font-family: Manrope;
+    color: gray;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.card-deck {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    align-items: stretch;
+}
+
+.card-deck .card {
+    display: block;
+    flex-basis: 23.3%;
+    /* change this value for each breakpoint*/
+}
+
+.psubscribe {
+    color: white;
+    font-family: Muli;
+    font-size: 14px;
+}
+
+.btnsubscribe {
+    font-family: muli;
+    color: #424242;
+    border-radius: 25px;
+    padding: 15px 20px;
+    font-size: 15px;
+    margin-left: 20px;
+    border: 0px;
+    width: 350px;
+    margin-top: -20px;
+}
+
+.hrfooter {
+    width: 100%;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 0 none;
+    margin-top: 50px;
+}
+
+.ptime {
+    font-family: muli;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+.ptel {
+    font-family: muli;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    margin-left: 45px;
+    margin-top: -10px !important;
+}
+
+.pmorelinks {
+    font-family: muli;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+.pfooterlinks {
+    font-family: muli;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.pfooterlinks:hover {
+    color: #00C853;
+}
+
+.pcopyright {
+    font-family: muli semibold;
+    color: white;
+    font-size: 13px;
+    margin-top: 10px;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+.pMore {
+    font-family: Manrope;
+    color: #212121;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.pMore:hover {
+    color: #00C853;
+}
+
+.pSub {
+    font-family: Manrope;
+    color: gray;
+    font-size: 1rem;
+    font: 500;
+    text-align: center;
+    width: 600px;
+    margin-top: -5px;
+}
+
+.pCheck {
+    font-family: Manrope;
+    color: #08172c;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.pWe {
+    font-family: Manrope;
+    color: #08172c;
+    font-size: 2.7rem;
+    font-weight: 700;
+    line-height: 1.3em;
+}
+
+.pWeSub {
+    font-family: Manrope;
+    color: gray;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+button {
+    font-family: Manrope;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+button.learn-more {
+    width: 12rem;
+    height: auto;
+}
+
+button.learn-more .circle {
+    -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #00C853;
+    border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+    -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+button.learn-more .circle .icon.arrow {
+    -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: '';
+    top: -0.25rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+button.learn-more .button-text {
+    font-family: Manrope;
+    -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #08172c;
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: center;
+}
+
+button:hover .circle {
+    width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+    background: #fff;
+    -webkit-transform: translate(1rem, 0);
+    transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+    color: #fff;
+}
+
+.pCheck {
+    font-family: Manrope;
+    color: #08172c;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.pNote {
+    font-family: Manrope;
+    color: gray;
+    font-size: 1rem;
+    font-weight: 400\;
+    ;
+}
+
+.boxServices {
+    padding: 10px;
+}
+
+.boxImage {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: #ffecec;
+}
+
+.pServices {
+    font-family: Manrope;
+    color: #08172c;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 15px;
+    max-height: 40px;
+    min-height: 40px;
+}
+
+.pServicesDesc {
+    font-family: Manrope;
+    color: gray;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.leaflet-control-zoom {
+    visibility: hidden;
+}
+
+.leaflet-control-attribution {
+    visibility: hidden;
+}
+
+.card-deck {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    align-items: stretch;
+}
+
+.card-deck .card {
+    display: block;
+    flex-basis: 23%;
+    /* change this value for each breakpoint*/
+}
+
+.inner {
+    overflow: hidden;
+}
+
+.inner img {
+    transition: all 0.2s ease;
+}
+
+.inner:hover {
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0,200,83, 0.20);
+    -moz-box-shadow: 0px 0px 14px 0px rgba(0,200,83, 0.20);
+    box-shadow: 0px 0px 14px 0px rgba(0,200,83, 0.20);
+}
+
+.inner:hover img {
+    filter: brightness(70%);
+    transform: scale(1.5);
+}
+
+.card-deck {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: .5rem;
+}
