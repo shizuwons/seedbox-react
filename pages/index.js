@@ -48,9 +48,9 @@ export default function Home() {
       addHyphen(this);
     });
 
-    $("input:checkbox").prop("checked", false); // All checkbox in fatca will be uncheck so the default value will be no.
-    $(".checkOther").prop("checked", true); // All checkbox that are in no section will be check.
-    $(".checkOther:checked").attr("style", "--b: gray;"); // All checkbox that are in no section will be grayed.
+    // $("input:checkbox").prop("checked", false); // All checkbox in fatca will be uncheck so the default value will be no.
+    // $(".checkOther").prop("checked", true); // All checkbox that are in no section will be check.
+    // $(".checkOther:checked").attr("style", "--b: gray;"); // All checkbox that are in no section will be grayed.
   
     // Function that will copy the current address to permanent address
     $("#cbx").change(function (event) {
@@ -400,11 +400,11 @@ export default function Home() {
 
     // Bank name same as first name and last name
     $('.txtFirst').keyup(function() {
-      $('.txtSettle').val($('.txtFirst').val() + " " + $('.txtLast').val());
+      $('.txtAccountname').val($('.txtFirst').val() + " " + $('.txtLast').val());
     });
 
     $('.txtLast').keyup(function() {
-      $('.txtSettle').val($('.txtFirst').val() + " " + $('.txtLast').val());
+      $('.txtAccountname').val($('.txtFirst').val() + " " + $('.txtLast').val());
     });
 
     // Function that will prevent the no checkbox uncheck rather it will change the color into green.
@@ -2887,7 +2887,7 @@ export default function Home() {
                     </div>
                     <div className="col-lg-12">
                       <form>
-                        <input required type="text" className="txtusername" id="txtAccountname" />
+                        <input required type="text" className="txtusername txtAccountname" />
                         <label alt="Account Name" placeholder="Account Name" />
                       </form>
                     </div>
