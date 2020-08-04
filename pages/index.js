@@ -36,7 +36,12 @@ export default function Home() {
     });
 
     $(".txtusername").keyup(function (event) {
-      $(this).css("border-color", "green");
+      if($(this).val().length > 0) {
+        console.log($(this).val());
+        $(this).css("border-color", "green");
+      } else {
+        $(this).removeAttr('style');
+      }
     });
 
     $("#txtTin").keyup(function (event) {
@@ -44,8 +49,8 @@ export default function Home() {
     });
 
     $("input:checkbox").prop("checked", false); // All checkbox in fatca will be uncheck so the default value will be no.
-    $(".checkNo").prop("checked", true); // All checkbox that are in no section will be check.
-    $(".checkNo:checked").attr("style", "--b: gray;"); // All checkbox that are in no section will be grayed.
+    $(".checkOther").prop("checked", true); // All checkbox that are in no section will be check.
+    $(".checkOther:checked").attr("style", "--b: gray;"); // All checkbox that are in no section will be grayed.
   
     // Function that will copy the current address to permanent address
     $("#cbx").change(function (event) {
@@ -129,8 +134,281 @@ export default function Home() {
         .prop("checked", false);
     });
 
+    // Mobile number, only numbers
+    $("#Mobile").keypress(function (e) {
+      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        return false;
+     }
+    });
+
+    // Personal Info select fields
+    $('.country-code').on("select2:selecting", function(e) { 
+        let value = $('.country-code').val();
+
+        if(value != "0" || value != null) {
+          $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        }
+    });
+
+    $('.civil-status').on("select2:selecting", function(e) { 
+      let value = $('.civil-status').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+  
+    $('.gender').on("select2:selecting", function(e) { 
+      let value = $('.gender').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.month').on("select2:selecting", function(e) { 
+      let value = $('.month').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.day').on("select2:selecting", function(e) { 
+      let value = $('.day').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.year').on("select2:selecting", function(e) { 
+      let value = $('.year').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.birthplace').on("select2:selecting", function(e) { 
+      let value = $('.birthplace').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    // Address Info select fields
+    $('.current').on("select2:selecting", function(e) { 
+      let value = $('.current').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.present').on("select2:selecting", function(e) { 
+      let value = $('.present').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    // Professional details select fields
+    $('.nature-work').on("select2:selecting", function(e) { 
+      let value = $('.nature-work').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.nature-business').on("select2:selecting", function(e) { 
+      let value = $('.nature-business').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.source-funds').on("select2:selecting", function(e) { 
+      let value = $('.source-funds').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.source-funds').on("select2:selecting", function(e) { 
+      let value = $('.source-funds').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.net-worth').on("select2:selecting", function(e) { 
+      let value = $('.net-worth').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.gross-income').on("select2:selecting", function(e) { 
+      let value = $('.gross-income').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+    
+    $('.dos').on("select2:selecting", function(e) { 
+      let value = $('.dos').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    // CSA
+    $('.investment').on("select2:selecting", function(e) { 
+      let value = $('.investment').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.investing').on("select2:selecting", function(e) { 
+      let value = $('.investing').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.for-investment').on("select2:selecting", function(e) { 
+      let value = $('.for-investment').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.investor').on("select2:selecting", function(e) { 
+      let value = $('.investor').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.invested').on("select2:selecting", function(e) { 
+      let value = $('.invested').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.liquidity').on("select2:selecting", function(e) { 
+      let value = $('.liquidity').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    // PEP select fields
+    $('.government').on("select2:selecting", function(e) { 
+      let value = $('.government').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+    
+    $('.relative').on("select2:selecting", function(e) { 
+      let value = $('.relative').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+    
+    // Upload documents select fields
+    $('.id-type').on("select2:selected", function(e) { 
+      let value = $('.id-type').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      } 
+    });
+
+    $('.expirymonth').on("select2:selecting", function(e) { 
+      let value = $('.expirymonth').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.expiryday').on("select2:selecting", function(e) { 
+      let value = $('.expiryday').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    $('.expiryyear').on("select2:selecting", function(e) { 
+      let value = $('.expiryyear').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      }
+    });
+
+    // Disable expiry date on non-expiring ID
+    $(".id-type").on("change", function () { 
+      let value = $('.id-type').val();
+      
+      if(value === "SSS" || value === "UMID" || value === "GSIS" || value === "TIN" || value === "HDMF" || value === "PHIC" || value === "VOTER") {
+        $('.expirymonth').select2({
+          disabled: true
+        });
+        $('.expiryyear').select2({
+          disabled: true
+        });
+        $('.expiryday').select2({
+          disabled: true
+        });
+      } else {
+        $('.expirymonth').select2({
+          disabled: false
+        });
+        $('.expiryyear').select2({
+          disabled: false
+        });
+        $('.expiryday').select2({
+          disabled: false
+        });
+      }
+    });
+
+    // Bank name same as first name and last name
+    $('.txtFirst').keyup(function() {
+      $('.txtSettle').val($('.txtFirst').val() + " " + $('.txtLast').val());
+    });
+
+    $('.txtLast').keyup(function() {
+      $('.txtSettle').val($('.txtFirst').val() + " " + $('.txtLast').val());
+    });
+
     // Function that will prevent the no checkbox uncheck rather it will change the color into green.
-    $(".checkNo").on("click", function (e) {
+    $(".checkOther").on("click", function (e) {
       var checkbox = $(this);
       if (checkbox.is(":checked")) {
       } else {
@@ -227,7 +505,7 @@ export default function Home() {
         );
         $(".colForm").css("padding-top", "20px");
         $(".colForm").css("padding-bottom", "20px");
-        $(".pMore").text("Personal Information");
+        $(".pMore").text("Address Information");
         $(".divAdrress1").css("display", "none");
         $(".divAdrress1").removeClass("animate__fadeOut");
         $(".divAdrress1").addClass("animate__animated  animate__fadeOut");
@@ -242,6 +520,7 @@ export default function Home() {
         $(".conContent").css("height", "82vh");
         $(".colForm").css("padding-top", "0px");
         $(".colForm").css("padding-bottom", "0px");
+        $(".pMore").text("Personal Information");
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         $(".divAdrress").css("display", "none");
         $(".divAdrress").removeClass("animate__fadeOut");
@@ -260,7 +539,7 @@ export default function Home() {
       if (step === 0) {
         $(".conContent").attr(
           "style",
-          "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: auto !important;"
+          "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: 82vh !important;"
         );
         $(".colForm").css("padding-top", "20px");
         $(".colForm").css("padding-bottom", "20px");
@@ -276,17 +555,18 @@ export default function Home() {
         $(".divAdrress").css("display", "block");
         $(".divAdrress").addClass("animate__animated  animate__fadeIn");
         step = 1;
+        $(".pMore").text("Address Info");
         $(".divWhite").css("top", "125px");
         $("#txtAccountname").val($("#txtfullname").val());
         $(".colmid").css({ height: $(".conContent").height() + "px" });
       } else if (step === 1) {
         $(".conContent").attr(
           "style",
-          "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: auto !important;"
+          "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: 82vh !important;"
         );
         $(".colForm").css("padding-top", "20px");
         $(".colForm").css("padding-bottom", "20px");
-        $(".pMore").text("Address Information");
+        $(".pMore").text("Professional Details");
         $(".divAdrress1").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"
         );
@@ -482,7 +762,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
-                    <p className="pSteps" onClick={functionAddress}>Address Information &gt;</p>
+                    <p className="pSteps" onClick={functionAddress}>Address Info &gt;</p>
                   </div>
                   <div className="col-lg-3 col-md-3 col-sm-3 col">
                     <div className="divCircle" style={{position: 'relative'}}>
@@ -541,22 +821,25 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
-                    <p className="pSteps" onClick={functionSettlement}>Settlement Information &gt;</p>
+                    <p className="pSteps" onClick={functionSettlement}>Settlement Info &gt;</p>
                   </div>
                 </div>
               </div>
               <div className="col-lg-5 col-md-5 colForm" style={{margin: '0 auto'}}>
                 <div className="divInfo divForm">
                   <div className="row">
+                    <div className="col-lg-12">
+                      <p className="pInfoTitle" style={{marginBottom: '15px'}}>Personal Info</p>
+                    </div>
                     <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                       <form>
-                        <input required type="text" className="txtusername" style={{marginTop: '-10px'}} />
+                        <input required type="text" className="txtusername txtLast" style={{marginTop: '-10px'}} />
                         <label alt="Last Name" placeholder="Last Name" />
                       </form>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                       <form>
-                        <input required type="text" className="txtusername" style={{marginTop: '-10px'}} />
+                        <input required type="text" className="txtusername txtFirst" style={{marginTop: '-10px'}} />
                         <label alt="First Name" placeholder="First Name" />
                       </form>
                     </div>
@@ -570,9 +853,9 @@ export default function Home() {
                   <div className="row">
                     <div className="col-lg-6">
                       <div className="selectdiv" style={{marginTop: '0px'}}>
-                        <select autoComplete="off" className="select2" defaultValue={63}>
+                        <select autoComplete="off" className="select2 country-code" defaultValue={0} id="Countrycode">
                           <option data-countrycode="PH" value={63}>Philippines (+63)</option>
-                          <option value disabled>Country Code
+                          <option value={0} disabled>Country Code
                           </option>
                           <option data-countrycode="DZ" value={213}>Algeria (+213)</option>
                           <option data-countrycode="AD" value={376}>Andorra (+376)</option>
@@ -799,8 +1082,8 @@ export default function Home() {
                     </div>
                     <div className="col-lg-6">
                       <form>
-                        <input required type="text" className="txtusername txtEmail" />
-                        <label alt="Mobile Number" placeholder="Mobile Number" />
+                        <input required type="text" className="txtusername txtEmail" id="Mobile" />
+                        <label alt="Mobile Number" placeholder="Mobile Number (ex. 9171234567)" />
                       </form>
                     </div>
                   </div>
@@ -817,7 +1100,7 @@ export default function Home() {
                   <div className="row" style={{marginTop: '-5px'}}>
                     <div className="col-lg-6 col-md-6 col-sm-6 col-12">
                       <div className="selectdiv" style={{marginTop: '0px'}}>
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 civil-status" defaultValue="default">
                           <option value="default" disabled>Civil Status
                           </option>
                           <option>Single</option>
@@ -829,7 +1112,7 @@ export default function Home() {
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6 col-12">
                       <div className="selectdiv" style={{marginTop: '0px'}}>
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 gender" defaultValue="default">
                           <option value="default" disabled>Gender
                           </option>
                           <option>Male</option>
@@ -846,7 +1129,7 @@ export default function Home() {
                       <div className="row">
                         <div className="col-lg-4 col-md-4 col-sm-4 col-4">
                           <div className="selectdiv" style={{marginTop: '0px'}}>
-                            <select autoComplete="off" className="select2 " id="selectMM" defaultValue="default">
+                            <select autoComplete="off" className="select2 month" id="selectMM" defaultValue="default">
                               <option value="default" disabled>MM
                               </option>
                               <option>01</option>
@@ -866,7 +1149,7 @@ export default function Home() {
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-4">
                           <div className="selectdiv" style={{marginTop: '0px'}}>
-                            <select autoComplete="off" className="select2" id="selectDD" defaultValue="default">
+                            <select autoComplete="off" className="select2 day" id="selectDD" defaultValue="default">
                               <option value="default" disabled>DD
                               </option>
                               <option>1</option>
@@ -904,90 +1187,92 @@ export default function Home() {
                         </div>
                         <div className="col-lg-4 col-md-4 col-sm-4 col-4">
                           <div className="selectdiv" style={{marginTop: '0px'}}>
-                            <select autoComplete="off" className="select2" id="selectYY" defaultValue="default">
-                              <option value="default" disabled>YY
+                            <select autoComplete="off" className="select2 year" id="selectYY" defaultValue="default">
+                              <option value="default" disabled>YYYY
                               </option>
-                              <option>1920</option>
-                              <option>1921</option>
-                              <option>1922</option>
-                              <option>1923</option>
-                              <option>1924</option>
-                              <option>1925</option>
-                              <option>1926</option>
-                              <option>1927</option>
-                              <option>1928</option>
-                              <option>1929</option>
-                              <option>1940</option>
-                              <option>1931</option>
-                              <option>1932</option>
-                              <option>1933</option>
-                              <option>1934</option>
-                              <option>1935</option>
-                              <option>1936</option>
-                              <option>1937</option>
-                              <option>1938</option>
-                              <option>1939</option>
-                              <option>1940</option>
-                              <option>1941</option>
-                              <option>1942</option>
-                              <option>1943</option>
-                              <option>1944</option>
-                              <option>1945</option>
-                              <option>1946</option>
-                              <option>1947</option>
-                              <option>1948</option>
-                              <option>1949</option>
-                              <option>1950</option>
-                              <option>1951</option>
-                              <option>1952</option>
-                              <option>1953</option>
-                              <option>1954</option>
-                              <option>1955</option>
-                              <option>1956</option>
-                              <option>1957</option>
-                              <option>1958</option>
-                              <option>1959</option>
-                              <option>1960</option>
-                              <option>1961</option>
-                              <option>1962</option>
-                              <option>1963</option>
-                              <option>1964</option>
-                              <option>1965</option>
-                              <option>1966</option>
-                              <option>1967</option>
-                              <option>1968</option>
-                              <option>1969</option>
-                              <option>1970</option>
-                              <option>1971</option>
-                              <option>1972</option>
-                              <option>1973</option>
-                              <option>1974</option>
-                              <option>1975</option>
-                              <option>1976</option>
-                              <option>1977</option>
-                              <option>1978</option>
-                              <option>1979</option>
-                              <option>1980</option>
-                              <option>1981</option>
-                              <option>1982</option>
-                              <option>1983</option>
-                              <option>1984</option>
-                              <option>1985</option>
-                              <option>1986</option>
-                              <option>1987</option>
-                              <option>1988</option>
-                              <option>1989</option>
-                              <option>1990</option>
-                              <option>1991</option>
-                              <option>1992</option>
-                              <option>1993</option>
-                              <option>1994</option>
-                              <option>1995</option>
-                              <option>1996</option>
-                              <option>1997</option>
-                              <option>1998</option>
-                              <option>1999</option>
-                              <option>2000</option>
+                              <option value="2002">2002</option>
+                              <option value="2001">2001</option>
+                              <option value="2000">2000</option>
+                              <option value="1999">1999</option>
+                              <option value="1998">1998</option>
+                              <option value="1997">1997</option>
+                              <option value="1996">1996</option>
+                              <option value="1995">1995</option>
+                              <option value="1994">1994</option>
+                              <option value="1993">1993</option>
+                              <option value="1992">1992</option>
+                              <option value="1991">1991</option>
+                              <option value="1990">1990</option>
+                              <option value="1989">1989</option>
+                              <option value="1988">1988</option>
+                              <option value="1987">1987</option>
+                              <option value="1986">1986</option>
+                              <option value="1985">1985</option>
+                              <option value="1984">1984</option>
+                              <option value="1983">1983</option>
+                              <option value="1982">1982</option>
+                              <option value="1981">1981</option>
+                              <option value="1980">1980</option>
+                              <option value="1979">1979</option>
+                              <option value="1978">1978</option>
+                              <option value="1977">1977</option>
+                              <option value="1976">1976</option>
+                              <option value="1975">1975</option>
+                              <option value="1974">1974</option>
+                              <option value="1973">1973</option>
+                              <option value="1972">1972</option>
+                              <option value="1971">1971</option>
+                              <option value="1970">1970</option>
+                              <option value="1969">1969</option>
+                              <option value="1968">1968</option>
+                              <option value="1967">1967</option>
+                              <option value="1966">1966</option>
+                              <option value="1965">1965</option>
+                              <option value="1964">1964</option>
+                              <option value="1963">1963</option>
+                              <option value="1962">1962</option>
+                              <option value="1961">1961</option>
+                              <option value="1960">1960</option>
+                              <option value="1959">1959</option>
+                              <option value="1958">1958</option>
+                              <option value="1957">1957</option>
+                              <option value="1956">1956</option>
+                              <option value="1955">1955</option>
+                              <option value="1954">1954</option>
+                              <option value="1953">1953</option>
+                              <option value="1952">1952</option>
+                              <option value="1951">1951</option>
+                              <option value="1950">1950</option>
+                              <option value="1949">1949</option>
+                              <option value="1948">1948</option>
+                              <option value="1947">1947</option>
+                              <option value="1946">1946</option>
+                              <option value="1945">1945</option>
+                              <option value="1944">1944</option>
+                              <option value="1943">1943</option>
+                              <option value="1942">1942</option>
+                              <option value="1941">1941</option>
+                              <option value="1940">1940</option>
+                              <option value="1940">1940</option>
+                              <option value="1939">1939</option>
+                              <option value="1938">1938</option>
+                              <option value="1937">1937</option>
+                              <option value="1936">1936</option>
+                              <option value="1935">1935</option>
+                              <option value="1934">1934</option>
+                              <option value="1933">1933</option>
+                              <option value="1932">1932</option>
+                              <option value="1931">1931</option>
+                              <option value="1929">1929</option>
+                              <option value="1928">1928</option>
+                              <option value="1927">1927</option>
+                              <option value="1926">1926</option>
+                              <option value="1925">1925</option>
+                              <option value="1924">1924</option>
+                              <option value="1923">1923</option>
+                              <option value="1922">1922</option>
+                              <option value="1921">1921</option>
+                              <option value="1920">1920</option>
                             </select>
                           </div>
                         </div>
@@ -995,15 +1280,253 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="col-lg-12" style={{marginTop: '15px'}}>
-                    <p className="pGuide" style={{marginLeft: '-5px'}}>You must be at least 18 years old to sign-up</p>
+                    <p className="pGuide" style={{marginLeft: '-5px'}}>Only for 18 years old and above.</p>
                   </div>
                   <div className="row" style={{marginTop: '-10px'}}>
                     <div className="col-lg-12">
                       <form style={{marginTop: '5px'}}>
                         <div className="selectdiv" style={{marginTop: '0px'}}>
-                          <select autoComplete="off" className="select2" defaultValue="default">
-                            <option value="default" disabled>Birthplace
+                          <select autoComplete="off" className="select2 birthplace" defaultValue="default">
+                            <option value="default" disabled>Birthplace</option>
+                            <option value="Philippines">Philippines</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="American Samoa">American Samoa</option>
+                            <option value="Andorra">Andorra</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Anguilla">Anguilla</option>
+                            <option value="Antarctica">Antarctica</option>
+                            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Aruba">Aruba</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Belize">Belize</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bermuda">Bermuda</option>
+                            <option value="Bhutan">Bhutan</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                            <option value="Botswana">Botswana</option>
+                            <option value="Bouvet Island">Bouvet Island</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="British Indian Ocean Territory">British Indian Ocean Territory
                             </option>
+                            <option value="Brunei Darussalam">Brunei Darussalam</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Burundi">Burundi</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Cape Verde">Cape Verde</option>
+                            <option value="Cayman Islands">Cayman Islands</option>
+                            <option value="Central African Republic">Central African Republic</option>
+                            <option value="Chad">Chad</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Christmas Island">Christmas Island</option>
+                            <option value="Cocos Islands">Cocos Islands</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Comoros">Comoros</option>
+                            <option value="Congo">Congo</option>
+                            <option value="Congo, Democratic Republic of the">Congo, Democratic Republic of
+                              the</option>
+                            <option value="Cook Islands">Cook Islands</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Cote d'Ivoire">Cote d'Ivoire</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Djibouti">Djibouti</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="Dominican Republic">Dominican Republic</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Equatorial Guinea">Equatorial Guinea</option>
+                            <option value="Eritrea">Eritrea</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="Falkland Islands">Falkland Islands</option>
+                            <option value="Faroe Islands">Faroe Islands</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="French Guiana">French Guiana</option>
+                            <option value="French Polynesia">French Polynesia</option>
+                            <option value="Gabon">Gabon</option>
+                            <option value="Gambia">Gambia</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Gibraltar">Gibraltar</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Greenland">Greenland</option>
+                            <option value="Grenada">Grenada</option>
+                            <option value="Guadeloupe">Guadeloupe</option>
+                            <option value="Guam">Guam</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guinea">Guinea</option>
+                            <option value="Guinea-Bissau">Guinea-Bissau</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Heard Island and McDonald Islands">Heard Island and McDonald
+                              Islands</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Iran">Iran</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kiribati">Kiribati</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                            <option value="Laos">Laos</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Lesotho">Lesotho</option>
+                            <option value="Liberia">Liberia</option>
+                            <option value="Libya">Libya</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Macao">Macao</option>
+                            <option value="Macedonia">Macedonia</option>
+                            <option value="Madagascar">Madagascar</option>
+                            <option value="Malawi">Malawi</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Marshall Islands">Marshall Islands</option>
+                            <option value="Martinique">Martinique</option>
+                            <option value="Mauritania">Mauritania</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="Mayotte">Mayotte</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Micronesia">Micronesia</option>
+                            <option value="Moldova">Moldova</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Mongolia">Mongolia</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Mozambique">Mozambique</option>
+                            <option value="Myanmar">Myanmar</option>
+                            <option value="Namibia">Namibia</option>
+                            <option value="Nauru">Nauru</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Netherlands Antilles">Netherlands Antilles</option>
+                            <option value="New Caledonia">New Caledonia</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Norfolk Island">Norfolk Island</option>
+                            <option value="North Korea">North Korea</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Oman">Oman</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Palau">Palau</option>
+                            <option value="Palestinian Territory">Palestinian Territory</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Papua New Guinea">Papua New Guinea</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Pitcairn">Pitcairn</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Puerto Rico">Puerto Rico</option>
+                            <option value="Qatar">Qatar</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russian Federation">Russian Federation</option>
+                            <option value="Rwanda">Rwanda</option>
+                            <option value="Saint Helena">Saint Helena</option>
+                            <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                            <option value="Saint Lucia">Saint Lucia</option>
+                            <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                            <option value="Saint Vincent and the Grenadines">Saint Vincent and the
+                              Grenadines</option>
+                            <option value="Samoa">Samoa</option>
+                            <option value="San Marino">San Marino</option>
+                            <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Serbia and Montenegro">Serbia and Montenegro</option>
+                            <option value="Seychelles">Seychelles</option>
+                            <option value="Sierra Leone">Sierra Leone</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Solomon Islands">Solomon Islands</option>
+                            <option value="Somalia">Somalia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="South Georgia">South Georgia</option>
+                            <option value="South Korea">South Korea</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sri Lanka">Sri Lanka</option>
+                            <option value="Sudan">Sudan</option>
+                            <option value="Suriname">Suriname</option>
+                            <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
+                            <option value="Swaziland">Swaziland</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Syrian Arab Republic">Syrian Arab Republic</option>
+                            <option value="Taiwan">Taiwan</option>
+                            <option value="Tajikistan">Tajikistan</option>
+                            <option value="Tanzania">Tanzania</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Timor-Leste">Timor-Leste</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Tokelau">Tokelau</option>
+                            <option value="Tonga">Tonga</option>
+                            <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                            <option value="Tunisia">Tunisia</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Turkmenistan">Turkmenistan</option>
+                            <option value="Tuvalu">Tuvalu</option>
+                            <option value="Uganda">Uganda</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="United States Minor Outlying Islands">United States Minor
+                              Outlying Islands</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Uzbekistan">Uzbekistan</option>
+                            <option value="Vanuatu">Vanuatu</option>
+                            <option value="Vatican City">Vatican City</option>
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Virgin Islands, British">Virgin Islands, British</option>
+                            <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+                            <option value="Wallis and Futuna">Wallis and Futuna</option>
+                            <option value="Western Sahara">Western Sahara</option>
+                            <option value="Yemen">Yemen</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
                           </select>
                         </div>
                       </form>
@@ -1012,31 +1535,34 @@ export default function Home() {
                   <div className="row" style={{marginTop: '5px'}}>
                     <div className="col-lg-6 col-md-6 col-sm-6 col-12">
                       <form>
-                        <input required type="text" className="txtusername" />
-                        <label alt="Citizenship" placeholder="Citizenship" />
+                        <div className="selectdiv" style={{marginTop: '0px'}}>
+                          <select autoComplete="off" className="select2 citizenship" defaultValue="default">
+                            <option value="default" disabled>Citizenship</option>
+                            <option value="FILIPINO">Filipino</option>
+                            <option value="OTHERS">Others</option>
+                          </select>
+                        </div>
                       </form>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6 col-12">
                       <form>
-                        <input required type="text" className="txtusername" />
-                        <label alt="Referral Agent Code" placeholder="Referral Agent Code" />
-                      </form>
+                          <input required type="text" className="txtusername" id="txtTin" />
+                          <label alt="TIN" placeholder="TIN" />
+                        </form>
                     </div>
                   </div>
                   <div className="row" style={{marginTop: '-10px'}}>
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-12">
                       <form>
-                        <input required type="text" className="txtusername" id="txtTin" />
-                        <label alt="TIN" placeholder="TIN" />
-                      </form>
-                    </div>
-                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
-                      <div className="form-inline">
-                        <form>
                           <input required type="text" className="txtusername" />
-                          <label alt="SSS/GSIS" placeholder="SSS/GSIS" />
+                          <label alt="SSS/GSIS (Optional)" placeholder="SSS/GSIS (Optional)" />
                         </form>
-                      </div>
+                    </div>
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+                      <form>
+                        <input required type="text" className="txtusername" />
+                        <label alt="Agent Code (Optional)" placeholder="Agent Code (Optional)" />
+                      </form>
                     </div>
                   </div>
                   <div className="row">
@@ -1053,13 +1579,7 @@ export default function Home() {
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
                       <form>
                         <input required type="text" className="txtusername txtCurrentAdd1" />
-                        <label alt="Current Address Line 1" placeholder="Current Address Line 1" />
-                      </form>
-                    </div>
-                    <div className="col-lg-12">
-                      <form>
-                        <input required type="text" className="txtusername txtCurrentAdd2" />
-                        <label alt="Current Address Line 2" placeholder="Current Address Line 2" />
+                        <label alt="Current Address" placeholder="Current Address" />
                       </form>
                     </div>
                     <div className="col-lg-6" style={{marginTop: '-2px'}}>
@@ -1076,8 +1596,9 @@ export default function Home() {
                     </div>
                     <div className="col-lg-12" style={{marginTop: '-14px'}}>
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue={'Philippines'}>
-                          <option value>Please select</option>
+                        <select autoComplete="off" className="select2 current" defaultValue={''}>
+                          <option value="" disabled>Country</option>
+                          <option value="Philippines">Philippines</option>
                           <option value="Afghanistan">Afghanistan</option>
                           <option value="Albania">Albania</option>
                           <option value="Algeria">Algeria</option>
@@ -1244,7 +1765,6 @@ export default function Home() {
                           <option value="Papua New Guinea">Papua New Guinea</option>
                           <option value="Paraguay">Paraguay</option>
                           <option value="Peru">Peru</option>
-                          <option value="Philippines">Philippines</option>
                           <option value="Pitcairn">Pitcairn</option>
                           <option value="Poland">Poland</option>
                           <option value="Portugal">Portugal</option>
@@ -1339,13 +1859,7 @@ export default function Home() {
                     <div className="col-lg-12 colAdd">
                       <form>
                         <input required type="text" className="txtusername txtAdd txtPermaAdd1" />
-                        <label className="lblAdd" alt="Permanent Address Line 1" placeholder="Address" />
-                      </form>
-                    </div>
-                    <div className="col-lg-12 colAdd">
-                      <form>
-                        <input required type="text" className="txtusername txtAdd txtPermaAdd2" />
-                        <label className="lblAdd" alt="Permanent Address Line 2" placeholder="Address" />
+                        <label className="lblAdd" alt="Permanent Address " placeholder="Address" />
                       </form>
                     </div>
                     <div className="col-lg-6 colAdd" style={{marginTop: '-4px'}}>
@@ -1362,7 +1876,9 @@ export default function Home() {
                     </div>
                     <div className="col-lg-12 colAdd" style={{marginTop: '-14px'}}>
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue={'Philippines'}>
+                        <select autoComplete="off" className="select2 present" defaultValue={''}>
+                          <option value="" disabled>Country</option>
+                          <option value="Philippines">Philippines</option>
                           <option value="Afghanistan">Afghanistan</option>
                           <option value="Albania">Albania</option>
                           <option value="Algeria">Algeria</option>
@@ -1529,7 +2045,6 @@ export default function Home() {
                           <option value="Papua New Guinea">Papua New Guinea</option>
                           <option value="Paraguay">Paraguay</option>
                           <option value="Peru">Peru</option>
-                          <option value="Philippines">Philippines</option>
                           <option value="Pitcairn">Pitcairn</option>
                           <option value="Poland">Poland</option>
                           <option value="Portugal">Portugal</option>
@@ -1620,6 +2135,39 @@ export default function Home() {
                     <div className="col-lg-12">
                       <p className="pInfoTitle" style={{marginTop: '10px'}}>Professional Details</p>
                     </div>
+                    <div className="col-lg-12">
+                      <div className="selectdiv" style={{marginTop: '10px'}}>
+                        <select autoComplete="off" className="select2 nature-work" defaultValue="default">
+                          <option value="default" disabled>Nature of Work</option>
+                          <option>Private sector employee</option>
+                          <option>Goverment employee</option>
+                          <option>Self-employed</option>
+                          <option>OFW</option>
+                          <option>
+                            Student</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="col-lg-12">
+                      <div className="selectdiv">
+                        <select autoComplete="off" className="select2 nature-business" defaultValue="default">
+                          <option value="default" disabled>Nature of Business/Employer</option>
+                          <option>Agribusiness</option>
+                          <option>Construction</option>
+                          <option>Education</option>
+                          <option>Financial</option>
+                          <option>Goverment</option>
+                          <option>Information Technology</option>
+                          <option>Manufacturing</option>
+                          <option>Mining</option>
+                          <option>Multi Industry</option>
+                          <option>Non Profit Organization</option>
+                          <option>Retail</option>
+                          <option>Services</option>
+                          <option>Trading </option>
+                        </select>
+                      </div>
+                    </div>
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
                       <form>
                         <input required type="text" className="txtusername" />
@@ -1646,8 +2194,9 @@ export default function Home() {
                     </div>
                     <div className="col-lg-12" style={{marginTop: '-10px'}}>
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue={'Philippines'}>
-                          <option value>Please select</option>
+                        <select autoComplete="off" className="select2 nature-country" defaultValue={''}>
+                          <option value="">Country</option>
+                          <option value="Philippines">Philippines</option>
                           <option value="Afghanistan">Afghanistan</option>
                           <option value="Albania">Albania</option>
                           <option value="Algeria">Algeria</option>
@@ -1814,7 +2363,6 @@ export default function Home() {
                           <option value="Papua New Guinea">Papua New Guinea</option>
                           <option value="Paraguay">Paraguay</option>
                           <option value="Peru">Peru</option>
-                          <option value="Philippines">Philippines</option>
                           <option value="Pitcairn">Pitcairn</option>
                           <option value="Poland">Poland</option>
                           <option value="Portugal">Portugal</option>
@@ -1897,7 +2445,7 @@ export default function Home() {
                     </div>
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
                       <div className="selectdiv" style={{marginTop: '10px'}}>
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 source-funds" defaultValue="default">
                           <option value="default" disabled>Source of Funds</option>
                           <option>Salary</option>
                           <option>Remitance</option>
@@ -1912,7 +2460,7 @@ export default function Home() {
                     </div>
                     <div className="col-lg-6" style={{marginTop: '0px'}}>
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 net-worth" defaultValue="default">
                           <option value="default" disabled> Net Worth
                           </option>
                           <option>
@@ -1925,7 +2473,7 @@ export default function Home() {
                     </div>
                     <div className="col-lg-6">
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 gross-income" defaultValue="default">
                           <option value="default" disabled> Annual Gross Income
                           </option>
                           <option>
@@ -1937,42 +2485,9 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="col-lg-12">
-                      <div className="selectdiv" style={{marginTop: '10px'}}>
-                        <select autoComplete="off" className="select2" defaultValue="default">
-                          <option value="default" disabled>Nature of Work</option>
-                          <option>Private sector employee</option>
-                          <option>Goverment employee</option>
-                          <option>Self-employed</option>
-                          <option>OFW</option>
-                          <option>
-                            Student</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
-                      <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue="default">
-                          <option value="default" disabled>Nature of Business</option>
-                          <option>Agribusiness</option>
-                          <option>Construction</option>
-                          <option>Education</option>
-                          <option>Financial</option>
-                          <option>Goverment</option>
-                          <option>Information Technology</option>
-                          <option>Manufacturing</option>
-                          <option>Mining</option>
-                          <option>Multi Industry</option>
-                          <option>Non Profit Organization</option>
-                          <option>Retail</option>
-                          <option>Services</option>
-                          <option>Trading </option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="col-lg-12">
                       <div className="selectdiv" style={{marginTop: '8px'}}>
-                        <select autoComplete="off" className="select2" defaultValue="default">
-                          <option value="default" disabled>Are you director/officer/shareholder?
+                        <select autoComplete="off" className="select2 dos" defaultValue="default">
+                          <option value="default" disabled>Are you Director/Officer/Shareholder?
                           </option>
                           <option>Yes</option>
                           <option>No</option>
@@ -1995,8 +2510,8 @@ export default function Home() {
                       <p className="pInfoTitle" style={{marginTop: '0px'}}>FATCA</p>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6 col-6 text-center">
-                      <label className="lblYes">Yes</label>
                       <label className="lblYes">No</label>
+                      <label className="lblYes">Yes</label>
                     </div>
                   </div>
                   <div className="row" style={{padding: '10px 10px 10px'}}>
@@ -2005,18 +2520,18 @@ export default function Home() {
                     </div>
                     <div className="col-lg-4">
                       <label className="checkbox bounce">
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checkOther" />
                         <svg viewBox="0 0 21 21">
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>Yes</span>
+                        <span>No</span>
                       </label>
                       <label className="checkbox bounce">
                         <input type="checkbox" className="checkNo" />
                         <svg viewBox="0 0 21 21" style={{marginLeft: '20px'}}>
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>no</span>
+                        <span>Yes</span>
                       </label>
                     </div>
                   </div>
@@ -2026,18 +2541,18 @@ export default function Home() {
                     </div>
                     <div className="col-lg-4">
                       <label className="checkbox bounce">
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checkOther" />
                         <svg viewBox="0 0 21 21">
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>Yes</span>
+                        <span>No</span>
                       </label>
                       <label className="checkbox bounce">
                         <input type="checkbox" className="checkNo" />
                         <svg viewBox="0 0 21 21" style={{marginLeft: '20px'}}>
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>No</span>
+                        <span>Yes</span>
                       </label>
                     </div>
                   </div>
@@ -2047,18 +2562,18 @@ export default function Home() {
                     </div>
                     <div className="col-lg-4">
                       <label className="checkbox bounce">
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checkOther" />
                         <svg viewBox="0 0 21 21">
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>Yes</span>
+                        <span>No</span>
                       </label>
                       <label className="checkbox bounce">
                         <input type="checkbox" className="checkNo" />
                         <svg viewBox="0 0 21 21" style={{marginLeft: '20px'}}>
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>No</span>
+                        <span>Yes</span>
                       </label>
                     </div>
                   </div>
@@ -2068,18 +2583,18 @@ export default function Home() {
                     </div>
                     <div className="col-lg-4">
                       <label className="checkbox bounce">
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checkOther" />
                         <svg viewBox="0 0 21 21">
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>Yes</span>
+                        <span>No</span>
                       </label>
                       <label className="checkbox bounce">
                         <input type="checkbox" className="checkNo" />
                         <svg viewBox="0 0 21 21" style={{marginLeft: '20px'}}>
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>No</span>
+                        <span>Yes</span>
                       </label>
                     </div>
                   </div>
@@ -2089,18 +2604,18 @@ export default function Home() {
                     </div>
                     <div className="col-lg-4">
                       <label className="checkbox bounce">
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checkOther" />
                         <svg viewBox="0 0 21 21">
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>Yes</span>
+                        <span>No</span>
                       </label>
                       <label className="checkbox bounce">
                         <input type="checkbox" className="checkNo" />
                         <svg viewBox="0 0 21 21" style={{marginLeft: '20px'}}>
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>No</span>
+                        <span>Yes</span>
                       </label>
                     </div>
                   </div>
@@ -2110,18 +2625,18 @@ export default function Home() {
                     </div>
                     <div className="col-lg-4">
                       <label className="checkbox bounce">
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checkOther" />
                         <svg viewBox="0 0 21 21">
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>Yes</span>
+                        <span>No</span>
                       </label>
                       <label className="checkbox bounce">
                         <input type="checkbox" className="checkNo" />
                         <svg viewBox="0 0 21 21" style={{marginLeft: '20px'}}>
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>No</span>
+                        <span>Yes</span>
                       </label>
                     </div>
                   </div>
@@ -2131,18 +2646,18 @@ export default function Home() {
                     </div>
                     <div className="col-lg-4">
                       <label className="checkbox bounce">
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checkOther" />
                         <svg viewBox="0 0 21 21">
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>Yes</span>
+                        <span>No</span>
                       </label>
                       <label className="checkbox bounce">
                         <input type="checkbox" className="checkNo" />
                         <svg viewBox="0 0 21 21" style={{marginLeft: '20px'}}>
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>No</span>
+                        <span>Yes</span>
                       </label>
                     </div>
                   </div>
@@ -2154,18 +2669,18 @@ export default function Home() {
                     </div>
                     <div className="col-lg-4">
                       <label className="checkbox bounce">
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checkOther" />
                         <svg viewBox="0 0 21 21">
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>Yes</span>
+                        <span>No</span>
                       </label>
                       <label className="checkbox bounce">
                         <input type="checkbox" className="checkNo" />
                         <svg viewBox="0 0 21 21" style={{marginLeft: '20px'}}>
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>No</span>
+                        <span>Yes</span>
                       </label>
                     </div>
                   </div>
@@ -2177,18 +2692,18 @@ export default function Home() {
                     </div>
                     <div className="col-lg-4">
                       <label className="checkbox bounce">
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checkOther" />
                         <svg viewBox="0 0 21 21">
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>Yes</span>
+                        <span>No</span>
                       </label>
                       <label className="checkbox bounce">
                         <input type="checkbox" className="checkNo" />
                         <svg viewBox="0 0 21 21" style={{marginLeft: '20px'}}>
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>No</span>
+                        <span>Yes</span>
                       </label>
                     </div>
                   </div>
@@ -2202,18 +2717,18 @@ export default function Home() {
                     </div>
                     <div className="col-lg-4">
                       <label className="checkbox bounce">
-                        <input type="checkbox" />
+                        <input type="checkbox" className="checkOther" />
                         <svg viewBox="0 0 21 21">
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>Yes</span>
+                        <span>No</span>
                       </label>
                       <label className="checkbox bounce">
                         <input type="checkbox" className="checkNo" />
                         <svg viewBox="0 0 21 21" style={{marginLeft: '20px'}}>
                           <polyline points="5 10.75 8.5 14.25 16 6" />
                         </svg>
-                        <span>No</span>
+                        <span>Yes</span>
                       </label>
                     </div>
                   </div>
@@ -2235,7 +2750,7 @@ export default function Home() {
                     </div>
                     <div className="col-lg-12">
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 investment" defaultValue="default">
                           <option value="default" disabled> What is the purpose of your investment?
                           </option>
                           <option>Growth</option>
@@ -2248,7 +2763,7 @@ export default function Home() {
                         </select>
                       </div>
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 investing" defaultValue="default">
                           <option value="default" disabled> How long are you investing for?</option>
                           <option>Up to two years</option>
                           <option>3-5 Years</option>
@@ -2257,7 +2772,7 @@ export default function Home() {
                         </select>
                       </div>
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 for-investment" defaultValue="default">
                           <option value="default" disabled> For this investment, you are?
                           </option>
                           <option>"Willing to accept low to no risk for general stability ofyour
@@ -2270,7 +2785,7 @@ export default function Home() {
                         </select>
                       </div>
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 investor" defaultValue="default">
                           <option value="default" disabled> How knowledgeable are you as an
                             investor?
                           </option>
@@ -2281,7 +2796,7 @@ export default function Home() {
                         </select>
                       </div>
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 invested" defaultValue="default">
                           <option value="default" disabled> Which of the following have you invested
                             in?
                           </option>
@@ -2298,7 +2813,7 @@ export default function Home() {
                         </select>
                       </div>
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 liquidity" defaultValue="default">
                           <option value="default" disabled> Do you have regular liquidity
                             requirement?
                           </option>
@@ -2327,7 +2842,7 @@ export default function Home() {
                   <div className="row">
                     <div className="col-lg-12">
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 government" defaultValue="default">
                           <option value="default" disabled>Have you worked in a government agency or
                             institution?
                           </option>
@@ -2336,7 +2851,7 @@ export default function Home() {
                         </select>
                       </div>
                       <div className="selectdiv">
-                        <select autoComplete="off" className="select2" defaultValue="default">
+                        <select autoComplete="off" className="select2 relative" defaultValue="default">
                           <option value="default" disabled>Do you have any relative who is/was
                             elected a
                             government official or is/was an appointed official up to second degree
@@ -2399,21 +2914,21 @@ export default function Home() {
                     </div>
                     <div className="col-lg-5 col-md-5 col-sm-5 col-5">
                       <div className="selectdiv" style={{marginTop: '0px'}}>
-                        <select autoComplete="off" className="select2" id="IdType" defaultValue="default">
-                          <option value="default" disabled>ID Type
-                          </option>
-                          <option>SSS ID</option>
-                          <option>GSIS ID</option>
-                          <option>TIN ID</option>
-                          <option>Pag-Ibig ID</option>
-                          <option>Driver license</option>
-                          <option>Philhealth</option>
-                          <option>PRC ID</option>
-                          <option>Postal ID</option>
-                          <option>Voter's ID</option>
-                          <option>Passport</option>
-                          <option>Alien Certificate of Residency ID</option>
-                          <option>OFW e-Card</option>
+                        <select autoComplete="off" className="select2 id-type" id="IdType" defaultValue="default">
+                          <option value="default" disabled>ID Type</option>
+                          <option value="SSS">SSS ID</option>
+                          <option value="UMID">UMID ID</option>
+                          <option value="GSIS">GSIS ID</option>
+                          <option value="TIN">TIN ID</option>
+                          <option value="HDMF">Pag-Ibig ID</option>
+                          <option value="LICENSE">Driver license</option>
+                          <option value="PHIC">Philhealth</option>
+                          <option value="PRC">PRC ID</option>
+                          <option value="POSTAL">Postal ID</option>
+                          <option value="VOTER">Voter's ID</option>
+                          <option value="PASSPORT">Passport</option>
+                          <option value="RESIDENCY">Alien Certificate of Residency ID</option>
+                          <option value="OFW">OFW e-Card</option>
                         </select>
                       </div>
                     </div>
@@ -2427,22 +2942,153 @@ export default function Home() {
                       <p className="pExpiry">Expiry date</p>
                     </div>
                     <div className=" col-lg-3 col-md-3 col-sm-4 col-4">
-                      <form>
-                        <input required type="text" className="txtusername" />
-                        <label alt="MM" placeholder="MM" />
-                      </form>
+                      <div className="selectdiv" style={{marginTop: '0px'}}>
+                        <select autoComplete="off" className="select2 expirymonth" defaultValue="default">
+                          <option value="default" disabled>MM
+                          </option>
+                          <option>01</option>
+                          <option>02</option>
+                          <option>03</option>
+                          <option>04</option>
+                          <option>05</option>
+                          <option>06</option>
+                          <option>07</option>
+                          <option>08</option>
+                          <option>09</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                        </select>
+                      </div>
                     </div>
                     <div className="col-lg-3 col-md-3 col-sm-4 col-4">
-                      <form>
-                        <input required type="text" className="txtusername" />
-                        <label alt="DD" placeholder="DD" />
-                      </form>
+                      <div className="selectdiv" style={{marginTop: '0px'}}>
+                        <select autoComplete="off" className="select2 expiryday" defaultValue="default">
+                          <option value="default" disabled>DD
+                          </option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>8</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                          <option>13</option>
+                          <option>15</option>
+                          <option>16</option>
+                          <option>17</option>
+                          <option>18</option>
+                          <option>19</option>
+                          <option>20</option>
+                          <option>21</option>
+                          <option>22</option>
+                          <option>23</option>
+                          <option>24</option>
+                          <option>25</option>
+                          <option>26</option>
+                          <option>27</option>
+                          <option>28</option>
+                          <option>29</option>
+                          <option>30</option>
+                          <option>31</option>
+                        </select>
+                      </div>
                     </div>
                     <div className="col-lg-3 col-md-3 col-sm-4 col-4">
-                      <form>
-                        <input required type="text" className="txtusername" />
-                        <label alt="YY" placeholder="YY" />
-                      </form>
+                    <div className="selectdiv" style={{marginTop: '0px'}}>
+                      <select autoComplete="off" className="select2 expiryyear" defaultValue="default">
+                        <option value="default" disabled>YYYY
+                        </option>
+                        <option value="2002">2002</option>
+                        <option value="2001">2001</option>
+                        <option value="2000">2000</option>
+                        <option value="1999">1999</option>
+                        <option value="1998">1998</option>
+                        <option value="1997">1997</option>
+                        <option value="1996">1996</option>
+                        <option value="1995">1995</option>
+                        <option value="1994">1994</option>
+                        <option value="1993">1993</option>
+                        <option value="1992">1992</option>
+                        <option value="1991">1991</option>
+                        <option value="1990">1990</option>
+                        <option value="1989">1989</option>
+                        <option value="1988">1988</option>
+                        <option value="1987">1987</option>
+                        <option value="1986">1986</option>
+                        <option value="1985">1985</option>
+                        <option value="1984">1984</option>
+                        <option value="1983">1983</option>
+                        <option value="1982">1982</option>
+                        <option value="1981">1981</option>
+                        <option value="1980">1980</option>
+                        <option value="1979">1979</option>
+                        <option value="1978">1978</option>
+                        <option value="1977">1977</option>
+                        <option value="1976">1976</option>
+                        <option value="1975">1975</option>
+                        <option value="1974">1974</option>
+                        <option value="1973">1973</option>
+                        <option value="1972">1972</option>
+                        <option value="1971">1971</option>
+                        <option value="1970">1970</option>
+                        <option value="1969">1969</option>
+                        <option value="1968">1968</option>
+                        <option value="1967">1967</option>
+                        <option value="1966">1966</option>
+                        <option value="1965">1965</option>
+                        <option value="1964">1964</option>
+                        <option value="1963">1963</option>
+                        <option value="1962">1962</option>
+                        <option value="1961">1961</option>
+                        <option value="1960">1960</option>
+                        <option value="1959">1959</option>
+                        <option value="1958">1958</option>
+                        <option value="1957">1957</option>
+                        <option value="1956">1956</option>
+                        <option value="1955">1955</option>
+                        <option value="1954">1954</option>
+                        <option value="1953">1953</option>
+                        <option value="1952">1952</option>
+                        <option value="1951">1951</option>
+                        <option value="1950">1950</option>
+                        <option value="1949">1949</option>
+                        <option value="1948">1948</option>
+                        <option value="1947">1947</option>
+                        <option value="1946">1946</option>
+                        <option value="1945">1945</option>
+                        <option value="1944">1944</option>
+                        <option value="1943">1943</option>
+                        <option value="1942">1942</option>
+                        <option value="1941">1941</option>
+                        <option value="1940">1940</option>
+                        <option value="1940">1940</option>
+                        <option value="1939">1939</option>
+                        <option value="1938">1938</option>
+                        <option value="1937">1937</option>
+                        <option value="1936">1936</option>
+                        <option value="1935">1935</option>
+                        <option value="1934">1934</option>
+                        <option value="1933">1933</option>
+                        <option value="1932">1932</option>
+                        <option value="1931">1931</option>
+                        <option value="1929">1929</option>
+                        <option value="1928">1928</option>
+                        <option value="1927">1927</option>
+                        <option value="1926">1926</option>
+                        <option value="1925">1925</option>
+                        <option value="1924">1924</option>
+                        <option value="1923">1923</option>
+                        <option value="1922">1922</option>
+                        <option value="1921">1921</option>
+                        <option value="1920">1920</option>
+                      </select>
+                    </div>
                     </div>
                   </div>
                   <div className="row">
