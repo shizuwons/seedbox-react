@@ -773,3 +773,14 @@
   .fa {
     margin: 0 5px;
   }
+
+  .hide {
+    display: none;
+  }
+
+  .error-message {
+    font-family: "Proxima Bold";
+    font-weight: bold;
+    font-size: 13px;
+    color: red;
+  }
