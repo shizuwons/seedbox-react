@@ -416,11 +416,11 @@ export default function Home() {
 
     // Bank name same as first name and last name
     $('.txtFirst').keyup(function() {
-      $('.txtAccountname').val($('.txtFirst').val() + " " + $('.txtLast').val());
+      $('.txtAccountname').val($('.firstname').val() + " " + $('.lastname').val());
     });
 
     $('.txtLast').keyup(function() {
-      $('.txtAccountname').val($('.txtFirst').val() + " " + $('.txtLast').val());
+      $('.txtAccountname').val($('.firstname').val() + " " + $('.lastname').val());
     });
 
     // Function that will prevent the no checkbox uncheck rather it will change the color into green.

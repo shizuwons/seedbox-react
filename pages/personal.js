@@ -287,7 +287,7 @@ function Personal({ submitPersonal }) {
             </div>
             <div className="col-lg-6">
               <input required type="text" className="txtusername mobile" id="Mobile" />
-              <label alt="Mobile Number" placeholder="Mobile Number (ex. 9171234567)" />
+              <label alt="Mobile Number" placeholder="Mobile Number" />
             </div>
             <div className="col-lg-6">
                 <div className="country-code-error error-message hide"><span></span></div>
