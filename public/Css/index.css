@@ -13,7 +13,7 @@
 
   @media only screen and (max-height: 775px) {
     .conContent {
-      height: 780px !important;
+      height: 82vh !important;
     }
   }
 
