@@ -415,11 +415,11 @@ export default function Home() {
     });
 
     // Bank name same as first name and last name
-    $('.txtFirst').keyup(function() {
+    $('.firstname').keyup(function() {
       $('.txtAccountname').val($('.firstname').val() + " " + $('.lastname').val());
     });
 
-    $('.txtLast').keyup(function() {
+    $('.lastname').keyup(function() {
       $('.txtAccountname').val($('.firstname').val() + " " + $('.lastname').val());
     });
 

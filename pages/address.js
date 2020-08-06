@@ -268,10 +268,8 @@ function Address() {
             </div>
             </div>
             <div className="row">
-            <div className="col-lg-6">
-                <p className="pInfoTitle" style={{marginTop: '0px'}}>Permanent Address</p>
-            </div>
-            <div className="col-lg-6">
+            <div className="col-lg-12">
+                <p className="pInfoTitle" style={{marginTop: '0px', display: 'inline-block'}}>Permanent Address</p>
                 <input className="inp-cbx" id="cbx" type="checkbox" style={{visibility: 'hidden'}} />
                 <label className="cbx" htmlFor="cbx"><span>
                     <svg width="12px" height="10px" viewBox="0 0 12 10">
