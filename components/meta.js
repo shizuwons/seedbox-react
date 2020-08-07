@@ -20,11 +20,6 @@ export default ({
                 rel="stylesheet"
                 type="text/css"
             />
-            <link 
-                href="Css/index.css"
-                rel="stylesheet"
-                type="text/css"
-            />
             <script src='Script\jquery-3.3.1.min.js'></script>
             <script src='Script\bootstrap.min.js'></script>
             <link 

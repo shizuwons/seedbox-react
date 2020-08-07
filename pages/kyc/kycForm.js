@@ -10,7 +10,7 @@ import Upload from './upload';
 import { functionPersonal, 
     functionAddress, functionProfessional, 
     functionCsa, functionPep, functionFatca, 
-    functionUpload, functionSettlement } from '../functions/kyc';
+    functionUpload, functionSettlement } from '../../functions/kyc';
 
 function KycForm() {
     return (

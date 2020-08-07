@@ -11,7 +11,7 @@
     }
   }
 
-  @media only screen and (max-height: 775px) {
+  @media only screen and (max-height: 767px) {
     .conContent {
       height: 750px !important;
     }
