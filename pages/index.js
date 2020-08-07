@@ -77,9 +77,17 @@ export default function Home() {
                 <a href="#" className="closebtn" onClick={closeNav}>×</a>
                 <a href="#" data-toggle="modal" data-target="#exampleModal">LOG-IN</a>
                 <a href="index.html">HOME</a>
-                <a href="#">ABOUT</a>
-                <a href="#">BLOGS</a>
+                <li className="sidebarNav collapsed active" data-toggle="collapse" data-target="#products">
+                    <a href="#">HOW DOES SEEDBOX WORK <span className="arrow"></span></a>
+                </li>
+                <ul className="sub-menu collapse sidebarNav-dropdown" id="products">
+                    <li><a className="" href="#">FOR INDIVIDUAL</a></li>
+                    <li><a className="" href="#">AT WORK</a></li>
+                    <li><a className="" href="#">PERA</a></li>
+                    <li><a className="" href="#">ADVISORY</a></li>
+                </ul>
                 <a href="#">PRODUCTS</a>
+                <a href="#">LEARN MORE</a>
                 <a href="#" data-toggle="modal" data-target="#contactModal">CONTACT</a>
                 <a href="#" data-toggle="modal" data-target="#exampleModal1">SIGN-UP</a>
                 </div>
@@ -99,7 +107,15 @@ export default function Home() {
                             <li><a className="nav-link btnlogin" href="contact.html" data-toggle="modal" data-target="#exampleModal">LOG-IN</a>
                             </li>
                             <li><a className="nav-link btnhome" href="package.html" style={{fontFamily: 'Proxima Bold'}}>HOME</a></li>
-                            <li><a className="nav-link btncontact" href="contact.html">HOW DOES SEEDBOX WORK</a></li>
+                            <li className="dropdown">
+                                <a className="nav-link btncontact dropdown-toggle" data-toggle="dropdown" href="#">HOW DOES SEEDBOX WORK </a>
+                                <ul className="dropdown-menu dropdownBox animate slideIn">
+                                    <li><a className="dropdownItem" href="#">FOR INDIVIDUAL</a></li>
+                                    <li><a className="dropdownItem" href="#">AT WORK</a></li>
+                                    <li><a className="dropdownItem" href="#">PERA</a></li>
+                                    <li><a className="dropdownItem" href="#">ADVISORY</a></li>
+                                </ul>
+                            </li>
                             <li><a className="nav-link btncontact" href="contact.html">PRODUCTS</a></li>
                             <li><a className="nav-link btncontact" href="contact.html">BLOGS</a></li>
                             <li><a className="nav-link btncontact" href="contact.html">LEARN MORE</a></li>
