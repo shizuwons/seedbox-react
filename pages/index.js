@@ -142,7 +142,7 @@ export default function Home() {
                         </div>
                         <div className="divIcon2 form-inline align-items-center">
                             <div className="divIcon divIcon3 align-items-center" style={{padding: '10px 20px'}}>
-                            <img src=" Image/planner.svg" style={{width: '80px'}} className="img-fluid mx-auto d-flex imgIcon" />
+                            <img src=" Image/planner.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
                             <p className="pBox">Use the goal planner</p>
                             </div>
                             <div className="divIcon divIcon4" style={{padding: '10px 20px', display: 'inline-block'}}>
