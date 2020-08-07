@@ -74,7 +74,7 @@ export default function Home() {
             </Head>
             <div>
                 <div id="mySidenav" className="sidenav">
-                <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>×</a>
+                <a href="#" className="closebtn" onClick={closeNav}>×</a>
                 <a href="#" data-toggle="modal" data-target="#exampleModal">LOG-IN</a>
                 <a href="index.html">HOME</a>
                 <a href="#">ABOUT</a>
@@ -99,9 +99,10 @@ export default function Home() {
                             <li><a className="nav-link btnlogin" href="contact.html" data-toggle="modal" data-target="#exampleModal">LOG-IN</a>
                             </li>
                             <li><a className="nav-link btnhome" href="package.html" style={{fontFamily: 'Proxima Bold'}}>HOME</a></li>
-                            <li><a className="nav-link btncontact" href="contact.html">ABOUT</a></li>
-                            <li><a className="nav-link btncontact" href="contact.html">BLOGS</a></li>
+                            <li><a className="nav-link btncontact" href="contact.html">HOW DOES SEEDBOX WORK</a></li>
                             <li><a className="nav-link btncontact" href="contact.html">PRODUCTS</a></li>
+                            <li><a className="nav-link btncontact" href="contact.html">BLOGS</a></li>
+                            <li><a className="nav-link btncontact" href="contact.html">LEARN MORE</a></li>
                             <li><a className="nav-link btncontact" href="contact.html" data-toggle="modal" data-target="#contactModal">CONTACT US</a></li>
                             <li><a className="nav-link btncontact" href="contact.html" data-toggle="modal" data-target="#exampleModal1">SIGN-UP</a></li>
                         </ul>
@@ -112,7 +113,7 @@ export default function Home() {
                 <div className="container con h-100 conMainBody" style={{padding: '20px 15px', backgroundColor: '#fafafa'}}>
                     <div className="row align-items-center" style={{height: '80vh'}}>
                     <div className="col-lg-6">
-                        <img src="Image/gif1.gif" className="img-fluid mx-auto d-flex" />
+                        <img src="Image/asset.gif" className="img-fluid mx-auto d-flex" />
                     </div>
                     <div className="col-lg-6 text-center conContent">
                         <p className="pTitle">Investing,</p>

@@ -555,9 +555,9 @@ export default function Kyc() {
       if (step === 0) {
         let validated = personalValidation();
 
-        if(!validated) {
-          return false;
-        }
+        // if(!validated) {
+        //   return false;
+        // }
         $(".conContent").attr(
           "style",
           "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: 82vh !important;"
@@ -583,9 +583,9 @@ export default function Kyc() {
       } else if (step === 1) {
         let validated = addressValidation();
 
-        if(!validated) {
-          return false;
-        }
+        // if(!validated) {
+        //   return false;
+        // }
         $(".conContent").attr(
           "style",
           "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: auto !important;"
@@ -622,9 +622,9 @@ export default function Kyc() {
       } else if (step === 2) {
         let validated = professionalValidation();
 
-        if(!validated) {
-          return false;
-        }
+        // if(!validated) {
+        //   return false;
+        // }
         $(".conContent").css("height", "82vh");
         $(".colForm").css("padding-top", "0px");
         $(".colForm").css("padding-bottom", "0px");
@@ -647,9 +647,9 @@ export default function Kyc() {
       } else if (step === 3) {
         let validated = csaValidation();
 
-        if(!validated) {
-          return false;
-        }
+        // if(!validated) {
+        //   return false;
+        // }
         $(".pMore").text("PEP Declaration");
         $(".divPep").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"
@@ -666,9 +666,9 @@ export default function Kyc() {
       } else if (step === 4) {
         let validated = pepValidation();
 
-        if(!validated) {
-          return false;
-        }
+        // if(!validated) {
+        //   return false;
+        // }
         $(".conContent").attr(
           "style",
           "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: auto !important;"
@@ -706,9 +706,9 @@ export default function Kyc() {
       } else if (step === 6) {
         let validated = uploadValidation();
 
-        if(!validated) {
-          return false;
-        }
+        // if(!validated) {
+        //   return false;
+        // }
         $(".pMore").text("Settlement Information");
         $(".divSettlement").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"
@@ -725,9 +725,9 @@ export default function Kyc() {
       } else if(step === 7) {
         let validated = settlementValidation();
 
-        if(!validated) {
-          return false;
-        }
+        // if(!validated) {
+        //   return false;
+        // }
       }
     });
   }, []);

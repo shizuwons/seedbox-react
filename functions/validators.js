@@ -49,7 +49,7 @@ export function personalValidation() {
                 $('.' + fields[i]).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important'); 
             }
 
-            validated = false;
+            //validated = false;
         } else {
             // If birthdate fields have been filled up
             // if($('.' + fields[8]).val().length > 0 && $('.' + fields[9]).val().length > 0 && $('.' + fields[10]).val().length > 0) {
@@ -83,7 +83,7 @@ export function addressValidation() {
                 $('.' + fields[i]).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important'); 
             }    
 
-            validated = false;
+            //validated = false;
         }
     });
 
@@ -114,7 +114,7 @@ export function professionalValidation() {
                 $('.' + fields[i]).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important'); 
             }    
 
-            validated = false;
+            //validated = false;
         }
     });
 
@@ -136,7 +136,7 @@ export function csaValidation() {
         if($('.' + fields[i]).val() === "" || $('.' + fields[i]).val() === null || $('.' + fields[i]).val() === undefined) {
             $('.' + fields[i]).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important');  
 
-            validated = false;
+            //validated = false;
         }
     });
 }
@@ -152,7 +152,7 @@ export function pepValidation() {
         if($('.' + fields[i]).val() === "" || $('.' + fields[i]).val() === null || $('.' + fields[i]).val() === undefined) {
             $('.' + fields[i]).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important');  
 
-            validated = false;
+            //validated = false;
         }
     });
 }
@@ -179,7 +179,7 @@ export function uploadValidation() {
                 $('.' + fields[i]).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important'); 
             }    
 
-            validated = false;
+            //validated = false;
         }
     });
 
@@ -202,7 +202,7 @@ export function settlementValidation() {
                 $('.' + fields[i]).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important'); 
             }    
 
-            validated = false;
+            //validated = false;
         }
     });
 
