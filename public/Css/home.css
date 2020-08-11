@@ -221,7 +221,6 @@ body, html {
 }
 
 .btnSubmit {
-    float: right;
     width: 113px;
     background: #13C95C;
     padding: 5px;
@@ -294,7 +293,7 @@ hr {
     color: #13C95C;
     text-align: center;
     margin-top: -5px;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     cursor: pointer;
 }
 
@@ -336,6 +335,11 @@ hr {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+a.nav-link:hover {
+    font-family: "Proxima Extrabold" !important;
+    color: #13C95C;
 }
 
 .pHow {

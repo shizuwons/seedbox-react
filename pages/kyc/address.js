@@ -50,7 +50,7 @@ function Address() {
             <div className="col-lg-12" style={{marginTop: '-14px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">Country</div>
-                <select autoComplete="off" className="select2 current" defaultValue={''}>
+                <select autoComplete="off" className="select2 current" id="current" defaultValue={''}>
                     <option value="" disabled>Country</option>
                     {country.map((e, index) =>(
                         
@@ -88,7 +88,7 @@ function Address() {
             <div className="col-lg-12 colAdd" style={{marginTop: '-14px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">Country</div>
-                <select autoComplete="off" className="select2 present" defaultValue={''}>
+                <select autoComplete="off" className="select2 present" id="#present" defaultValue={''}>
                     <option value="" disabled>Country</option>
                     {country.map((e, index) =>(
                         

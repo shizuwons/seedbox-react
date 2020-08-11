@@ -74,17 +74,22 @@ export default function Kyc() {
     // $(".checkOther:checked").attr("style", "--b: gray;"); // All checkbox that are in no section will be grayed.
   
     // Function that will copy the current address to permanent address
-    $("#cbx").change(function (event) {
-      if (this.checked) {
-        $(".txtPermaAdd1").val($(".txtCurrentAdd1").val());
-        $(".txtPermaAdd2").val($(".txtCurrentAdd2").val());
-        $(".txtPermaCity").val($(".txtCurrentCity").val());
-        $(".txtPermaProvince").val($(".txtCurrentProvince").val());
-      } else {
+    $("#cbx").click(function (event) {
+      $('.present').val($('.current').val()).trigger('change.select2');
+      $(".txtPermaAdd1").val($(".txtCurrentAdd1").val());
+      $(".txtPermaAdd2").val($(".txtCurrentAdd2").val());
+      $(".txtPermaCity").val($(".txtCurrentCity").val());
+      $(".txtPermaProvince").val($(".txtCurrentProvince").val());
+      $('.present').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      $('.present').siblings(".select-placeholder").css({ opacity: "1" });
+      if (!this.checked) {
         $(".txtPermaAdd1").val("");
         $(".txtPermaAdd2").val("");
         $(".txtPermaCity").val("");
         $(".txtPermaProvince").val("");
+        $('.present').val(null).trigger('change.select2');
+        $('.present').siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+        $('.present').siblings(".select-placeholder").css({ opacity: "0" });
       }
     });
 
