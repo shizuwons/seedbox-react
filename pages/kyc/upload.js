@@ -1,6 +1,25 @@
 import Head from 'next/head';
+import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { compareStrings } from '../../functions/functions';
 
 function Upload() {
+    const [type, setType] = useState([]);
+    useEffect(() => {
+        async function loadData() {
+            const typesDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/lookups');
+            const types = await typesDataLoad.data;
+
+            // Lookups
+            const type = types.filter(el => el.category === 'ID_TYPE');
+
+            setType(type);
+
+        }
+
+        loadData();
+    }, []);
     return (
         <div className="divUpload divForm" style={{display: 'none'}}>
             <form>
@@ -12,19 +31,9 @@ function Upload() {
                     <div className="selectdiv" style={{marginTop: '0px'}}>
                     <select autoComplete="off" className="select2 id-type" id="IdType" defaultValue="default">
                         <option value="default" disabled>ID Type</option>
-                        <option value="SSS">SSS ID</option>
-                        <option value="UMID">UMID ID</option>
-                        <option value="GSIS">GSIS ID</option>
-                        <option value="TIN">TIN ID</option>
-                        <option value="HDMF">Pag-Ibig ID</option>
-                        <option value="LICENSE">Driver license</option>
-                        <option value="PHIC">Philhealth</option>
-                        <option value="PRC">PRC ID</option>
-                        <option value="POSTAL">Postal ID</option>
-                        <option value="VOTER">Voter's ID</option>
-                        <option value="PASSPORT">Passport</option>
-                        <option value="RESIDENCY">Alien Certificate of Residency ID</option>
-                        <option value="OFW">OFW e-Card</option>
+                        {type.map((e, index) =>(
+                            <option key={index} value={e.value}>{e.value}</option>
+                        ))}
                     </select>
                     </div>
                 </div>

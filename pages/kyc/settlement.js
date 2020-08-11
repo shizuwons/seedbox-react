@@ -1,6 +1,26 @@
 import Head from 'next/head';
+import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { compareStrings } from '../../functions/functions';
 
 function Settlement() {
+    const [bank, setBank] = useState([]);
+    useEffect(() => {
+        async function loadData() {
+            const banksDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/banks');
+            const banks = await banksDataLoad.data;
+
+            banks.sort(function(a, b) {
+                return compareStrings(a.bank_name, b.bank_name);
+            });
+            
+            setBank(banks);
+
+        }
+
+        loadData();
+    }, []);
     return (
         <div className="divSettlement divForm" style={{display: 'none'}}>
             <form>
@@ -13,46 +33,9 @@ function Settlement() {
                     <div className="selectdiv" style={{margin: '0 0 1em'}}>
                     <select autoComplete="off" className="select2 bank-name" id="BankName" defaultValue="default">
                         <option value="default" disabled>Bank Name</option>
-                        <option value='ANZ Banking Group Ltd.'>ANZ Banking Group Ltd.</option>
-                        <option value='Asia United Bank'>Asia United Bank</option>
-                        <option value='Bangkok Bank Publi Co., Ltd.'>Bangkok Bank Publi Co., Ltd.</option>
-                        <option value='Bank Of Americana, N.A.'>Bank Of Americana, N.A.</option>
-                        <option value='Bank Of China Limited'>Bank Of China Limited</option>
-                        <option value='Bank Of Commerce'>Bank Of Commerce</option>
-                        <option value='Bank of the Philippine Islands'>Bank of the Philippine Islands</option>
-                        <option value='BDO Unibank'>BDO Unibank</option>
-                        <option value='Cathay United Bank Co., Ltd'>Cathay United Bank Co., Ltd</option>
-                        <option value='China Bank Corporation'>China Bank Corporation</option>
-                        <option value='Citibank'>Citibank</option>
-                        <option value='CTBC Bank'>CTBC Bank</option>
-                        <option value='Deutsche Bank AG'>Deutsche Bank AG</option>
-                        <option value='Development Bank Of The Philippines'>Development Bank Of The Philippines</option>
-                        <option value='East West Banking Corporation'>East West Banking Corporation</option>
-                        <option value='GCash'>GCash</option>
-                        <option value='HSBC Savings'>HSBC Savings</option>
-                        <option value='Industrial Bank Of Korea'>Industrial Bank Of Korea</option>
-                        <option value='ING Bank N. V.'>ING Bank N. V.</option>
-                        <option value='JP Morgan Chase Bank, N.A.'>JP Morgan Chase Bank, N.A.</option>
-                        <option value='Korea Exchange Bank'>Korea Exchange Bank</option>
-                        <option value='Landbank'>Landbank</option>
-                        <option value='Maybank'>Maybank</option>
-                        <option value='Mega International Commercial Bank'>Mega International Commercial Bank</option>
-                        <option value='Metrobank'>Metrobank</option>
-                        <option value='Mizuho Bank, Ltd.'>Mizuho Bank, Ltd.</option>
-                        <option value='Other'>Other</option>
-                        <option value='Philippine Bank Of Communication'>Philippine Bank Of Communication</option>
-                        <option value='Philippine National Bank'>Philippine National Bank</option>
-                        <option value='Philtrust Bank'>Philtrust Bank</option>
-                        <option value='Rizal Commercial Banking Corporation'>Rizal Commercial Banking Corporation</option>
-                        <option value='Robinsons Bank'>Robinsons Bank</option>
-                        <option value='Security Bank Corporation'>Security Bank Corporation</option>
-                        <option value='Shinhan Bank'>Shinhan Bank</option>
-                        <option value='Standard Chartered Bank'>Standard Chartered Bank</option>
-                        <option value='Sumitomo Mitsui Banking Corporation'>Sumitomo Mitsui Banking Corporation</option>
-                        <option value='The Bank Of Tokyo - Mitsubishi Ufj, Ltd.'>The Bank Of Tokyo - Mitsubishi Ufj, Ltd.</option>
-                        <option value='The Hongkong And Shanghai Banking Corporation (HSBC)'>The Hongkong And Shanghai Banking Corporation (HSBC)</option>
-                        <option value='Union Bank'>Union Bank</option>
-                        <option value='United Coconut Planters Bank'>United Coconut Planters Bank</option>
+                        {bank.map((e, index) =>(
+                            <option key={index} value={e.bank_name}>{e.bank_name}</option>
+                        ))}
                     </select>
                     </div>
                 </div>

@@ -1,0 +1,1 @@
+const apiUrl = "https://dev.seedbox.ph/core/lite/v1/";

@@ -40,6 +40,11 @@ export default ({
                 rel="stylesheet"
                 type="text/css" 
             />
+            <link
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/fontawesome.min.css"
+                rel="stylesheet"
+                type="text/css"
+            />
             <script src="/Script/select2.min.js"></script>            
         </Head>
     </div>
