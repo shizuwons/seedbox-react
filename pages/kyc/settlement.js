@@ -31,6 +31,7 @@ function Settlement() {
                 </div>
                 <div className="col-lg-12">
                     <div className="selectdiv" style={{margin: '0 0 1em'}}>
+                    <div className="select-placeholder">Bank Name</div>
                     <select autoComplete="off" className="select2 bank-name" id="BankName" defaultValue="default">
                         <option value="default" disabled>Bank Name</option>
                         {bank.map((e, index) =>(

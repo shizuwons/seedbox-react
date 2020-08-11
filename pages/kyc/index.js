@@ -3,7 +3,7 @@ import Router from 'next/router';
 import Default from '../../layouts/default';
 import { 
   closeNav, openNav, addHyphen, 
-  addHyphenPagibig, moreLess 
+  addHyphenPagibig, moreLess, isEmail 
 } from '../../functions/kyc';
 import { personalValidation, addressValidation, professionalValidation, pepValidation, csaValidation, uploadValidation, settlementValidation } from '../../functions/validators';
 import { useEffect } from 'react';
@@ -20,7 +20,7 @@ export default function Kyc() {
         $(".colStep").removeClass("colmid");
         $(".rowStep").addClass("colmid");
       } else {
-        $(".pMore").text("More Information");
+        $(".pMore").text("Personal Information");
         $(".colStep").addClass("colmid");
         $(".rowStep").removeClass("colmid");
       }
@@ -34,6 +34,8 @@ export default function Kyc() {
       minimumResultsForSearch: -1,
     });
 
+    $(".txtusername").attr('maxlength', '50');
+
     $(".txtusername").keyup(function (event) {
       if($(this).val().length > 0) {
         console.log($(this).val());
@@ -41,6 +43,26 @@ export default function Kyc() {
       } else {
         $(this).removeAttr('style');
       }
+    });
+
+    $(".email").blur(function () {
+      let value = $(this).val();
+
+      if(!isEmail(value)) {
+        $(this).css("border-color", "red");
+      }
+    });
+
+    $("input[list]").focus(function() {
+      let classname = $(this).attr("class");
+      classname = classname.replace('txtusername ', '');
+      $('.' + classname).siblings('span').find('b').addClass('datalist-arrow-active');
+    });
+
+    $("input[list]").focusout(function() {
+      let classname = $(this).attr("class");
+      classname = classname.replace('txtusername ', '');
+      $('.' + classname).siblings('span').find('b').removeClass('datalist-arrow-active');
     });
 
     $("#txtTin").keyup(function (event) {
@@ -146,6 +168,7 @@ export default function Kyc() {
 
         if(value != "0" || value != null) {
           $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+          $(this).siblings(".select-placeholder").css({ opacity: "1" });
         }
     });
 
@@ -154,6 +177,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
   
@@ -162,6 +186,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -170,6 +195,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -178,6 +204,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -186,6 +213,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -194,6 +222,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -202,6 +231,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -211,6 +241,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -219,6 +250,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -228,6 +260,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -236,6 +269,16 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
+      }
+    });
+
+    $('.nature-country').on("select2:selecting", function(e) { 
+      let value = $('.nature-country').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -244,6 +287,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -252,6 +296,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -260,6 +305,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -268,6 +314,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
     
@@ -276,6 +323,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -285,6 +333,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -293,6 +342,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -301,6 +351,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -309,6 +360,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -317,6 +369,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -325,6 +378,16 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
+      }
+    });
+
+    $('.droploss').on("select2:selecting", function(e) { 
+      let value = $('.droploss').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -334,6 +397,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
     
@@ -342,15 +406,17 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
     
     // Upload documents select fields
-    $('.id-type').on("select2:selected", function(e) { 
-      let value = $('.id-type').val();
+    $('.idtype').on("select2:selecting", function(e) { 
+      let value = $('.idtype').val();
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       } 
     });
 
@@ -359,6 +425,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -367,6 +434,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -375,6 +443,7 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
@@ -384,35 +453,36 @@ export default function Kyc() {
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
 
     // Disable expiry date on non-expiring ID
-    $(".id-type").on("change", function () { 
-      let value = $('.id-type').val();
+    // $(".id-type").on("change", function () { 
+    //   let value = $('.id-type').val();
       
-      if(value === "SSS" || value === "UMID" || value === "GSIS" || value === "TIN" || value === "HDMF" || value === "PHIC" || value === "VOTER") {
-        $('.expirymonth').select2({
-          disabled: true
-        });
-        $('.expiryyear').select2({
-          disabled: true
-        });
-        $('.expiryday').select2({
-          disabled: true
-        });
-      } else {
-        $('.expirymonth').select2({
-          disabled: false
-        });
-        $('.expiryyear').select2({
-          disabled: false
-        });
-        $('.expiryday').select2({
-          disabled: false
-        });
-      }
-    });
+    //   if(value === "SSS" || value === "UMID" || value === "GSIS" || value === "TIN" || value === "HDMF" || value === "PHIC" || value === "VOTER") {
+    //     $('.expirymonth').select2({
+    //       disabled: true
+    //     });
+    //     $('.expiryyear').select2({
+    //       disabled: true
+    //     });
+    //     $('.expiryday').select2({
+    //       disabled: true
+    //     });
+    //   } else {
+    //     $('.expirymonth').select2({
+    //       disabled: false
+    //     });
+    //     $('.expiryyear').select2({
+    //       disabled: false
+    //     });
+    //     $('.expiryday').select2({
+    //       disabled: false
+    //     });
+    //   }
+    // });
 
     // Bank name same as first name and last name
     $('.firstname').keyup(function() {
@@ -423,16 +493,16 @@ export default function Kyc() {
       $('.txtAccountname').val($('.firstname').val() + " " + $('.lastname').val());
     });
 
-    // Function that will prevent the no checkbox uncheck rather it will change the color into green.
-    $(".checkOther").on("click", function (e) {
-      var checkbox = $(this);
-      if (checkbox.is(":checked")) {
-      } else {
-        $(this, "input:checked").attr("style", "--b: #13C95C;");
-        e.preventDefault();
-        return false;
-      }
-    });
+    // // Function that will prevent the no checkbox uncheck rather it will change the color into green.
+    // $(".checkOther").on("click", function (e) {
+    //   var checkbox = $(this);
+    //   if (checkbox.is(":checked")) {
+    //   } else {
+    //     $(this, "input:checked").attr("style", "--b: #13C95C;");
+    //     e.preventDefault();
+    //     return false;
+    //   }
+    // });
 
     // Click function for back button
     $(".btnBack").click(function () {

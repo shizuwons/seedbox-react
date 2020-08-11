@@ -13,6 +13,7 @@ function Pep() {
                 <div className="row">
                 <div className="col-lg-12">
                     <div className="selectdiv">
+                    <div className="select-placeholder">Have you worked in a government agency or institution?</div>
                     <select autoComplete="off" className="select2 government" defaultValue="default">
                         <option value="default" disabled>Have you worked in a government agency or
                         institution?
@@ -22,6 +23,7 @@ function Pep() {
                     </select>
                     </div>
                     <div className="selectdiv">
+                    <div className="select-placeholder">Do you have any relative who is/was elected a govern...</div>
                     <select autoComplete="off" className="select2 relative" defaultValue="default">
                         <option value="default" disabled>Do you have any relative who is/was
                         elected a

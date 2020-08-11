@@ -80,6 +80,7 @@ function Professional() {
             </div>
             <div className="col-lg-12">
                 <div className="selectdiv" style={{marginTop: '10px'}}>
+                <div className="select-placeholder">Nature of Work</div>
                 <select autoComplete="off" className="select2 nature-work" defaultValue="default">
                     <option value="default" disabled>Nature of Work</option>
                     {work.map((e, index) =>(
@@ -90,6 +91,7 @@ function Professional() {
             </div>
             <div className="col-lg-12">
                 <div className="selectdiv">
+                <div className="select-placeholder">Nature of Business/Employer</div>
                 <select autoComplete="off" className="select2 nature-business" defaultValue="default">
                     <option value="default" disabled>Nature of Business/Employer</option>
                     {business.map((e, index) =>(
@@ -116,6 +118,7 @@ function Professional() {
             </div>
             <div className="col-lg-12" style={{marginTop: '-10px'}}>
                 <div className="selectdiv">
+                <div className="select-placeholder">Country</div>
                 <select autoComplete="off" className="select2 nature-country" defaultValue={''}>
                     <option value="">Country</option>
                     {country.map((e, index) =>(
@@ -131,6 +134,7 @@ function Professional() {
             </div>
             <div className="col-lg-12" style={{marginTop: '10px'}}>
                 <div className="selectdiv" style={{marginTop: '10px'}}>
+                <div className="select-placeholder">Source of Funds</div>
                 <select autoComplete="off" className="select2 source-funds" defaultValue="default">
                     <option value="default" disabled>Source of Funds</option>
                     {funds.map((e, index) =>(
@@ -141,6 +145,7 @@ function Professional() {
             </div>
             <div className="col-lg-6" style={{marginTop: '0px'}}>
                 <div className="selectdiv">
+                <div className="select-placeholder">Net Worth</div>
                 <select autoComplete="off" className="select2 net-worth" defaultValue="default">
                     <option value="default" disabled> Net Worth
                     </option>
@@ -152,6 +157,7 @@ function Professional() {
             </div>
             <div className="col-lg-6">
                 <div className="selectdiv">
+                <div className="select-placeholder">Annual Gross Income</div>
                 <select autoComplete="off" className="select2 gross-income" defaultValue="default">
                     <option value="default" disabled> Annual Gross Income
                     </option>
@@ -163,6 +169,7 @@ function Professional() {
             </div>
             <div className="col-lg-12">
                 <div className="selectdiv" style={{marginTop: '8px'}}>
+                <div className="select-placeholder">Are you Director/Officer/Shareholder?</div>
                 <select autoComplete="off" className="select2 dos" defaultValue="default">
                     <option value="default" disabled>Are you Director/Officer/Shareholder?
                     </option>

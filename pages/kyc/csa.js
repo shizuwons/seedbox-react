@@ -12,6 +12,7 @@ function Csa() {
                 </div>
                 <div className="col-lg-12">
                     <div className="selectdiv">
+                    <div className="select-placeholder">What is the purpose of your investment?</div>    
                     <select autoComplete="off" className="select2 investment" defaultValue="default">
                         <option value="default" disabled> What is the purpose of your investment?
                         </option>
@@ -25,6 +26,7 @@ function Csa() {
                     </select>
                     </div>
                     <div className="selectdiv">
+                    <div className="select-placeholder">How long are you investing for?</div>
                     <select autoComplete="off" className="select2 investing" defaultValue="default">
                         <option value="default" disabled> How long are you investing for?</option>
                         <option>Up to two years</option>
@@ -34,6 +36,7 @@ function Csa() {
                     </select>
                     </div>
                     <div className="selectdiv">
+                    <div className="select-placeholder">For this investment, you are?</div>
                     <select autoComplete="off" className="select2 for-investment" defaultValue="default">
                         <option value="default" disabled> For this investment, you are?
                         </option>
@@ -47,6 +50,7 @@ function Csa() {
                     </select>
                     </div>
                     <div className="selectdiv">
+                    <div className="select-placeholder">How knowledgeable are you as an investor?</div>
                     <select autoComplete="off" className="select2 investor" defaultValue="default">
                         <option value="default" disabled> How knowledgeable are you as an
                         investor?
@@ -58,6 +62,7 @@ function Csa() {
                     </select>
                     </div>
                     <div className="selectdiv">
+                    <div className="select-placeholder">Which of the following have you invested in?</div>
                     <select autoComplete="off" className="select2 invested" defaultValue="default">
                         <option value="default" disabled> Which of the following have you invested
                         in?
@@ -75,12 +80,23 @@ function Csa() {
                     </select>
                     </div>
                     <div className="selectdiv">
+                    <div className="select-placeholder">Do you have regular liquidity?</div>
                     <select autoComplete="off" className="select2 liquidity" defaultValue="default">
                         <option value="default" disabled> Do you have regular liquidity
                         requirement?
                         </option>
                         <option>Yes</option>
                         <option>No</option>
+                    </select>
+                    </div>
+                    <div className="selectdiv">
+                    <div className="select-placeholder">How much drop/loss in the value of your investment can...</div>
+                    <select autoComplete="off" className="select2 droploss" defaultValue="default">
+                        <option value="default" disabled> How much drop/loss 
+                        in the value of your investment can you accept?
+                        </option>
+                        <option>0%</option>
+                        <option>Up to 10%</option>
                     </select>
                     </div>
                 </div>

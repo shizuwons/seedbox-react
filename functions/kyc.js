@@ -649,3 +649,8 @@ export function addHyphenPagibig(element) {
   let finalVal = val.match(/.{1,4}/g).join("-"); // Add (-) after 3rd every char.
   $(element).val(finalVal); // Update the input box.
 }
+
+export function isEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
