@@ -509,6 +509,13 @@ export default function Kyc() {
     //   }
     // });
 
+    // If screen is mobile
+    if($(window).width() < 440) {
+      if($('.select-placeholder').text().length >= 34) {
+        $('.select-placeholder').addClass('select-placeholder-mobile');
+      }
+    }
+
     // Click function for back button
     $(".btnBack").click(function () {
       if (step === 7) {
@@ -706,6 +713,8 @@ export default function Kyc() {
         $(".colmid").css({ height: $(".conContent").height() + "px" });
 
         $(".pMore").text("CSA");
+        $(".pTitle").text("CSA");
+        $(".pSubtitle").text("The results on this form will help determine which available funds can best suit your investing needs.");
         $(".divCsa").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"
         );
@@ -726,6 +735,9 @@ export default function Kyc() {
         //   return false;
         // }
         $(".pMore").text("PEP Declaration");
+        $(".pTitle").text("PEP");
+        $(".pSubtitle").text("Second Degree of Consanguinity/Affinity - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
+
         $(".divPep").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"
         );
@@ -751,6 +763,9 @@ export default function Kyc() {
         $(".colForm").css("padding-top", "20px");
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("FATCA");
+        $(".pTitle").text("FATCA");
+        $(".pSubtitle").text('If you have answered "Yes" on at least one question, we will need you to submit additional requirements before we can have your Seedbox account approved.');
+
         $(".divFatca").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"
         );

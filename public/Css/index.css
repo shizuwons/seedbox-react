@@ -301,6 +301,13 @@
     z-index: 99;
     top: -12px;
     opacity: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .select-placeholder-mobile {
+    width: 90%;
   }
 
   .disabledText[required]+label[placeholder]:before {
