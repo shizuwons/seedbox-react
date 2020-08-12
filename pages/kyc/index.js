@@ -871,7 +871,7 @@ export default function Kyc() {
                 <span className="navbar-toggler-icon" />
               </button>
               <nav className="navbar-brand" href="">
-                <a href=""><img src="Image/logo-removebg-preview.png" className="img-fluid imgLogo" style={{width: '150px'}} /></a>
+                <a href="/" onClick={() => Router.push("/")}><img src="Image/logo-removebg-preview.png" className="img-fluid imgLogo" style={{width: '150px'}}/></a>
               </nav>
               <div className="collapse navbar-collapse" id="collapse">
                 <div className="col2 ml-auto">

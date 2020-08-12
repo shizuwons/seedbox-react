@@ -78,6 +78,19 @@ body, html {
     .pHow {
         font-size: 1.4rem !important;
     }
+
+    .otpform {
+        margin: 0 !important;
+        margin-bottom: 40px !important;
+    }
+
+    .otp-caption {
+        margin: 0 41px !important;
+    }
+
+    .txtotp {
+        height: 48px !important;
+    }
 }
 
 @media only screen and (max-width: 380px) {
@@ -86,6 +99,19 @@ body, html {
     }
     .txtEmail, .txtPassword {
         width: 100% !important;
+    }
+    
+    .otpform {
+        margin: 0 !important;
+        margin-bottom: 40px !important;
+    }
+
+    .otp-caption {
+        margin: 0 41px !important;
+    }
+
+    .txtotp {
+        height: 48px !important;
     }
 }
 
@@ -403,6 +429,97 @@ textarea {
   .sidebarNav-dropdown li {
     list-style: none;
   }
+
+  .otp-caption {
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 0 80px;
+    color: #13C95C;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .otpform {
+    margin: 0 50px;
+    margin-bottom: 80px;
+  }
+
+  .errorMessage {
+    font-family: "Proxima Regular" !important;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: red;
+  }
+
+  .txtotp {
+    height: 60px;
+    width: 100%;
+    font-size: 23px;
+    border-radius: 10px;
+    text-align:center;
+    border: none;
+    -webkit-box-shadow: 0px 3px 11px -1.2px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 3px 11px -1.2px rgba(0,0,0,0.2);
+    box-shadow: 0px 3px 11px -1.2px rgba(0,0,0,0.2);
+  }
+
+  .txtotp:focus {
+      outline: none;
+      -webkit-box-shadow: 0px 3px 11px -1.2px rgba(0,0,0,0.2);
+      -moz-box-shadow: 0px 3px 11px -1.2px rgba(0,0,0,0.2);
+      box-shadow: 0px 3px 11px -1.2px rgba(0,0,0,0.2);
+  }
+
+  .otplink {
+    width: 113px;
+  }
+
+  .otplink a {
+    color: white;
+  }
+
+  .otplink a:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+    .col-xs-5ths,
+    .col-sm-5ths,
+    .col-md-5ths,
+    .col-lg-5ths {
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .col-xs-5ths {
+        width: 20%;
+        float: left;
+    }
+
+    @media (min-width: 768px) {
+        .col-sm-5ths {
+            width: 20%;
+            float: left;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .col-md-5ths {
+            width: 20%;
+            float: left;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .col-lg-5ths {
+            width: 20%;
+            float: left;
+        }
+    }
 
 @media (min-width: 992px) {
     .animate {
