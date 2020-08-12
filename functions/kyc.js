@@ -503,6 +503,9 @@ export function functionCsa() {
   $(".colmid").css({ height: $(".conContent").height() + "px" });
 
   $(".pMore").text("CSA");
+  $(".pTitle").text("CSA");
+  $(".pSubtitle").text("The results on this form will help determine which available funds can best suit your investing needs.");
+
   $(".divCsa").removeClass(
       "animate__animated  animate__fadeOut animate__fadeIn"
   );
@@ -524,6 +527,8 @@ export function functionPep() {
   $(".colForm").css("padding-bottom", "0px");
   $(".colmid").css({ height: $(".conContent").height() + "px" });
   $(".pMore").text("PEP Declaration");
+  $(".pTitle").text("PEP");
+  $(".pSubtitle").text("Second Degree of Consanguinity/Affinity - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
   $(".divForm").css("display", "none");
   $(".divCsa").css("display", "none");
   $(".divCsa").removeClass("animate__fadeOut");
@@ -547,6 +552,9 @@ export function functionFatca() {
   $(".colForm").css("padding-top", "20px");
   $(".colForm").css("padding-bottom", "20px");
   $(".pMore").text("FATCA");
+  $(".pTitle").text("FATCA");
+  $(".pSubtitle").text('If you have answered "Yes" on at least one question, we will need you to submit additional requirements before we can have your Seedbox account approved.');
+
   $(".divForm").css("display", "none");
   $(".divFatca").removeClass(
     "animate__animated  animate__fadeOut animate__fadeIn"
