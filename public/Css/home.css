@@ -368,6 +368,16 @@ a.nav-link:hover {
     color: #13C95C;
 }
 
+.signup {
+    background: #13C95C;
+    border-radius: 13px;
+    color: white;
+  }
+  
+  .signup:hover {
+    color: white !important;
+  }
+
 .pHow {
     font-family: "Proxima Bold";
     color: #13C95C;

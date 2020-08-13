@@ -222,7 +222,7 @@
     align-items: center;
     box-shadow: 5px 0px 15px #00000029;
   }
-
+  
   input[type="text"] {
     font-family: "Proxima Regular" !important;
     color: #212121;
@@ -634,6 +634,11 @@
     display: none;
   }
 
+  .pErrorEmail {
+    color: red;
+    font-weight: bold;
+  }
+
   .divWhite {
     position: absolute;
     top: 58px;
@@ -855,7 +860,22 @@
     outline: none;
   }
 
-@media (min-width: 992px) {
+  a.nav-link:hover {
+    font-family: "Proxima Extrabold" !important;
+    color: #13C95C;
+  }
+
+  .signup {
+    background: #13C95C;
+    border-radius: 13px;
+    color: white;
+  }
+
+  .signup:hover {
+    color: white !important;
+  }
+
+  @media (min-width: 992px) {
     .animate {
       animation-duration: 0.3s;
       -webkit-animation-duration: 0.3s;
@@ -863,7 +883,7 @@
       -webkit-animation-fill-mode: both;
     }
   }
-  
+
   @keyframes slideIn {
     0% {
       transform: translateY(1rem);
@@ -878,7 +898,7 @@
       opacity: 0;
     }
   }
-  
+
   @-webkit-keyframes slideIn {
     0% {
       -webkit-transform: transform;
@@ -893,7 +913,7 @@
       -webkit-opacity: 0;
     }
   }
-  
+
   .slideIn {
     -webkit-animation-name: slideIn;
     animation-name: slideIn;

@@ -327,14 +327,8 @@ function Personal({ submitPersonal }) {
             </div>
           </div>
             <input required type="text" className="txtusername email" />
-            <label alt="E-mail" placeholder="E-mail" />
-            <div className="email-error error-message hide"><span></span></div>
-          {/*
-
-                  <p class="pError pErrorEmail error" style="margin-top:-10px;">Error! Please put a valid email.
-                </p>
-            */}
-          <p className="pError pErrorEmail success">Your email in valid.</p>
+            <label alt="Email" placeholder="Email" className="labelEmail" />
+            <div className="pErrorEmail hide" style={{ margin: "0 0 1em"}}>Your email is not valid.</div>
           <div className="row" style={{marginTop: '-5px'}}>
             <div className="col-lg-6 col-md-6 col-sm-6 col-12">
               <div className="selectdiv" style={{marginTop: '0px'}}>

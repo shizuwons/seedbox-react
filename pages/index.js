@@ -137,8 +137,6 @@ export default function Home() {
                     <div className="collapse navbar-collapse" id="collapse">
                         <div className="col2 ml-auto">
                         <ul className="nav navbar-nav">
-                            <li><a className="nav-link btnlogin" href="contact.html" data-toggle="modal" data-target="#exampleModal">LOG IN</a>
-                            </li>
                             <li><a className="nav-link btnhome" href="package.html" style={{fontFamily: 'Proxima Bold'}}>HOME</a></li>
                             <li className="dropdown">
                                 <a className="nav-link btncontact dropdown-toggle" data-toggle="dropdown" href="#">HOW DOES SEEDBOX WORK </a>
@@ -157,7 +155,13 @@ export default function Home() {
                                 </ul>
                             </li>
                             <li><a className="nav-link btncontact" href="contact.html" data-toggle="modal" data-target="#contactModal">CONTACT US</a></li>
-                            <li><a className="nav-link btncontact" href="contact.html" data-toggle="modal" data-target="#exampleModal1">SIGN UP</a></li>
+                            <li><a className="nav-link btnlogin" href="contact.html" data-toggle="modal" data-target="#exampleModal">LOG IN</a>
+                            </li>
+                            <li>
+                                <div className="signup-button">
+                                <a className="nav-link btncontact signup" href="contact.html" data-toggle="modal" data-target="#exampleModal1">SIGN UP</a>
+                                </div>
+                            </li>
                         </ul>
                         </div>
                     </div>
@@ -186,7 +190,7 @@ export default function Home() {
                         <div className="divIcon1 form-inline">
                             <div className="divIcon" style={{padding: '10px 20px'}}>
                             <img src="Image/sign-up.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
-                            <p className="pBox">Sign-up</p>
+                            <p className="pBox">Sign Up</p>
                             </div>
                             <div className="divIcon" style={{padding: '10px 20px'}}>
                             <img src="Image/goal.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
@@ -231,8 +235,8 @@ export default function Home() {
                     <div className="modal-content">
                     <div className="modal-body" style={{border: '0px', margin: '0 auto'}}>
                         <img src="Image/leaf.png" className="img-fluid mx-auto d-flex imgLeaf" style={{width: '80px'}} />
-                        <p className="pLogin">Log-in</p>
-                        <input type="text" className="txtEmail" placeholder="e-mail" />
+                        <p className="pLogin">Log In</p>
+                        <input type="text" className="txtEmail" placeholder="email" />
                         <input type="password" className="txtEmail txtPassword" placeholder="password" style={{marginTop: '20px'}} />
                         <div className="row align-items-center" style={{marginTop: '15px'}}>
                         <div className="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -269,10 +273,10 @@ export default function Home() {
                     <div className="modal-content">
                     <div className="modal-body" style={{border: '0px', margin: '0 auto'}}>
                         <img src="Image/leaf.png" className="img-fluid mx-auto d-flex" style={{width: '80px'}} />
-                        <p className="pLogin">Sign-up</p>
+                        <p className="pLogin">Sign Up</p>
                         <div className="signup-form">
                             <input type="text" className="txtEmail" placeholder="full name" />
-                            <input type="text" className="txtEmail" placeholder="e-mail" style={{marginTop: '20px'}} />
+                            <input type="text" className="txtEmail" placeholder="email" style={{marginTop: '20px'}} />
                             <input type="text" className="txtEmail" placeholder="contact number" style={{marginTop: '20px'}} />
                             <input type="password" className="txtEmail" placeholder="password" style={{marginTop: '20px'}} />
                             <input type="password" className="txtEmail" placeholder="confirm password" style={{marginTop: '20px'}} />
@@ -301,7 +305,7 @@ export default function Home() {
                         <div className="otpform row hide">
                             <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div className="pLogin otp-caption" style={{ marginBottom: "20px" }}>
-                                    We have sent an OTP to your e-mail.
+                                    We have sent an OTP to your email.
                                 </div>
                             </div>
                             <div className="col-xs-5ths col-sm-5ths col-md-5ths col-lg-5ths">
