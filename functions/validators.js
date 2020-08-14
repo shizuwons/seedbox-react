@@ -66,11 +66,11 @@ export function addressValidation() {
     let fields = [
         'currentaddress',
         'currentcity',
-        'currentprovince',
+        'currentregion',
         'current',
         'presentaddress',
         'presentcity',
-        'presentprovince',
+        'presentregion',
         'present',
     ];
     let validated = true;
@@ -79,7 +79,7 @@ export function addressValidation() {
         if($('.' + fields[i]).val() === "" || $('.' + fields[i]).val() === null || $('.' + fields[i]).val() === undefined) {
             $('.' + fields[i]).css("border-color", "red");
 
-            if(i === 3 || i === 7) {
+            if(i === 1 || i === 2 || i === 3 || i === 5 || i === 6 || i === 7) {
                 $('.' + fields[i]).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important'); 
             }    
 

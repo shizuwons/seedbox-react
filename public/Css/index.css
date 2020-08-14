@@ -615,6 +615,16 @@
     color: white;
   }
 
+  .select2-container .select2-selection--multiple {
+    height: calc(2.5em + 2px) !important;
+    border-radius: 25px !important;
+    border-color: lightgray !important;
+  }
+
+  .select2-search__field::placeholder {
+    color: #212121;
+  }
+
   .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background-color: #13C95C !important;
   }

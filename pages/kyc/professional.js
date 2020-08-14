@@ -105,6 +105,17 @@ function Professional() {
             <label alt="Business/Employer Name" placeholder="Business/Employer Name" />
             </div>
             <div className="col-lg-12">
+                <div className="selectdiv" style={{marginTop: '-8px'}}>
+                <div className="select-placeholder">Are you a Director/Officer/Shareholder?</div>
+                <select autoComplete="off" className="select2 dos" defaultValue="default">
+                    <option value="default" disabled>Are you a Director/Officer/Shareholder?
+                    </option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+                </div>
+            </div>
+            <div className="col-lg-12" style={{marginTop: '3px'}}>
                 <input required type="text" className="txtusername workaddress" />
                 <label alt="Office Address" placeholder="Office Address" />
             </div>
@@ -164,17 +175,6 @@ function Professional() {
                     {income.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>
                     ))}
-                </select>
-                </div>
-            </div>
-            <div className="col-lg-12">
-                <div className="selectdiv" style={{marginTop: '8px'}}>
-                <div className="select-placeholder">Are you Director/Officer/Shareholder?</div>
-                <select autoComplete="off" className="select2 dos" defaultValue="default">
-                    <option value="default" disabled>Are you Director/Officer/Shareholder?
-                    </option>
-                    <option>Yes</option>
-                    <option>No</option>
                 </select>
                 </div>
             </div>

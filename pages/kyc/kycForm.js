@@ -17,12 +17,14 @@ function KycForm() {
         <div className="row align-items-center" style={{height: '100%'}}>
         <div className="col-lg-4 col-md-4 colText" style={{marginLeft: 'auto', marginRight: 'auto'}}>
           <img src="Image/006-money.png" className="img-fluid imgIcon mx-auto d-flex" style={{width: '70px'}} />
-          <p className="pTitle text-center" style={{marginTop: '10px'}}>Invest With a <br />Margin of Safety
+          <p className="pTitle text-center" style={{marginTop: '10px'}}>Personal Information
           </p>
-          <label className="pSubtitle mx-auto d-flex text-center">Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Sed
-            varius commodo neque in egestas. Aenean suscipit eros sed odio bibendum, at lobortis risus
-            sollicitudin. In id dapibus ligula.</label>
+          <label className="pSubtitle mx-auto d-flex text-center">Why invest?
+            Investing makes your money work for you - 
+            potentially building wealth by allowing you to outpace 
+            inflation and increase value over time.<br/><br/>
+            Please make sure all your personal information are 
+            correct and consistent with your government issued IDs and bank accounts. </label>
         </div>
         <div className="col-lg-3 col-md-3 colStep colmid">
           <div className="row rowHide" style={{display: 'none'}}>

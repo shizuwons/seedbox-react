@@ -435,6 +435,8 @@ export function functionPersonal() {
   $(".colForm").css("padding-bottom", "0px");
   $(".colmid").css({ height: $(".conContent").height() + "px" });
   $(".pMore").text("Personal Information");
+  $(".pTitle").text("Personal\nInformation");
+  $(".pSubtitle").html("Why invest? Investing makes your money work for you - potentially building wealth by allowing you to outpace inflation and increase value over time. <br/><br/>Please make sure all your personal information are correct and consistent with your government issued IDs and bank accounts.");
   $(".divAdrress").css("display", "none");
   $(".divForm").css("display", "none");
   $(".divAdrress").removeClass("animate__fadeOut");
@@ -455,6 +457,9 @@ export function functionAddress() {
     $(".colForm").css("padding-top", "20px");
     $(".colForm").css("padding-bottom", "20px");
     $(".pMore").text("Address Information");
+    $(".pTitle").text("Address");
+    $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is yout Manila address and your permanent address is your address is in Cebu. <br/><br/>Example: If you are on OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
+
     $(".divForm").css("display", "none");
     $(".divForm").removeClass(
       "animate__animated  animate__fadeOut animate__fadeIn"
@@ -485,6 +490,9 @@ export function functionProfessional() {
     $(".colForm").css("padding-top", "20px");
     $(".colForm").css("padding-bottom", "20px");
     $(".pMore").text("Professional Details");
+    $(".pTitle").text("Professional Details");
+    $(".pSubtitle").text("Annual Gross Income is the amount of money a person earns in one year before taxes and includes income from all sources.");
+
     $(".divForm").css("display", "none");
     $(".divForm").removeClass(
       "animate__animated  animate__fadeOut animate__fadeIn"
@@ -578,6 +586,9 @@ export function functionUpload() {
   $(".colForm").css("padding-bottom", "0px");
   $(".colmid").css({ height: $(".conContent").height() + "px" });
   $(".pMore").text("Upload Documents");
+  $(".pTitle").text("Upload Documents");
+  $(".pSubtitle").html("Please ensure your ID type and number corresponds to the VALID ID (w/ photo) you will upload. <br/><br/>The details you provided on the Personal Info should be the same as the details found on your government issued ID (w/photo).");
+
   $(".divForm").css("display", "none");
   $(".divSettlement").removeClass(
       "animate__animated  animate__fadeOut animate__fadeIn"
@@ -597,7 +608,10 @@ export function functionSettlement() {
   $(".colForm").css("padding-top", "0px");
   $(".colForm").css("padding-bottom", "0px");
   $(".colmid").css({ height: $(".conContent").height() + "px" });
-  $(".pMore").text("Upload Documents");
+  $(".pMore").text("Settlement Information");
+  $(".pTitle").text("Settlement Information");
+  $(".pSubtitle").text("The settlement account is where we will deposit your funds should you decide to redeem your investment in the future. ");
+
   $(".divForm").css("display", "none");
   $(".divPep").removeClass(
       "animate__animated  animate__fadeOut animate__fadeIn"

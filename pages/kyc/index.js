@@ -34,6 +34,12 @@ export default function Kyc() {
       minimumResultsForSearch: -1,
     });
 
+    // $(".invested").select2({
+    //   width: "element",
+    //   minimumResultsForSearch: -1,
+    //   placeholder: "Which of the following have you invested in?"
+    // });
+
     $(".txtusername").attr('maxlength', '50');
 
     $(".txtusername").keyup(function (event) {
@@ -83,20 +89,32 @@ export default function Kyc() {
     // Function that will copy the current address to permanent address
     $("#cbx").click(function (event) {
       $('.present').val($('.current').val()).trigger('change.select2');
+      $('.presentcity').val($('.currentcity').val()).trigger('change.select2');
+      $('.presentregion').val($('.currentregion').val()).trigger('change.select2');
       $(".txtPermaAdd1").val($(".txtCurrentAdd1").val());
       $(".txtPermaAdd2").val($(".txtCurrentAdd2").val());
       $(".txtPermaCity").val($(".txtCurrentCity").val());
       $(".txtPermaProvince").val($(".txtCurrentProvince").val());
       $('.present').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
       $('.present').siblings(".select-placeholder").css({ opacity: "1" });
+      $('.presentcity').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      $('.presentcity').siblings(".select-placeholder").css({ opacity: "1" });
+      $('.presentregion').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+      $('.presentregion').siblings(".select-placeholder").css({ opacity: "1" });
       if (!this.checked) {
         $(".txtPermaAdd1").val("");
         $(".txtPermaAdd2").val("");
         $(".txtPermaCity").val("");
         $(".txtPermaProvince").val("");
         $('.present').val(null).trigger('change.select2');
+        $('.presentcity').val(null).trigger('change.select2');
+        $('.presentregion').val(null).trigger('change.select2');
         $('.present').siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
         $('.present').siblings(".select-placeholder").css({ opacity: "0" });
+        $('.presentcity').siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+        $('.presentcity').siblings(".select-placeholder").css({ opacity: "0" });
+        $('.presentregion').siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+        $('.presentregion').siblings(".select-placeholder").css({ opacity: "0" });
       }
     });
 
@@ -256,6 +274,26 @@ export default function Kyc() {
         $(this).siblings(".select-placeholder").css({ opacity: "1" });
       }
     });
+
+    $('.currentcity').on("select2:selecting", function(e) { 
+      let value = $('.current').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
+      }
+    });
+
+
+    $('.currentregion').on("select2:selecting", function(e) { 
+      let value = $('.current').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
+      }
+    });
+
 
     $('.present').on("select2:selecting", function(e) { 
       let value = $('.present').val();
@@ -531,6 +569,8 @@ export default function Kyc() {
         $(".colForm").css("padding-bottom", "0px");
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         $(".pMore").text("Upload Documents");
+        $(".pTitle").text("Upload Documents");
+        $(".pSubtitle").html("Please ensure your ID type and number corresponds to the VALID ID (w/ photo) you will upload. <br/><br/>The details you provided on the Personal Info should be the same as the details found on your government issued ID (w/photo).");
         $(".divSettlement").css("display", "none");
         $(".divSettlement").removeClass("animate__fadeOut");
         $(".divSettlement").addClass("animate__animated  animate__fadeOut");
@@ -602,6 +642,9 @@ export default function Kyc() {
         $(".colForm").css("padding-top", "20px");
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("Professional Details");
+        $(".pTitle").text("Professional Details");
+        $(".pSubtitle").text("TAnnual Gross Income is the amount of money a person earns in one year before taxes and includes income from all sources.");
+
         $(".divCsa").css("display", "none");
         $(".divCsa").removeClass("animate__fadeOut");
         $(".divCsa").addClass("animate__animated  animate__fadeOut");
@@ -620,6 +663,9 @@ export default function Kyc() {
         $(".colForm").css("padding-top", "20px");
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("Address Information");
+        $(".pTitle").text("Address");
+        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is yout Manila address and your permanent address is your address is in Cebu. <br/><br/>Example: If you are on OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
+
         $(".divAdrress1").css("display", "none");
         $(".divAdrress1").removeClass("animate__fadeOut");
         $(".divAdrress1").addClass("animate__animated  animate__fadeOut");
@@ -635,6 +681,9 @@ export default function Kyc() {
         $(".colForm").css("padding-top", "0px");
         $(".colForm").css("padding-bottom", "0px");
         $(".pMore").text("Personal Information");
+        $(".pTitle").text("Personal\nInformation");
+        $(".pSubtitle").html("Why invest? Investing makes your money work for you - potentially building wealth by allowing you to outpace inflation and increase value over time. <br/><br/>Please make sure all your personal information are correct and consistent with your government issued IDs and bank accounts.");
+      
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         $(".divAdrress").css("display", "none");
         $(".divAdrress").removeClass("animate__fadeOut");
@@ -675,6 +724,9 @@ export default function Kyc() {
         $(".divAdrress").addClass("animate__animated  animate__fadeIn");
         step = 1;
         $(".pMore").text("Address Information");
+        $(".pTitle").text("Address");
+        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is yout Manila address and your permanent address is your address is in Cebu. <br/><br/>Example: If you are on OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
+
         $(".divWhite").css("top", "125px");
         $("#txtAccountname").val($("#txtfullname").val());
         $(".colmid").css({ height: $(".conContent").height() + "px" });
@@ -691,6 +743,9 @@ export default function Kyc() {
         $(".colForm").css("padding-top", "20px");
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("Professional Details");
+        $(".pTitle").text("Professional Details");
+        $(".pSubtitle").text("Annual Gross Income is the amount of money a person earns in one year before taxes and includes income from all sources.");
+
         $(".divAdrress1").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"
         );
@@ -797,6 +852,9 @@ export default function Kyc() {
         step = 5;
       } else if (step === 5) {
         $(".pMore").text("Upload Documents");
+        $(".pTitle").text("Upload Documents");
+        $(".pSubtitle").html("Please ensure your ID type and number corresponds to the VALID ID (w/ photo) you will upload. <br/><br/>The details you provided on the Personal Info should be the same as the details found on your government issued ID (w/photo).");
+
         $(".divUpload").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"
         );
@@ -816,6 +874,9 @@ export default function Kyc() {
         //   return false;
         // }
         $(".pMore").text("Settlement Information");
+        $(".pTitle").text("Settlement Information");
+        $(".pSubtitle").text("The settlement account is where we will deposit your funds should you decide to redeem your investment in the future.");
+      
         $(".divSettlement").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"
         );

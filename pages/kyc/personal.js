@@ -70,7 +70,7 @@ function Personal({ submitPersonal }) {
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12 col-12">
               <input required type="text" className="txtusername firstname" style={{marginTop: '-10px'}} />
-              <label alt="First Name" placeholder="First Name" />
+              <label alt="First Name, Jr/Sr" placeholder="First Name, Jr/Sr" />
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div className="lastname-error error-message hide"><span></span></div>

@@ -27,7 +27,7 @@ function Pep() {
                     <select autoComplete="off" className="select2 relative" defaultValue="default">
                         <option value="default" disabled>Do you have any relative who is/was
                         elected a
-                        government official or is/was an appointed official up to second degree
+                        government official up to second degree
                         of
                         consanguinity or affinity?
                         </option>

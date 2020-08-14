@@ -18,13 +18,13 @@ function Upload() {
             setType(type);
 
             // Year dropdown
-            let minOffset = 18, maxOffset = 100;
+            let minOffset = 1, maxOffset = 50;
 
             let thisYear = new Date().getFullYear();
             let years = [];
 
             for (var i = minOffset; i <= maxOffset; i++) {
-                let year = thisYear - i;
+                let year = thisYear + i;
                 years.push(year);
             }
 

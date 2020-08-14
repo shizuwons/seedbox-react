@@ -78,7 +78,7 @@ function Fatca() {
                 </div>
                 <div className="row" style={{padding: '0px 10px 10px', marginTop: '-10px'}}>
                 <div className="col-lg-8">
-                    <p className="pExpiry">Do you have current US telephone number?</p>
+                    <p className="pExpiry">Do you have a current US telephone number?</p>
                 </div>
                 <div className="col-lg-4">
                     <label className="checkbox bounce">
@@ -120,7 +120,7 @@ function Fatca() {
                 </div>
                 <div className="row" style={{padding: '0px 10px 10px', marginTop: '-10px'}}>
                 <div className="col-lg-8">
-                    <p className="pExpiry">Do you have current US residence address?</p>
+                    <p className="pExpiry">Do you have a current US residence address?</p>
                 </div>
                 <div className="col-lg-4">
                     <label className="checkbox bounce">
@@ -141,7 +141,7 @@ function Fatca() {
                 </div>
                 <div className="row" style={{padding: '0px 10px 10px', marginTop: '-10px'}}>
                 <div className="col-lg-8">
-                    <p className="pExpiry">Do you have current US mailing address? (Including US P.O.)</p>
+                    <p className="pExpiry">Do you have a current US mailing address? (Including US P.O.)</p>
                 </div>
                 <div className="col-lg-4">
                     <label className="checkbox bounce">

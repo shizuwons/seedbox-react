@@ -11,18 +11,39 @@ function Csa() {
                     Assessment</p>
                 </div>
                 <div className="col-lg-12">
+                <div className="selectdiv">
+                    <div className="select-placeholder">How much do you see yourself investing?</div>    
+                    <select autoComplete="off" className="select2 investment" defaultValue="default">
+                        <option value="default" disabled> How much do you see yourself investing?
+                        </option>
+                        <option>P1,000 or less</option>
+                        <option>P1,001 - P50,000</option>
+                        <option>P50,001 - P100,000</option>
+                        <option>P100,001 - P500,000</option>
+                        <option>P500,001 - P1,000,000</option>
+                        <option>More than P1,000,000</option>
+                    </select>
+                    </div>
+                    <div className="selectdiv">
+                    <div className="select-placeholder">How frequently do you see yourself investing?</div>    
+                    <select autoComplete="off" className="select2 investment" defaultValue="default">
+                        <option value="default" disabled> How frequently do you see yourself investing?
+                        </option>
+                        <option>Only when I have available cash</option>
+                        <option>Quarterly</option>
+                        <option>Monthly</option>
+                        <option>Weekly</option>
+                        <option>More frequently than once a week</option>
+                    </select>
+                    </div>
                     <div className="selectdiv">
                     <div className="select-placeholder">What is the purpose of your investment?</div>    
                     <select autoComplete="off" className="select2 investment" defaultValue="default">
                         <option value="default" disabled> What is the purpose of your investment?
                         </option>
-                        <option>Growth</option>
-                        <option>Investment</option>
-                        <option>Income</option>
-                        <option>Portfolio</option>
-                        <option>Speculation</option>
-                        <option>Savings</option>
-                        <option>Others</option>
+                        <option>To prevent capital loss while generating income.</option>
+                        <option>To have a regular income source.</option>
+                        <option>To generate significant capital appreciation.</option>
                     </select>
                     </div>
                     <div className="selectdiv">
@@ -97,6 +118,8 @@ function Csa() {
                         </option>
                         <option>0%</option>
                         <option>Up to 10%</option>
+                        <option>Up to 15%</option>
+                        <option>More than 15%</option>
                     </select>
                     </div>
                 </div>
