@@ -16,12 +16,12 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="collapse">
             <div className="col2 ml-auto">
               <ul className="nav navbar-nav">
-              <li><a className="nav-link btnhome" href="/" style={{fontFamily: 'Proxima Bold'}}>HOME</a></li>
-              <li className="dropdown">
-                  <a className="nav-link btncontact dropdown-toggle" data-toggle="dropdown" href="#">HOW DOES SEEDBOX WORK </a>
+              <li><a className="nav-link home-link btnhome" href="/" style={{fontFamily: 'Proxima Bold'}}>HOME</a></li>
+              <li className="dropdown how-dropdown">
+                  <a className="nav-link how-link btncontact dropdown-toggle" data-toggle="dropdown" href="#">HOW DOES SEEDBOX WORK </a>
                   <ul className="dropdown-menu dropdownBox animate slideIn">
-                      <li><a className="dropdownItem" href="#">FOR INDIVIDUAL</a></li>
-                      <li><a className="dropdownItem" href="#">AT WORK</a></li>
+                      <li><a className="dropdownItem individual" href="#">FOR INDIVIDUAL</a></li>
+                      <li><a className="dropdownItem work" href="#">AT WORK</a></li>
                       <li><a className="dropdownItem" href="#">PERA</a></li>
                       <li><a className="dropdownItem" href="#">ADVISORY</a></li>
                   </ul>
@@ -31,6 +31,7 @@ function Navbar() {
                 <a className="nav-link btncontact dropdown-toggle" data-toggle="dropdown" href="#">LEARN MORE </a>
                 <ul className="dropdown-menu dropdownBox animate slideIn">
                     <li><a className="dropdownItem" href="#">BLOGS</a></li>
+                    <li><a className="dropdownItem" href="#">ABOUT US</a></li>
                 </ul>
               </li>
               <li><a className="nav-link btncontact" href="contact.html" data-toggle="modal" data-target="#contactModal">CONTACT US</a></li>

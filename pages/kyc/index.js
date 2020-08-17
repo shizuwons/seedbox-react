@@ -582,9 +582,11 @@ export default function Kyc() {
 
     // If screen is mobile
     if($(window).width() < 440) {
-      if($('.select-placeholder').text().length >= 34) {
-        $('.select-placeholder').addClass('select-placeholder-mobile');
-      }
+      $('.select-placeholder').each(function(i, obj) {
+        if($(this).text().length >= 34) {
+          $(this).addClass('select-placeholder-mobile');
+        }
+      });
     }
 
     // Click function for back button

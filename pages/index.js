@@ -5,6 +5,9 @@ import { openNav, closeNav } from '../functions/kyc';
 import { useEffect } from 'react';
 import Navbar from '../components/navbar';
 import Sidebar from '../components/sidebar';
+import Homepage from './home';
+import Individual from './individual';
+import Work from './work';
 
 export default function Home() {
     
@@ -36,7 +39,43 @@ export default function Home() {
                 $(".conMainBody").css("filter", "blur(0px)");
             }
     
-        })
+        });
+
+        $(".individual").click(function () {
+            if(!$('.default-home').hasClass('hide')) {
+                $('.default-home').addClass('hide');
+            }
+
+            if(!$('.work-home').hasClass('hide')) {
+                $('.work-home').addClass('hide');
+            }
+
+            $('.individual-home').removeClass('hide');
+            $(this).attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C;');
+            $('.work').removeAttr('style');
+            $('.home-link').removeClass('btnhome');
+
+            $('.how-dropdown .how-link').attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C;');
+        });
+
+        $(".work").click(function () {
+            if(!$('.default-home').hasClass('hide')) {
+                $('.default-home').addClass('hide');
+            }
+
+            if(!$('.individual-home').hasClass('hide')) {
+                $('.individual-home').addClass('hide');
+            }
+
+            $('.work-home').removeClass('hide');
+            $('.individual').removeAttr('style');
+            $(this).attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C;');
+            $('.home-link').removeClass('btnhome');
+            $('.how-dropdown .how-link').attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C;');
+        });
+
+        // Nav-link click
+
     
         $('#exampleModal1').on('hidden.bs.modal', function () {
             $(".conMainBody").css("filter", "blur(0px)");
@@ -106,68 +145,9 @@ export default function Home() {
                 <Sidebar></Sidebar>
                 <div className="container-fluid h-100" style={{backgroundColor: '#fafafa'}}>
                 <Navbar></Navbar>
-                <div className="container con h-100 conMainBody" style={{padding: '20px 15px', backgroundColor: '#fafafa'}}>
-                    <div className="row align-items-center" style={{height: '80vh'}}>
-                    <div className="col-lg-6">
-                        <img src="Image/seedbox.gif" className="img-fluid mx-auto d-flex" />
-                    </div>
-                    <div className="col-lg-6 text-center conContent">
-                        <p className="pTitle">Investing,</p>
-                        <p className="pTitle" style={{marginTop: '-40px'}}>simplified.</p>
-                        <p className="pSubtitle">Seedbox Philippines is a service that lets you invest in funds online,</p>
-                        <p className="pSubtitle">whether on your phone or through your desktop. Sign up once and you’re good to
-                        go.</p>
-                        <input type="button" className="btnLearnmore" defaultValue="LEARN MORE" />
-                    </div>
-                    </div>
-                </div>
-                <div className="container con conBody">
-                    <div className="row">
-                    <div className="col-lg-12">
-                        <p className="pHow">How it works</p>
-                        <div className="box form-inline" style={{marginTop: '25px'}}>
-                        <div className="divIcon1 form-inline">
-                            <div className="divIcon" style={{padding: '10px 20px'}}>
-                            <img src="Image/sign-up.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
-                            <p className="pBox">Sign Up</p>
-                            </div>
-                            <div className="divIcon" style={{padding: '10px 20px'}}>
-                            <img src="Image/goal.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
-                            <p className="pBox">Know your goals</p>
-                            </div>
-                        </div>
-                        <div className="divIcon2 form-inline align-items-center">
-                            <div className="divIcon divIcon3 align-items-center" style={{padding: '10px 20px'}}>
-                            <img src=" Image/planner.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
-                            <p className="pBox">Use the goal planner</p>
-                            </div>
-                            <div className="divIcon divIcon4" style={{padding: '10px 20px', display: 'inline-block'}}>
-                            <img src=" Image/invest.png" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon imgInvest" />
-                            <p className="pBox">Invest</p>
-                            </div>
-                        </div>
-                        <div className="divIcon3">
-                            <div className="divIconlast divIcon5" style={{padding: '10px 20px'}}>
-                            <img src="Image/habit.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgLast" />
-                            <p className="pBox">Build the habit</p>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div className="row align-items-center row1" style={{marginTop: '150px', paddingBottom: '100px'}}>
-                    <div className="col-lg-6 text-center">
-                        <p className="pTitle">Seedbox</p>
-                        <p className="pTitle" style={{marginTop: '-40px'}}>at work.</p>
-                        <p className="pSubtitle">Bring the benefits of Seedbox to your workplace. Seedbox at Work can partner
-                        with your office to set up an easy investment plan via payroll deduction. We can also offer
-                        financial literacy seminars for your group.</p>
-                    </div>
-                    <div className="col-lg-6 colImage">
-                        <img src="Image/gif2.gif" className="img-fluid mx-auto d-flex" />
-                    </div>
-                    </div>
-                </div>
+                <Homepage></Homepage>
+                <Individual></Individual>
+                <Work></Work>
                 </div>
                 <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" role="document">
