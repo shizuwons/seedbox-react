@@ -8,6 +8,8 @@ import {
 import { personalValidation, addressValidation, professionalValidation, pepValidation, csaValidation, uploadValidation, settlementValidation } from '../../functions/validators';
 import { useEffect } from 'react';
 import KycForm from './kycForm';
+import Navbar from '../../components/navbar';
+import Sidebar from '../../components/sidebar';
 
 export default function Kyc() {
 
@@ -937,72 +939,9 @@ export default function Kyc() {
           `}
         </script>
       </Head>
-        <div id="mySidenav" className="sidenav">
-          <a href="#" className="closebtn" onClick={closeNav}>×</a>
-          <a href="/">HOME</a>
-          <li className="sidebarNav collapsed active" data-toggle="collapse" data-target="#products">
-              <a href="#">HOW DOES SEEDBOX WORK <span className="arrow"></span></a>
-          </li>
-          <ul className="sub-menu collapse sidebarNav-dropdown" id="products">
-              <li><a className="" href="#">FOR INDIVIDUAL</a></li>
-              <li><a className="" href="#">AT WORK</a></li>
-              <li><a className="" href="#">PERA</a></li>
-              <li><a className="" href="#">ADVISORY</a></li>
-          </ul>
-          <a href="#">PRODUCTS</a>
-          <li className="sidebarNav collapsed active" data-toggle="collapse" data-target="#learnmore">
-                    <a href="#">LEARN MORE <span className="arrow"></span></a>
-                </li>
-                <ul className="sub-menu collapse sidebarNav-dropdown" id="learnmore">
-                    <li><a className="" href="#">BLOGS</a></li>
-                </ul>
-          <a href="#" data-toggle="modal" data-target="#contactModal">CONTACT</a>
-          <a href="#" data-toggle="modal" data-target="#exampleModal">LOG IN</a>
-          <a href="#" data-toggle="modal" data-target="#exampleModal1">SIGN UP</a>
-        </div>
+        <Sidebar></Sidebar>
         <div className="container-fluid" style={{backgroundColor: '#fafafa'}}>
-          <div className="container con" style={{padding: '20px 15px'}}>
-            <span style={{fontSize: '30px', cursor: 'pointer', position: 'absolute', zIndex: 1111111, color: '#13C95C', display: 'none'}} onClick={openNav} className="span">☰</span>
-            <nav className="navbar navbar-expand-md">
-              <button className="navbar-toggler" data-toggle="collapse" data-target="#collapse">
-                <span className="navbar-toggler-icon" />
-              </button>
-              <nav className="navbar-brand" href="">
-                <a href="/" onClick={() => Router.push("/")}><img src="Image/Seedbox-Logo-updated.png" className="img-fluid imgLogo" style={{width: '170px'}}/></a>
-              </nav>
-              <div className="collapse navbar-collapse" id="collapse">
-                <div className="col2 ml-auto">
-                  <ul className="nav navbar-nav">
-                  <li><a className="nav-link btnhome" href="/" style={{fontFamily: 'Proxima Bold'}}>HOME</a></li>
-                  <li className="dropdown">
-                      <a className="nav-link btncontact dropdown-toggle" data-toggle="dropdown" href="#">HOW DOES SEEDBOX WORK </a>
-                      <ul className="dropdown-menu dropdownBox animate slideIn">
-                          <li><a className="dropdownItem" href="#">FOR INDIVIDUAL</a></li>
-                          <li><a className="dropdownItem" href="#">AT WORK</a></li>
-                          <li><a className="dropdownItem" href="#">PERA</a></li>
-                          <li><a className="dropdownItem" href="#">ADVISORY</a></li>
-                      </ul>
-                  </li>
-                  <li><a className="nav-link btncontact" href="contact.html">PRODUCTS</a></li>
-                  <li className="dropdown">
-                    <a className="nav-link btncontact dropdown-toggle" data-toggle="dropdown" href="#">LEARN MORE </a>
-                    <ul className="dropdown-menu dropdownBox animate slideIn">
-                        <li><a className="dropdownItem" href="#">BLOGS</a></li>
-                    </ul>
-                  </li>
-                  <li><a className="nav-link btncontact" href="contact.html" data-toggle="modal" data-target="#contactModal">CONTACT US</a></li>
-                  <li><a className="nav-link btnlogin" href="contact.html" data-toggle="modal" data-target="#exampleModal">LOG IN</a>
-                  </li>
-                  <li>
-                    <div className="signup-button">
-                      <a className="nav-link btncontact signup" href="contact.html" data-toggle="modal" data-target="#exampleModal1">SIGN UP</a>
-                    </div>
-                  </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          </div>
+          <Navbar></Navbar>
           <div className="container con conContent" style={{backgroundColor: 'white', width: '100%', borderRadius: '25px', boxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', WebkitBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', MozBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', height: '82vh'}}>
             <KycForm></KycForm>
           </div>
