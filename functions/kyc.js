@@ -505,8 +505,7 @@ export function functionProfessional() {
   }
   
 export function functionCsa() {
-  $(".conContent").css("height", "auto");
-  $(".colmid").css({ height: $(".conContent").height() + "px" });
+  $(".conContent").css("height", "85vh");
   $(".colForm").css("padding-top", "0px");
   $(".colForm").css("padding-bottom", "0px");
   $(".colmid").css({ height: $(".conContent").height() + "px" });
