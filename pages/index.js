@@ -132,7 +132,7 @@ export default function Home() {
                         <span className="navbar-toggler-icon" />
                     </button>
                     <nav className="navbar-brand" href="#">
-                        <a href="#"><img src="Image/logo-removebg-preview.png" className="img-fluid imglogo" style={{width: '150px'}} onClick={() => Router.push("/")}/></a>
+                        <a href="#"><img src="Image/Seedbox-Logo-updated.png" className="img-fluid imglogo" style={{width: '170px'}} onClick={() => Router.push("/")}/></a>
                     </nav>
                     <div className="collapse navbar-collapse" id="collapse">
                         <div className="col2 ml-auto">

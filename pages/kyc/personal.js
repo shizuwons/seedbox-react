@@ -326,7 +326,7 @@ function Personal({ submitPersonal }) {
                 <div className="mobile-error error-message hide"><span></span></div>
             </div>
           </div>
-            <input required type="text" className="txtusername email" />
+            <input required type="text" className="txtusername email"/>
             <label alt="Email" placeholder="Email" className="labelEmail" />
             <div className="pErrorEmail hide" style={{ margin: "0 0 1em"}}>Your email is not valid.</div>
           <div className="row" style={{marginTop: '-5px'}}>

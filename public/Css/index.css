@@ -291,7 +291,7 @@
     padding: 0 2px;
     color: #414141;
     white-space: nowrap;
-    transition: 0.1s ease-in-out;
+    /* transition: 0.1s ease-in-out; */
     background-image: linear-gradient(to bottom, #fff, #fff);
     background-size: 100% 5px;
     background-repeat: no-repeat;
@@ -635,6 +635,15 @@
 
   .select2-container *:focus {
     outline: none;
+  }
+
+  .select2-selection--multiple .select2-selection__choice {
+    height: 29px !important;
+    width: 25% !important; 
+    border-radius: 25px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .pError {

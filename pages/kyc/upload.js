@@ -44,10 +44,10 @@ function Upload() {
                 <div className="col-lg-5 col-md-5 col-sm-5 col-5">
                     <div className="selectdiv" style={{marginTop: '0px'}}>
                         <div className="select-placeholder">ID Type</div>
-                        <select autoComplete="off" className="select2 idtype" defaultValue="default">
+                        <select autoComplete="off" className="select2 idtype" id="IdType" defaultValue="default">
                             <option value="default" disabled>ID Type</option>
                             {type.map((e, index) =>(
-                                <option key={index} value={e.value}>{e.value}</option>
+                                <option key={index} value={e.code}>{e.value}</option>
                             ))}
                         </select>
                     </div>

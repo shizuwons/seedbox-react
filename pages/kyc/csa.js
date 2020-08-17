@@ -13,7 +13,7 @@ function Csa() {
                 <div className="col-lg-12">
                 <div className="selectdiv">
                     <div className="select-placeholder">How much do you see yourself investing?</div>    
-                    <select autoComplete="off" className="select2 investment" defaultValue="default">
+                    <select autoComplete="off" className="select2 invest-much" defaultValue="default">
                         <option value="default" disabled> How much do you see yourself investing?
                         </option>
                         <option>P1,000 or less</option>
@@ -26,7 +26,7 @@ function Csa() {
                     </div>
                     <div className="selectdiv">
                     <div className="select-placeholder">How frequently do you see yourself investing?</div>    
-                    <select autoComplete="off" className="select2 investment" defaultValue="default">
+                    <select autoComplete="off" className="select2 frequent-invest" defaultValue="default">
                         <option value="default" disabled> How frequently do you see yourself investing?
                         </option>
                         <option>Only when I have available cash</option>
@@ -84,7 +84,7 @@ function Csa() {
                     </div>
                     <div className="selectdiv">
                     <div className="select-placeholder">Which of the following have you invested in?</div>
-                    <select autoComplete="off" className="select2 invested" defaultValue="default">
+                    <select autoComplete="off" className="select2 invested">
                         <option value="default" disabled> Which of the following have you invested
                         in?
                         </option>
@@ -103,7 +103,7 @@ function Csa() {
                     <div className="selectdiv">
                     <div className="select-placeholder">Do you have regular liquidity?</div>
                     <select autoComplete="off" className="select2 liquidity" defaultValue="default">
-                        <option value="default" disabled> Do you have regular liquidity
+                        <option value="default" disabled> Do you have a regular liquidity
                         requirement?
                         </option>
                         <option>Yes</option>

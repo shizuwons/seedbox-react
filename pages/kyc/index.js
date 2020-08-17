@@ -34,37 +34,43 @@ export default function Kyc() {
       minimumResultsForSearch: -1,
     });
 
-    // $(".invested").select2({
-    //   width: "element",
-    //   minimumResultsForSearch: -1,
-    //   placeholder: "Which of the following have you invested in?"
-    // });
+    $(".invested").select2({
+      width: "element",
+      minimumResultsForSearch: -1,
+      placeholder: "Which of the following have you invested in?"
+    });
 
     $(".txtusername").attr('maxlength', '50');
+    $(".currentaddress").attr('maxlength', '150');
+    $(".presentaddress").attr('maxlength', '150');
+    $(".workaddress").attr('maxlength', '150');
 
     $(".txtusername").keyup(function (event) {
       if($(this).val().length > 0) {
-        console.log($(this).val());
         $(this).css("border-color", "green");
       } else {
         $(this).removeAttr('style');
       }
     });
 
-    $(".email").blur(function () {
-      let value = $(this).val();
+    // $(".email").keyup(function() {
+    //   $(this).val("seedbox@seedbox.ph");
+    // });
 
-      if(!isEmail(value)) {
-        $(this).css("border-color", "red");
-        $('.pErrorEmail').removeClass('hide');
-        $('.labelEmail').css({
-          marginBottom: "calc((3em - 1em) + -13px)"
-        });
-      } else {
-        $('.pErrorEmail').addClass('hide');
-        $('.labelEmail').removeAttr('style');
-      }
-    });
+    // $(".email").blur(function () {
+    //   let value = $(this).val();
+
+    //   if(!isEmail(value)) {
+    //     $(this).css("border-color", "red");
+    //     $('.pErrorEmail').removeClass('hide');
+    //     $('.labelEmail').css({
+    //       marginBottom: "calc((3em - 1em) + -13px)"
+    //     });
+    //   } else {
+    //     $('.pErrorEmail').addClass('hide');
+    //     $('.labelEmail').removeAttr('style');
+    //   }
+    // });
 
     $("input[list]").focus(function() {
       let classname = $(this).attr("class");
@@ -121,10 +127,10 @@ export default function Kyc() {
     let text = '';
     // Automatic text format based on what id type the user choose
     $("#txtIdNumber").keyup(function (event) {
-      if ($("#IdType").val() === "GSIS ID") {
+      if ($("#IdType").val() === "GSIS") {
         $("#txtIdNumber").attr("maxlength", "11");
       }
-      if ($("#IdType").val() === "TIN ID") {
+      if ($("#IdType").val() === "TIN") {
         $("#txtIdNumber").attr("maxlength", "15");
         addHyphen(this);
       }
@@ -132,13 +138,13 @@ export default function Kyc() {
         $("#txtIdNumber").attr("maxlength", "14");
         addHyphenPagibig(this);
       }
-      if ($("#IdType").val() === "PRC ID") {
+      if ($("#IdType").val() === "PRC") {
         $("#txtIdNumber").attr("maxlength", "7");
       }
-      if ($("#IdType").val() === "OFW e-Card") {
+      if ($("#IdType").val() === "OFW") {
         $("#txtIdNumber").attr("maxlength", "13");
       }
-      if ($("#IdType").val() === "Philhealth") {
+      if ($("#IdType").val() === "PHH") {
         $("#txtIdNumber").attr("maxlength", "14");
         text = $("#txtIdNumber");
         if (text.val().length === 2) {
@@ -378,6 +384,24 @@ export default function Kyc() {
     });
 
     // CSA
+    $('.invest-much').on("select2:selecting", function(e) { 
+      let value = $('.investment').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
+      }
+    });
+
+    $('.frequent-invest').on("select2:selecting", function(e) { 
+      let value = $('.investment').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
+      }
+    });
+
     $('.investment').on("select2:selecting", function(e) { 
       let value = $('.investment').val();
 
@@ -618,7 +642,7 @@ export default function Kyc() {
         $(".divWhite").css("top", "330px");
         step = 4;
       } else if (step === 4) {
-        $(".conContent").css("height", "82vh");
+        $(".conContent").css("height", "auto");
         $(".colForm").css("padding-top", "0px");
         $(".colForm").css("padding-bottom", "0px");
         $(".colmid").css({ height: $(".conContent").height() + "px" });
@@ -643,7 +667,7 @@ export default function Kyc() {
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("Professional Details");
         $(".pTitle").text("Professional Details");
-        $(".pSubtitle").text("TAnnual Gross Income is the amount of money a person earns in one year before taxes and includes income from all sources.");
+        $(".pSubtitle").html("Net Worth is everything own (example: cash, money in your bank, investments, etc.) minus owe (example: your debt, credit card, mortgage) <br/><br/>Annual Gross Income is the amount of money a person earns in one year before taxes and includes income from all sources. <br/><br/>Please indicate if you are an Officer/Director/Shareholder of the company you are working for.");
 
         $(".divCsa").css("display", "none");
         $(".divCsa").removeClass("animate__fadeOut");
@@ -664,7 +688,7 @@ export default function Kyc() {
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("Address Information");
         $(".pTitle").text("Address");
-        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is yout Manila address and your permanent address is your address is in Cebu. <br/><br/>Example: If you are on OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
+        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is your Manila address and your permanent address is your address is in Cebu. <br/><br/>Example: If you are on OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
 
         $(".divAdrress1").css("display", "none");
         $(".divAdrress1").removeClass("animate__fadeOut");
@@ -725,7 +749,7 @@ export default function Kyc() {
         step = 1;
         $(".pMore").text("Address Information");
         $(".pTitle").text("Address");
-        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is yout Manila address and your permanent address is your address is in Cebu. <br/><br/>Example: If you are on OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
+        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is your Manila address and your permanent address is your address is in Cebu. <br/><br/>Example: If you are on OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
 
         $(".divWhite").css("top", "125px");
         $("#txtAccountname").val($("#txtfullname").val());
@@ -744,7 +768,7 @@ export default function Kyc() {
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("Professional Details");
         $(".pTitle").text("Professional Details");
-        $(".pSubtitle").text("Annual Gross Income is the amount of money a person earns in one year before taxes and includes income from all sources.");
+        $(".pSubtitle").html("Net Worth is everything own (example: cash, money in your bank, investments, etc.) minus owe (example: your debt, credit card, mortgage) <br/><br/>Annual Gross Income is the amount of money a person earns in one year before taxes and includes income from all sources. <br/><br/>Please indicate if you are an Officer/Director/Shareholder of the company you are working for.");
 
         $(".divAdrress1").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"
@@ -944,7 +968,7 @@ export default function Kyc() {
                 <span className="navbar-toggler-icon" />
               </button>
               <nav className="navbar-brand" href="">
-                <a href="/" onClick={() => Router.push("/")}><img src="Image/logo-removebg-preview.png" className="img-fluid imgLogo" style={{width: '150px'}}/></a>
+                <a href="/" onClick={() => Router.push("/")}><img src="Image/Seedbox-Logo-updated.png" className="img-fluid imgLogo" style={{width: '170px'}}/></a>
               </nav>
               <div className="collapse navbar-collapse" id="collapse">
                 <div className="col2 ml-auto">

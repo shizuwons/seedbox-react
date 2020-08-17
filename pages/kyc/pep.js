@@ -23,10 +23,10 @@ function Pep() {
                     </select>
                     </div>
                     <div className="selectdiv">
-                    <div className="select-placeholder">Do you have any relative who is/was elected a govern...</div>
+                    <div className="select-placeholder">Do you have any relative who is/was an elected/appoi...</div>
                     <select autoComplete="off" className="select2 relative" defaultValue="default">
                         <option value="default" disabled>Do you have any relative who is/was
-                        elected a
+                        an elected/appointed a
                         government official up to second degree
                         of
                         consanguinity or affinity?

@@ -119,15 +119,7 @@ function Professional() {
                 <input required type="text" className="txtusername workaddress" />
                 <label alt="Office Address" placeholder="Office Address" />
             </div>
-            <div className="col-lg-6" style={{marginTop: '-4px'}}>
-                <input required type="text" className="txtusername workcity" />
-                <label alt="City" placeholder="City" />
-            </div>
-            <div className="col-lg-6" style={{marginTop: '-4px'}}>
-                <input required type="text" className="txtusername workprovince" />
-                <label alt="Province/Region" placeholder="Province/Region" />
-            </div>
-            <div className="col-lg-12" style={{marginTop: '-10px'}}>
+            <div className="col-lg-12" style={{marginTop: '-16px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">Country</div>
                 <select autoComplete="off" className="select2 nature-country" defaultValue={''}>
@@ -138,6 +130,37 @@ function Professional() {
                 </select>
                 </div>
             </div>
+            <div className="col-lg-6 colAdd" style={{marginTop: '-2px'}}>
+                <div className="selectdiv">
+                <div className="select-placeholder">Province/Region</div>
+                <select autoComplete="off" className="select2 workregion" id="#workregion" defaultValue={''}>
+                    <option value="" disabled>Province/Region</option>
+                    <option value="Metro Manila">Metro Manila</option>
+                    <option value="Cavite">Cavite</option>
+                    <option value="Laguna">Laguna</option>
+                    <option value="Bulacan">Bulacan</option>
+                </select>
+                </div>
+            </div>
+            <div className="col-lg-6 colAdd" style={{marginTop: '-2px'}}>
+                <div className="selectdiv">
+                <div className="select-placeholder">City</div>
+                <select autoComplete="off" className="select2 workcity" id="#workcity" defaultValue={''}>
+                    <option value="" disabled>City</option>
+                    <option value="Makati">Makati</option>
+                    <option value="Pasig">Pasig</option>
+                    <option value="Quezon">Quezon</option>
+                </select>
+                </div>
+            </div>
+            {/* <div className="col-lg-6" style={{marginTop: '-4px'}}>
+                <input required type="text" className="txtusername workcity" />
+                <label alt="City" placeholder="City" />
+            </div>
+            <div className="col-lg-6" style={{marginTop: '-4px'}}>
+                <input required type="text" className="txtusername workprovince" />
+                <label alt="Province/Region" placeholder="Province/Region" />
+            </div> */}
             </div>
             <div className="row">
             <div className="col-lg-12">
