@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Router from 'next/router';
 import { openNav, closeNav } from '../functions/kyc';
+import { useEffect } from 'react';
 
 function Navbar() {
     return (
@@ -20,8 +21,8 @@ function Navbar() {
               <li className="dropdown how-dropdown">
                   <a className="nav-link how-link btncontact dropdown-toggle" data-toggle="dropdown" href="#">HOW DOES SEEDBOX WORK </a>
                   <ul className="dropdown-menu dropdownBox animate slideIn">
-                      <li><a className="dropdownItem individual" href="#">FOR INDIVIDUAL</a></li>
-                      <li><a className="dropdownItem work" href="#">AT WORK</a></li>
+                      <li><a className="dropdownItem individual" onClick={() => Router.push("/individual")}>FOR INDIVIDUAL</a></li>
+                      <li><a className="dropdownItem work" onClick={() => Router.push("/work")}>AT WORK</a></li>
                       <li><a className="dropdownItem" href="#">PERA</a></li>
                       <li><a className="dropdownItem" href="#">ADVISORY</a></li>
                   </ul>
