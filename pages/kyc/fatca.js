@@ -15,7 +15,7 @@ function Fatca() {
                 </div>
                 <div className="row" style={{padding: '10px 10px 10px'}}>
                 <div className="col-lg-8">
-                    <p className="pExpiry">Are you a US Citizen?</p>
+                    <p className="pExpiry">Are you a US citizen?</p>
                 </div>
                 <div className="col-lg-4">
                     <label className="checkbox bounce">
@@ -36,7 +36,7 @@ function Fatca() {
                 </div>
                 <div className="row" style={{padding: '0px 10px 10px', marginTop: '-10px'}}>
                 <div className="col-lg-8">
-                    <p className="pExpiry">US Resident?</p>
+                    <p className="pExpiry">US resident?</p>
                 </div>
                 <div className="col-lg-4">
                     <label className="checkbox bounce">

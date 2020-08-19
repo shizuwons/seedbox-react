@@ -73,6 +73,7 @@
     }
     .col {
       margin-top: -15px !important;
+      padding-right: 8px !important;
     }
     .pMore1 {
       color: #424242 !important;
@@ -158,9 +159,6 @@
   }
 
   @media only screen and (max-width: 440px) {
-    .colCircleLast, .hrLast {
-      display: none !important;
-    }
     .rowStep {
       padding-left: 10px !important;
     }

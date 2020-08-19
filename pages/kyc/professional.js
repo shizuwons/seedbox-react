@@ -6,6 +6,8 @@ import { compareStrings, sortById, sortIncome } from '../../functions/functions'
 
 function Professional() {
     const [country, setCountry] = useState([]);
+    const [provinces, setProvinces] = useState([]);
+    const [cities, setCities] = useState([]);
     const [work, setWork] = useState([]);
     const [business, setBusiness] = useState([]);
     const [funds, setFunds] = useState([]);
@@ -69,7 +71,78 @@ function Professional() {
 
         }
 
+        async function getProvinces(id) {
+            const provinceDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/provinces/' + id);
+            const province = await provinceDataLoad.data;
+            $('.workregion').empty();
+            let defaultValue = {
+                ids: '',
+                name: 'Province/Region'
+            };
+
+            let defaultOption = new Option(defaultValue.name, defaultValue.ids, false, false);
+            $('.workregion').append(defaultOption).trigger('change');
+
+            $('.workregion option:selected').prop('disabled', true);
+
+            Object.keys(province).forEach(function(key) {
+
+                let value = province[key];
+                
+                let data =  { 
+                    ids: key,
+                    name: value
+                };
+
+                let newOption = new Option(data.name, data.ids, false, false);
+                $('.workregion').append(newOption);
+                // ...
+            });
+        }
+
+        async function getCities(id) {
+            const cityDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/cities/' + id);
+            const city = await cityDataLoad.data;
+            $('.workcity').empty();
+            let defaultValue = {
+                ids: '',
+                name: 'City'
+            };
+
+            let defaultOption = new Option(defaultValue.name, defaultValue.ids, false, false);
+            $('.workcity').append(defaultOption).trigger('change');
+
+            $('.workcity option:selected').prop('disabled', true);
+
+            Object.keys(city).forEach(function(key) {
+                let value = city[key];
+                
+                let data =  { 
+                    ids: key,
+                    name: value
+                };
+
+                let newOption = new Option(data.name, data.ids, false, false);
+                $('.workcity').append(newOption);
+                // ...
+            });
+        }
+
         loadData();
+
+        $('.nature-country').on("change", function(e) { 
+            let id = $('.nature-country option:selected').val();
+
+            getProvinces(id);
+         });
+
+         $('.workregion').on("change", function(e) {
+             let id = ($('.workregion option:selected').val())
+
+             if(id !== '') {
+                getCities(id);
+             }
+         });
     }, []);
     return (
         <div className="divAdrress1 divForm" style={{display: 'none'}}>
@@ -125,7 +198,7 @@ function Professional() {
                 <select autoComplete="off" className="select2 nature-country" defaultValue={''}>
                     <option value="">Country</option>
                     {country.map((e, index) =>(
-                        <option key={index} value={e.country_name}>{e.country_name}</option>
+                        <option key={index} value={e.country_id}>{e.country_name}</option>
                     ))}
                 </select>
                 </div>
@@ -135,10 +208,6 @@ function Professional() {
                 <div className="select-placeholder">Province/Region</div>
                 <select autoComplete="off" className="select2 workregion" id="#workregion" defaultValue={''}>
                     <option value="" disabled>Province/Region</option>
-                    <option value="Metro Manila">Metro Manila</option>
-                    <option value="Cavite">Cavite</option>
-                    <option value="Laguna">Laguna</option>
-                    <option value="Bulacan">Bulacan</option>
                 </select>
                 </div>
             </div>
@@ -147,9 +216,6 @@ function Professional() {
                 <div className="select-placeholder">City</div>
                 <select autoComplete="off" className="select2 workcity" id="#workcity" defaultValue={''}>
                     <option value="" disabled>City</option>
-                    <option value="Makati">Makati</option>
-                    <option value="Pasig">Pasig</option>
-                    <option value="Quezon">Quezon</option>
                 </select>
                 </div>
             </div>

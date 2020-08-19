@@ -5,6 +5,9 @@ import { compareStrings } from '../../functions/functions';
  
 function Address() {
     const [country, setCountry] = useState([]);
+    const [provinces, setProvinces] = useState([]);
+    const [cities, setCities] = useState([]);
+    const [countryId, setCountryId] = useState([]);
     useEffect(() => {
         async function loadData() {
             const countryDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/countries');
@@ -22,10 +25,99 @@ function Address() {
             }
 
             setCountry(countries);
+            console.log(country);
+        }
 
+        async function getProvinces(id, attribute) {
+            const provinceDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/provinces/' + id);
+            const province = await provinceDataLoad.data;
+            $('.' + attribute + 'region').empty();
+            let defaultValue = {
+                ids: '',
+                name: 'Province/Region'
+            };
+
+            let defaultOption = new Option(defaultValue.name, defaultValue.ids, false, false);
+            $('.' + attribute + 'region').append(defaultOption).trigger('change');
+
+            $('.' + attribute + 'region option:selected').prop('disabled', true);
+
+            Object.keys(province).forEach(function(key) {
+
+                let value = province[key];
+                
+                let data =  { 
+                    ids: key,
+                    name: value
+                };
+
+                let newOption = new Option(data.name, data.ids, false, false);
+                $('.' + attribute + 'region').append(newOption);
+                // ...
+            });
+        }
+
+        async function getCities(id, attribute) {
+            const cityDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/cities/' + id);
+            const city = await cityDataLoad.data;
+            $('.' + attribute + 'city').empty();
+            let defaultValue = {
+                ids: '',
+                name: 'City'
+            };
+
+            let defaultOption = new Option(defaultValue.name, defaultValue.ids, false, false);
+            $('.' + attribute + 'city').append(defaultOption).trigger('change');
+
+            $('.' + attribute + 'city option:selected').prop('disabled', true);
+
+            Object.keys(city).forEach(function(key) {
+                let value = city[key];
+                
+                let data =  { 
+                    ids: key,
+                    name: value
+                };
+
+                let newOption = new Option(data.name, data.ids, false, false);
+                $('.' + attribute + 'city').append(newOption);
+                // ...
+            });
         }
 
         loadData();
+
+        $('.current').on("change", function(e) { 
+            let id = $('.current option:selected').val();
+            let attribute = 'current';
+
+            getProvinces(id, attribute);
+         });
+
+         $('.currentregion').on("change", function(e) {
+             let id = ($('.currentregion option:selected').val());
+             let attribute = 'current';
+
+             if(id !== '') {
+                getCities(id, attribute);
+             }
+         });
+
+         $('.present').on("change", function(e) { 
+            let id = $('.present option:selected').val();
+            let attribute = 'present';
+
+            getProvinces(id, attribute);
+         });
+
+         $('.presentregion').on("change", function(e) {
+             let id = ($('.presentregion option:selected').val());
+             let attribute = 'present';
+
+             if(id !== '') {
+                getCities(id, attribute);
+             }
+         });
     }, []);
 
     return (
@@ -45,7 +137,7 @@ function Address() {
                 <select autoComplete="off" className="select2 current" id="current" defaultValue={''}>
                     <option value="" disabled>Country</option>
                     {country.map((e, index) =>(
-                        <option key={index} value={e.country_name}>{e.country_name}</option>
+                        <option key={index} value={e.country_id}>{e.country_name}</option>
                     ))}
                 </select>
                 </div>
@@ -55,10 +147,6 @@ function Address() {
                 <div className="select-placeholder">Province/Region</div>
                 <select autoComplete="off" className="select2 currentregion" id="#currentregion" defaultValue={''}>
                     <option value="" disabled>Province/Region</option>
-                    <option value="Metro Manila">Metro Manila</option>
-                    <option value="Cavite">Cavite</option>
-                    <option value="Laguna">Laguna</option>
-                    <option value="Bulacan">Bulacan</option>
                 </select>
                 </div>
             </div>
@@ -67,9 +155,6 @@ function Address() {
                 <div className="select-placeholder">City</div>
                 <select autoComplete="off" className="select2 currentcity" id="#currentcity" defaultValue={''}>
                     <option value="" disabled>City</option>
-                    <option value="Makati">Makati</option>
-                    <option value="Pasig">Pasig</option>
-                    <option value="Quezon">Quezon</option>
                 </select>
                 </div>
             </div>
@@ -98,35 +183,24 @@ function Address() {
                     <option value="" disabled>Country</option>
                     {country.map((e, index) =>(
                         
-                        <option key={index} value={e.country_name}>{e.country_name}</option>
+                        <option key={index} value={e.country_id}>{e.country_name}</option>
                     ))}
                 </select>
                 </div>
             </div>
             <div className="col-lg-6 colAdd" style={{marginTop: '-2px'}}>
-                {/* <input required type="text" className="txtusername txtPermaProvince presentprovince" />
-                <label alt="Province/Region" placeholder="Province/Region" /> */}
                 <div className="selectdiv">
                 <div className="select-placeholder">Province/Region</div>
                 <select autoComplete="off" className="select2 presentregion" id="#presentregion" defaultValue={''}>
                     <option value="" disabled>Province/Region</option>
-                    <option value="Metro Manila">Metro Manila</option>
-                    <option value="Cavite">Cavite</option>
-                    <option value="Laguna">Laguna</option>
-                    <option value="Bulacan">Bulacan</option>
                 </select>
                 </div>
             </div>
             <div className="col-lg-6 colAdd" style={{marginTop: '-2px'}}>
-                {/* <input required type="text" className="txtusername txtPermaCity presentcity" />
-                <label alt="City" placeholder="City" /> */}
                 <div className="selectdiv">
                 <div className="select-placeholder">City</div>
                 <select autoComplete="off" className="select2 presentcity" id="#presentcity" defaultValue={''}>
                     <option value="" disabled>City</option>
-                    <option value="Makati">Makati</option>
-                    <option value="Pasig">Pasig</option>
-                    <option value="Quezon">Quezon</option>
                 </select>
                 </div>
             </div>

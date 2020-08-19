@@ -96,13 +96,29 @@ export default function Kyc() {
   
     // Function that will copy the current address to permanent address
     $("#cbx").click(function (event) {
+      if(this.checked) {
+        let current = $('.current').val();
+        let currentcity = $('.currentcity').val();
+        let currentregion = $('.currentregion').val();
+  
+        let currenttext = $('.current option:selected').text();
+        let currentcitytext = $('.currentcity option:selected').text();
+        let currentregiontext = $('.currentregion option:selected').text();
+        $('.presentregion').empty();
+
+        let selectedOption = new Option(currentregiontext, currentregion, false, false);
+        $('.presentregion').append(selectedOption);
+
+        $('.presentcity').empty();
+
+        let selectedOption2 = new Option(currentcitytext, currentcity, false, false);
+        $('.presentcity').append(selectedOption2);
+      }
       $('.present').val($('.current').val()).trigger('change.select2');
       $('.presentcity').val($('.currentcity').val()).trigger('change.select2');
-      $('.presentregion').val($('.currentregion').val()).trigger('change.select2');
-      $(".txtPermaAdd1").val($(".txtCurrentAdd1").val());
-      $(".txtPermaAdd2").val($(".txtCurrentAdd2").val());
-      $(".txtPermaCity").val($(".txtCurrentCity").val());
-      $(".txtPermaProvince").val($(".txtCurrentProvince").val());
+     // $('.presentregion').val($('.currentregion').val()).trigger('change.select2');
+      $(".presentaddress").val($(".currentaddress").val());
+      $(".presentaddress").css({borderColor: 'green'});
       $('.present').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
       $('.present').siblings(".select-placeholder").css({ opacity: "1" });
       $('.presentcity').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
@@ -110,10 +126,8 @@ export default function Kyc() {
       $('.presentregion').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
       $('.presentregion').siblings(".select-placeholder").css({ opacity: "1" });
       if (!this.checked) {
-        $(".txtPermaAdd1").val("");
-        $(".txtPermaAdd2").val("");
-        $(".txtPermaCity").val("");
-        $(".txtPermaProvince").val("");
+        $(".presentaddress").val("");
+        $(".presentaddress").removeAttr('style');
         $('.present').val(null).trigger('change.select2');
         $('.presentcity').val(null).trigger('change.select2');
         $('.presentregion').val(null).trigger('change.select2');
@@ -123,7 +137,25 @@ export default function Kyc() {
         $('.presentcity').siblings(".select-placeholder").css({ opacity: "0" });
         $('.presentregion').siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
         $('.presentregion').siblings(".select-placeholder").css({ opacity: "0" });
-      }
+
+        $('.presentregion').empty();
+        let defaultValue = {
+          ids: '',
+          name: 'Province/Region'
+        };
+
+        let selectedOption = new Option(defaultValue.name, defaultValue.ids, false, false);
+        $('.presentregion').append(selectedOption);
+
+        $('.presentcity').empty();
+        let defaultValue2 = {
+          ids: '',
+          name: 'City'
+        };
+
+        let selectedOption2 = new Option(defaultValue2.name, defaultValue2.ids, false, false);
+          $('.presentcity').append(selectedOption2);
+        }
     });
 
     let text = '';
@@ -312,6 +344,24 @@ export default function Kyc() {
       }
     });
 
+    $('.presentregion').on("select2:selecting", function(e) { 
+      let value = $('.presentregion').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
+      }
+    });
+
+    $('.presentcity').on("select2:selecting", function(e) { 
+      let value = $('.presentcity').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
+      }
+    });
+
     // Professional details select fields
     $('.nature-work').on("select2:selecting", function(e) { 
       let value = $('.nature-work').val();
@@ -333,6 +383,24 @@ export default function Kyc() {
 
     $('.nature-country').on("select2:selecting", function(e) { 
       let value = $('.nature-country').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
+      }
+    });
+
+    $('.workregion').on("select2:selecting", function(e) { 
+      let value = $('.workregion').val();
+
+      if(value != "" || value != null) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });
+      }
+    });
+
+    $('.workcity').on("select2:selecting", function(e) { 
+      let value = $('.workcity').val();
 
       if(value != "" || value != null) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
