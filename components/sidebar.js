@@ -48,8 +48,14 @@ function Sidebar() {
     }
   
       // Nav-link click
+    $('.dropdown-toggle').click(function() {
+        $(this).attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C;');
+    });
   
-  
+    $(window).click(function() {
+        $('.dropdown-toggle').removeAttr('style');
+    });
+
       $('#exampleModal1').on('hidden.bs.modal', function () {
           $(".conMainBody").css("filter", "blur(0px)");
   

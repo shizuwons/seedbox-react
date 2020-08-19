@@ -430,6 +430,9 @@ textarea {
 
   .dropdownItem:hover {
     text-decoration: none;
+    font-family: "Proxima Extrabold" !important;
+    color: #13C95C !important;
+    cursor: pointer !important;
   }
 
   .sidebarNav {
