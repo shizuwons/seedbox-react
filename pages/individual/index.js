@@ -29,7 +29,7 @@ export default function Individual() {
                         </div>
                         <div className="col-lg-6">
                             <p className="pHow">How it works</p>
-                            <div className="box form-inline" style={{marginTop: '25px'}}>
+                            <div className="box form-inline how-individual" style={{marginTop: '25px'}}>
                                 <div className="divIcon1 form-inline">
                                     <div className="divIcon" style={{padding: '10px 20px'}}>
                                     <img src="Image/sign-up.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
@@ -56,6 +56,9 @@ export default function Individual() {
                                     <p className="pBox">Build the habit</p>
                                     </div>
                                 </div>
+                            </div>
+                            <div style={{ textAlign: 'center'}}>
+                                <input type="button" className="btnLearnmore signupbuttom" value="SIGN UP NOW"/>
                             </div>
                         </div>
                     </div>

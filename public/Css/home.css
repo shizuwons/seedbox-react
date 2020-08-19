@@ -115,6 +115,12 @@ body, html {
     }
 }
 
+@media only screen and (min-width: 480px) {
+    .how-individual {
+        margin-left: -74px !important;
+    }
+}
+
 @font-face {
     font-family: "Proxima Regular";
     src: url("../Fonts/ProximaNova-Regular.otf");
