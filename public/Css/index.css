@@ -644,6 +644,20 @@
     text-overflow: ellipsis;
   }
 
+  .select2-selection__choice__display {
+    display: block;
+    margin-top: -40px;
+    padding-left: 23px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .select2-selection__choice__remove span {
+    position: absolute;
+    top: 2px;
+  }
+
   .pError {
     font-family: "Proxima Bold";
     color: red;

@@ -90,8 +90,10 @@ function Address() {
         $('.current').on("change", function(e) { 
             let id = $('.current option:selected').val();
             let attribute = 'current';
-
-            getProvinces(id, attribute);
+            
+            if(id !== '') {
+                getProvinces(id, attribute);
+            }
          });
 
          $('.currentregion').on("change", function(e) {

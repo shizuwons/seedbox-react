@@ -84,7 +84,7 @@ function Csa() {
                     </div>
                     <div className="selectdiv">
                     <div className="select-placeholder">Which of the following have you invested in?</div>
-                    <select autoComplete="off" className="select2 invested">
+                    <select autoComplete="off" className="invested" value="invested[]" multiple="multiple">
                         <option value="default" disabled> Which of the following have you invested
                         in?
                         </option>

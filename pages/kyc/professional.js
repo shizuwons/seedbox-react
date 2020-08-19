@@ -133,7 +133,9 @@ function Professional() {
         $('.nature-country').on("change", function(e) { 
             let id = $('.nature-country option:selected').val();
 
-            getProvinces(id);
+            if(id !== '') {
+                getProvinces(id);
+            }
          });
 
          $('.workregion').on("change", function(e) {

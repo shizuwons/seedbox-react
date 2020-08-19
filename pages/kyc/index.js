@@ -39,7 +39,9 @@ export default function Kyc() {
     $(".invested").select2({
       width: "element",
       minimumResultsForSearch: -1,
-      placeholder: "Which of the following have you invested in?"
+      placeholder: "Which of the following have you invested in?",
+      maximumSelectionLength: 3,
+      multiple: true
     });
 
     $(".txtusername").attr('maxlength', '50');
@@ -508,12 +510,15 @@ export default function Kyc() {
       }
     });
 
-    $('.invested').on("select2:selecting", function(e) { 
+    $('.invested').on("change", function(e) { 
       let value = $('.invested').val();
 
-      if(value != "" || value != null) {
+      if(value.length !== 0) {
         $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
         $(this).siblings(".select-placeholder").css({ opacity: "1" });
+      } else {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+        $(this).siblings(".select-placeholder").css({ opacity: "0" });
       }
     });
 
