@@ -93,13 +93,13 @@ export default function Address() {
 
         function reloadSelect() {
             $(document).ready(function() {
-                if(localStorage.getItem("currentCountry") !== "" || localStorage.getItem("currentCountry") !== null) {
+                if(localStorage.getItem("currentCountry") !== null) {
                     $("select[name='currentCountry']").val(localStorage.getItem("currentCountry")).trigger('change');
                     $("select[name='currentCountry']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='currentCountry']").siblings(".select-placeholder").css({ opacity: "1" });    
                 }
     
-                if(localStorage.getItem("presentCountry") !== "" || localStorage.getItem("presentCountry") !== null) {
+                if(localStorage.getItem("presentCountry") !== null) {
                     $("select[name='presentCountry']").val(localStorage.getItem("presentCountry")).trigger('change');
                     $("select[name='presentCountry']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='presentCountry']").siblings(".select-placeholder").css({ opacity: "1" });    
@@ -131,7 +131,7 @@ export default function Address() {
         function reloadCity(attribute) {
             $(document).ready(function() {
                 if(attribute === 'current') {
-                    if(localStorage.getItem("currentCity") !== "" || localStorage.getItem("currentCity") !== null) {
+                    if(localStorage.getItem("currentCity") !== null) {
                         $("select[name='currentCity']").val(localStorage.getItem("currentCity")).trigger('change');
                         $("select[name='currentCity']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                         $("select[name='currentCity']").siblings(".select-placeholder").css({ opacity: "1" });    
@@ -140,7 +140,7 @@ export default function Address() {
                 
                 console.log(attribute);
                 if(attribute === 'present') {
-                    if(localStorage.getItem("presentCity") !== "" || localStorage.getItem("presentCity") !== null) {
+                    if(localStorage.getItem("presentCity") !== null) {
                         $("select[name='presentCity']").val(localStorage.getItem("presentCity")).trigger('change');
                         $("select[name='presentCity']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                         $("select[name='presentCity']").siblings(".select-placeholder").css({ opacity: "1" });    

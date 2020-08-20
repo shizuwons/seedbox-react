@@ -58,31 +58,31 @@ export default function Personal() {
 
         function reloadSelect() {
             $(document).ready(function() {
-                if(localStorage.getItem("civilStatus") !== "" || localStorage.getItem("civilStatus") !== null) {
+                if(localStorage.getItem("civilStatus") !== null) {
                     $("select[name='civilStatus']").val(localStorage.getItem("civilStatus")).trigger('change.select2');
                     $("select[name='civilStatus']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='civilStatus']").siblings(".select-placeholder").css({ opacity: "1" });    
                 }
     
-                if(localStorage.getItem("gender") !== "" || localStorage.getItem("gender") !== null) {
+                if(localStorage.getItem("gender") !== null) {
                     $("select[name='gender']").val(localStorage.getItem("gender")).trigger('change.select2');
                     $("select[name='gender']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='gender']").siblings(".select-placeholder").css({ opacity: "1" });    
                 }    
 
-                if(localStorage.getItem("birthPlace") !== "" || localStorage.getItem("birthPlace") !== null) {
+                if(localStorage.getItem("birthPlace") !== null) {
                     $("select[name='birthPlace']").val(localStorage.getItem("birthPlace")).trigger('change.select2');
                     $("select[name='birthPlace']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='birthPlace']").siblings(".select-placeholder").css({ opacity: "1" });    
                 }    
 
-                if(localStorage.getItem("citizenship") !== "" || localStorage.getItem("citizenship") !== null) {
+                if(localStorage.getItem("citizenship") !== null) {
                     $("select[name='citizenship']").val(localStorage.getItem("citizenship")).trigger('change.select2');
                     $("select[name='citizenship']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='citizenship']").siblings(".select-placeholder").css({ opacity: "1" });    
                 }    
 
-                if(localStorage.getItem("birthYear") !== "" || localStorage.getItem("birthYear") !== null) {
+                if(localStorage.getItem("birthYear") !== null) {
                     $("select[name='birthYear']").val(localStorage.getItem("birthYear")).trigger('change.select2');
                     $("select[name='birthYear']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='birthYear']").siblings(".select-placeholder").css({ opacity: "1" });    
@@ -133,19 +133,19 @@ export default function Personal() {
         }
 
         $(document).ready(function() {
-            if(localStorage.getItem("countryCode") !== "" || localStorage.getItem("countryCode") !== null) {
+            if(localStorage.getItem("countryCode") !== null) {
                 $("select[name='countryCode']").val(localStorage.getItem("countryCode")).trigger('change.select2');
                 $("select[name='countryCode']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                 $("select[name='countryCode']").siblings(".select-placeholder").css({ opacity: "1" });                    
             }
 
-            if(localStorage.getItem("birthMonth") !== "" || localStorage.getItem("birthMonth") !== null) {
+            if(localStorage.getItem("birthMonth") !== null) {
                 $("select[name='birthMonth']").val(localStorage.getItem("birthMonth")).trigger('change.select2');
                 $("select[name='birthMonth']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                 $("select[name='birthMonth']").siblings(".select-placeholder").css({ opacity: "1" });                    
             }
 
-            if(localStorage.getItem("birthDay") !== "" || localStorage.getItem("birthDay") !== null) {
+            if(localStorage.getItem("birthDay") !== null) {
                 $("select[name='birthDay']").val(localStorage.getItem("birthDay")).trigger('change.select2');
                 $("select[name='birthDay']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                 $("select[name='birthDay']").siblings(".select-placeholder").css({ opacity: "1" });                    

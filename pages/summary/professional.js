@@ -136,37 +136,37 @@ export default function Professional() {
 
         function reloadSelect() {
             $(document).ready(function() {
-                if(localStorage.getItem("workCountry") !== "" || localStorage.getItem("workCountry") !== null) {
+                if(localStorage.getItem("workCountry") !== null) {
                     $("select[name='workCountry']").val(localStorage.getItem("workCountry")).trigger('change');
                     $("select[name='workCountry']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='workCountry']").siblings(".select-placeholder").css({ opacity: "1" });    
                 }
     
-                if(localStorage.getItem("natureOfWork") !== "" || localStorage.getItem("natureOfWork") !== null) {
+                if(localStorage.getItem("natureOfWork") !== null) {
                     $("select[name='natureOfWork']").val(localStorage.getItem("natureOfWork")).trigger('change');
                     $("select[name='natureOfWork']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='natureOfWork']").siblings(".select-placeholder").css({ opacity: "1" });    
                 }      
 
-                if(localStorage.getItem("natureOfBusiness") !== "" || localStorage.getItem("natureOfBusiness") !== null) {
+                if(localStorage.getItem("natureOfBusiness") !== null) {
                     $("select[name='natureOfBusiness']").val(localStorage.getItem("natureOfBusiness")).trigger('change');
                     $("select[name='natureOfBusiness']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='natureOfBusiness']").siblings(".select-placeholder").css({ opacity: "1" });    
                 }   
 
-                if(localStorage.getItem("sourceOfFunds") !== "" || localStorage.getItem("sourceOfFunds") !== null) {
+                if(localStorage.getItem("sourceOfFunds") !== null) {
                     $("select[name='sourceOfFunds']").val(localStorage.getItem("sourceOfFunds")).trigger('change');
                     $("select[name='sourceOfFunds']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='sourceOfFunds']").siblings(".select-placeholder").css({ opacity: "1" });    
                 } 
 
-                if(localStorage.getItem("netWorth") !== "" || localStorage.getItem("netWorth") !== null) {
+                if(localStorage.getItem("netWorth") !== null) {
                     $("select[name='netWorth']").val(localStorage.getItem("netWorth")).trigger('change');
                     $("select[name='netWorth']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='netWorth']").siblings(".select-placeholder").css({ opacity: "1" });    
                 } 
 
-                if(localStorage.getItem("annualGrossIncome") !== "" || localStorage.getItem("annualGrossIncome") !== null) {
+                if(localStorage.getItem("annualGrossIncome") !== null) {
                     $("select[name='annualGrossIncome']").val(localStorage.getItem("annualGrossIncome")).trigger('change');
                     $("select[name='annualGrossIncome']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='annualGrossIncome']").siblings(".select-placeholder").css({ opacity: "1" });    
@@ -176,7 +176,7 @@ export default function Professional() {
 
         function reloadProvince() {
             $(document).ready(function() {
-                if(localStorage.getItem("workRegion") !== "" || localStorage.getItem("workRegion") !== null) {
+                if(localStorage.getItem("workRegion") !== null) {
                     $("select[name='workRegion']").val(localStorage.getItem("workRegion")).trigger('change');
                     $("select[name='workRegion']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='workRegion']").siblings(".select-placeholder").css({ opacity: "1" });    
@@ -186,7 +186,7 @@ export default function Professional() {
 
         function reloadCity() {
             $(document).ready(function() {
-                if(localStorage.getItem("workCity") !== "" || localStorage.getItem("workCity") !== null) {
+                if(localStorage.getItem("workCity") !== null) {
                     $("select[name='workCity']").val(localStorage.getItem("workCity")).trigger('change');
                     $("select[name='workCity']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='workCity']").siblings(".select-placeholder").css({ opacity: "1" });    
