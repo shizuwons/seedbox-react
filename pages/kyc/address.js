@@ -108,8 +108,9 @@ function Address() {
          $('.present').on("change", function(e) { 
             let id = $('.present option:selected').val();
             let attribute = 'present';
-
-            getProvinces(id, attribute);
+            if(id !== '') {
+                getProvinces(id, attribute);
+            }
          });
 
          $('.presentregion').on("change", function(e) {
@@ -124,19 +125,19 @@ function Address() {
 
     return (
         <div className="divAdrress divForm" style={{display: 'none'}}>
-        <form>
+        <form className="addressForm">
             <div className="row align-items-center">
             <div className="col-lg-12">
                 <p className="pInfoTitle">Current Address</p>
             </div>
             <div className="col-lg-12" style={{marginTop: '10px'}}>
-                <input required type="text" className="txtusername txtCurrentAdd1 currentaddress" />
+                <input required type="text" className="txtusername txtCurrentAdd1 currentaddress" name="currentAddress" />
                 <label alt="Current Address" placeholder="Current Address" />
             </div>
             <div className="col-lg-12" style={{marginTop: '-14px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">Country</div>
-                <select autoComplete="off" className="select2 current" id="current" defaultValue={''}>
+                <select autoComplete="off" className="select2 current" id="current" name="currentCountry" defaultValue={''}>
                     <option value="" disabled>Country</option>
                     {country.map((e, index) =>(
                         <option key={index} value={e.country_id}>{e.country_name}</option>
@@ -147,7 +148,7 @@ function Address() {
             <div className="col-lg-6" style={{marginTop: '-2px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">Province/Region</div>
-                <select autoComplete="off" className="select2 currentregion" id="#currentregion" defaultValue={''}>
+                <select autoComplete="off" className="select2 currentregion" id="#currentregion" name="currentRegion" defaultValue={''}>
                     <option value="" disabled>Province/Region</option>
                 </select>
                 </div>
@@ -155,7 +156,7 @@ function Address() {
             <div className="col-lg-6" style={{marginTop: '-2px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">City</div>
-                <select autoComplete="off" className="select2 currentcity" id="#currentcity" defaultValue={''}>
+                <select autoComplete="off" className="select2 currentcity" id="#currentcity" name="currentCity" defaultValue={''}>
                     <option value="" disabled>City</option>
                 </select>
                 </div>
@@ -175,13 +176,13 @@ function Address() {
             </div>
             <div className="row" style={{marginTop: '15px'}}>
             <div className="col-lg-12 colAdd">
-                <input required type="text" className="txtusername txtAdd txtPermaAdd1 presentaddress" />
+                <input required type="text" className="txtusername txtAdd txtPermaAdd1 presentaddress" name="presentAddress" />
                 <label className="lblAdd" alt="Present Address " placeholder="Present Address" />
             </div>
             <div className="col-lg-12 colAdd" style={{marginTop: '-14px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">Country</div>
-                <select autoComplete="off" className="select2 present" id="#present" defaultValue={''}>
+                <select autoComplete="off" className="select2 present" id="#present" name="presentCountry" defaultValue={''}>
                     <option value="" disabled>Country</option>
                     {country.map((e, index) =>(
                         
@@ -193,7 +194,7 @@ function Address() {
             <div className="col-lg-6 colAdd" style={{marginTop: '-2px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">Province/Region</div>
-                <select autoComplete="off" className="select2 presentregion" id="#presentregion" defaultValue={''}>
+                <select autoComplete="off" className="select2 presentregion" id="#presentregion" name="presentRegion" defaultValue={''}>
                     <option value="" disabled>Province/Region</option>
                 </select>
                 </div>
@@ -201,7 +202,7 @@ function Address() {
             <div className="col-lg-6 colAdd" style={{marginTop: '-2px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">City</div>
-                <select autoComplete="off" className="select2 presentcity" id="#presentcity" defaultValue={''}>
+                <select autoComplete="off" className="select2 presentcity" id="#presentcity" name="presentCity" defaultValue={''}>
                     <option value="" disabled>City</option>
                 </select>
                 </div>

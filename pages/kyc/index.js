@@ -3,7 +3,7 @@ import Router from 'next/router';
 import Default from '../../layouts/default';
 import { 
   closeNav, openNav, addHyphen, 
-  addHyphenPagibig, moreLess, isEmail 
+  addHyphenPagibig, moreLess, isEmail, saveToLocalStorage, readURL 
 } from '../../functions/kyc';
 import { personalValidation, addressValidation, professionalValidation, pepValidation, csaValidation, uploadValidation, settlementValidation } from '../../functions/validators';
 import { useEffect } from 'react';
@@ -14,6 +14,9 @@ import Sidebar from '../../components/sidebar';
 export default function Kyc() {
 
   useEffect(() => {
+
+    // Removes the local storage data on page load
+    localStorage.clear();
 
     $(window)
     .resize(function () {
@@ -56,25 +59,6 @@ export default function Kyc() {
         $(this).removeAttr('style');
       }
     });
-
-    // $(".email").keyup(function() {
-    //   $(this).val("seedbox@seedbox.ph");
-    // });
-
-    // $(".email").blur(function () {
-    //   let value = $(this).val();
-
-    //   if(!isEmail(value)) {
-    //     $(this).css("border-color", "red");
-    //     $('.pErrorEmail').removeClass('hide');
-    //     $('.labelEmail').css({
-    //       marginBottom: "calc((3em - 1em) + -13px)"
-    //     });
-    //   } else {
-    //     $('.pErrorEmail').addClass('hide');
-    //     $('.labelEmail').removeAttr('style');
-    //   }
-    // });
 
     $("input[list]").focus(function() {
       let classname = $(this).attr("class");
@@ -232,6 +216,23 @@ export default function Kyc() {
       if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
         return false;
      }
+    });
+
+    // Uploading image
+    $('.idimage').click(function(){ 
+      $('#imguploadid').trigger('click'); 
+    });
+
+    $('.signatureimage').click(function(){ 
+      $('#imguploadsig').trigger('click'); 
+    });
+
+    $("#imguploadid").change(function(){
+      readURL(this, '.idimage');
+    });
+
+    $("#imguploadsig").change(function(){
+      readURL(this, '.signatureimage');
     });
 
     // Personal Info select fields
@@ -803,6 +804,7 @@ export default function Kyc() {
       if (step === 0) {
         let validated = personalValidation();
 
+        saveToLocalStorage('.personalForm');
         // if(!validated) {
         //   return false;
         // }
@@ -833,6 +835,8 @@ export default function Kyc() {
         $(".colmid").css({ height: $(".conContent").height() + "px" });
       } else if (step === 1) {
         let validated = addressValidation();
+
+        saveToLocalStorage('.addressForm');
 
         // if(!validated) {
         //   return false;
@@ -876,6 +880,8 @@ export default function Kyc() {
       } else if (step === 2) {
         let validated = professionalValidation();
 
+        saveToLocalStorage('.professionalForm');
+
         // if(!validated) {
         //   return false;
         // }
@@ -903,6 +909,8 @@ export default function Kyc() {
       } else if (step === 3) {
         let validated = csaValidation();
 
+        saveToLocalStorage('.csaForm');
+
         // if(!validated) {
         //   return false;
         // }
@@ -924,6 +932,8 @@ export default function Kyc() {
         step = 4;
       } else if (step === 4) {
         let validated = pepValidation();
+
+        saveToLocalStorage('.pepForm');
 
         // if(!validated) {
         //   return false;
@@ -952,6 +962,7 @@ export default function Kyc() {
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         step = 5;
       } else if (step === 5) {
+        saveToLocalStorage('.fatcaForm');
         $(".pMore").text("Upload Documents");
         $(".pTitle").text("Upload Documents");
         $(".pSubtitle").html("Please ensure your ID type and number corresponds to the VALID ID (w/ photo) you will upload. <br/><br/>The details you provided on the Personal Info should be the same as the details found on your government issued ID (w/photo).");
@@ -971,6 +982,7 @@ export default function Kyc() {
       } else if (step === 6) {
         let validated = uploadValidation();
 
+        saveToLocalStorage('.uploadForm');
         // if(!validated) {
         //   return false;
         // }
@@ -992,6 +1004,7 @@ export default function Kyc() {
         step = 7;
       } else if(step === 7) {
         let validated = settlementValidation();
+        saveToLocalStorage('.settlementForm');
 
         // if(!validated) {
         //   return false;

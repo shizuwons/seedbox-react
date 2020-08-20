@@ -1,9 +1,25 @@
-import Head from 'next';
+import Head from 'next/head';
+import { useEffect } from 'react';
 
 export default function Pep() {
+    useEffect(() => {
+        $(document).ready(function() {
+            if(localStorage.getItem('government') !== null) {
+                $("select[name='government']").val(localStorage.getItem("government")).trigger('change');
+                $("select[name='government']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+                $("select[name='government']").siblings(".select-placeholder").css({ opacity: "1" });                    
+            }
+
+            if(localStorage.getItem('relative') !== null) {
+                $("select[name='relative']").val(localStorage.getItem("relative")).trigger('change');
+                $("select[name='relative']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+                $("select[name='relative']").siblings(".select-placeholder").css({ opacity: "1" });                    
+            }
+        });
+    }, []);
     return (
         <div className="divPep divForm">
-            <form>
+            <form className="pepForm">
                 <div className="row">
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
                         <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px'}}>PEP Declaration</p>
@@ -11,21 +27,25 @@ export default function Pep() {
                     <div className="col-lg-12">
                         <div className="selectdiv">
                         <div className="select-placeholder">Have you worked in a government agency or institution?</div>
-                        <select autoComplete="off" className="select2 government" defaultValue="default">
-                            <option value="default" disabled>Have you worked in a government agency or
+                        <select autoComplete="off" className="select2 government" name="government" defaultValue="">
+                            <option value="" disabled>Have you worked in a government agency or
                             institution?
                             </option>
+                            <option>Yes</option>
+                            <option>No</option>
                         </select>
                         </div>
                         <div className="selectdiv">
                         <div className="select-placeholder">Do you have any relative who is/was an elected/appoi...</div>
-                        <select autoComplete="off" className="select2 relative" defaultValue="default">
-                            <option value="default" disabled>Do you have any relative who is/was
+                        <select autoComplete="off" className="select2 relative" name="relative" defaultValue="">
+                            <option value="" disabled>Do you have any relative who is/was
                             an elected/appointed a
                             government official up to second degree
                             of
                             consanguinity or affinity?
                             </option>
+                            <option>Yes</option>
+                            <option>No</option>
                         </select>
                         </div>
                     </div>

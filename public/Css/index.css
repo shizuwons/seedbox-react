@@ -74,6 +74,7 @@
     .col {
       margin-top: -15px !important;
       padding-right: 8px !important;
+      padding-left: 8px !important;
     }
     .pMore1 {
       color: #424242 !important;
@@ -547,6 +548,15 @@
     cursor: pointer;
   }
 
+  .btnSubmit:disabled {
+    background: gray;
+  }
+
+  .divForm {
+    z-index: 10;
+    position: relative;
+  }
+
   .selectdiv {
     position: relative;
     /*Don't really need this just for demo styling*/
@@ -904,6 +914,18 @@
 
   .signup:hover {
     color: white !important;
+  }
+
+  .bar-fixed {
+    position: fixed;
+    top: 50%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 1;
   }
 
   @media (min-width: 992px) {

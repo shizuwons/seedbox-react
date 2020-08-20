@@ -69,7 +69,7 @@ function Personal({ submitPersonal }) {
               <label alt="Last Name" placeholder="Last Name" />
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-              <input required type="text" className="txtusername firstname" style={{marginTop: '-10px'}} />
+              <input required type="text" className="txtusername firstname" name="firstName" style={{marginTop: '-10px'}} />
               <label alt="First Name, Jr/Sr" placeholder="First Name, Jr/Sr" />
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12 col-12">
@@ -81,14 +81,14 @@ function Personal({ submitPersonal }) {
           </div>
           <p className="pGuide" style={{display: 'none'}}>Name must be comma-separated e.g "Juan, Santos, De la
             Cruz"</p>
-          <input required type="text" className="txtusername maidenname" style={{marginTop: '-10px'}} />
+          <input required type="text" className="txtusername maidenname" name="maidenName" style={{marginTop: '-10px'}} />
           <label alt="Mother's Maiden Name" placeholder="Mother's Maiden Name" />
           <div className="maidenname-error error-message hide"><span></span></div>
           <div className="row">
             <div className="col-lg-6">
               <div className="selectdiv" style={{marginTop: '0px'}}>
                 <div className="select-placeholder">Country Code</div>
-                <select autoComplete="off" className="select2 country-code" defaultValue={0} id="Countrycode">
+                <select autoComplete="off" className="select2 country-code" name="countryCode" defaultValue={0} id="Countrycode">
                   <option data-countrycode="PH" value={63}>Philippines (+63)</option>
                   <option value={0} disabled>Country Code
                   </option>
@@ -316,7 +316,7 @@ function Personal({ submitPersonal }) {
               </div>
             </div>
             <div className="col-lg-6">
-              <input required type="text" className="txtusername mobile" id="Mobile" />
+              <input required type="text" className="txtusername mobile" name="mobile" id="Mobile" />
               <label alt="Mobile Number (ex. 927..)" placeholder="Mobile Number (ex. 927..)" />
             </div>
             <div className="col-lg-6">
@@ -326,14 +326,14 @@ function Personal({ submitPersonal }) {
                 <div className="mobile-error error-message hide"><span></span></div>
             </div>
           </div>
-            <input required type="text" className="txtusername email"/>
+            <input required type="text" className="txtusername email" name="email"/>
             <label alt="Email" placeholder="Email" className="labelEmail" />
             <div className="pErrorEmail hide" style={{ margin: "0 0 1em"}}>Your email is not valid.</div>
           <div className="row" style={{marginTop: '-5px'}}>
             <div className="col-lg-6 col-md-6 col-sm-6 col-12">
               <div className="selectdiv" style={{marginTop: '0px'}}>
                 <div className="select-placeholder">Civil Status</div>
-                <select autoComplete="off" className="select2 civil-status" defaultValue="default">
+                <select autoComplete="off" className="select2 civil-status" name="civilStatus" defaultValue="default">
                   <option value="default" disabled>Civil Status
                   </option>
                   {marital.map((e, index) =>(
@@ -345,7 +345,7 @@ function Personal({ submitPersonal }) {
             <div className="col-lg-6 col-md-6 col-sm-6 col-12">
               <div className="selectdiv" style={{marginTop: '0px'}}>
                 <div className="select-placeholder">Gender</div>
-                <select autoComplete="off" className="select2 gender" defaultValue="default">
+                <select autoComplete="off" className="select2 gender" name="gender" defaultValue="default">
                   <option value="default" disabled>Gender
                   </option>
                   {gender.map((e, index) =>(
@@ -370,7 +370,7 @@ function Personal({ submitPersonal }) {
                 <div className="col-lg-4 col-md-4 col-sm-4 col-4">
                   <div className="selectdiv" style={{marginTop: '0px'}}>
                     <div className="select-placeholder">MM</div>
-                    <select autoComplete="off" className="select2 month" id="selectMM" defaultValue="default">
+                    <select autoComplete="off" className="select2 month" name="birthMonth" id="selectMM" defaultValue="default">
                       <option value="default" disabled>MM
                       </option>
                       <option>01</option>
@@ -391,7 +391,7 @@ function Personal({ submitPersonal }) {
                 <div className="col-lg-4 col-md-4 col-sm-4 col-4">
                   <div className="selectdiv" style={{marginTop: '0px'}}>
                     <div className="select-placeholder">DD</div>
-                    <select autoComplete="off" className="select2 day" id="selectDD" defaultValue="default">
+                    <select autoComplete="off" className="select2 day" name="birthDay" id="selectDD" defaultValue="default">
                       <option value="default" disabled>DD
                       </option>
                       <option>1</option>
@@ -430,7 +430,7 @@ function Personal({ submitPersonal }) {
                 <div className="col-lg-4 col-md-4 col-sm-4 col-4">
                   <div className="selectdiv" style={{marginTop: '0px'}}>
                     <div className="select-placeholder">YYYY</div>
-                    <select autoComplete="off" className="select2 year" id="selectYY" defaultValue="default">
+                    <select autoComplete="off" className="select2 year" name="birthYear" id="selectYY" defaultValue="default">
                       <option value="default" disabled>YYYY
                       </option>
                       {year.map((e, index) =>(
@@ -452,7 +452,7 @@ function Personal({ submitPersonal }) {
             <div className="col-lg-12" style={{marginTop: '5px'}}>
                 <div className="selectdiv" style={{marginTop: '0px'}}>
                   <div className="select-placeholder">Birthplace</div>
-                  <select autoComplete="off" className="select2 birthplace" defaultValue="default">
+                  <select autoComplete="off" className="select2 birthplace" name="birthPlace" defaultValue="default">
                     <option value="default" disabled>Birthplace</option>
                     {country.map((e, index) =>(
                       <option key={index} value={e.country_name}>{e.country_name}</option>
@@ -468,7 +468,7 @@ function Personal({ submitPersonal }) {
             <div className="col-lg-6 col-md-6 col-sm-6 col-12">
                 <div className="selectdiv" style={{marginTop: '0px'}}>
                   <div className="select-placeholder">Citizenship</div>
-                  <select autoComplete="off" className="select2 citizenship" defaultValue="default">
+                  <select autoComplete="off" className="select2 citizenship" name="citizenship" defaultValue="default">
                     <option value="default" disabled>Citizenship</option>
                     {citizenship.map((e, index) =>(
                     <option key={index} value={e.value}>{e.value}</option>
@@ -477,7 +477,7 @@ function Personal({ submitPersonal }) {
                 </div>
             </div>
             <div className="col-lg-6 col-md-6 col-sm-6 col-12">
-                  <input required type="text" className="txtusername tin" id="txtTin" />
+                  <input required type="text" className="txtusername tin" name="tin" id="txtTin" />
                   <label alt="TIN" placeholder="TIN" />
             </div>
             <div className="col-lg-6 col-md-6 col-sm-6 col-12">
@@ -489,18 +489,18 @@ function Personal({ submitPersonal }) {
           </div>
           <div className="row" style={{marginTop: '-10px'}}>
             <div className="col-lg-6 col-md-6 col-sm-6 col-12">
-                  <input required type="text" className="txtusername sss-gsis" />
+                  <input required type="text" className="txtusername sss-gsis" name="sssGsis" />
                   <label alt="SSS/GSIS (Optional)" placeholder="SSS/GSIS (Optional)" />
 
             </div>
             <div className="col-lg-6 col-md-6 col-sm-6 col-12">
-                <input required type="text" className="txtusername agent-code" />
+                <input required type="text" className="txtusername agent-code" name="agentCode" />
                 <label alt="Agent Code (Optional)" placeholder="Agent Code (Optional)" />
             </div>
           </div>
           <div className="row">
             <div className="col-lg-12">
-              <input type="button" className="btnSubmit btnProceed" id="personalSubmit" defaultValue="Next" style={{marginTop: '-10px'}} />
+              <input type="button" className="btnSubmit btnProceed" id="personalSubmit" name="nextbutton" defaultValue="Next" style={{marginTop: '-10px'}} />
             </div>
           </div>
         </form>

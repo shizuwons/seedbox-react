@@ -3,7 +3,7 @@ import Head from 'next/head';
 function Pep() {
     return (
         <div className="divPep divForm" style={{display: 'none'}}>
-            <form>
+            <form className="pepForm">
                 <div className="row">
                 <div className="col-lg-12" style={{marginTop: '10px'}}>
                     <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px'}}>PEP Declaration
@@ -14,8 +14,8 @@ function Pep() {
                 <div className="col-lg-12">
                     <div className="selectdiv">
                     <div className="select-placeholder">Have you worked in a government agency or institution?</div>
-                    <select autoComplete="off" className="select2 government" defaultValue="default">
-                        <option value="default" disabled>Have you worked in a government agency or
+                    <select autoComplete="off" className="select2 government" name="government" defaultValue="">
+                        <option value="" disabled>Have you worked in a government agency or
                         institution?
                         </option>
                         <option>Yes</option>
@@ -24,7 +24,7 @@ function Pep() {
                     </div>
                     <div className="selectdiv">
                     <div className="select-placeholder">Do you have any relative who is/was an elected/appoi...</div>
-                    <select autoComplete="off" className="select2 relative" defaultValue="default">
+                    <select autoComplete="off" className="select2 relative" name="relative" defaultValue="default">
                         <option value="default" disabled>Do you have any relative who is/was
                         an elected/appointed a
                         government official up to second degree

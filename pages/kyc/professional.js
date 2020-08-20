@@ -148,7 +148,7 @@ function Professional() {
     }, []);
     return (
         <div className="divAdrress1 divForm" style={{display: 'none'}}>
-            <form>
+            <form className="professionalForm">
             <div className="row" style={{marginTop: '-10px'}}>
             <div className="col-lg-12">
                 <p className="pInfoTitle" style={{marginTop: '10px'}}>Professional Details</p>
@@ -156,8 +156,8 @@ function Professional() {
             <div className="col-lg-12">
                 <div className="selectdiv" style={{marginTop: '10px'}}>
                 <div className="select-placeholder">Nature of Work</div>
-                <select autoComplete="off" className="select2 nature-work" defaultValue="default">
-                    <option value="default" disabled>Nature of Work</option>
+                <select autoComplete="off" className="select2 nature-work" name="natureOfWork" defaultValue="">
+                    <option value="" disabled>Nature of Work</option>
                     {work.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>
                     ))}
@@ -167,8 +167,8 @@ function Professional() {
             <div className="col-lg-12">
                 <div className="selectdiv">
                 <div className="select-placeholder">Nature of Business/Employer</div>
-                <select autoComplete="off" className="select2 nature-business" defaultValue="default">
-                    <option value="default" disabled>Nature of Business/Employer</option>
+                <select autoComplete="off" className="select2 nature-business" name="natureOfBusiness" defaultValue="">
+                    <option value="" disabled>Nature of Business/Employer</option>
                     {business.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>
                     ))}
@@ -176,14 +176,14 @@ function Professional() {
                 </div>
             </div>
             <div className="col-lg-12" style={{marginTop: '10px'}}>
-            <input required type="text" className="txtusername naturebusinessname" />
+            <input required type="text" className="txtusername naturebusinessname" name="businessName" />
             <label alt="Business/Employer Name" placeholder="Business/Employer Name" />
             </div>
             <div className="col-lg-12">
                 <div className="selectdiv" style={{marginTop: '-8px'}}>
                 <div className="select-placeholder">Are you a Director/Officer/Shareholder?</div>
-                <select autoComplete="off" className="select2 dos" defaultValue="default">
-                    <option value="default" disabled>Are you a Director/Officer/Shareholder?
+                <select autoComplete="off" className="select2 dos" name="dos" defaultValue="">
+                    <option value="" disabled>Are you a Director/Officer/Shareholder?
                     </option>
                     <option>Yes</option>
                     <option>No</option>
@@ -191,13 +191,13 @@ function Professional() {
                 </div>
             </div>
             <div className="col-lg-12" style={{marginTop: '3px'}}>
-                <input required type="text" className="txtusername workaddress" />
+                <input required type="text" className="txtusername workaddress" name="workAddress"/>
                 <label alt="Office Address" placeholder="Office Address" />
             </div>
             <div className="col-lg-12" style={{marginTop: '-16px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">Country</div>
-                <select autoComplete="off" className="select2 nature-country" defaultValue={''}>
+                <select autoComplete="off" className="select2 nature-country" name="workCountry" defaultValue={''}>
                     <option value="">Country</option>
                     {country.map((e, index) =>(
                         <option key={index} value={e.country_id}>{e.country_name}</option>
@@ -208,7 +208,7 @@ function Professional() {
             <div className="col-lg-6 colAdd" style={{marginTop: '-2px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">Province/Region</div>
-                <select autoComplete="off" className="select2 workregion" id="#workregion" defaultValue={''}>
+                <select autoComplete="off" className="select2 workregion" id="#workregion" name="workRegion" defaultValue={''}>
                     <option value="" disabled>Province/Region</option>
                 </select>
                 </div>
@@ -216,7 +216,7 @@ function Professional() {
             <div className="col-lg-6 colAdd" style={{marginTop: '-2px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">City</div>
-                <select autoComplete="off" className="select2 workcity" id="#workcity" defaultValue={''}>
+                <select autoComplete="off" className="select2 workcity" id="#workcity" name="workCity" defaultValue={''}>
                     <option value="" disabled>City</option>
                 </select>
                 </div>
@@ -237,8 +237,8 @@ function Professional() {
             <div className="col-lg-12" style={{marginTop: '10px'}}>
                 <div className="selectdiv" style={{marginTop: '10px'}}>
                 <div className="select-placeholder">Source of Funds</div>
-                <select autoComplete="off" className="select2 source-funds" defaultValue="default">
-                    <option value="default" disabled>Source of Funds</option>
+                <select autoComplete="off" className="select2 source-funds" name="sourceOfFunds" defaultValue="default">
+                    <option value="" disabled>Source of Funds</option>
                     {funds.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>
                     ))}
@@ -248,8 +248,8 @@ function Professional() {
             <div className="col-lg-6" style={{marginTop: '0px'}}>
                 <div className="selectdiv">
                 <div className="select-placeholder">Net Worth</div>
-                <select autoComplete="off" className="select2 net-worth" defaultValue="default">
-                    <option value="default" disabled> Net Worth
+                <select autoComplete="off" className="select2 net-worth" name="netWorth" defaultValue="">
+                    <option value="" disabled> Net Worth
                     </option>
                     {networth.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>
@@ -260,8 +260,8 @@ function Professional() {
             <div className="col-lg-6">
                 <div className="selectdiv">
                 <div className="select-placeholder">Annual Gross Income</div>
-                <select autoComplete="off" className="select2 gross-income" defaultValue="default">
-                    <option value="default" disabled> Annual Gross Income
+                <select autoComplete="off" className="select2 gross-income" name="annualGrossIncome" defaultValue="">
+                    <option value="" disabled> Annual Gross Income
                     </option>
                     {income.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>

@@ -41,6 +41,18 @@ export default function Summary() {
 
         let height = $(".conContent").height() + 24;
         $(".colmid").css({ height: height + "px" });
+
+        $('.btnSubmit').attr('disabled','disabled');
+
+
+        $("input[name='agree']").click(function() {
+            if($(this).is(':checked')) {
+                $('.btnSubmit').removeAttr('disabled');
+            } else {
+                $('.btnSubmit').attr('disabled','disabled');
+            }
+        })
+
     }, []);
 
     return(
@@ -51,16 +63,108 @@ export default function Summary() {
                 rel="stylesheet"
                 type="text/css"
                 />
-            <script>
-                {`
-                let step = 0;
-                `}
-            </script>
             </Head>
             <Sidebar></Sidebar>
             <div className="container-fluid" style={{backgroundColor: '#fafafa'}}>
                 <Navbar></Navbar>
-                <div className="container con conContent" style={{backgroundColor: 'white', width: '90%', borderRadius: '25px', boxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', WebkitBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', MozBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', height: 'auto'}}>
+                <div className="row bar-fixed">
+                    <div className="col-lg-6 col-md-6" style={{borderRadius: '25px'}}>
+                        <div className="row rowHide" style={{display: 'none'}}>
+                            <div className="col-lg-12">
+                            <p className="pMore1">More Information</p>
+                            </div>
+                        </div>
+                        <div className="row rowStep" style={{position: 'relative'}}>
+                            <div className="divWhite">
+                            <div className="divWhiteGreen">
+                            </div>
+                            </div>
+                            <div className="col-lg-12 colMore">
+                            <p className="pMore" style={{paddingRight: '85px'}}>More Information</p>
+                            </div>
+                            <div className="col-lg-3 col-md-3 col-sm-3 col">
+                            <div className="divCircle" style={{position: 'relative'}}>
+                                <div className="circle" style={{zIndex: 9999}}>
+                                </div>
+                                <hr className="hrLine" />
+                            </div>
+                            </div>
+                            <div className="col-lg-9 col-md-9 col-sm-9 col-9 colStepText">
+                            <p className="pSteps">Personal Info &gt; </p>
+                            </div>
+                            <div className="col-lg-3 col-md-3 col-sm-3 col">
+                            <div className="divCircle" style={{position: 'relative'}}>
+                                <div className="circle">
+                                </div>
+                                <hr className="hrLine" />
+                            </div>
+                            </div>
+                            <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
+                            <p className="pSteps">Address Info &gt;</p>
+                            </div>
+                            <div className="col-lg-3 col-md-3 col-sm-3 col">
+                            <div className="divCircle" style={{position: 'relative'}}>
+                                <div className="circle">
+                                </div>
+                                <hr className="hrLine" />
+                            </div>
+                            </div>
+                            <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
+                            <p className="pSteps">Professional Details &gt;</p>
+                            </div>
+                            <div className="col-lg-3 col-md-3 col-sm-3 col">
+                            <div className="divCircle" style={{position: 'relative'}}>
+                                <div className="circle">
+                                </div>
+                                <hr className="hrLine" />
+                            </div>
+                            </div>
+                            <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
+                            <p className="pSteps">CSA &gt;</p>
+                            </div>
+                            <div className="col-lg-3 col-md-3 col-sm-3 col">
+                            <div className="divCircle" style={{position: 'relative'}}>
+                                <div className="circle">
+                                </div>
+                                <hr className="hrLine" />
+                            </div>
+                            </div>
+                            <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
+                            <p className="pSteps">PEP Declaration &gt;</p>
+                            </div>
+                            <div className="col-lg-3 col-md-3 col-sm-3 col">
+                            <div className="divCircle" style={{position: 'relative'}}>
+                                <div className="circle">
+                                </div>
+                                <hr className="hrLine hrLast" />
+                            </div>
+                            </div>
+                            <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
+                            <p className="pSteps">FATCA &gt;</p>
+                            </div>
+                            <div className="col-lg-3 col-md-3 col-sm-3 col colCircleLast">
+                            <div className="divCircle" style={{position: 'relative'}}>
+                                <div className="circle">
+                                </div>
+                                <hr className="hrLine hrLast" />
+                            </div>
+                            </div>
+                            <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
+                            <p className="pSteps">Upload Documents &gt;</p>
+                            </div>
+                            <div className="col-lg-3 col-md-3 col-sm-3 col colCircleLast">
+                            <div className="divCircle" style={{position: 'relative'}}>
+                                <div className="circle">
+                                </div>
+                            </div>
+                            </div>
+                            <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
+                            <p className="pSteps">Settlement Info &gt;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="container con conContent" style={{backgroundColor: 'white', width: '63%', borderRadius: '25px', boxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', WebkitBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', MozBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', height: 'auto'}}>
                     <div className="row align-items-center" style={{height: '100%'}}>
                         <div className="col-lg-4 col-md-4 colStep colmid" style={{borderRadius: '25px'}}>
                             <div className="row rowHide" style={{display: 'none'}}>
@@ -68,7 +172,7 @@ export default function Summary() {
                                 <p className="pMore1">More Information</p>
                                 </div>
                             </div>
-                            <div className="row rowStep" style={{position: 'relative'}}>
+                            <div className="row rowStep hide" style={{position: 'relative'}}>
                                 <div className="divWhite">
                                 <div className="divWhiteGreen">
                                 </div>
@@ -166,6 +270,24 @@ export default function Summary() {
                             <Fatca></Fatca>
                             <Upload></Upload>
                             <Settlement></Settlement>
+                            <div className="row" style={{ width: "80%", margin: "20px auto" }}>
+                                <div className="col-lg-1">
+                                    <label className="checkbox bounce">
+                                    <input type="checkbox" className="checkOther" name="agree"/>
+                                    <svg viewBox="0 0 21 21">
+                                        <polyline points="5 10.75 8.5 14.25 16 6" />
+                                    </svg>
+                                    </label>
+                                </div>
+                                <div className="col-lg-11">
+                                    <p className="pExpiry">I agree to the terms of conditions and Data Privacy Policy</p>
+                                </div>
+                            </div>
+                            <div className="row" style={{ marginRight: "30px", marginBottom: "20px" }}>
+                                <div className="col-lg-12">
+                                    <input type="button" className="btnNext btnProceed btnSubmit" defaultValue="Submit"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

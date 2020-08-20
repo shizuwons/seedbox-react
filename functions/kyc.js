@@ -676,3 +676,48 @@ export function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);
 }
+
+export function readURL(input, imageType) {
+  if (input.files && input.files[0]) {
+    let reader = new FileReader();
+    
+    //console.log(input.files);
+    reader.onload = function (e) {
+        $(imageType).attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+export function saveToLocalStorage(formName) {
+  let formValues = $(formName).serializeArray();
+
+  console.log(formValues);
+  let invested = [];
+  for(let i = 0; i <= formValues.length - 1; i++) {
+    if(formValues[i].name === 'invested') {
+      console.log(formValues[i].value);
+
+      invested.push(formValues[i].value);
+    } else {
+      localStorage.setItem(formValues[i].name, formValues[i].value);
+    }
+  }
+
+  if(formName === '.csaForm') {
+    localStorage.setItem('invested', JSON.stringify(invested));
+  } else if(formName === '.uploadForm') {
+    let imgData = $('.idimage');
+    //getBase64Image(imgData);
+    let currentIdImage = imgData[0].currentSrc;
+    currentIdImage.replace(/^data:image\/(png|jpg);base64,/, "");
+    localStorage.setItem('idImage', currentIdImage);
+
+    let imgData2 = $('.signatureimage');
+    //getBase64Image(imgData);
+    let currentSignImage = imgData2[0].currentSrc;
+    currentSignImage.replace(/^data:image\/(png|jpg);base64,/, "");
+    localStorage.setItem('signatureImage', currentSignImage);
+  }
+}

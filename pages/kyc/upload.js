@@ -36,7 +36,7 @@ function Upload() {
     }, []);
     return (
         <div className="divUpload divForm" style={{display: 'none'}}>
-            <form>
+            <form className="uploadForm">
                 <div className="row">
                 <div className="col-lg-12" style={{marginTop: '10px'}}>
                     <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px'}}>Upload Documents</p>
@@ -44,7 +44,7 @@ function Upload() {
                 <div className="col-lg-5 col-md-5 col-sm-5 col-5">
                     <div className="selectdiv" style={{marginTop: '0px'}}>
                         <div className="select-placeholder">ID Type</div>
-                        <select autoComplete="off" className="select2 idtype" id="IdType" defaultValue="default">
+                        <select autoComplete="off" className="select2 idtype" id="IdType" name="idType" defaultValue="default">
                             <option value="default" disabled>ID Type</option>
                             {type.map((e, index) =>(
                                 <option key={index} value={e.code}>{e.value}</option>
@@ -53,7 +53,7 @@ function Upload() {
                     </div>
                 </div>
                 <div className="col-lg-7 col-md-7 col-sm-7 col-7">
-                    <input required type="text" className="txtusername id-number" id="txtIdNumber" />
+                    <input required type="text" className="txtusername id-number" name="idNumber" id="txtIdNumber" />
                     <label alt="ID Number" placeholder="ID Number" />
                 </div>
                 <div className="col-lg-3 col-md-3 col-sm-12 col-12 align-self-center">
@@ -62,7 +62,7 @@ function Upload() {
                 <div className=" col-lg-3 col-md-3 col-sm-4 col-4">
                     <div className="selectdiv" style={{marginTop: '0px'}}>
                     <div className="select-placeholder">MM</div>
-                    <select autoComplete="off" className="select2 expirymonth" defaultValue="default">
+                    <select autoComplete="off" className="select2 expirymonth" name="idExpiryMonth" defaultValue="default">
                         <option value="default" disabled>MM
                         </option>
                         <option>01</option>
@@ -83,7 +83,7 @@ function Upload() {
                 <div className="col-lg-3 col-md-3 col-sm-4 col-4">
                     <div className="selectdiv" style={{marginTop: '0px'}}>
                     <div className="select-placeholder">DD</div>
-                    <select autoComplete="off" className="select2 expiryday" defaultValue="default">
+                    <select autoComplete="off" className="select2 expiryday" name="idExpiryDay" defaultValue="default">
                         <option value="default" disabled>DD
                         </option>
                         <option>1</option>
@@ -122,7 +122,7 @@ function Upload() {
                 <div className="col-lg-3 col-md-3 col-sm-4 col-4">
                 <div className="selectdiv" style={{marginTop: '0px'}}>
                 <div className="select-placeholder">YYYY</div>
-                    <select autoComplete="off" className="select2 expiryyear" defaultValue="default">
+                    <select autoComplete="off" className="select2 expiryyear" name="idExpiryYear" defaultValue="default">
                     <option value="default" disabled>YYYY
                     </option>
                     {year.map((e, index) =>(
@@ -134,10 +134,12 @@ function Upload() {
                 </div>
                 <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-6 col-6">
-                    <img src="Image/upload.png" className="img-fluid" />
+                    <input type="file" id="imguploadid" name="idImage" style={{display: "none"}}/> 
+                    <img src="Image/upload.png" className="img-fluid idimage" />
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-6 col-6">
-                    <img src="Image/signature.png" className="img-fluid" />
+                    <input type="file" id="imguploadsig" name="signImage" style={{display: "none"}}/> 
+                    <img src="Image/signature.png" className="img-fluid signatureimage" />
                 </div>
                 </div>
                 <div className="row" style={{marginTop: '20px'}}>
