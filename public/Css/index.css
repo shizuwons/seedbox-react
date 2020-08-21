@@ -100,7 +100,7 @@
       height: 4px !important;
       left: 13px !important;
     }
-    .divInfo, .divAdrress, .divAdrress1, .divFinancial, .divFatca1, .divFatca, .divCsa, .divPep, .divUpload {
+    .divInfo, .divAdrress, .divAdrress1, .divFinancial, .divFatca1, .divFatca, .divCsa, .divPep, .divUpload, .divSettlement {
       width: 100% !important;
     }
     .circle {
@@ -133,6 +133,19 @@
     .lblYes {
       display: none !important;
     }
+    .bar-fixed {
+      display: none;
+    }  
+    .summaryMobile {
+      width: 100% !important;
+    }
+    .agreeTerms {
+      width: 100% !important;
+    }
+
+    .submitSummary {
+      margin-right: 0 !important;
+    }
   }
 
   @media only screen and (max-width: 397px) {
@@ -162,6 +175,12 @@
   @media only screen and (max-width: 440px) {
     .rowStep {
       padding-left: 10px !important;
+    }
+  }
+
+  @media only screen and (min-width: 481px) {
+    .mobile-step {
+      display: block;
     }
   }
 
@@ -682,7 +701,7 @@
 
   .divWhite {
     position: absolute;
-    top: 58px;
+    top: 85px;
     left: 28px;
     z-index: 99;
     width: 31px;
@@ -926,6 +945,10 @@
     -o-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     z-index: 1;
+  }
+
+  .mobile-step {
+    display: none;
   }
 
   @media (min-width: 992px) {

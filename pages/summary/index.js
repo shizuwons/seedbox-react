@@ -21,11 +21,11 @@ export default function Summary() {
         $(window)
         .resize(function () {
           if ($(window).width() < 500) {
-            $(".pMore").text("Personal Information");
+            //$(".pMore").text("Personal Information");
             $(".colStep").removeClass("colmid");
             $(".rowStep").addClass("colmid");
           } else {
-            $(".pMore").text("Personal Information");
+            //$(".pMore").text("Personal Information");
             $(".colStep").addClass("colmid");
             $(".rowStep").removeClass("colmid");
           }
@@ -71,7 +71,7 @@ export default function Summary() {
                     <div className="col-lg-6 col-md-6" style={{borderRadius: '25px'}}>
                         <div className="row rowHide" style={{display: 'none'}}>
                             <div className="col-lg-12">
-                            <p className="pMore1">More Information</p>
+                            <p className="pMore1">Please double check your information.</p>
                             </div>
                         </div>
                         <div className="row rowStep" style={{position: 'relative'}}>
@@ -80,7 +80,7 @@ export default function Summary() {
                             </div>
                             </div>
                             <div className="col-lg-12 colMore">
-                            <p className="pMore" style={{paddingRight: '85px'}}>More Information</p>
+                            <p className="pMore" style={{paddingRight: '85px'}}>Please double check your information.</p>
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-3 col">
                             <div className="divCircle" style={{position: 'relative'}}>
@@ -164,15 +164,15 @@ export default function Summary() {
                         </div>
                     </div>
                 </div>
-                <div className="container con conContent" style={{backgroundColor: 'white', width: '63%', borderRadius: '25px', boxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', WebkitBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', MozBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', height: 'auto'}}>
+                <div className="container con conContent summaryMobile" style={{backgroundColor: 'white', width: '63%', borderRadius: '25px', boxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', WebkitBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', MozBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', height: 'auto'}}>
                     <div className="row align-items-center" style={{height: '100%'}}>
                         <div className="col-lg-4 col-md-4 colStep colmid" style={{borderRadius: '25px'}}>
                             <div className="row rowHide" style={{display: 'none'}}>
                                 <div className="col-lg-12">
-                                <p className="pMore1">More Information</p>
+                                <p className="pMore1">Please double check your information.</p>
                                 </div>
                             </div>
-                            <div className="row rowStep hide" style={{position: 'relative'}}>
+                            <div className="row rowStep mobile-step" style={{position: 'relative'}}>
                                 <div className="divWhite">
                                 <div className="divWhiteGreen">
                                 </div>
@@ -270,8 +270,8 @@ export default function Summary() {
                             <Fatca></Fatca>
                             <Upload></Upload>
                             <Settlement></Settlement>
-                            <div className="row" style={{ width: "80%", margin: "20px auto" }}>
-                                <div className="col-lg-1">
+                            <div className="row agreeTerms" style={{ width: "80%", margin: "20px auto" }}>
+                                <div className="col-1">
                                     <label className="checkbox bounce">
                                     <input type="checkbox" className="checkOther" name="agree"/>
                                     <svg viewBox="0 0 21 21">
@@ -279,11 +279,11 @@ export default function Summary() {
                                     </svg>
                                     </label>
                                 </div>
-                                <div className="col-lg-11">
+                                <div className="col-11">
                                     <p className="pExpiry">I agree to the terms of conditions and Data Privacy Policy</p>
                                 </div>
                             </div>
-                            <div className="row" style={{ marginRight: "30px", marginBottom: "20px" }}>
+                            <div className="row submitSummary" style={{ marginRight: "30px", marginBottom: "20px" }}>
                                 <div className="col-lg-12">
                                     <input type="button" className="btnNext btnProceed btnSubmit" defaultValue="Submit"/>
                                 </div>

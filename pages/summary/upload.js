@@ -70,11 +70,11 @@ export default function Upload() {
         loadData();
     }, []);
     return (
-        <div className="divUpload divForm">
+        <div className="divUpload divForm" style={{ marginTop: "30px"}}>
             <form className="uploadForm">
                 <div className="row">
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
-                        <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px'}}>Upload Documents</p>
+                        <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px', fontSize: '1.5em'}}>Upload Documents</p>
                     </div>
                     <div className="col-lg-5 col-md-5 col-sm-5 col-5">
                         <div className="selectdiv" style={{marginTop: '0px'}}>

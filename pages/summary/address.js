@@ -199,11 +199,11 @@ export default function Address() {
     }, []);
 
     return (
-        <div className="divAdrress divForm">
+        <div className="divAdrress divForm" style={{ marginTop: "30px"}}>
             <form className="addressForm">
                 <div className="row align-items-center">
                     <div className="col-lg-12">
-                        <p className="pInfoTitle">Current Address</p>
+                        <p className="pInfoTitle" style={{marginBottom: '15px', fontSize: '1.5em'}}>Current Address</p>
                     </div>
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
                         <input required type="text" className="txtusername txtCurrentAdd1 currentaddress" name="currentAddress" />
@@ -237,7 +237,7 @@ export default function Address() {
                         </div>
                     </div>
                     <div className="col-lg-12">
-                        <p className="pInfoTitle" style={{marginTop: '0px', display: 'inline-block'}}>Permanent Address</p>
+                        <p className="pInfoTitle" style={{marginTop: '0px', display: 'inline-block', fontSize: '1.5em'}}>Permanent Address</p>
                     </div>
                     <div className="col-lg-12 colAdd" style={{ marginTop: '15px' }}>
                         <input required type="text" className="txtusername txtAdd txtPermaAdd1 presentaddress" name="presentAddress" />

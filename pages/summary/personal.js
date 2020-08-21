@@ -157,6 +157,16 @@ export default function Personal() {
                 }
             });
 
+            $('.select2').each(function() {
+                $(this).change(function () {
+                    if($(this).val() !== null) {
+                        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');  
+                        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+                        $(this).siblings(".select-placeholder").css({ opacity: "1" });                            
+                    }
+                });
+            });
+
             if($('.invested').val() === null) {
                 $('.invested').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important');  
             }
@@ -173,6 +183,27 @@ export default function Personal() {
                 $(this).css({ borderColor: "red"});
             } else {
                 $(this).css({ borderColor: "green"});
+            }
+        });
+
+        $('.btnSubmit').click(function() {
+            $('.txtusername').each(function() {
+                if($(this).val().length <= 0) {
+                    alert('Please fill up remaining fields!');
+                    return false;
+                }
+            });
+
+            $('.select2').each(function() {
+                if($(this).val() === "" || $(this).val() === null) {
+                    alert('Please fill up remaining fields!');
+                    return false;
+                }
+            });
+
+            if($('.invested').val() === null) {
+                alert('Please fill up remaining fields!');
+                return false;
             }
         });
 

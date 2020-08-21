@@ -42,11 +42,11 @@ export default function Settlement() {
         loadData();
     }, []);
     return (
-        <div className="divSettlement divForm">
+        <div className="divSettlement divForm" style={{ marginTop: "30px"}}>
             <form className="settlementForm">
                 <div className="row">
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
-                        <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px'}}>Settlement
+                        <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px', fontSize: '1.5em'}}>Settlement
                         Information</p>
                     </div>
                     <div className="col-lg-12">

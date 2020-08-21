@@ -232,11 +232,11 @@ export default function Professional() {
          });
     }, []);
     return (
-        <div className="divAdrress1 divForm">
+        <div className="divAdrress1 divForm" style={{ marginTop: "30px"}}>
             <form className="professionalForm">
                 <div className="row" style={{marginTop: '-10px'}}>
                     <div className="col-lg-12">
-                        <p className="pInfoTitle" style={{marginTop: '10px'}}>Professional Details</p>
+                        <p className="pInfoTitle" style={{marginTop: '10px', fontSize: '1.5em'}}>Professional Details</p>
                     </div>
                     <div className="col-lg-12">
                         <div className="selectdiv" style={{marginTop: '10px'}}>

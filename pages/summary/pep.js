@@ -18,11 +18,11 @@ export default function Pep() {
         });
     }, []);
     return (
-        <div className="divPep divForm">
+        <div className="divPep divForm" style={{ marginTop: "30px"}}>
             <form className="pepForm">
                 <div className="row">
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
-                        <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px'}}>PEP Declaration</p>
+                        <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px', fontSize: '1.5em'}}>PEP Declaration</p>
                     </div>
                     <div className="col-lg-12">
                         <div className="selectdiv">

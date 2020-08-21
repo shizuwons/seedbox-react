@@ -66,11 +66,11 @@ export default function Fatca() {
         });
     }, []);
     return (
-        <div className="divFatca divForm">
+        <div className="divFatca divForm" style={{ marginTop: "30px"}}>
             <form className="fatcaForm">
                 <div className="row">
                     <div className="col-lg-6 col-md-6 col-sm-6 col-6">
-                        <p className="pInfoTitle" style={{marginTop: '0px'}}>FATCA</p>
+                        <p className="pInfoTitle" style={{marginTop: '0px', fontSize: '1.5em'}}>FATCA</p>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6 col-6 text-center">
                         <label className="lblYes">No</label>

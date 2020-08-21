@@ -81,11 +81,11 @@ export default function Csa() {
           });
     }, []);
     return (
-        <div className="divCsa divForm">
+        <div className="divCsa divForm" style={{ marginTop: "30px"}}>
             <form className="csaForm">
                 <div className="row">
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
-                        <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px'}}>Client
+                        <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px', fontSize: '1.5em'}}>Client
                         Suitability
                         Assessment</p>
                     </div>
