@@ -75,7 +75,7 @@ export default function Summary() {
                             </div>
                         </div>
                         <div className="row rowStep" style={{position: 'relative'}}>
-                            <div className="divWhite">
+                            <div className="divWhite divWhiteSummary">
                             <div className="divWhiteGreen">
                             </div>
                             </div>

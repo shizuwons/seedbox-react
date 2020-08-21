@@ -92,42 +92,42 @@ export default function Personal() {
 
         loadData();
 
-        if(localStorage.getItem("lastName") !== "" || localStorage.getItem("lastName") !== null) {
+        if(localStorage.getItem("lastName") !== null) {
             $("input[name='lastName']").val(localStorage.getItem("lastName"));
             $("input[name='lastName']").css({ borderColor: "green"});
         }
 
-        if(localStorage.getItem("firstName") !== "" || localStorage.getItem("firstName") !== null) {
+        if(localStorage.getItem("firstName") !== null) {
             $("input[name='firstName']").val(localStorage.getItem("firstName"));
             $("input[name='firstName']").css({ borderColor: "green"});
         }
 
-        if(localStorage.getItem("maidenName") !== "" || localStorage.getItem("maidenName") !== null) {
+        if(localStorage.getItem("maidenName") !== null) {
             $("input[name='maidenName']").val(localStorage.getItem("maidenName"));
             $("input[name='maidenName']").css({ borderColor: "green"});
         }
 
-        if(localStorage.getItem("mobile") !== "" || localStorage.getItem("mobile") !== null) {
+        if(localStorage.getItem("mobile") !== null) {
             $("input[name='mobile']").val(localStorage.getItem("mobile"));
             $("input[name='mobile']").css({ borderColor: "green"});
         }
 
-        if(localStorage.getItem("email") !== "" || localStorage.getItem("email") !== null) {
+        if(localStorage.getItem("email") !== null) {
             $("input[name='email']").val(localStorage.getItem("email"));
             $("input[name='email']").css({ borderColor: "green"});
         }
 
-        if(localStorage.getItem("tin") !== "" || localStorage.getItem("tin") !== null) {
+        if(localStorage.getItem("tin") !== null) {
             $("input[name='tin']").val(localStorage.getItem("tin"));
             $("input[name='tin']").css({ borderColor: "green"});
         }
 
-        if(localStorage.getItem("sssGsis") !== "" || localStorage.getItem("sssGsis") !== null) {
+        if(localStorage.getItem("sssGsis") !== null) {
             $("input[name='sssGsis']").val(localStorage.getItem("sssGsis"));
             $("input[name='sssGsis']").css({ borderColor: "green"});
         }
 
-        if(localStorage.getItem("agentCode") !== "" || localStorage.getItem("agentCode") !== null) {
+        if(localStorage.getItem("agentCode") !== null) {
             $("input[name='agentCode']").val(localStorage.getItem("agentCode"));
             $("input[name='agentCode']").css({ borderColor: "green"});
         }

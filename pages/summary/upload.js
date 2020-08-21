@@ -61,7 +61,7 @@ export default function Upload() {
             }  
         });
 
-        if(localStorage.getItem("idNumber") !== "" || localStorage.getItem("idNumber") !== null) {
+        if(localStorage.getItem("idNumber") !== null) {
             $("input[name='idNumber']").val(localStorage.getItem("idNumber"));
             $("input[name='idNumber']").css({ borderColor: "green"});
         }

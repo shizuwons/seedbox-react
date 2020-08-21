@@ -110,7 +110,7 @@ export default function Address() {
         function reloadProvince(attribute) {
             $(document).ready(function() {
                 if(attribute === 'current') {
-                    if(localStorage.getItem("currentRegion") !== "" || localStorage.getItem("currentRegion") !== null) {
+                    if(localStorage.getItem("currentRegion") !== null) {
                         $("select[name='currentRegion']").val(localStorage.getItem("currentRegion")).trigger('change');
                         $("select[name='currentRegion']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                         $("select[name='currentRegion']").siblings(".select-placeholder").css({ opacity: "1" });    
@@ -119,7 +119,7 @@ export default function Address() {
                 
                 
                 if(attribute === 'present') {
-                    if(localStorage.getItem("presentRegion") !== "" || localStorage.getItem("presentRegion") !== null) {
+                    if(localStorage.getItem("presentRegion") !== null) {
                         $("select[name='presentRegion']").val(localStorage.getItem("presentRegion")).trigger('change');
                         $("select[name='presentRegion']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                         $("select[name='presentRegion']").siblings(".select-placeholder").css({ opacity: "1" });    
@@ -151,12 +151,12 @@ export default function Address() {
 
         loadData();
 
-        if(localStorage.getItem("currentAddress") !== "" || localStorage.getItem("currentAddress") !== null) {
+        if(localStorage.getItem("currentAddress") !== null) {
             $("input[name='currentAddress']").val(localStorage.getItem("currentAddress"));
             $("input[name='currentAddress']").css({ borderColor: "green"});
         }
 
-        if(localStorage.getItem("presentAddress") !== "" || localStorage.getItem("presentAddress") !== null) {
+        if(localStorage.getItem("presentAddress") !== null) {
             $("input[name='presentAddress']").val(localStorage.getItem("presentAddress"));
             $("input[name='presentAddress']").css({ borderColor: "green"});
         }

@@ -701,7 +701,7 @@
 
   .divWhite {
     position: absolute;
-    top: 85px;
+    top: 53px;
     left: 28px;
     z-index: 99;
     width: 31px;
@@ -710,6 +710,10 @@
     border-radius: 20px;
     background-color: #319A5A;
     transition: all 0.2s;
+  }
+
+  .divWhiteSummary {
+    top: 85px;
   }
 
   .divWhiteGreen {

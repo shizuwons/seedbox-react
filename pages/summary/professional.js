@@ -196,12 +196,12 @@ export default function Professional() {
 
         loadData();
 
-        if(localStorage.getItem("businessName") !== "" || localStorage.getItem("businessName") !== null) {
+        if(localStorage.getItem("businessName") !== null) {
             $("input[name='businessName']").val(localStorage.getItem("businessName"));
             $("input[name='businessName']").css({ borderColor: "green"});
         }
 
-        if(localStorage.getItem("workAddress") !== "" || localStorage.getItem("workAddress") !== null) {
+        if(localStorage.getItem("workAddress") !== null) {
             $("input[name='workAddress']").val(localStorage.getItem("agentCode"));
             $("input[name='workAddress']").css({ borderColor: "green"});
         }
