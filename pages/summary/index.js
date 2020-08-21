@@ -286,6 +286,7 @@ export default function Summary() {
                             <div className="row submitSummary" style={{ marginRight: "30px", marginBottom: "20px" }}>
                                 <div className="col-lg-12">
                                     <input type="button" className="btnNext btnProceed btnSubmit" defaultValue="Submit"/>
+                                    <input type="button" className="btnNext btnProceed btnSave" defaultValue="Save"/>
                                 </div>
                             </div>
                         </div>

@@ -114,6 +114,11 @@
     .btnSubmit {
       width: 100% !important;
     }
+    .btnSave {
+      margin-top: 20px !important;
+      margin-right: 0 !important;
+      width: 100%;
+    }
     .pMore {
       color: #13C95C !important;
       font-size: 21px !important;
@@ -344,6 +349,10 @@
     font-family: Proxima Regular;
     border-radius: 25px;
     margin-top: 10px;
+  }
+
+  .btnSave {
+    margin-right: 20px;
   }
 
   .btnBack {
@@ -953,6 +962,12 @@
 
   .mobile-step {
     display: none;
+  }
+
+  @media only screen and (min-width: 481px) and (max-width: 1366px) {
+    .bar-fixed {
+      top: 59%;
+    }
   }
 
   @media (min-width: 992px) {

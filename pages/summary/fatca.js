@@ -6,61 +6,61 @@ export default function Fatca() {
         $(document).ready(function() {
             if(localStorage.getItem('notUSCitizen') === null) {
                 $("input[name='USCitizen']").click();
-            } else {
+            } else if(localStorage.getItem('USCitizen') === null) {
                 $("input[name='notUSCitizen']").click();
             }
 
             if(localStorage.getItem('notUSResident') === null) {
                 $("input[name='USResident']").click();
-            } else {
+            } else if(localStorage.getItem('USResident') === null) {
                 $("input[name='notUSResident']").click();
             }
 
             if(localStorage.getItem('notUSResidentAlien') === null) {
                 $("input[name='USResidentAlien']").click();
-            } else {
+            } else if(localStorage.getItem('USResidentAlien') === null) {
                 $("input[name='notUSResidentAlien']").click();
             }
 
             if(localStorage.getItem('notUSTelephone') === null) {
                 $("input[name='USTelephone']").click();
-            } else {
+            } else if(localStorage.getItem('USTelephone') === null) {
                 $("input[name='notUSTelephone']").click();
             }
 
             if(localStorage.getItem('notUSBorn') === null) {
                 $("input[name='USBorn']").click();
-            } else {
+            } else if(localStorage.getItem('USBorn') === null) {
                 $("input[name='notUSBorn']").click();
             }
 
             if(localStorage.getItem('notUSAddress') === null) {
                 $("input[name='USAddress']").click();
-            } else {
+            } else if(localStorage.getItem('USAddress') === null) {
                 $("input[name='notUSAddress']").click();
             }
 
             if(localStorage.getItem('notUSMailing') === null) {
                 $("input[name='USMailing']").click();
-            } else {
+            } else if(localStorage.getItem('USMailing') === null) {
                 $("input[name='notUSMailing']").click();
             }
 
             if(localStorage.getItem('notTransferFunds') === null) {
                 $("input[name='TransferFunds']").click();
-            } else {
+            } else if(localStorage.getItem('TransferFunds') === null) {
                 $("input[name='notTransferFunds']").click();
             }
 
             if(localStorage.getItem('notUSPowerOfAttorney') === null) {
                 $("input[name='USPowerOfAttorney']").click();
-            } else {
+            } else if(localStorage.getItem('USPowerOfAttorney') === null) {
                 $("input[name='notUSPowerOfAttorney']").click();
             }
 
             if(localStorage.getItem('notUSCareOfAddress') === null) {
                 $("input[name='USCareOfAddress']").click();
-            } else {
+            } else if(localStorage.getItem('USCareOfAddress') === null) {
                 $("input[name='notUSCareOfAddress']").click();
             }
         });
