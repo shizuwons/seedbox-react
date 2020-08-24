@@ -167,7 +167,7 @@ export default function Personal() {
                 });
             });
 
-            if($('.invested').val() === null) {
+            if($('.invested').val().length === 0) {
                 $('.invested').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important');  
             }
         });
@@ -207,6 +207,10 @@ export default function Personal() {
             }
         });
 
+        if($('.txtusername').val().length > 0) {
+            $('.txtusername').prop('readonly', true);
+        }
+
 
     }, []);
     return (
@@ -232,7 +236,7 @@ export default function Personal() {
                         <div className="selectdiv" style={{marginTop: '0px'}}>
                             <div className="select-placeholder">Country Code</div>
                             <select autoComplete="off" className="select2 country-code" name="countryCode" defaultValue={0} id="Countrycode">
-                                <option value={0} disabled>Country Code
+                                <option value={0} title="Please fill out this field." disabled>Country Code
                                 </option>
                                 <option data-countrycode="PH" value={63}>Philippines (+63)</option>
                                 <option data-countrycode="DZ" value={213}>Algeria (+213)</option>
@@ -470,7 +474,7 @@ export default function Personal() {
                         <div className="selectdiv" style={{marginTop: '0px'}}>
                             <div className="select-placeholder">Civil Status</div>
                             <select autoComplete="off" className="select2 civil-status" name="civilStatus" defaultValue="default">
-                                <option value="default" disabled>Civil Status
+                                <option value="default" title="Please fill out this field." disabled>Civil Status
                                 </option>
                                 {marital.map((e, index) =>(
                                     <option key={index} value={e.value}>{e.value}</option>
@@ -482,7 +486,7 @@ export default function Personal() {
                         <div className="selectdiv" style={{marginTop: '0px'}}>
                             <div className="select-placeholder">Gender</div>
                             <select autoComplete="off" className="select2 gender" name="gender"  defaultValue="default">
-                                <option value="default" disabled>Gender
+                                <option value="default" title="Please fill out this field." disabled>Gender
                                 </option>
                                 {gender.map((e, index) =>(
                                     <option key={index} value={e.value}>{e.value}</option>
@@ -499,7 +503,7 @@ export default function Personal() {
                             <div className="selectdiv" style={{marginTop: '0px'}}>
                                 <div className="select-placeholder">MM</div>
                                 <select autoComplete="off" className="select2 month" id="selectMM" name="birthMonth" defaultValue="default">
-                                <option value="default" disabled>MM
+                                <option value="default" title="Please fill out this field." disabled>MM
                                 </option>
                                 <option>01</option>
                                 <option>02</option>
@@ -520,7 +524,7 @@ export default function Personal() {
                             <div className="selectdiv" style={{marginTop: '0px'}}>
                                 <div className="select-placeholder">DD</div>
                                 <select autoComplete="off" className="select2 day" id="selectDD" name="birthDay" defaultValue="default">
-                                <option value="default" disabled>DD
+                                <option value="default" title="Please fill out this field." disabled>DD
                                 </option>
                                 <option>1</option>
                                 <option>2</option>
@@ -559,7 +563,7 @@ export default function Personal() {
                             <div className="selectdiv" style={{marginTop: '0px'}}>
                                 <div className="select-placeholder">YYYY</div>
                                 <select autoComplete="off" className="select2 year" id="selectYY" name="birthYear" defaultValue="default">
-                                <option value="default" disabled>YYYY
+                                <option value="default" title="Please fill out this field." disabled>YYYY
                                 </option>
                                 {year.map((e, index) =>(
                                     <option key={index} value={e}>{e}</option>
@@ -573,7 +577,7 @@ export default function Personal() {
                         <div className="selectdiv" style={{marginTop: '0px'}}>
                         <div className="select-placeholder">Birthplace</div>
                         <select autoComplete="off" className="select2 birthplace" name="birthPlace" defaultValue="default">
-                            <option value="default" disabled>Birthplace</option>
+                            <option value="default" title="Please fill out this field." disabled>Birthplace</option>
                             {country.map((e, index) =>(
                                 <option key={index} value={e.country_name}>{e.country_name}</option>
                             ))}
@@ -584,7 +588,7 @@ export default function Personal() {
                         <div className="selectdiv" style={{marginTop: '0px'}}>
                         <div className="select-placeholder">Citizenship</div>
                             <select autoComplete="off" className="select2 citizenship" name="citizenship" defaultValue="default">
-                                <option value="default" disabled>Citizenship</option>
+                                <option value="default" title="Please fill out this field." disabled>Citizenship</option>
                                 {citizenship.map((e, index) =>(
                                     <option key={index} value={e.value}>{e.value}</option>
                                 ))}

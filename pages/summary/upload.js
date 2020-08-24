@@ -76,7 +76,7 @@ export default function Upload() {
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
                         <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px', fontSize: '1.5em'}}>Upload Documents</p>
                     </div>
-                    <div className="col-lg-5 col-md-5 col-sm-5 col-5">
+                    <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                         <div className="selectdiv" style={{marginTop: '0px'}}>
                             <div className="select-placeholder">ID Type</div>
                             <select autoComplete="off" className="select2 idtype" id="IdType" name="idType" defaultValue="default">
@@ -87,7 +87,7 @@ export default function Upload() {
                             </select>
                         </div>
                     </div>
-                    <div className="col-lg-7 col-md-7 col-sm-7 col-7">
+                    <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                         <input required type="text" className="txtusername id-number" name="idNumber" id="txtIdNumber" />
                         <label alt="ID Number" placeholder="ID Number" />
                     </div>

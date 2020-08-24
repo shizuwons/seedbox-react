@@ -265,7 +265,7 @@
     border-color: #00C853;
   }
 
-  input[type="text"]:read-only {
+  .kyc-email:read-only {
     border-color: #00C853;
   }
 
@@ -292,18 +292,18 @@
     margin-bottom: calc((3em - 1em) + 2px);
   }
 
-  input[type="text"]:read-only+label[placeholder]:before, input[type="text"][required]:valid+label[placeholder]:before {
+  .kyc-email:read-only+label[placeholder]:before, .kyc-email[required]:valid+label[placeholder]:before {
     transition-duration: 0.2s;
     -webkit-transform: translate(0, -1em) scale(0.9, 0.9);
     transform: translate(0, -1.4em) scale(0.9, 0.9);
     font-size: 0.9rem;
   }
 
-  input[type="text"]:read-only:invalid+label[placeholder][alt]:before {
+  .kyc-email:read-only:invalid+label[placeholder][alt]:before {
     content: attr(alt);
   }
 
-  input[type="text"]:read-only+label[placeholder] {
+  .kyc-email:read-only+label[placeholder] {
     display: block;
     pointer-events: none;
     line-height: 1.25em;
@@ -330,7 +330,7 @@
     background-position: center;
   }
 
-  input[type="text"]:read-only+label[placeholder]:before {
+  .email:read-only+label[placeholder]:before {
     content: attr(placeholder);
     font-family: "Proxima Regular" !important;
     display: inline-block;

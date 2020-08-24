@@ -213,7 +213,7 @@ export default function Address() {
                         <div className="selectdiv">
                             <div className="select-placeholder">Country</div>
                             <select autoComplete="off" className="select2 current" id="current" name="currentCountry" defaultValue={''}>
-                                <option value="" disabled>Country</option>
+                                <option value="" title="Please fill out this field." disabled>Country</option>
                                 {country.map((e, index) =>(
                                     <option key={index} value={e.country_id}>{e.country_name}</option>
                                 ))}
@@ -224,7 +224,7 @@ export default function Address() {
                         <div className="selectdiv">
                             <div className="select-placeholder">Province/Region</div>
                             <select autoComplete="off" className="select2 currentregion" id="#currentregion" name="currentRegion" defaultValue={''}>
-                                <option value="" disabled>Province/Region</option>
+                                <option value="" title="Please fill out this field." disabled>Province/Region</option>
                             </select>
                         </div>
                     </div>
@@ -232,7 +232,7 @@ export default function Address() {
                         <div className="selectdiv">
                             <div className="select-placeholder">City</div>
                             <select autoComplete="off" className="select2 currentcity" id="#currentcity" name="currentCity" defaultValue={''}>
-                                <option value="" disabled>City</option>
+                                <option value="" title="Please fill out this field." disabled>City</option>
                             </select>
                         </div>
                     </div>
@@ -247,7 +247,7 @@ export default function Address() {
                         <div className="selectdiv">
                         <div className="select-placeholder">Country</div>
                         <select autoComplete="off" className="select2 present" id="#present" name="presentCountry" defaultValue={''}>
-                            <option value="" disabled>Country</option>
+                            <option value="" title="Please fill out this field." disabled>Country</option>
                             {country.map((e, index) =>(
                                 <option key={index} value={e.country_id}>{e.country_name}</option>
                             ))}
@@ -258,7 +258,7 @@ export default function Address() {
                         <div className="selectdiv">
                         <div className="select-placeholder">Province/Region</div>
                         <select autoComplete="off" className="select2 presentregion" id="#presentregion" name="presentRegion" defaultValue={''}>
-                            <option value="" disabled>Province/Region</option>
+                            <option value="" title="Please fill out this field." disabled>Province/Region</option>
                         </select>
                         </div>
                     </div>
@@ -266,7 +266,7 @@ export default function Address() {
                         <div className="selectdiv">
                         <div className="select-placeholder">City</div>
                         <select autoComplete="off" className="select2 presentcity" id="#presentcity" name="presentCity" defaultValue={''}>
-                            <option value="" disabled>City</option>
+                            <option value="" title="Please fill out this field." disabled>City</option>
                         </select>
                         </div>
                     </div>

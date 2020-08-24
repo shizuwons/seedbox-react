@@ -3,7 +3,7 @@ import Router from 'next/router';
 import Default from '../../layouts/default';
 import { 
   closeNav, openNav, addHyphen, 
-  addHyphenPagibig, moreLess, isEmail, saveToLocalStorage, readURL 
+  addHyphenPagibig, moreLess, isEmail, saveToLocalStorage, readURL, matchStart
 } from '../../functions/kyc';
 import { personalValidation, addressValidation, professionalValidation, pepValidation, csaValidation, uploadValidation, settlementValidation } from '../../functions/validators';
 import { useEffect } from 'react';
@@ -36,7 +36,6 @@ export default function Kyc() {
 
     $(".select2").select2({
       width: "element",
-      minimumResultsForSearch: -1,
     });
 
     // on first focus (bubbles up to document), open the menu
