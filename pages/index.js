@@ -48,17 +48,17 @@ export default function Home() {
                             <img src="Image/sign-up.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
                             <p className="pBox">Sign Up</p>
                             </div>
-                            <div className="divIcon" style={{padding: '10px 20px'}}>
+                            <div className="divIcon" style={{padding: '10px 30px'}}>
                             <img src="Image/goal.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
                             <p className="pBox">Know your goals</p>
                             </div>
                         </div>
                         <div className="divIcon2 form-inline align-items-center">
-                            <div className="divIcon divIcon3 align-items-center" style={{padding: '10px 20px'}}>
+                            <div className="divIcon divIcon3 align-items-center" style={{padding: '10px 0px'}}>
                             <img src=" Image/planner.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
                             <p className="pBox">Use the goal planner</p>
                             </div>
-                            <div className="divIcon divIcon4" style={{padding: '10px 20px', display: 'inline-block'}}>
+                            <div className="divIcon divIcon4" style={{padding: '10px 30px', display: 'inline-block'}}>
                             <img src=" Image/invest.png" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon imgInvest" />
                             <p className="pBox">Invest</p>
                             </div>
@@ -97,12 +97,12 @@ export default function Home() {
                         <input type="password" className="txtEmail txtPassword" placeholder="password" style={{marginTop: '20px'}} />
                         <div className="row align-items-center" style={{marginTop: '15px'}}>
                         <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <p className="pForgot" style={{ textAlign: "center" }}>Forgot password?</p>
-                        </div>
-                        <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                             <div style={{ textAlign: "center" }}>
                                 <input type="button" defaultValue="SUBMIT" className="btnSubmit" />
                             </div>
+                        </div>
+                        <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+                            <p className="pForgot" style={{ textAlign: "center" }}>Forgot password?</p>
                         </div>
                         </div>
                         <div className="row align-items-center">
@@ -119,7 +119,7 @@ export default function Home() {
                         {/* <button className="btnFacebook"><img src="Image/facebook.png" style={{width: '20px', marginRight: '5px'}} />Log-in with Facebook</button>
                         <button className="btnGoogle"><img src="Image/google.png" style={{width: '20px', marginRight: '5px'}} />Log-in
                         with Google</button> */}
-                        <p className="pDont">Dont have an account?</p>
+                        <p className="pDont">Don't have an account?</p>
                         <p className="pSignup" data-toggle="modal" data-target="#exampleModal1" data-backdrop="false" data-keyboard="false">SIGN UP</p>
                     </div>
                     </div>
@@ -180,6 +180,9 @@ export default function Home() {
                             </div>
                             <div className="col-xs-5ths col-sm-5ths col-md-5ths col-lg-5ths">
                                 <input type="text" className="txtotp txtotp-5" maxLength="1"/>
+                            </div>
+                            <div className="col-xs-5ths col-sm-5ths col-md-5ths col-lg-5ths">
+                                <input type="text" className="txtotp txtotp-1" maxLength="1"/>
                             </div>
                             <div className="col-lg-12 text-center errorDiv hide" style={{marginTop: "30px"}}>
                                 <div className="pError errorMessage">Fill up missing fields.</div>
