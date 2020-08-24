@@ -39,6 +39,18 @@ export default function Kyc() {
       minimumResultsForSearch: -1,
     });
 
+    // on first focus (bubbles up to document), open the menu
+    $(document).on('focus', '.select2-selection.select2-selection--single', function (e) {
+      $(this).closest(".select2-container").siblings('select:enabled').select2('open');
+    });
+
+    // steal focus during close - only capture once and stop propogation
+    $('select.select2').on('select2:closing', function (e) {
+      $(e.target).data("select2").$selection.one('focus focusin', function (e) {
+        e.stopPropagation();
+      });
+    });
+
     $(".invested").select2({
       width: "element",
       minimumResultsForSearch: -1,
@@ -73,7 +85,9 @@ export default function Kyc() {
     });
 
     $("#txtTin").keyup(function (event) {
-      addHyphen(this);
+      if($(this).val().length !== 0) {
+        addHyphen(this);
+      }
     });
 
     // $("input:checkbox").prop("checked", false); // All checkbox in fatca will be uncheck so the default value will be no.
@@ -228,10 +242,26 @@ export default function Kyc() {
     });
 
     $("#imguploadid").change(function(){
+      let ext = $(this).val().split('.').pop().toLowerCase();
+      console.log(ext);
+
+      if(ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'bmp') {
+        alert('Please upload image file only.');
+        return false;
+      }
+
       readURL(this, '.idimage');
     });
 
     $("#imguploadsig").change(function(){
+      let ext = $(this).val().split('.').pop().toLowerCase();
+      console.log(ext);
+
+      if(ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'bmp') {
+        alert('Please upload image file only.');
+        return false;
+      }
+
       readURL(this, '.signatureimage');
     });
 
@@ -570,6 +600,15 @@ export default function Kyc() {
       } 
     });
 
+    $('.idtype').change(function() {
+      let value = $('.idtype').val();
+      if(value === 'PHU' || value === 'TIN' || value === 'INT' || value === 'NCD' || value === 'SEN' || value === 'SSS') {
+        $('.expirymonth').prop('disabled', true);
+        $('.expiryday').prop('disabled', true);
+        $('.expiryyear').prop('disabled', true);
+      }
+    });
+
     $('.expirymonth').on("select2:selecting", function(e) { 
       let value = $('.expirymonth').val();
 
@@ -709,7 +748,7 @@ export default function Kyc() {
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         $(".pMore").text("PEP Declaration");
         $(".pTitle").text("PEP");
-        $(".pSubtitle").text("Second Degree of Consanguinity/Affinity - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
+        $(".pSubtitle").text("<span style='font-weight: bold; display: contents;'>Second Degree of Consanguinity/Affinity</span> - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
       
         $(".divFatca").css("display", "none");
         $(".divFatca").removeClass("animate__fadeOut");
@@ -745,7 +784,7 @@ export default function Kyc() {
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("Professional Details");
         $(".pTitle").text("Professional Details");
-        $(".pSubtitle").html("Net Worth is everything own (example: cash, money in your bank, investments, etc.) minus owe (example: your debt, credit card, mortgage) <br/><br/>Annual Gross Income is the amount of money a person earns in one year before taxes and includes income from all sources. <br/><br/>Please indicate if you are an Officer/Director/Shareholder of the company you are working for.");
+        $(".pSubtitle").html("<span style='font-weight: bold; display: contents;'>Net Worth</span> is everything own (example: cash, money in your bank, investments, etc.) minus owe (example: your debt, credit card, mortgage) <br/><br/><span style='font-weight: bold; display: contents;'>Annual Gross Income</span> is the amount of money a person earns in one year before taxes and includes income from all sources. <br/><br/>Please indicate if you are an Officer/Director/Shareholder of the company you are working for.");
 
         $(".divCsa").css("display", "none");
         $(".divCsa").removeClass("animate__fadeOut");
@@ -766,7 +805,7 @@ export default function Kyc() {
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("Address Information");
         $(".pTitle").text("Address");
-        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is your Manila address and your permanent address is your address is in Cebu. <br/><br/>Example: If you are on OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
+        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is your Manila address and your permanent address is your address in Cebu. <br/><br/>Example: If you are an OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
 
         $(".divAdrress1").css("display", "none");
         $(".divAdrress1").removeClass("animate__fadeOut");
@@ -828,7 +867,7 @@ export default function Kyc() {
         step = 1;
         $(".pMore").text("Address Information");
         $(".pTitle").text("Address");
-        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is your Manila address and your permanent address is your address is in Cebu. <br/><br/>Example: If you are on OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
+        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is your Manila address and your permanent address is your address in Cebu. <br/><br/>Example: If you are an OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
 
         $(".divWhite").css("top", "125px");
         $("#txtAccountname").val($("#txtfullname").val());
@@ -849,7 +888,7 @@ export default function Kyc() {
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("Professional Details");
         $(".pTitle").text("Professional Details");
-        $(".pSubtitle").html("Net Worth is everything own (example: cash, money in your bank, investments, etc.) minus owe (example: your debt, credit card, mortgage) <br/><br/>Annual Gross Income is the amount of money a person earns in one year before taxes and includes income from all sources. <br/><br/>Please indicate if you are an Officer/Director/Shareholder of the company you are working for.");
+        $(".pSubtitle").html("<span style='font-weight: bold; display: contents;'>Net Worth</span> is everything own (example: cash, money in your bank, investments, etc.) minus owe (example: your debt, credit card, mortgage) <br/><br/><span style='font-weight: bold; display: contents;'>Annual Gross Income</span> is the amount of money a person earns in one year before taxes and includes income from all sources. <br/><br/>Please indicate if you are an Officer/Director/Shareholder of the company you are working for.");
 
         $(".divAdrress1").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"
@@ -916,7 +955,7 @@ export default function Kyc() {
         // }
         $(".pMore").text("PEP Declaration");
         $(".pTitle").text("PEP");
-        $(".pSubtitle").text("Second Degree of Consanguinity/Affinity - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
+        $(".pSubtitle").text("<span style='font-weight: bold; display: contents;'>Second Degree of Consanguinity/Affinity</span> - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
 
         $(".divPep").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"

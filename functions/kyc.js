@@ -458,7 +458,7 @@ export function functionAddress() {
     $(".colForm").css("padding-bottom", "20px");
     $(".pMore").text("Address Information");
     $(".pTitle").text("Address");
-    $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is your Manila address and your permanent address is your address is in Cebu. <br/><br/>Example: If you are on OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
+    $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is your Manila address and your permanent address is your address in Cebu. <br/><br/>Example: If you are an OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
 
     $(".divForm").css("display", "none");
     $(".divForm").removeClass(
@@ -491,7 +491,7 @@ export function functionProfessional() {
     $(".colForm").css("padding-bottom", "20px");
     $(".pMore").text("Professional Details");
     $(".pTitle").text("Professional Details");
-    $(".pSubtitle").html("Net Worth is everything own (example: cash, money in your bank, investments, etc.) minus owe (example: your debt, credit card, mortgage) <br/><br/>Annual Gross Income is the amount of money a person earns in one year before taxes and includes income from all sources. <br/><br/>Please indicate if you are an Officer/Director/Shareholder of the company you are working for.");
+    $(".pSubtitle").html("<span style='font-weight: bold; display: contents;'>Net Worth</span> is everything own (example: cash, money in your bank, investments, etc.) minus owe (example: your debt, credit card, mortgage) <br/><br/><span style='font-weight: bold; display: contents;'>Annual Gross Income</span> is the amount of money a person earns in one year before taxes and includes income from all sources. <br/><br/>Please indicate if you are an Officer/Director/Shareholder of the company you are working for.");
 
     $(".divForm").css("display", "none");
     $(".divForm").removeClass(
@@ -536,7 +536,7 @@ export function functionPep() {
   $(".colmid").css({ height: $(".conContent").height() + "px" });
   $(".pMore").text("PEP Declaration");
   $(".pTitle").text("PEP");
-  $(".pSubtitle").text("Second Degree of Consanguinity/Affinity - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
+  $(".pSubtitle").text("<span style='font-weight: bold; display: contents;'>Second Degree of Consanguinity/Affinity</span> - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
   $(".divForm").css("display", "none");
   $(".divCsa").css("display", "none");
   $(".divCsa").removeClass("animate__fadeOut");
@@ -693,11 +693,11 @@ export function readURL(input, imageType) {
 export function saveToLocalStorage(formName) {
   let formValues = $(formName).serializeArray();
 
-  console.log(formValues);
+  //console.log(formValues);
   let invested = [];
   for(let i = 0; i <= formValues.length - 1; i++) {
     if(formValues[i].name === 'invested') {
-      console.log(formValues[i].value);
+     // console.log(formValues[i].value);
 
       invested.push(formValues[i].value);
     } else {

@@ -265,6 +265,10 @@
     border-color: #00C853;
   }
 
+  input[type="text"]:read-only {
+    border-color: #00C853;
+  }
+
   input[type="text"][required]:focus+label[placeholder]:before {
     color: #767676;
   }
@@ -288,11 +292,45 @@
     margin-bottom: calc((3em - 1em) + 2px);
   }
 
+  input[type="text"]:read-only+label[placeholder]:before, input[type="text"][required]:valid+label[placeholder]:before {
+    transition-duration: 0.2s;
+    -webkit-transform: translate(0, -1em) scale(0.9, 0.9);
+    transform: translate(0, -1.4em) scale(0.9, 0.9);
+    font-size: 0.9rem;
+  }
+
+  input[type="text"]:read-only:invalid+label[placeholder][alt]:before {
+    content: attr(alt);
+  }
+
+  input[type="text"]:read-only+label[placeholder] {
+    display: block;
+    pointer-events: none;
+    line-height: 1.25em;
+    margin-top: calc(-3em - 2px);
+    margin-bottom: calc((3em - 1em) + 2px);
+  }
+
   .option {
     color: #414141;
   }
 
   input[type="text"][required]+label[placeholder]:before {
+    content: attr(placeholder);
+    font-family: "Proxima Regular" !important;
+    display: inline-block;
+    margin: 0 calc(1em + 2px);
+    padding: 0 2px;
+    color: #414141;
+    white-space: nowrap;
+    transition: 0.3s ease-in-out;
+    background-image: linear-gradient(to bottom, #fff, #fff);
+    background-size: 100% 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  input[type="text"]:read-only+label[placeholder]:before {
     content: attr(placeholder);
     font-family: "Proxima Regular" !important;
     display: inline-block;

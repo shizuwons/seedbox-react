@@ -19,12 +19,12 @@ function KycForm() {
           <img src="Image/006-money.png" className="img-fluid imgIcon mx-auto d-flex" style={{width: '70px'}} />
           <p className="pTitle text-center" style={{marginTop: '10px'}}>Personal Information
           </p>
-          <label className="pSubtitle mx-auto d-flex text-center">Why invest?
+          <p className="pSubtitle mx-auto d-flex text-center">Why invest?
             Investing makes your money work for you - 
             potentially building wealth by allowing you to outpace 
             inflation and increase value over time.<br/><br/>
             Please make sure all your personal information are 
-            correct and consistent with your government issued IDs and bank accounts. </label>
+            correct and consistent with your government issued IDs and bank accounts. </p>
         </div>
         <div className="col-lg-3 col-md-3 colStep colmid">
           <div className="row rowHide" style={{display: 'none'}}>

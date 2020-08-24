@@ -41,18 +41,18 @@ function Upload() {
                 <div className="col-lg-12" style={{marginTop: '10px'}}>
                     <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px'}}>Upload Documents</p>
                 </div>
-                <div className="col-lg-5 col-md-5 col-sm-5 col-5">
+                <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div className="selectdiv" style={{marginTop: '0px'}}>
                         <div className="select-placeholder">ID Type</div>
                         <select autoComplete="off" className="select2 idtype" id="IdType" name="idType" defaultValue="default">
-                            <option value="default" disabled>ID Type</option>
+                            <option value="default" title="Please fill out this field." disabled>ID Type</option>
                             {type.map((e, index) =>(
                                 <option key={index} value={e.code}>{e.value}</option>
                             ))}
                         </select>
                     </div>
                 </div>
-                <div className="col-lg-7 col-md-7 col-sm-7 col-7">
+                <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                     <input required type="text" className="txtusername id-number" name="idNumber" id="txtIdNumber" />
                     <label alt="ID Number" placeholder="ID Number" />
                 </div>
@@ -63,7 +63,7 @@ function Upload() {
                     <div className="selectdiv" style={{marginTop: '0px'}}>
                     <div className="select-placeholder">MM</div>
                     <select autoComplete="off" className="select2 expirymonth" name="idExpiryMonth" defaultValue="default">
-                        <option value="default" disabled>MM
+                        <option value="default" title="Please fill out this field." disabled>MM
                         </option>
                         <option>01</option>
                         <option>02</option>
@@ -84,7 +84,7 @@ function Upload() {
                     <div className="selectdiv" style={{marginTop: '0px'}}>
                     <div className="select-placeholder">DD</div>
                     <select autoComplete="off" className="select2 expiryday" name="idExpiryDay" defaultValue="default">
-                        <option value="default" disabled>DD
+                        <option value="default" title="Please fill out this field." disabled>DD
                         </option>
                         <option>1</option>
                         <option>2</option>
@@ -123,7 +123,7 @@ function Upload() {
                 <div className="selectdiv" style={{marginTop: '0px'}}>
                 <div className="select-placeholder">YYYY</div>
                     <select autoComplete="off" className="select2 expiryyear" name="idExpiryYear" defaultValue="default">
-                    <option value="default" disabled>YYYY
+                    <option value="default" title="Please fill out this field." disabled>YYYY
                     </option>
                     {year.map((e, index) =>(
                         <option key={index} value={e}>{e}</option>
@@ -140,6 +140,9 @@ function Upload() {
                 <div className="col-lg-6 col-md-6 col-sm-6 col-6">
                     <input type="file" id="imguploadsig" name="signImage" style={{display: "none"}}/> 
                     <img src="Image/signature.png" className="img-fluid signatureimage" />
+                </div>
+                <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <p style={{ marginTop: '10px' }}>Upload file types: .jpg, .jpeg, .png</p>
                 </div>
                 </div>
                 <div className="row" style={{marginTop: '20px'}}>

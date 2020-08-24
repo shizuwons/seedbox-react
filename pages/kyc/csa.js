@@ -14,7 +14,7 @@ function Csa() {
                 <div className="selectdiv">
                     <div className="select-placeholder">How much do you see yourself investing?</div>    
                     <select autoComplete="off" className="select2 invest-much" name="investMuch" defaultValue="">
-                        <option value="" disabled> How much do you see yourself investing?
+                        <option value="" title="Please fill out this field." disabled> How much do you see yourself investing?
                         </option>
                         <option value="A1">P1,000 or less</option>
                         <option value="A2">P1,001 - P50,000</option>
@@ -27,7 +27,7 @@ function Csa() {
                     <div className="selectdiv">
                     <div className="select-placeholder">How frequently do you see yourself investing?</div>    
                     <select autoComplete="off" className="select2 frequent-invest" name="frequentInvest" defaultValue="">
-                        <option value="" disabled> How frequently do you see yourself investing?
+                        <option value="" title="Please fill out this field." disabled> How frequently do you see yourself investing?
                         </option>
                         <option value="A1">Only when I have available cash</option>
                         <option value="A2">Quarterly</option>
@@ -39,7 +39,7 @@ function Csa() {
                     <div className="selectdiv">
                     <div className="select-placeholder">What is the purpose of your investment?</div>    
                     <select autoComplete="off" className="select2 investment" name="investment" defaultValue="">
-                        <option value="" disabled> What is the purpose of your investment?
+                        <option value="" title="Please fill out this field." disabled> What is the purpose of your investment?
                         </option>
                         <option value="A1">To prevent capital loss while generating income.</option>
                         <option value="A2">To have a regular income source.</option>
@@ -49,7 +49,7 @@ function Csa() {
                     <div className="selectdiv">
                     <div className="select-placeholder">How long are you investing for?</div>
                     <select autoComplete="off" className="select2 investing" name="investing" defaultValue="">
-                        <option value="" disabled> How long are you investing for?</option>
+                        <option value="" title="Please fill out this field." disabled> How long are you investing for?</option>
                         <option value="A1">Up to two years</option>
                         <option value="A2">3-5 Years</option>
                         <option value="A3">5-7 Years</option>
@@ -59,10 +59,9 @@ function Csa() {
                     <div className="selectdiv">
                     <div className="select-placeholder">For this investment, you are?</div>
                     <select autoComplete="off" className="select2 for-investment" name="forInvestment" defaultValue="">
-                        <option value="" disabled> For this investment, you are?
+                        <option value="" title="Please fill out this field." disabled> For this investment, you are?
                         </option>
-                        <option value="A1">"Willing to accept low to no risk for general stability of your
-                        money"
+                        <option value="A1">"Willing to accept low to no risk for general stability of your money"
                         </option>
                         <option value="A2">"Willing to accept moderate risk in return for some growth
                         opportunity"
@@ -73,7 +72,7 @@ function Csa() {
                     <div className="selectdiv">
                     <div className="select-placeholder">How knowledgeable are you as an investor?</div>
                     <select autoComplete="off" className="select2 investor" name="investor" defaultValue="">
-                        <option value="" disabled> How knowledgeable are you as an
+                        <option value="" title="Please fill out this field." disabled> How knowledgeable are you as an
                         investor?
                         </option>
                         <option value="A1">I am a new or novice investor</option>
@@ -85,7 +84,7 @@ function Csa() {
                     <div className="selectdiv">
                     <div className="select-placeholder">Which of the following have you invested in?</div>
                     <select autoComplete="off" className="invested" name="invested" value="invested[]" multiple="multiple">
-                        <option value="" disabled> Which of the following have you invested
+                        <option value="" title="Please fill out this field." disabled> Which of the following have you invested
                         in?
                         </option>
                         <option value="A1">Cash and deposit products (e.g. time deposit, SDA)</option>
@@ -103,7 +102,7 @@ function Csa() {
                     <div className="selectdiv">
                     <div className="select-placeholder">Do you have regular liquidity?</div>
                     <select autoComplete="off" className="select2 liquidity" name="liquidity" defaultValue="">
-                        <option value="" disabled> Do you have a regular liquidity
+                        <option value="" title="Please fill out this field." disabled> Do you have a regular liquidity
                         requirement?
                         </option>
                         <option value="true">Yes</option>
@@ -113,7 +112,7 @@ function Csa() {
                     <div className="selectdiv">
                     <div className="select-placeholder">How much drop/loss in the value of your investment can...</div>
                     <select autoComplete="off" className="select2 droploss" name="dropLoss" defaultValue="">
-                        <option value="" disabled> How much drop/loss 
+                        <option value="" title="Please fill out this field." disabled> How much drop/loss 
                         in the value of your investment can you accept?
                         </option>
                         <option value="A1">0%</option>

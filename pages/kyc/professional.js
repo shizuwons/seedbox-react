@@ -157,7 +157,7 @@ function Professional() {
                 <div className="selectdiv" style={{marginTop: '10px'}}>
                 <div className="select-placeholder">Nature of Work</div>
                 <select autoComplete="off" className="select2 nature-work" name="natureOfWork" defaultValue="">
-                    <option value="" disabled>Nature of Work</option>
+                    <option value="" title="Please fill out this field." disabled>Nature of Work</option>
                     {work.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>
                     ))}
@@ -168,7 +168,7 @@ function Professional() {
                 <div className="selectdiv">
                 <div className="select-placeholder">Nature of Business/Employer</div>
                 <select autoComplete="off" className="select2 nature-business" name="natureOfBusiness" defaultValue="">
-                    <option value="" disabled>Nature of Business/Employer</option>
+                    <option value="" title="Please fill out this field." disabled>Nature of Business/Employer</option>
                     {business.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>
                     ))}
@@ -183,7 +183,7 @@ function Professional() {
                 <div className="selectdiv" style={{marginTop: '-8px'}}>
                 <div className="select-placeholder">Are you a Director/Officer/Shareholder?</div>
                 <select autoComplete="off" className="select2 dos" name="dos" defaultValue="">
-                    <option value="" disabled>Are you a Director/Officer/Shareholder?
+                    <option value="" title="Please fill out this field." disabled>Are you a Director/Officer/Shareholder?
                     </option>
                     <option>Yes</option>
                     <option>No</option>
@@ -198,7 +198,7 @@ function Professional() {
                 <div className="selectdiv">
                 <div className="select-placeholder">Country</div>
                 <select autoComplete="off" className="select2 nature-country" name="workCountry" defaultValue={''}>
-                    <option value="">Country</option>
+                    <option value="" title="Please fill out this field." disabled>Country</option>
                     {country.map((e, index) =>(
                         <option key={index} value={e.country_id}>{e.country_name}</option>
                     ))}
@@ -209,7 +209,7 @@ function Professional() {
                 <div className="selectdiv">
                 <div className="select-placeholder">Province/Region</div>
                 <select autoComplete="off" className="select2 workregion" id="#workregion" name="workRegion" defaultValue={''}>
-                    <option value="" disabled>Province/Region</option>
+                    <option value="" title="Please fill out this field." disabled>Province/Region</option>
                 </select>
                 </div>
             </div>
@@ -217,7 +217,7 @@ function Professional() {
                 <div className="selectdiv">
                 <div className="select-placeholder">City</div>
                 <select autoComplete="off" className="select2 workcity" id="#workcity" name="workCity" defaultValue={''}>
-                    <option value="" disabled>City</option>
+                    <option value="" title="Please fill out this field." disabled>City</option>
                 </select>
                 </div>
             </div>
@@ -238,7 +238,7 @@ function Professional() {
                 <div className="selectdiv" style={{marginTop: '10px'}}>
                 <div className="select-placeholder">Source of Funds</div>
                 <select autoComplete="off" className="select2 source-funds" name="sourceOfFunds" defaultValue="default">
-                    <option value="" disabled>Source of Funds</option>
+                    <option value="" title="Please fill out this field." disabled>Source of Funds</option>
                     {funds.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>
                     ))}
@@ -249,7 +249,7 @@ function Professional() {
                 <div className="selectdiv">
                 <div className="select-placeholder">Net Worth</div>
                 <select autoComplete="off" className="select2 net-worth" name="netWorth" defaultValue="">
-                    <option value="" disabled> Net Worth
+                    <option value="" title="Please fill out this field." disabled> Net Worth
                     </option>
                     {networth.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>
@@ -261,7 +261,7 @@ function Professional() {
                 <div className="selectdiv">
                 <div className="select-placeholder">Annual Gross Income</div>
                 <select autoComplete="off" className="select2 gross-income" name="annualGrossIncome" defaultValue="">
-                    <option value="" disabled> Annual Gross Income
+                    <option value="" title="Please fill out this field." disabled> Annual Gross Income
                     </option>
                     {income.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>

@@ -56,6 +56,10 @@ function Personal({ submitPersonal }) {
         }
 
         loadData();
+
+        $(document).ready(function() {
+          $('.email').val('seedbox@seedbox.ph');
+        });
     }, []);
     return (
         <div className="divInfo divForm">
@@ -64,13 +68,15 @@ function Personal({ submitPersonal }) {
             <div className="col-lg-12">
               <p className="pInfoTitle" style={{marginBottom: '15px'}}>Personal Info</p>
             </div>
-            <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-              <input required type="text" className="txtusername lastname" name="lastName" style={{marginTop: '-10px'}} />
-              <label alt="Last Name" placeholder="Last Name" />
-            </div>
-            <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-              <input required type="text" className="txtusername firstname" name="firstName" style={{marginTop: '-10px'}} />
-              <label alt="First Name, Jr/Sr" placeholder="First Name, Jr/Sr" />
+            <div className="row" style={{marginTop: '-10px', padding: "0 15px"}}>
+              <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+                <input required type="text" className="txtusername lastname" name="lastName" />
+                <label alt="Last Name" placeholder="Last Name" />
+              </div>
+              <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+                <input required type="text" className="txtusername firstname" name="firstName"/>
+                <label alt="First Name, Jr/Sr" placeholder="First Name, Jr/Sr" />
+              </div>
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div className="lastname-error error-message hide"><span></span></div>
@@ -90,7 +96,7 @@ function Personal({ submitPersonal }) {
                 <div className="select-placeholder">Country Code</div>
                 <select autoComplete="off" className="select2 country-code" name="countryCode" defaultValue={0} id="Countrycode">
                   <option data-countrycode="PH" value={63}>Philippines (+63)</option>
-                  <option value={0} disabled>Country Code
+                  <option value={0} title="Please fill out this field." disabled>Country Code
                   </option>
                   <option data-countrycode="DZ" value={213}>Algeria (+213)</option>
                   <option data-countrycode="AD" value={376}>Andorra (+376)</option>
@@ -326,7 +332,7 @@ function Personal({ submitPersonal }) {
                 <div className="mobile-error error-message hide"><span></span></div>
             </div>
           </div>
-            <input required type="text" className="txtusername email" name="email"/>
+            <input required type="text" className="txtusername email" name="email" readOnly/>
             <label alt="Email" placeholder="Email" className="labelEmail" />
             <div className="pErrorEmail hide" style={{ margin: "0 0 1em"}}>Your email is not valid.</div>
           <div className="row" style={{marginTop: '-5px'}}>
@@ -334,7 +340,7 @@ function Personal({ submitPersonal }) {
               <div className="selectdiv" style={{marginTop: '0px'}}>
                 <div className="select-placeholder">Civil Status</div>
                 <select autoComplete="off" className="select2 civil-status" name="civilStatus" defaultValue="default">
-                  <option value="default" disabled>Civil Status
+                  <option value="default" title="Please fill out this field."  disabled>Civil Status
                   </option>
                   {marital.map((e, index) =>(
                     <option key={index} value={e.value}>{e.value}</option>
@@ -346,7 +352,7 @@ function Personal({ submitPersonal }) {
               <div className="selectdiv" style={{marginTop: '0px'}}>
                 <div className="select-placeholder">Gender</div>
                 <select autoComplete="off" className="select2 gender" name="gender" defaultValue="default">
-                  <option value="default" disabled>Gender
+                  <option value="default" title="Please fill out this field." disabled>Gender
                   </option>
                   {gender.map((e, index) =>(
                     <option key={index} value={e.value}>{e.value}</option>
@@ -371,7 +377,7 @@ function Personal({ submitPersonal }) {
                   <div className="selectdiv" style={{marginTop: '0px'}}>
                     <div className="select-placeholder">MM</div>
                     <select autoComplete="off" className="select2 month" name="birthMonth" id="selectMM" defaultValue="default">
-                      <option value="default" disabled>MM
+                      <option value="default" title="Please fill out this field." disabled>MM
                       </option>
                       <option>01</option>
                       <option>02</option>
@@ -392,7 +398,7 @@ function Personal({ submitPersonal }) {
                   <div className="selectdiv" style={{marginTop: '0px'}}>
                     <div className="select-placeholder">DD</div>
                     <select autoComplete="off" className="select2 day" name="birthDay" id="selectDD" defaultValue="default">
-                      <option value="default" disabled>DD
+                      <option value="default" title="Please fill out this field." disabled>DD
                       </option>
                       <option>1</option>
                       <option>2</option>
@@ -431,7 +437,7 @@ function Personal({ submitPersonal }) {
                   <div className="selectdiv" style={{marginTop: '0px'}}>
                     <div className="select-placeholder">YYYY</div>
                     <select autoComplete="off" className="select2 year" name="birthYear" id="selectYY" defaultValue="default">
-                      <option value="default" disabled>YYYY
+                      <option value="default" title="Please fill out this field." disabled>YYYY
                       </option>
                       {year.map((e, index) =>(
                         <option key={index} value={e}>{e}</option>
@@ -453,7 +459,7 @@ function Personal({ submitPersonal }) {
                 <div className="selectdiv" style={{marginTop: '0px'}}>
                   <div className="select-placeholder">Birthplace</div>
                   <select autoComplete="off" className="select2 birthplace" name="birthPlace" defaultValue="default">
-                    <option value="default" disabled>Birthplace</option>
+                    <option value="default" title="Please fill out this field." disabled>Birthplace</option>
                     {country.map((e, index) =>(
                       <option key={index} value={e.country_name}>{e.country_name}</option>
                     ))}
@@ -469,7 +475,7 @@ function Personal({ submitPersonal }) {
                 <div className="selectdiv" style={{marginTop: '0px'}}>
                   <div className="select-placeholder">Citizenship</div>
                   <select autoComplete="off" className="select2 citizenship" name="citizenship" defaultValue="default">
-                    <option value="default" disabled>Citizenship</option>
+                    <option value="default" title="Please fill out this field." disabled>Citizenship</option>
                     {citizenship.map((e, index) =>(
                     <option key={index} value={e.value}>{e.value}</option>
                     ))}

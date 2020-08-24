@@ -34,7 +34,7 @@ function Settlement() {
                     <div className="selectdiv" style={{margin: '0 0 1em'}}>
                     <div className="select-placeholder">Bank Name</div>
                     <select autoComplete="off" className="select2 bank-name" id="BankName" name="bankName" defaultValue="default">
-                        <option value="default" disabled>Bank Name</option>
+                        <option value="default" title="Please fill out this field." disabled>Bank Name</option>
                         {bank.map((e, index) =>(
                             <option key={index} value={e.bank_name}>{e.bank_name}</option>
                         ))}
