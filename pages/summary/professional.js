@@ -202,7 +202,7 @@ export default function Professional() {
         }
 
         if(localStorage.getItem("workAddress") !== null) {
-            $("input[name='workAddress']").val(localStorage.getItem("agentCode"));
+            $("input[name='workAddress']").val(localStorage.getItem("workAddress"));
             $("input[name='workAddress']").css({ borderColor: "green"});
         }
 

@@ -209,6 +209,7 @@ export default function Personal() {
 
         if($('.txtusername').val().length > 0) {
             $('.txtusername').prop('readonly', true);
+            $('.txtusername').addClass('kyc-email');
         }
 
 

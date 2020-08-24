@@ -332,7 +332,7 @@ function Personal({ submitPersonal }) {
                 <div className="mobile-error error-message hide"><span></span></div>
             </div>
           </div>
-            <input required type="text" className="txtusername email" name="email" readOnly/>
+            <input required type="text" className="txtusername email kyc-email" name="email" readOnly/>
             <label alt="Email" placeholder="Email" className="labelEmail" />
             <div className="pErrorEmail hide" style={{ margin: "0 0 1em"}}>Your email is not valid.</div>
           <div className="row" style={{marginTop: '-5px'}}>
@@ -340,7 +340,7 @@ function Personal({ submitPersonal }) {
               <div className="selectdiv" style={{marginTop: '0px'}}>
                 <div className="select-placeholder">Civil Status</div>
                 <select autoComplete="off" className="select2 civil-status" name="civilStatus" defaultValue="default">
-                  <option value="default" title="Please fill out this field."  disabled>Civil Status
+                  <option value="default" title="Please fill out this field." disabled>Civil Status
                   </option>
                   {marital.map((e, index) =>(
                     <option key={index} value={e.value}>{e.value}</option>

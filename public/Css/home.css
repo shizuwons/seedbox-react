@@ -41,7 +41,7 @@ body, html {
         box-shadow: 5px 10px 30px #89898929;
         border-radius: 10px;
         margin: 0 auto;
-        padding: 30px;
+        padding: 10px 0 !important;
         margin: 10px;
         max-height: 100px !important;
         min-height: 100px !important;
@@ -62,9 +62,9 @@ body, html {
     .imgIcon {
         width: 40% !important;
     }
-    .imgInvest {
+    /* .imgInvest {
         width: 29% !important;
-    }
+    } */
     .imgLast {
         width: 20% !important;
         margin-top: 5px !important;
