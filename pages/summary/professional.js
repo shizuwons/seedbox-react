@@ -17,7 +17,7 @@ export default function Professional() {
         async function loadData() {
             const countryDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/countries');
             const lookupDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/lookups');
-            const countries = await countryDataLoad.data;
+            let countries = await countryDataLoad.data;
             const lookups = lookupDataLoad.data;
             
             // Countries

@@ -280,7 +280,17 @@ export default function Summary() {
                                     </label>
                                 </div>
                                 <div className="col-11">
-                                    <p className="pExpiry">I agree to the terms of conditions and Data Privacy Policy</p>
+                                    <p className="pExpiry">I agree to the Terms and Conditions and Data Privacy Policy</p>
+                                </div>
+                                <div className="col-12">
+                                    <p className="pExpiry" data-toggle="modal" data-target="#termsModal" data-backdrop="false" data-keyboard="false">
+                                        Terms and Conditions
+                                    </p>
+                                </div>
+                                <div className="col-12">
+                                    <p className="pExpiry" data-toggle="modal" data-target="#privacyModal" data-backdrop="false" data-keyboard="false">
+                                        Data Privacy Policy
+                                    </p>
                                 </div>
                             </div>
                             <div className="row submitSummary" style={{ marginRight: "30px", marginBottom: "20px" }}>
@@ -288,6 +298,23 @@ export default function Summary() {
                                     <input type="button" className="btnNext btnProceed btnSubmit" defaultValue="Submit"/>
                                     <input type="button" className="btnNext btnProceed btnSave" defaultValue="Save"/>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="modal fade" id="termsModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document" style={{ maxWidth: "80%" }}>
+                    <div className="modal-content">
+                        <div className="modal-body" style={{border: '0px', margin: '0 auto', width: '100%', padding: '1rem 5rem'}}>
+                            <p className="pCaption">Terms and Conditions of Use</p>
+                            <iframe src="https://www.seedbox.ph/views/popup/terms.html" className="pTextbody">
+
+                            </iframe>
+                        </div>
+                        <div className="row" style={{marginBottom: '50px'}}>
+                            <div className="col-lg-12">
+                                <input type="button" className="btnNext btnProceed btnAgree" defaultValue="I AGREE"/>                              
                             </div>
                         </div>
                     </div>

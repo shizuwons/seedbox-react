@@ -11,7 +11,7 @@ export default function Address() {
     useEffect(() => {
         async function loadData() {
             const countryDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/countries');
-            const countries = await countryDataLoad.data;
+            let countries = await countryDataLoad.data;
             
             countries = JSON.stringify(countries);
             countries = JSON.parse(countries, (key, value) => Array.isArray(value) ? value.filter(e => e.country_name !== null) : value);
