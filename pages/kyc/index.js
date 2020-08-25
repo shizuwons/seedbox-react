@@ -704,6 +704,8 @@ export default function Kyc() {
     // Click function for back button
     $(".btnBack").click(function () {
       if (step === 7) {
+        saveToLocalStorage('.settlementForm');
+
         $(".conContent").css("height", "82vh");
         $(".colForm").css("padding-top", "0px");
         $(".colForm").css("padding-bottom", "0px");
@@ -720,6 +722,8 @@ export default function Kyc() {
         $(".divWhite").css("top", "470px");
         step = 6;
       } else if (step === 6) {
+        saveToLocalStorage('.uploadForm');
+
         $(".conContent").attr(
           "style",
           "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: auto !important;"
@@ -741,6 +745,8 @@ export default function Kyc() {
         $(".divWhite").css("top", "400px");
         step = 5;
       } else if (step === 5) {
+        saveToLocalStorage('.fatcaForm');
+
         $(".conContent").css("height", "82vh");
         $(".colForm").css("padding-top", "0px");
         $(".colForm").css("padding-bottom", "0px");
@@ -758,6 +764,8 @@ export default function Kyc() {
         $(".divWhite").css("top", "330px");
         step = 4;
       } else if (step === 4) {
+        saveToLocalStorage('.pepForm');
+
         $(".conContent").css("height", "auto");
         $(".colForm").css("padding-top", "0px");
         $(".colForm").css("padding-bottom", "0px");
@@ -775,6 +783,8 @@ export default function Kyc() {
         $(".divWhite").css("top", "260px");
         step = 3;
       } else if (step === 3) {
+        saveToLocalStorage('.csaForm');
+
         $(".conContent").attr(
           "style",
           "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: auto !important;"
@@ -796,6 +806,8 @@ export default function Kyc() {
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         step = 2;
       } else if (step === 2) {
+        saveToLocalStorage('.professionalForm');
+
         $(".conContent").attr(
           "style",
           "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: 82vh !important;"
@@ -817,6 +829,8 @@ export default function Kyc() {
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         step = 1;
       } else if (step === 1) {
+        saveToLocalStorage('.addressForm');
+        
         $(".conContent").css("height", "82vh");
         $(".colForm").css("padding-top", "0px");
         $(".colForm").css("padding-bottom", "0px");
