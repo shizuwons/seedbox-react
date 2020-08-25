@@ -237,7 +237,7 @@ function Professional() {
             <div className="col-lg-12" style={{marginTop: '10px'}}>
                 <div className="selectdiv" style={{marginTop: '10px'}}>
                 <div className="select-placeholder">Source of Funds</div>
-                <select autoComplete="off" className="select2 source-funds" name="sourceOfFunds" defaultValue="default">
+                <select autoComplete="off" className="select2 source-funds" name="sourceOfFunds" defaultValue="">
                     <option value="" title="Please fill out this field." disabled>Source of Funds</option>
                     {funds.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>

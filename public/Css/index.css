@@ -330,7 +330,7 @@
     background-position: center;
   }
 
-  .email:read-only+label[placeholder]:before {
+  .kyc-email:read-only+label[placeholder]:before {
     content: attr(placeholder);
     font-family: "Proxima Regular" !important;
     display: inline-block;
