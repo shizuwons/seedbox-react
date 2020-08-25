@@ -781,6 +781,10 @@
     margin-left: 5px;
   }
 
+  .toSummary button:focus {
+    outline: none;
+  }
+
   .checkbox {
     --background: #fff;
     --border: #D1D6EE;

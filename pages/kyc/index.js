@@ -691,6 +691,7 @@ export default function Kyc() {
     //     return false;
     //   }
     // });
+    $(".checkOther").click();
 
     // If screen is mobile
     if($(window).width() < 440) {
@@ -793,7 +794,7 @@ export default function Kyc() {
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("Professional Details");
         $(".pTitle").text("Professional Details");
-        $(".pSubtitle").html("<span style='font-weight: bold; display: contents;'>Net Worth</span> is everything own (example: cash, money in your bank, investments, etc.) minus owe (example: your debt, credit card, mortgage) <br/><br/><span style='font-weight: bold; display: contents;'>Annual Gross Income</span> is the amount of money a person earns in one year before taxes and includes income from all sources. <br/><br/>Please indicate if you are an Officer/Director/Shareholder of the company you are working for.");
+        $(".pSubtitle").html("<span style='font-weight: bold; display: contents;'>Net Worth</span> is everything own (example: cash, money in your bank, investments, etc.) minus everything you owe (example: your debt, credit card, mortgage) <br/><br/><span style='font-weight: bold; display: contents;'>Annual Gross Income</span> is the amount of money a person earns in one year before taxes and includes income from all sources. <br/><br/>Please indicate if you are an Officer/Director/Shareholder of the company you are working for.");
 
         $(".divCsa").css("display", "none");
         $(".divCsa").removeClass("animate__fadeOut");
@@ -816,7 +817,7 @@ export default function Kyc() {
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("Address Information");
         $(".pTitle").text("Address");
-        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is your Manila address and your permanent address is your address in Cebu. <br/><br/>Example: If you are an OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
+        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>Your current address is your Manila address and your permanent address is your address in Cebu. <br/><br/>Example: If you are an OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
 
         $(".divAdrress1").css("display", "none");
         $(".divAdrress1").removeClass("animate__fadeOut");
@@ -830,7 +831,7 @@ export default function Kyc() {
         step = 1;
       } else if (step === 1) {
         saveToLocalStorage('.addressForm');
-        
+
         $(".conContent").css("height", "82vh");
         $(".colForm").css("padding-top", "0px");
         $(".colForm").css("padding-bottom", "0px");
@@ -880,7 +881,7 @@ export default function Kyc() {
         step = 1;
         $(".pMore").text("Address Information");
         $(".pTitle").text("Address");
-        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>You current address is your Manila address and your permanent address is your address in Cebu. <br/><br/>Example: If you are an OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
+        $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>Your current address is your Manila address and your permanent address is your address in Cebu. <br/><br/>Example: If you are an OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
 
         $(".divWhite").css("top", "125px");
         $("#txtAccountname").val($("#txtfullname").val());
@@ -901,7 +902,7 @@ export default function Kyc() {
         $(".colForm").css("padding-bottom", "20px");
         $(".pMore").text("Professional Details");
         $(".pTitle").text("Professional Details");
-        $(".pSubtitle").html("<span style='font-weight: bold; display: contents;'>Net Worth</span> is everything own (example: cash, money in your bank, investments, etc.) minus owe (example: your debt, credit card, mortgage) <br/><br/><span style='font-weight: bold; display: contents;'>Annual Gross Income</span> is the amount of money a person earns in one year before taxes and includes income from all sources. <br/><br/>Please indicate if you are an Officer/Director/Shareholder of the company you are working for.");
+        $(".pSubtitle").html("<span style='font-weight: bold; display: contents;'>Net Worth</span> is everything own (example: cash, money in your bank, investments, etc.) minus everything you owe (example: your debt, credit card, mortgage) <br/><br/><span style='font-weight: bold; display: contents;'>Annual Gross Income</span> is the amount of money a person earns in one year before taxes and includes income from all sources. <br/><br/>Please indicate if you are an Officer/Director/Shareholder of the company you are working for.");
 
         $(".divAdrress1").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"

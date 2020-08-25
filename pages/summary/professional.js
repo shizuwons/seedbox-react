@@ -21,6 +21,9 @@ export default function Professional() {
             const lookups = lookupDataLoad.data;
             
             // Countries
+            countries = JSON.stringify(countries);
+            countries = JSON.parse(countries, (key, value) => Array.isArray(value) ? value.filter(e => e.country_name !== null) : value);
+            
             countries.sort(function(a, b) {
                 return compareStrings(a.country_name, b.country_name);
             });
@@ -76,6 +79,7 @@ export default function Professional() {
         async function getProvinces(id) {
             const provinceDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/provinces/' + id);
             const province = await provinceDataLoad.data;
+            let provinces = [];
             $('.workregion').empty();
             let defaultValue = {
                 ids: '',
@@ -96,10 +100,20 @@ export default function Professional() {
                     name: value
                 };
 
-                let newOption = new Option(data.name, data.ids, false, false);
-                $('.workregion').append(newOption);
+                provinces.push(data);
                 // ...
             });
+
+            provinces.sort(function(a, b) {
+                return compareStrings(a.name, b.name);
+            });
+
+            for(let val in provinces) {
+                let value = provinces[val];
+
+                let newOption = new Option(value.name, value.ids, false, false);
+                $('.workregion').append(newOption);
+            }
 
             reloadProvince();
         }
@@ -107,6 +121,8 @@ export default function Professional() {
         async function getCities(id) {
             const cityDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/cities/' + id);
             const city = await cityDataLoad.data;
+            let cities = [];
+
             $('.workcity').empty();
             let defaultValue = {
                 ids: '',
@@ -126,10 +142,20 @@ export default function Professional() {
                     name: value
                 };
 
-                let newOption = new Option(data.name, data.ids, false, false);
-                $('.workcity').append(newOption);
+                cities.push(data);
                 // ...
             });
+
+            cities.sort(function(a, b) {
+                return compareStrings(a.name, b.name);
+            });
+
+            for(let val in cities) {
+                let value = cities[val];
+
+                let newOption = new Option(value.name, value.ids, false, false);
+                $('.workcity').append(newOption);
+            }
 
             reloadCity();
         }

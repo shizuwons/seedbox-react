@@ -14,10 +14,13 @@ function Personal({ submitPersonal }) {
         async function loadData() {
             const countryDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/countries');
             const lookupDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/lookups');
-            const countries = await countryDataLoad.data;
+            let countries = await countryDataLoad.data;
             const lookups = lookupDataLoad.data;
             
             // Countries
+            countries = JSON.stringify(countries);
+            countries = JSON.parse(countries, (key, value) => Array.isArray(value) ? value.filter(e => e.country_name !== null) : value);
+            
             countries.sort(function(a, b) {
                 return compareStrings(a.country_name, b.country_name);
             });

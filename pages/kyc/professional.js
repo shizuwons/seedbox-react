@@ -6,8 +6,6 @@ import { compareStrings, sortById, sortIncome } from '../../functions/functions'
 
 function Professional() {
     const [country, setCountry] = useState([]);
-    const [provinces, setProvinces] = useState([]);
-    const [cities, setCities] = useState([]);
     const [work, setWork] = useState([]);
     const [business, setBusiness] = useState([]);
     const [funds, setFunds] = useState([]);
@@ -17,10 +15,13 @@ function Professional() {
         async function loadData() {
             const countryDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/countries');
             const lookupDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/lookups');
-            const countries = await countryDataLoad.data;
+            let countries = await countryDataLoad.data;
             const lookups = lookupDataLoad.data;
             
             // Countries
+            countries = JSON.stringify(countries);
+            countries = JSON.parse(countries, (key, value) => Array.isArray(value) ? value.filter(e => e.country_name !== null) : value);
+            
             countries.sort(function(a, b) {
                 return compareStrings(a.country_name, b.country_name);
             });
@@ -74,6 +75,7 @@ function Professional() {
         async function getProvinces(id) {
             const provinceDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/provinces/' + id);
             const province = await provinceDataLoad.data;
+            let provinces = [];
             $('.workregion').empty();
             let defaultValue = {
                 ids: '',
@@ -94,15 +96,27 @@ function Professional() {
                     name: value
                 };
 
-                let newOption = new Option(data.name, data.ids, false, false);
-                $('.workregion').append(newOption);
+                provinces.push(data);
                 // ...
             });
+
+            provinces.sort(function(a, b) {
+                return compareStrings(a.name, b.name);
+            });
+
+            for(let val in provinces) {
+                let value = provinces[val];
+
+                let newOption = new Option(value.name, value.ids, false, false);
+                $('.workregion').append(newOption);
+            }
         }
 
         async function getCities(id) {
             const cityDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/cities/' + id);
             const city = await cityDataLoad.data;
+            let cities = [];
+
             $('.workcity').empty();
             let defaultValue = {
                 ids: '',
@@ -122,10 +136,20 @@ function Professional() {
                     name: value
                 };
 
-                let newOption = new Option(data.name, data.ids, false, false);
-                $('.workcity').append(newOption);
+                cities.push(data);
                 // ...
             });
+
+            cities.sort(function(a, b) {
+                return compareStrings(a.name, b.name);
+            });
+
+            for(let val in cities) {
+                let value = cities[val];
+
+                let newOption = new Option(value.name, value.ids, false, false);
+                $('.workcity').append(newOption);
+            }
         }
 
         loadData();
@@ -251,9 +275,9 @@ function Professional() {
                 <select autoComplete="off" className="select2 net-worth" name="netWorth" defaultValue="">
                     <option value="" title="Please fill out this field." disabled> Net Worth
                     </option>
-                    {networth.map((e, index) =>(
+                    {/* {networth.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>
-                    ))}
+                    ))} */}
                 </select>
                 </div>
             </div>

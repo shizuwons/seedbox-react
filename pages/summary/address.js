@@ -13,6 +13,9 @@ export default function Address() {
             const countryDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/countries');
             const countries = await countryDataLoad.data;
             
+            countries = JSON.stringify(countries);
+            countries = JSON.parse(countries, (key, value) => Array.isArray(value) ? value.filter(e => e.country_name !== null) : value);
+            
             countries.sort(function(a, b) {
                 return compareStrings(a.country_name, b.country_name);
             });
@@ -33,6 +36,8 @@ export default function Address() {
         async function getProvinces(id, attribute) {
             const provinceDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/provinces/' + id);
             const province = await provinceDataLoad.data;
+            let provinces = [];
+
             $('.' + attribute + 'region').empty();
             let defaultValue = {
                 ids: '',
@@ -53,10 +58,23 @@ export default function Address() {
                     name: value
                 };
 
-                let newOption = new Option(data.name, data.ids, false, false);
-                $('.' + attribute + 'region').append(newOption);
+                // let newOption = new Option(data.name, data.ids, false, false);
+                // $('.' + attribute + 'region').append(newOption);
+
+                provinces.push(data);
                 // ...
             });
+
+            provinces.sort(function(a, b) {
+                return compareStrings(a.name, b.name);
+            });
+
+            for(let val in provinces) {
+                let value = provinces[val];
+
+                let newOption = new Option(value.name, value.ids, false, false);
+                $('.' + attribute + 'region').append(newOption);
+            }
 
             reloadProvince(attribute);
         }
@@ -64,6 +82,8 @@ export default function Address() {
         async function getCities(id, attribute) {
             const cityDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/cities/' + id);
             const city = await cityDataLoad.data;
+            let cities = [];
+
             $('.' + attribute + 'city').empty();
             let defaultValue = {
                 ids: '',
@@ -83,10 +103,20 @@ export default function Address() {
                     name: value
                 };
 
-                let newOption = new Option(data.name, data.ids, false, false);
-                $('.' + attribute + 'city').append(newOption);
+                cities.push(data);
                 // ...
             });
+
+            cities.sort(function(a, b) {
+                return compareStrings(a.name, b.name);
+            });
+
+            for(let val in cities) {
+                let value = cities[val];
+
+                let newOption = new Option(value.name, value.ids, false, false);
+                $('.' + attribute + 'city').append(newOption);
+            }
 
             reloadCity(attribute);
         }

@@ -55,7 +55,10 @@ function Settlement() {
                     <input type="button" className="btnBack" defaultValue="Back" />
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-6 col-6">
-                    <input type="button" className="btnNext btnProceed" defaultValue="Next" onClick={() => Router.push("/summary")}/>
+                    <a href="/summary" className="toSummary">
+                        <button type="button" className="btnNext btnProceed">Next</button>
+                    </a>
+                    {/* <input type="button" className="btnNext btnProceed" defaultValue="Next" onClick={() => Router.push("/summary")}/> */}
                 </div>
                 </div>
             </form>

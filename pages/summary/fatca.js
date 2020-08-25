@@ -5,63 +5,113 @@ export default function Fatca() {
     useEffect(() => {
         $(document).ready(function() {
             if(localStorage.getItem('notUSCitizen') === null) {
-                $("input[name='USCitizen']").click();
+                $("input[name='USCitizen']").attr('checked', true);
             } else if(localStorage.getItem('USCitizen') === null) {
-                $("input[name='notUSCitizen']").click();
+                $("input[name='notUSCitizen']").attr('checked', true);
+            }
+
+            if(localStorage.getItem('notUSCitizen') === null && localStorage.getItem('USCitizen') === null) {
+                $("input[name='USCitizen']").attr('checked', false);
+                $("input[name='notUSCitizen']").attr('checked', false);
             }
 
             if(localStorage.getItem('notUSResident') === null) {
-                $("input[name='USResident']").click();
+                $("input[name='USResident']").attr('checked', true);
             } else if(localStorage.getItem('USResident') === null) {
-                $("input[name='notUSResident']").click();
+                $("input[name='notUSResident']").attr('checked', true);
+            }
+
+            if(localStorage.getItem('USResident') === null && localStorage.getItem('notUSResident') === null) {
+                $("input[name='USResident']").attr('checked', false);
+                $("input[name='notUSResident']").attr('checked', true);
             }
 
             if(localStorage.getItem('notUSResidentAlien') === null) {
-                $("input[name='USResidentAlien']").click();
+                $("input[name='USResidentAlien']").attr('checked', true);
             } else if(localStorage.getItem('USResidentAlien') === null) {
-                $("input[name='notUSResidentAlien']").click();
+                $("input[name='notUSResidentAlien']").attr('checked', true);
+            }
+
+            if(localStorage.getItem('USResidentAlien') === null && localStorage.getItem('notUSResidentAlien') === null) {
+                $("input[name='USResidentAlien']").attr('checked', false);
+                $("input[name='notUSResidentAlien']").attr('checked', true);
             }
 
             if(localStorage.getItem('notUSTelephone') === null) {
-                $("input[name='USTelephone']").click();
+                $("input[name='USTelephone']").attr('checked', true);
             } else if(localStorage.getItem('USTelephone') === null) {
-                $("input[name='notUSTelephone']").click();
+                $("input[name='notUSTelephone']").attr('checked', true);
+            }
+
+            if(localStorage.getItem('USTelephone') === null && localStorage.getItem('notUSTelephone') === null) {
+                $("input[name='USTelephone']").attr('checked', false);
+                $("input[name='notUSTelephone']").attr('checked', true);
             }
 
             if(localStorage.getItem('notUSBorn') === null) {
-                $("input[name='USBorn']").click();
+                $("input[name='USBorn']").attr('checked', true);
             } else if(localStorage.getItem('USBorn') === null) {
-                $("input[name='notUSBorn']").click();
+                $("input[name='notUSBorn']").attr('checked', true);
+            }
+
+            if(localStorage.getItem('USBorn') === null && localStorage.getItem('notUSBorn') === null) {
+                $("input[name='USBorn']").attr('checked', false);
+                $("input[name='notUSBorn']").attr('checked', true);
             }
 
             if(localStorage.getItem('notUSAddress') === null) {
-                $("input[name='USAddress']").click();
+                $("input[name='USAddress']").attr('checked', true);
             } else if(localStorage.getItem('USAddress') === null) {
-                $("input[name='notUSAddress']").click();
+                $("input[name='notUSAddress']").attr('checked', true);
+            }
+
+            if(localStorage.getItem('USAddress') === null && localStorage.getItem('notUSAddress') === null) {
+                $("input[name='USAddress']").attr('checked', false);
+                $("input[name='notUSAddress']").attr('checked', true);
             }
 
             if(localStorage.getItem('notUSMailing') === null) {
-                $("input[name='USMailing']").click();
+                $("input[name='USMailing']").attr('checked', true);
             } else if(localStorage.getItem('USMailing') === null) {
-                $("input[name='notUSMailing']").click();
+                $("input[name='notUSMailing']").attr('checked', true);
+            }
+
+            if(localStorage.getItem('USMailing') === null && localStorage.getItem('notUSMailing') === null) {
+                $("input[name='USMailing']").attr('checked', false);
+                $("input[name='notUSMailing']").attr('checked', true);
             }
 
             if(localStorage.getItem('notTransferFunds') === null) {
-                $("input[name='TransferFunds']").click();
+                $("input[name='TransferFunds']").attr('checked', true);
             } else if(localStorage.getItem('TransferFunds') === null) {
-                $("input[name='notTransferFunds']").click();
+                $("input[name='notTransferFunds']").attr('checked', true);
+            }
+
+            if(localStorage.getItem('TransferFunds') === null && localStorage.getItem('notTransferFunds') === null) {
+                $("input[name='TransferFunds']").attr('checked', false);
+                $("input[name='notTransferFunds']").attr('checked', true);
             }
 
             if(localStorage.getItem('notUSPowerOfAttorney') === null) {
-                $("input[name='USPowerOfAttorney']").click();
+                $("input[name='USPowerOfAttorney']").attr('checked', true);
             } else if(localStorage.getItem('USPowerOfAttorney') === null) {
-                $("input[name='notUSPowerOfAttorney']").click();
+                $("input[name='notUSPowerOfAttorney']").attr('checked', true);
+            }
+
+            if(localStorage.getItem('USPowerOfAttorney') === null && localStorage.getItem('notUSPowerOfAttorney') === null) {
+                $("input[name='USPowerOfAttorney']").attr('checked', false);
+                $("input[name='notUSPowerOfAttorney']").attr('checked', true);
             }
 
             if(localStorage.getItem('notUSCareOfAddress') === null) {
-                $("input[name='USCareOfAddress']").click();
+                $("input[name='USCareOfAddress']").attr('checked', true);
             } else if(localStorage.getItem('USCareOfAddress') === null) {
-                $("input[name='notUSCareOfAddress']").click();
+                $("input[name='notUSCareOfAddress']").attr('checked', true);
+            }
+
+            if(localStorage.getItem('USCareOfAddress') === null && localStorage.getItem('notUSCareOfAddress') === null) {
+                $("input[name='USCareOfAddress']").attr('checked', false);
+                $("input[name='notUSCareOfAddress']").attr('checked', true);
             }
         });
     }, []);
