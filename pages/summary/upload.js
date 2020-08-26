@@ -34,7 +34,7 @@ export default function Upload() {
         function reloadSelect() {
             $(document).ready(function() {
                 if(localStorage.getItem("idType") !== null) {
-                    $("select[name='idType']").val(localStorage.getItem("idType")).trigger('change.select2');
+                    $("select[name='idType']").val(localStorage.getItem("idType")).trigger('change');
                     $("select[name='idType']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='idType']").siblings(".select-placeholder").css({ opacity: "1" });    
                 }
@@ -43,7 +43,7 @@ export default function Upload() {
                     $("select[name='idExpiryYear']").val(localStorage.getItem("idExpiryYear")).trigger('change.select2');
                     $("select[name='idExpiryYear']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
                     $("select[name='idExpiryYear']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }  
+                }
             });
         }
 
@@ -68,6 +68,29 @@ export default function Upload() {
 
 
         loadData();
+
+        $('.idtype').on("change", function(e) { 
+            let value = $('.idtype').val();
+            if(value === 'PHU' || value === 'TIN' || value === 'INT' || value === 'NCD' || value === 'SEN' || value === 'SSS') {
+              $('.expirymonth').prop('disabled', true);
+              $('.expiryday').prop('disabled', true);
+              $('.expiryyear').prop('disabled', true);
+
+              $("select[name='idExpiryMonth']").siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+              $("select[name='idExpiryDay']").siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+              $("select[name='idExpiryYear']").siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+            }
+        });
+
+        if(localStorage.getItem('idImage').indexOf('http') === -1) {
+            let setImage = localStorage.getItem('idImage');
+            $('.idimage').attr('src', setImage);
+        }
+
+        if(localStorage.getItem('signatureImage').indexOf('http') === -1) {
+            let setImage = localStorage.getItem('signatureImage');
+            $('.signatureimage').attr('src', setImage);
+        }
     }, []);
     return (
         <div className="divUpload divForm" style={{ marginTop: "30px"}}>

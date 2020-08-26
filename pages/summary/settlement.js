@@ -29,12 +29,12 @@ export default function Settlement() {
             });
         }
 
-        if(localStorage.getItem("accountName") !== null) {
+        if(localStorage.getItem("accountName") !== null && localStorage.getItem("accountName") !== '') {
             $("input[name='accountName']").val(localStorage.getItem("accountName"));
             $("input[name='accountName']").css({ borderColor: "green"});
         }
 
-        if(localStorage.getItem("accountNumber") !== null) {
+        if(localStorage.getItem("accountNumber") !== null && localStorage.getItem("accountNumber") !== '') {
             $("input[name='accountNumber']").val(localStorage.getItem("accountNumber"));
             $("input[name='accountNumber']").css({ borderColor: "green"});
         }
