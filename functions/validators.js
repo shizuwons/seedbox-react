@@ -176,7 +176,7 @@ export function uploadValidation() {
             $('.' + fields[i]).css("border-color", "red");
 
             if(i === 0 || i === 2 || i === 3 || i === 4) {
-                if($('.' + fields[i]).prop('disabled')) {
+                if(!$('.' + fields[i]).prop('disabled')) {
                     $('.' + fields[i]).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important'); 
                 }
             }    
