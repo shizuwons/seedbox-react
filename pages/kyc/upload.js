@@ -140,8 +140,16 @@ function Upload() {
                     <input type="file" id="imguploadsig" name="signImage" style={{display: "none"}}/> 
                     <img src="Image/signature.png" className="img-fluid signatureimage" />
                 </div>
+                <div className="row" style={{marginTop: '10px'}}>
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
+                        <img className="img-fluid idimagepreview" />
+                    </div>
+                    <div className="col-lg-6 col-md-6 col-sm-6 col-6">
+                        <img className="img-fluid signatureimagepreview" />
+                    </div>
+                </div>
                 <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <p style={{ marginTop: '10px' }}>Upload file types: .jpg, .jpeg, .png</p>
+                    <p className="pGuideline" style={{ marginTop: '10px' }}>Upload file types: .jpg, .jpeg, .png<br/>Maximum file size 3MB</p>
                 </div>
                 </div>
                 <div className="row" style={{marginTop: '20px'}}>

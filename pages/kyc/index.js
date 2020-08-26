@@ -249,17 +249,28 @@ export default function Kyc() {
         return false;
       }
 
+      if(this.files[0].size > 3145728){
+        alert("Please upload a file lesser than 3MB.");
+        return false;
+     };
+
       readURL(this, '.idimage');
     });
 
     $("#imguploadsig").change(function(){
       let ext = $(this).val().split('.').pop().toLowerCase();
-      console.log(ext);
+      //console.log(ext);
 
       if(ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'bmp') {
         alert('Please upload image file only.');
         return false;
       }
+
+      //console.log(this.files[0].size);
+      if(this.files[0].size > 3145728){
+        alert("Please upload a file lesser than 3MB.");
+        return false;
+     };
 
       readURL(this, '.signatureimage');
     });
@@ -811,10 +822,10 @@ export default function Kyc() {
 
         $(".conContent").attr(
           "style",
-          "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: 82vh !important;"
+          "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: auto !important;"
         );
-        $(".colForm").css("padding-top", "20px");
-        $(".colForm").css("padding-bottom", "20px");
+        $(".colForm").css("padding-top", "80px");
+        $(".colForm").css("padding-bottom", "80px");
         $(".pMore").text("Address Information");
         $(".pTitle").text("Address");
         $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>Your current address is your Manila address and your permanent address is your address in Cebu. <br/><br/>Example: If you are an OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
@@ -863,10 +874,10 @@ export default function Kyc() {
         // }
         $(".conContent").attr(
           "style",
-          "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: 82vh !important;"
+          "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: auto !important;"
         );
-        $(".colForm").css("padding-top", "20px");
-        $(".colForm").css("padding-bottom", "20px");
+        $(".colForm").css("padding-top", "80px");
+        $(".colForm").css("padding-bottom", "80px");
         $(".pErrorAge").css("display", "none");
         $(".divAdrress").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"

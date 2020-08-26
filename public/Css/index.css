@@ -218,6 +218,12 @@
     }
   }
 
+  @media only screen and (min-height: 629px) and (max-height: 750px) {
+    /* .colmid {
+      height: 750px !important;
+    } */
+  }
+
   @font-face {
     font-family: "Proxima Regular";
     src: url("../Fonts/ProximaNova-Regular.otf");
@@ -558,6 +564,10 @@
     margin-left: 5px;
   }
 
+  .pGuideline {
+    color: #13C95C;
+  }
+
   .cbx {
     margin: auto;
     -webkit-user-select: none;
@@ -641,6 +651,14 @@
 
   .btnProceed {
     cursor: pointer;
+  }
+
+  .btnProceed:focus, .btnProceed:hover {
+    font-family: "Proxima Extrabold";
+  }
+
+  .btnBack:focus, .btnBack:hover {
+    font-family: "Proxima Extrabold";
   }
 
   .btnSubmit:disabled {

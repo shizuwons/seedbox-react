@@ -452,10 +452,10 @@ export function functionPersonal() {
 export function functionAddress() {
   $(".conContent").attr(
       "style",
-      "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: 82vh !important;"
+      "background-color: white; width: 100%;border-radius: 25px;box-shadow: 5px 10px 15px #00000029;-webkit-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);-moz-box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.19);height: auto !important;"
     );
-    $(".colForm").css("padding-top", "20px");
-    $(".colForm").css("padding-bottom", "20px");
+    $(".colForm").css("padding-top", "80px");
+    $(".colForm").css("padding-bottom", "80px");
     $(".pMore").text("Address Information");
     $(".pTitle").text("Address");
     $(".pSubtitle").html('Current address is where you are residing at this time. <br/><br/>Example: You are currently residing in Manila because of work but have a home in Cebu. <br/><br/>Your current address is your Manila address and your permanent address is your address in Cebu. <br/><br/>Example: If you are an OFW residing in UAE, your current address is your UAE address and your permanent address is your address in the Philippines.');
@@ -683,7 +683,7 @@ export function readURL(input, imageType) {
     
     //console.log(input.files);
     reader.onload = function (e) {
-        $(imageType).attr('src', e.target.result);
+        $(imageType + 'preview').attr('src', e.target.result);
     }
     
     reader.readAsDataURL(input.files[0]);

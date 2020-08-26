@@ -39,7 +39,7 @@ export default function Pep() {
                         <div className="select-placeholder">Do you have any relative who is/was an elected/appoi...</div>
                         <select autoComplete="off" className="select2 relative" name="relative" defaultValue="">
                             <option value="" title="Please fill out this field." disabled>Do you have any relative who is/was
-                            an elected/appointed a
+                            an elected/appointed
                             government official up to second degree
                             of
                             consanguinity or affinity?
