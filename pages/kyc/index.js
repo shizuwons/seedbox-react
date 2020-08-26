@@ -754,7 +754,7 @@ export default function Kyc() {
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         $(".pMore").text("PEP Declaration");
         $(".pTitle").text("PEP");
-        $(".pSubtitle").text("<span style='font-weight: bold; display: contents;'>Second Degree of Consanguinity/Affinity</span> - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
+        $(".pSubtitle").html("<span style='font-weight: bold; display: contents;'>Second Degree of Consanguinity/Affinity</span> - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
       
         $(".divFatca").css("display", "none");
         $(".divFatca").removeClass("animate__fadeOut");
@@ -969,7 +969,7 @@ export default function Kyc() {
         // }
         $(".pMore").text("PEP Declaration");
         $(".pTitle").text("PEP");
-        $(".pSubtitle").text("<span style='font-weight: bold; display: contents;'>Second Degree of Consanguinity/Affinity</span> - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
+        $(".pSubtitle").html("<span style='font-weight: bold; display: contents;'>Second Degree of Consanguinity/Affinity</span> - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
 
         $(".divPep").removeClass(
           "animate__animated  animate__fadeOut animate__fadeIn"

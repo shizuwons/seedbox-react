@@ -536,7 +536,7 @@ export function functionPep() {
   $(".colmid").css({ height: $(".conContent").height() + "px" });
   $(".pMore").text("PEP Declaration");
   $(".pTitle").text("PEP");
-  $(".pSubtitle").text("<span style='font-weight: bold; display: contents;'>Second Degree of Consanguinity/Affinity</span> - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
+  $(".pSubtitle").html("<span style='font-weight: bold; display: contents;'>Second Degree of Consanguinity/Affinity</span> - You are related to the person if you are either his/her sibling, grandparent, grandchild, parent-in-law, or son/daughter-in-law.");
   $(".divForm").css("display", "none");
   $(".divCsa").css("display", "none");
   $(".divCsa").removeClass("animate__fadeOut");
