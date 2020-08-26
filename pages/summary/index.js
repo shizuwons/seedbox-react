@@ -15,6 +15,8 @@ import Pep from './pep';
 import Fatca from './fatca';
 import Upload from './upload';
 import Settlement from './settlement';
+import Terms from './terms';
+import Privacy from './privacy';
 
 export default function Summary() {
     useEffect(() => {
@@ -283,12 +285,12 @@ export default function Summary() {
                                     <p className="pExpiry">I agree to the Terms and Conditions and Data Privacy Policy</p>
                                 </div>
                                 <div className="col-12">
-                                    <p className="pExpiry" data-toggle="modal" data-target="#termsModal" data-backdrop="false" data-keyboard="false">
+                                    <p className="pExpiry termstext" data-toggle="modal" data-target="#termsModal" data-backdrop="false" data-keyboard="false">
                                         Terms and Conditions
                                     </p>
                                 </div>
                                 <div className="col-12">
-                                    <p className="pExpiry" data-toggle="modal" data-target="#privacyModal" data-backdrop="false" data-keyboard="false">
+                                    <p className="pExpiry privacytext" data-toggle="modal" data-target="#privacyModal" data-backdrop="false" data-keyboard="false" style={{marginTop: '-10px'}}>
                                         Data Privacy Policy
                                     </p>
                                 </div>
@@ -308,13 +310,30 @@ export default function Summary() {
                     <div className="modal-content">
                         <div className="modal-body" style={{border: '0px', margin: '0 auto', width: '100%', padding: '1rem 5rem'}}>
                             <p className="pCaption">Terms and Conditions of Use</p>
-                            <iframe src="https://www.seedbox.ph/views/popup/terms.html" className="pTextbody">
-
-                            </iframe>
+                            <div className="pTextbody">
+                                <Terms></Terms>
+                            </div>
                         </div>
-                        <div className="row" style={{marginBottom: '50px'}}>
+                        <div className="row agreeWrapper" style={{marginBottom: '50px'}}>
                             <div className="col-lg-12">
-                                <input type="button" className="btnNext btnProceed btnAgree" defaultValue="I AGREE"/>                              
+                                <input type="button" className="btnNext btnProceed btnAgree" defaultValue="I AGREE" data-dismiss="modal"/>                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="modal fade" id="privacyModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document" style={{ maxWidth: "80%" }}>
+                    <div className="modal-content">
+                        <div className="modal-body" style={{border: '0px', margin: '0 auto', width: '100%', padding: '1rem 5rem'}}>
+                            <p className="pCaption">Data Privacy Policy</p>
+                            <div className="pTextbody">
+                                <Privacy></Privacy>
+                            </div>
+                        </div>
+                        <div className="row agreeWrapper" style={{marginBottom: '50px'}}>
+                            <div className="col-lg-12">
+                                <input type="button" className="btnNext btnProceed btnAgree" defaultValue="I AGREE" data-dismiss="modal"/>                              
                             </div>
                         </div>
                     </div>

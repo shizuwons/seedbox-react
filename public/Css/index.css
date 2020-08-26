@@ -151,6 +151,35 @@
     .submitSummary {
       margin-right: 0 !important;
     }
+
+    .modal-dialog {
+      max-width: 100% !important;
+      width: 100%;
+    }
+
+    .pCaption {
+      font-size: 1.4rem !important;
+    }
+
+    .modal-body {
+      padding: 1rem 3rem !important;
+    }
+
+    .bodyContainer p {
+      font-size: 0.9rem !important;
+    }
+
+    .bodyContainer h3 {
+      font-size: 1.1rem !important;
+    }
+
+    .btnAgree {
+      margin-right: 0px !important;
+    }
+
+    .agreeWrapper {
+      padding: 0 50px;
+    }
   }
 
   @media only screen and (max-width: 397px) {
