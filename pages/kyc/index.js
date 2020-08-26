@@ -616,6 +616,10 @@ export default function Kyc() {
         $('.expirymonth').prop('disabled', true);
         $('.expiryday').prop('disabled', true);
         $('.expiryyear').prop('disabled', true);
+      } else {
+        $('.expirymonth').prop('disabled', false);
+        $('.expiryday').prop('disabled', false);
+        $('.expiryyear').prop('disabled', false);
       }
     });
 
