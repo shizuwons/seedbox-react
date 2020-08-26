@@ -243,6 +243,18 @@ body, html {
     width: 350px;
 }
 
+.txtEmail::placeholder {
+    color: gray;
+}
+
+.txtAreaMessage {
+    resize: none;    
+}
+
+.txtAreaMessage::placeholder {
+    color: gray;
+}
+
 .pForgot {
     font-family: "Proxima Regular";
     font-size: 1rem;
@@ -408,6 +420,11 @@ textarea {
     font-size: 0.9rem;
     margin-top: 10px;
     margin-left: 5px;
+}
+
+.navlinkActive {
+    font-family: "Proxima Extrabold" !important;
+    color: #13C95C !important;
 }
 
 .dropdownBox {

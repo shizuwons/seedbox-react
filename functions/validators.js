@@ -210,3 +210,85 @@ export function settlementValidation() {
 
     return validated;
 }
+
+export function contactUsValidation() {
+
+    let fields = [
+        'contactname',
+        'contactemail',
+        'message'
+    ];
+    let validated = true;
+
+    $.each(fields, function(i, e) {
+        if($('.' + fields[i]).val() === "" || $('.' + fields[i]).val().length === 0) {   
+            validated = false;
+
+            if(fields[i] === 'contactname') {
+                $('.pErrorCName').removeClass('hide');
+            } else if(fields[i] === 'contactemail') {
+                $('.pErrorCEmail').removeClass('hide');
+            } else if(fields[i] === 'message') {
+                $('.pErrorMessage').removeClass('hide');
+            }
+        }
+    });
+
+    return validated;
+}
+
+export function loginValidation() {
+
+    let fields = [
+        'loginemail',
+        'loginpassword'
+    ];
+    let validated = true;
+
+    $.each(fields, function(i, e) {
+        if($('.' + fields[i]).val() === "" || $('.' + fields[i]).val().length === 0) {   
+            validated = false;
+
+            if(fields[i] === 'loginemail') {
+                $('.pErrorLEmail').removeClass('hide');
+            } else if(fields[i] === 'loginpassword') {
+                $('.pErrorLPassword').removeClass('hide');
+            }
+        }
+    });
+
+    return validated;
+
+}
+
+export function registerValidation() {
+
+    let fields = [
+        'name',
+        'email',
+        'contact',
+        'password',
+        'confirmpassword'
+    ];
+    let validated = true;
+
+    $.each(fields, function(i, e) {
+        if($('.' + fields[i]).val() === "" || $('.' + fields[i]).val().length === 0) {   
+            validated = false;
+
+            if(fields[i] === 'name') {
+                $('.pErrorName').removeClass('hide');
+            } else if(fields[i] === 'email') {
+                $('.pErrorEmail').removeClass('hide');
+            } else if(fields[i] === 'contact') {
+                $('.pErrorContact').removeClass('hide');
+            } else if(fields[i] === 'password') {
+                $('.pErrorPassword').removeClass('hide');
+            } else if(fields[i] === 'confirmpassword') {
+                $('.pErrorConfirm').removeClass('hide');
+            }
+        }
+    });
+
+    return validated;
+}

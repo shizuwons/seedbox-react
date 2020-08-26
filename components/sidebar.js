@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import Router from 'next/router';
-import { openNav, closeNav } from '../functions/kyc';
+import { openNav, closeNav, isEmail } from '../functions/kyc';
 import { useEffect } from 'react';
+import { registerValidation, contactUsValidation, loginValidation } from '../functions/validators';
 
 function Sidebar() {
     
@@ -48,28 +49,89 @@ function Sidebar() {
     }
   
       // Nav-link click
-    $('.dropdown-toggle').click(function() {
-        $(this).attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C;');
+    // $('.dropdown-toggle').click(function() {
+    //     $(this).addClass('navlinkActive');
+    //     $('nav-link').not(this)
+    // });
+
+    // $('.navigate').click(function(e) {
+    //     if($(this).hasClass('signup')) {
+    //         $(this).attr('style', 'font-family: "Proxima Extrabold" !important; color: white !important;');
+    //     } else {
+    //         $(this).attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C !important;');
+    //     }
+
+    //     //e.stopPropagation();
+    // });
+
+    $('.how-seedbox').click(function() {
+        $(this).attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C !important;');
+        $('.btncontact').removeAttr('style');
+        $('.btnlogin').removeAttr('style');
+        $('.learn-more').removeAttr('style');
+        $('.signup').removeAttr('style');
     });
+    
+    $('.learn-more').click(function() {
+        $(this).attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C !important;');
+        $('.btncontact').removeAttr('style');
+        $('.btnlogin').removeAttr('style');
+        $('.how-seedbox').removeAttr('style');
+        $('.signup').removeAttr('style');
+    });
+
+    $('.btncontact').click(function() {
+        $(this).attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C !important;');
+        $('.learn-more').removeAttr('style');
+        $('.btnlogin').removeAttr('style');
+        $('.how-seedbox').removeAttr('style');
+        $('.signup').removeAttr('style');
+    });
+
+    $('.btnlogin').click(function() {
+        $(this).attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C !important;');
+        $('.learn-more').removeAttr('style');
+        $('.btncontact').removeAttr('style');
+        $('.how-seedbox').removeAttr('style');
+        $('.signup').removeAttr('style');
+    });
+
+    $('.signup').click(function() {
+        $(this).attr('style', 'font-family: "Proxima Extrabold" !important; color: white !important;');
+        $('.learn-more').removeAttr('style');
+        $('.btncontact').removeAttr('style');
+        $('.how-seedbox').removeAttr('style');
+        $('.btnlogin').removeAttr('style');
+    });
+    
   
-    $(window).click(function() {
+    $(document).click(function() {
         $('.dropdown-toggle').removeAttr('style');
     });
 
       $('#exampleModal1').on('hidden.bs.modal', function () {
           $(".conMainBody").css("filter", "blur(0px)");
-  
+          $('.signup').removeAttr('style');
+          $('.btnlogin').attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C !important;');
       });
   
       $('#exampleModal1').on('shown.bs.modal', function (e) {
           $("#exampleModal").modal('hide');
           $(".conMainBody").css("filter", "blur(50px)");
+          $('.signup').attr('style', 'font-family: "Proxima Extrabold" !important; color: white !important;');
+
       });
   
       $('#exampleModal').on('shown.bs.modal', function (e) {
           document.getElementById("mySidenav").style.width = "0";
+          $(".conMainBody").css("filter", "blur(50px)");
           $("#exampleModal1").modal('hide');
       });
+
+      $('#exampleModal').on('hidden.bs.modal', function (e) {
+        $(".conMainBody").css("filter", "blur(0px)");
+        $('.btnlogin').removeAttr('style');
+    });
   
       $('#contactModal').on('shown.bs.modal', function (e) {
           $(".conMainBody").css("filter", "blur(50px)");
@@ -77,6 +139,7 @@ function Sidebar() {
   
       $('#contactModal').on('hidden.bs.modal', function (e) {
           $(".conMainBody").css("filter", "blur(0px)");
+          $('.btncontact').removeAttr('style');
       });
   
       $('.txtotp-1').keyup(function() {
@@ -96,8 +159,94 @@ function Sidebar() {
       });
   
       $('.signupSubmit').click(function() {
-          $('.signup-form').addClass('hide');
-          $('.otpform').removeClass('hide');
+        let validated = registerValidation();
+         if(validated) {
+            $('.pError').each(function() {
+                $(this).addClass('hide');
+            });
+            let password = $(".password").val();
+            let confirm = $(".confirmpassword").val();
+            let email = $('.email').val();
+            let validEmail = false;
+            let validPassword = false;
+
+            if(!isEmail(email)) {
+                $('.pErrorEmail').text('This is not a valid email.');
+                $('.pErrorEmail').removeClass('hide');
+            } else {
+                $('.pErrorEmail').addClass('hide');
+                $('.pErrorEmail').text('This field is required.');
+                validEmail = true;
+            }
+
+            if(password !== confirm) {
+                $('.pErrorConfirm').text('The passwords do not match.');
+                $('.pErrorConfirm').removeClass('hide');
+            } else {
+                $('.pErrorConfirm').addClass('hide');
+                $('.pErrorConfirm').text('This field is required.');
+                validPassword = true;
+            }
+
+            if(validPassword && validEmail) {
+                $('.signup-form').addClass('hide');
+                $('.otpform').removeClass('hide');
+            }
+         } else {
+             return false;
+         }
+      });
+
+      $('.contactSubmit').click(function() {
+        let validated = contactUsValidation();
+         if(validated) {
+            $('.pError').each(function() {
+                $(this).addClass('hide');
+            });
+            let email = $('.contactemail').val();
+            let validEmail = false;
+
+            if(!isEmail(email)) {
+                $('.pErrorCEmail').text('This is not a valid email.');
+                $('.pErrorCEmail').removeClass('hide');
+            } else {
+                $('.pErrorCEmail').addClass('hide');
+                $('.pErrorCEmail').text('This field is required.');
+                validEmail = true;
+            }
+
+            if(validEmail) {
+                alert('Your message has been sent!');
+            }
+         } else {
+             return false;
+         }
+      });
+
+      $('.loginSubmit').click(function() {
+        let validated = loginValidation();
+         if(validated) {
+            $('.pError').each(function() {
+                $(this).addClass('hide');
+            });
+            let email = $('.loginemail').val();
+            let validEmail = false;
+
+            if(!isEmail(email)) {
+                $('.pErrorLEmail').text('This is not a valid email.');
+                $('.pErrorLEmail').removeClass('hide');
+            } else {
+                $('.pErrorLEmail').addClass('hide');
+                $('.pErrorLEmail').text('This field is required.');
+                validEmail = true;
+            }
+
+            if(validEmail) {
+               // alert('Your message has been sent!');
+            }
+         } else {
+             return false;
+         }
       });
   
       $('.otpSubmit').click(function() {

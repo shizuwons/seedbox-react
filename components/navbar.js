@@ -19,7 +19,7 @@ function Navbar() {
               <ul className="nav navbar-nav">
               <li><a className="nav-link home-link btnhome" href="/" style={{fontFamily: 'Proxima Bold'}}>HOME</a></li>
               <li className="dropdown how-dropdown">
-                  <a className="nav-link how-link btncontact dropdown-toggle" data-toggle="dropdown" href="#">HOW DOES SEEDBOX WORK </a>
+                  <a className="nav-link how-seedbox how-link dropdown-toggle" data-toggle="dropdown" href="#">HOW DOES SEEDBOX WORK </a>
                   <ul className="dropdown-menu dropdownBox animate slideIn">
                       <li><a className="dropdownItem individual" onClick={() => Router.push("/individual")}>FOR INDIVIDUAL</a></li>
                       <li><a className="dropdownItem work" onClick={() => Router.push("/work")}>AT WORK</a></li>
@@ -27,20 +27,20 @@ function Navbar() {
                       <li><a className="dropdownItem" href="#">ADVISORY</a></li>
                   </ul>
               </li>
-              <li><a className="nav-link btncontact" href="contact.html">PRODUCTS</a></li>
+              <li><a className="nav-link products" href="contact.html">PRODUCTS</a></li>
               <li className="dropdown">
-                <a className="nav-link btncontact dropdown-toggle" data-toggle="dropdown" href="#">LEARN MORE </a>
+                <a className="nav-link learn-more dropdown-toggle" data-toggle="dropdown" href="#">LEARN MORE </a>
                 <ul className="dropdown-menu dropdownBox animate slideIn">
                     <li><a className="dropdownItem" href="#">BLOGS</a></li>
                     <li><a className="dropdownItem" href="#">ABOUT US</a></li>
                 </ul>
               </li>
-              <li><a className="nav-link btncontact" href="contact.html" data-toggle="modal" data-target="#contactModal">CONTACT US</a></li>
-              <li><a className="nav-link btnlogin" href="contact.html" data-toggle="modal" data-target="#exampleModal">LOG IN</a>
+              <li><a className="nav-link navigate btncontact" href="contact.html" data-toggle="modal" data-target="#contactModal">CONTACT US</a></li>
+              <li><a className="nav-link navigate btnlogin" href="contact.html" data-toggle="modal" data-target="#exampleModal">LOG IN</a>
               </li>
               <li>
                 <div className="signup-button">
-                  <a className="nav-link btncontact signup" href="contact.html" data-toggle="modal" data-target="#exampleModal1">SIGN UP</a>
+                  <a className="nav-link signup" href="contact.html" data-toggle="modal" data-target="#exampleModal1">SIGN UP</a>
                 </div>
               </li>
               </ul>

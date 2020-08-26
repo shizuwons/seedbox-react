@@ -93,12 +93,14 @@ export default function Home() {
                     <div className="modal-body" style={{border: '0px', margin: '0 auto'}}>
                         <img src="Image/leaf.png" className="img-fluid mx-auto d-flex imgLeaf" style={{width: '80px'}} />
                         <p className="pLogin">Log In</p>
-                        <input type="text" className="txtEmail" placeholder="email" />
-                        <input type="password" className="txtEmail txtPassword" placeholder="password" style={{marginTop: '20px'}} />
+                        <input type="text" className="txtEmail loginemail" placeholder="email" />
+                        <p className="pErrorLEmail pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
+                        <input type="password" className="txtEmail txtPassword loginpassword" placeholder="password" style={{marginTop: '20px'}} />
+                        <p className="pErrorLPassword pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
                         <div className="row align-items-center" style={{marginTop: '15px'}}>
                         <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                             <div style={{ textAlign: "center" }}>
-                                <input type="button" defaultValue="SUBMIT" className="btnSubmit" />
+                                <input type="button" defaultValue="SUBMIT" className="btnSubmit loginSubmit" />
                             </div>
                         </div>
                         <div className="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -132,16 +134,24 @@ export default function Home() {
                         <img src="Image/leaf.png" className="img-fluid mx-auto d-flex" style={{width: '80px'}} />
                         <p className="pLogin">Sign Up</p>
                         <div className="signup-form">
-                            <input type="text" className="txtEmail" placeholder="full name" />
-                            <input type="text" className="txtEmail" placeholder="email" style={{marginTop: '20px'}} />
-                            <input type="text" className="txtEmail" placeholder="contact number" style={{marginTop: '20px'}} />
-                            <input type="password" className="txtEmail" placeholder="password" style={{marginTop: '20px'}} />
-                            <input type="password" className="txtEmail" placeholder="confirm password" style={{marginTop: '20px'}} />
+                            <form className="registerForm">
+                            <input type="text" className="txtEmail name" name="name" placeholder="full name" />
+                            <p className="pErrorName pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
+                            <input type="text" className="txtEmail email" name="email" placeholder="email" style={{marginTop: '20px'}} />
+                            <p className="pErrorEmail pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
+                            <input type="text" className="txtEmail contact" name="contact" placeholder="contact number" style={{marginTop: '20px'}} />
+                            <p className="pErrorContact pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
+                            <input type="password" className="txtEmail password" name="password" placeholder="password" style={{marginTop: '20px'}} />
+                            <p className="pErrorPassword pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
+                            <input type="password" className="txtEmail confirmpassword" name="confirmpassword" placeholder="confirm password" style={{marginTop: '20px'}} />
+                            <p className="pErrorConfirm pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
+                            {/* <p className="pErrorPassword hide" style={{ fontSize: '0.9rem', color: 'red'}}>The passwords do not match.</p> */}
                             <div className="row">
                             <div className="col-lg-12 text-center" style={{marginTop: "30px"}}>
                                 <input type="button" defaultValue="SUBMIT" className="btnSubmit signupSubmit mx-auto" />
                             </div>
                             </div>
+                            </form>
                             <div className="row align-items-center">
                             <div className="col-lg-5 col-md-5 col-sm-5 col-5">
                                 <hr />
@@ -157,7 +167,7 @@ export default function Home() {
                             <button className="btnGoogle"><img src="Image/google.png" style={{width: '20px', marginRight: '5px'}} />Signup
                             with Google</button> */}
                             <p className="pDont">Already have an account?</p>
-                            <p className="pSignup" data-toggle="modal" data-target="#exampleModal">LOG IN</p>
+                            <p className="pSignup loginlink" data-toggle="modal" data-target="#exampleModal">LOG IN</p>
                             <p className="pDont" data-toggle="modal" data-target="#exampleModal" style={{ fontSize: '12px' }}>By registering or signing in, you agree to our <br/>TERMS &amp; CONDITIONS  PRIVACY POLICIES</p>
                         </div>
                         <div className="otpform row hide">
@@ -203,14 +213,17 @@ export default function Home() {
                     <div className="modal-content">
                     <div className="modal-body" style={{border: '0px', margin: '0 auto'}}>
                         <p className="pLogin">Contact Us</p>
-                        <input type="text" className="txtEmail" placeholder="name *" />
-                        <input type="text" className="txtEmail" placeholder="email *" style={{marginTop: '20px'}} />
-                        <input type="text" className="txtEmail" placeholder="company name" style={{marginTop: '20px'}} />
-                        <textarea placeholder="message" />
+                        <input type="text" className="txtEmail contactname" name="contactname" placeholder="name *" />
+                        <p className="pErrorCName pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
+                        <input type="text" className="txtEmail contactemail" name="contactemail" placeholder="email *" style={{marginTop: '20px'}} />
+                        <p className="pErrorCEmail pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
+                        <input type="text" className="txtEmail contactcompany" name="contactcompany" placeholder="company name" style={{marginTop: '20px'}} />
+                        <textarea placeholder="message *" className="txtAreaMessage message" name="message"/>
+                        <p className="pErrorMessage pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
                         <p className="pGuide">* - required fields</p>
                         <div className="row" style={{marginTop: '-20px'}}>
                         <div className="col-lg-12 text-center" style={{margin: '0 auto'}}>
-                            <input type="button" defaultValue="SUBMIT" className="btnSubmit1 float-right"/>
+                            <input type="button" defaultValue="SUBMIT" className="btnSubmit contactSubmit" style={{marginTop: '10px'}}/>
                         </div>
                         </div>
                     </div>
