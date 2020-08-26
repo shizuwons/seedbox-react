@@ -795,6 +795,14 @@
     position: relative;
   }
 
+  .termstext, .privacytext {
+    color: #13C95C;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+    display: inline-block;
+  }
+
   .modal-content {
     border: 0px !important;
     border-radius: 73px !important;
@@ -815,7 +823,8 @@
     height: 450px;
     border: 1px solid #404040;
     border-radius: 12px;
-    overflow-x: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 
   .btnAgree {
@@ -824,6 +833,25 @@
 
   .bodyContainer {
     padding: 30px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #13C95C;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #13C95C;
   }
 
   .checkbox {
