@@ -275,9 +275,9 @@ function Professional() {
                 <select autoComplete="off" className="select2 net-worth" name="netWorth" defaultValue="">
                     <option value="" title="Please fill out this field." disabled> Net Worth
                     </option>
-                    {/* {networth.map((e, index) =>(
+                    {networth.map((e, index) =>(
                         <option key={index} value={e.value}>{e.value}</option>
-                    ))} */}
+                    ))}
                 </select>
                 </div>
             </div>
