@@ -48,17 +48,17 @@ export default function Home() {
                             <img src="Image/sign-up.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
                             <p className="pBox">Sign Up</p>
                             </div>
-                            <div className="divIcon" style={{padding: '10px 30px'}}>
+                            <div className="divIcon" style={{padding: '10px 20px'}}>
                             <img src="Image/goal.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
                             <p className="pBox">Know your goals</p>
                             </div>
                         </div>
                         <div className="divIcon2 form-inline align-items-center">
-                            <div className="divIcon divIcon3 align-items-center" style={{padding: '10px 0px'}}>
+                            <div className="divIcon divIcon3 align-items-center" style={{padding: '10px 20px'}}>
                             <img src=" Image/planner.svg" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon" />
                             <p className="pBox">Use the goal planner</p>
                             </div>
-                            <div className="divIcon divIcon4" style={{padding: '10px 30px', display: 'inline-block'}}>
+                            <div className="divIcon divIcon4" style={{padding: '10px 20px', display: 'inline-block'}}>
                             <img src=" Image/invest.png" style={{width: '65px'}} className="img-fluid mx-auto d-flex imgIcon imgInvest" />
                             <p className="pBox">Invest</p>
                             </div>
