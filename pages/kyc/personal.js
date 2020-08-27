@@ -507,7 +507,7 @@ function Personal({ submitPersonal }) {
                 <label alt="Agent Code (Optional)" placeholder="Agent Code (Optional)" />
             </div>
           </div>
-          <div className="row hide" style={{marginTop: '-20px', marginBottom: '20px'}}>
+          <div className="row agent-error hide" style={{marginTop: '-20px', marginBottom: '20px'}}>
             <div className="col-lg-12">
               <p className="agentError">Invalid Agent Code.</p>
             </div>

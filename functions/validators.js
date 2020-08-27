@@ -50,10 +50,10 @@ export function personalValidation() {
                 $('.' + fields[i]).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important'); 
             }
 
-            if(fields[i] === 'agent-code') {
-                alert('aaa');
-                $('.agent-code').siblings('label').attr('placeholder', 'Invalid Agent Code');
-            }
+            // Agent Code Error
+            // if(fields[i] === 'agent-code') {
+            //     $('.agent-error').removeClass('hide');
+            // }
 
             //validated = false;
         } else {
