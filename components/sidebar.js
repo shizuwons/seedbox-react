@@ -259,6 +259,11 @@ function Sidebar() {
               return false;
           }
       });
+
+      $('.loginlink').click(function() {
+        $('#exampleModal1').modal('hide');
+        $('#exampleModal').modal('show');
+      });
       }, []);
     return (
         <div id="mySidenav" className="sidenav">

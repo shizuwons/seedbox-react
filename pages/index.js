@@ -167,8 +167,8 @@ export default function Home() {
                             <button className="btnGoogle"><img src="Image/google.png" style={{width: '20px', marginRight: '5px'}} />Signup
                             with Google</button> */}
                             <p className="pDont">Already have an account?</p>
-                            <p className="pSignup loginlink" data-toggle="modal" data-target="#exampleModal">LOG IN</p>
-                            <p className="pDont" data-toggle="modal" data-target="#exampleModal" style={{ fontSize: '12px' }}>By registering or signing in, you agree to our <br/>TERMS &amp; CONDITIONS  PRIVACY POLICIES</p>
+                            <p className="pSignup loginlink">LOG IN</p>
+                            <p className="pDont" style={{ fontSize: '12px' }}>By registering or signing in, you agree to our <br/>TERMS &amp; CONDITIONS  PRIVACY POLICIES</p>
                         </div>
                         <div className="otpform row hide">
                             <div className="col-lg-12 col-md-12 col-sm-12 col-12">
