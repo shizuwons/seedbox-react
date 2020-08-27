@@ -192,7 +192,7 @@ export default function Home() {
                                 <input type="text" className="txtotp txtotp-5" maxLength="1"/>
                             </div>
                             <div className="col-xs-5ths col-sm-5ths col-md-5ths col-lg-5ths">
-                                <input type="text" className="txtotp txtotp-1" maxLength="1"/>
+                                <input type="text" className="txtotp txtotp-6" maxLength="1"/>
                             </div>
                             <div className="col-lg-12 text-center errorDiv hide" style={{marginTop: "30px"}}>
                                 <div className="pError errorMessage">Fill up missing fields.</div>
@@ -201,6 +201,12 @@ export default function Home() {
                                 {/* <input type="button" defaultValue="SUBMIT" className="btnSubmit otpSubmit mx-auto"/> */}
                                 <button className="btnSubmit otplink mx-auto">
                                     <a href="/kyc" className=" otpSubmit">SUBMIT</a>
+                                </button>
+                            </div>
+                            <div className="col-lg-12 text-center" style={{marginTop: "30px"}}>
+                                {/* <input type="button" defaultValue="SUBMIT" className="btnSubmit otpSubmit mx-auto"/> */}
+                                <button className="btnSubmit otplink mx-auto">
+                                    <a href="#" className=" otpSubmit">RESEND OTP</a>
                                 </button>
                             </div>
                         </div>

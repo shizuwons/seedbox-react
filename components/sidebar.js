@@ -157,6 +157,10 @@ function Sidebar() {
       $('.txtotp-4').keyup(function() {
           $('.txtotp-5').focus();
       });
+
+      $('.txtotp-5').keyup(function() {
+        $('.txtotp-6').focus();
+    });
   
       $('.signupSubmit').click(function() {
         let validated = registerValidation();
@@ -250,7 +254,7 @@ function Sidebar() {
       });
   
       $('.otpSubmit').click(function() {
-          if(!$('.txtotp-1').val() || !$('.txtotp-2').val() || !$('.txtotp-3').val()  || !$('.txtotp-4').val() || !$('.txtotp-5').val()) {
+          if(!$('.txtotp-1').val() || !$('.txtotp-2').val() || !$('.txtotp-3').val()  || !$('.txtotp-4').val() || !$('.txtotp-5').val() || !$('.txtotp-6').val()) {
               $('.errorDiv').removeClass('hide');
               return false;
           }

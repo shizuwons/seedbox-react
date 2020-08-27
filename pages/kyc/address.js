@@ -205,7 +205,7 @@ function Address() {
             <div className="row" style={{marginTop: '15px'}}>
             <div className="col-lg-12 colAdd">
                 <input required type="text" className="txtusername txtAdd txtPermaAdd1 presentaddress" name="presentAddress" />
-                <label className="lblAdd" alt="Present Address " placeholder="Present Address" />
+                <label className="lblAdd" alt="Permanent Address " placeholder="Permanent Address" />
             </div>
             <div className="col-lg-12 colAdd" style={{marginTop: '-14px'}}>
                 <div className="selectdiv">
