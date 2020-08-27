@@ -14,6 +14,7 @@ export function personalValidation() {
         'birthplace',
         'citizenship',
         'tin',
+        'agent-code'
     ];
     let validated = true;
 
@@ -47,6 +48,11 @@ export function personalValidation() {
             // If dropdown fields
             if(i === 3 || i === 6 || i === 7 || i === 8 || i === 9 || i === 10 || i === 11 || i === 12) {
                 $('.' + fields[i]).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important'); 
+            }
+
+            if(fields[i] === 'agent-code') {
+                alert('aaa');
+                $('.agent-code').siblings('label').attr('placeholder', 'Invalid Agent Code');
             }
 
             //validated = false;

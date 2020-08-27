@@ -507,6 +507,11 @@ function Personal({ submitPersonal }) {
                 <label alt="Agent Code (Optional)" placeholder="Agent Code (Optional)" />
             </div>
           </div>
+          <div className="row hide" style={{marginTop: '-20px', marginBottom: '20px'}}>
+            <div className="col-lg-12">
+              <p className="agentError">Invalid Agent Code.</p>
+            </div>
+          </div>
           <div className="row">
             <div className="col-lg-12">
               <input type="button" className="btnSubmit btnProceed" id="personalSubmit" name="nextbutton" defaultValue="Next" style={{marginTop: '-10px'}} />

@@ -180,6 +180,10 @@
     .agreeWrapper {
       padding: 0 50px;
     }
+
+    .agentError {
+      text-align: left !important;
+    }
   }
 
   @media only screen and (max-width: 397px) {
@@ -791,6 +795,13 @@
   .pErrorEmail {
     color: red;
     font-weight: bold;
+  }
+
+  .agentError {
+    font-family: "Proxima Bold";
+    color: red;
+    font-size: 1rem;
+    text-align: right;
   }
 
   .divWhite {
