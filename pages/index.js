@@ -5,6 +5,7 @@ import { openNav, closeNav } from '../functions/kyc';
 import { useEffect } from 'react';
 import Navbar from '../components/navbar';
 import Sidebar from '../components/sidebar';
+import axios from 'axios';
 
 export default function Home() {
     return (
@@ -200,13 +201,13 @@ export default function Home() {
                             <div className="col-lg-12 text-center" style={{marginTop: "30px"}}>
                                 {/* <input type="button" defaultValue="SUBMIT" className="btnSubmit otpSubmit mx-auto"/> */}
                                 <button className="btnSubmit otplink mx-auto">
-                                    <a href="/kyc" className=" otpSubmit">SUBMIT</a>
+                                    <a href="#" className=" otpSubmit">SUBMIT</a>
                                 </button>
                             </div>
                             <div className="col-lg-12 text-center" style={{marginTop: "30px"}}>
                                 {/* <input type="button" defaultValue="SUBMIT" className="btnSubmit otpSubmit mx-auto"/> */}
                                 <button className="btnSubmit otplink mx-auto">
-                                    <a href="#" className=" otpSubmit">RESEND OTP</a>
+                                    <a href="#" className=" resendOtp">RESEND OTP</a>
                                 </button>
                             </div>
                         </div>

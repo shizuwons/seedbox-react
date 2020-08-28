@@ -16,7 +16,15 @@ export default function Kyc() {
   useEffect(() => {
 
     // Removes the local storage data on page load
-    localStorage.clear();
+    // function isAuthenticated() {
+    //   if (localStorage.getItem('logged_in') !== '1') { // this can be from redux, localStorage, however you manage it 
+    //       // this would go into `this.props.allowed` for the page
+    //       window.location.href = '/';
+    //   }
+    // }
+    
+   // isAuthenticated();
+    //localStorage.clear();
 
     $(window)
     .resize(function () {

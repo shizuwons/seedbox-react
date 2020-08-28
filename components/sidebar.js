@@ -3,6 +3,7 @@ import Router from 'next/router';
 import { openNav, closeNav, isEmail } from '../functions/kyc';
 import { useEffect } from 'react';
 import { registerValidation, contactUsValidation, loginValidation } from '../functions/validators';
+import axios from 'axios';
 
 function Sidebar() {
     
@@ -168,6 +169,10 @@ function Sidebar() {
             $('.pError').each(function() {
                 $(this).addClass('hide');
             });
+            let fullName = $(".name").val();
+            let firstName =  fullName.split(' ').slice(0, -1).join(' ');
+            let lastName = fullName.split(' ').slice(-1).join(' ');
+            let contactNumber = $(".contact").val();
             let password = $(".password").val();
             let confirm = $(".confirmpassword").val();
             let email = $('.email').val();
@@ -193,8 +198,33 @@ function Sidebar() {
             }
 
             if(validPassword && validEmail) {
-                $('.signup-form').addClass('hide');
-                $('.otpform').removeClass('hide');
+                axios.post('https://dev.seedbox.ph/core/lite/v1/register', 
+                {
+                    personal_information: {
+                        first_name: firstName,
+                        last_name: lastName,
+                        email: email,
+                        mobile_phone_number: contactNumber,
+                        password: password
+                    }
+                })
+                .then(response => {
+                    console.log(response.data);
+                    if(response.data.code === 13) {
+                        $('.pErrorEmail').text('This email address is already registered.');
+                        $('.pErrorEmail').removeClass('hide');
+                    } else if(response.data.code === 0) {
+                        $('.signup-form').addClass('hide');
+                        $('.otpform').removeClass('hide');
+
+                        localStorage.setItem('registerToken', response.data.user.token);
+                        localStorage.setItem('trx', response.data.data.trx_id);
+                        localStorage.setItem('stan', response.data.data.stan);
+                        localStorage.setItem('registerEmail', response.data.user.email);
+                    }
+                }).catch(err => {
+                    console.log(err);
+                });
             }
          } else {
              return false;
@@ -253,11 +283,74 @@ function Sidebar() {
          }
       });
   
-      $('.otpSubmit').click(function() {
+      // OTP
+      $('.otplink').click(function() {
           if(!$('.txtotp-1').val() || !$('.txtotp-2').val() || !$('.txtotp-3').val()  || !$('.txtotp-4').val() || !$('.txtotp-5').val() || !$('.txtotp-6').val()) {
               $('.errorDiv').removeClass('hide');
               return false;
+          } else {
+              let otp = $('.txtotp-1').val() + $('.txtotp-2').val() + $('.txtotp-3').val() + $('.txtotp-4').val() + $('.txtotp-5').val() + $('.txtotp-6').val();
+              let email = localStorage.getItem('registerEmail');
+              let trx = localStorage.getItem('trx');
+              let stan = localStorage.getItem('stan');
+              let registerToken = localStorage.getItem('registerToken');
+
+              axios.post('https://dev.seedbox.ph/core/lite/v1/verify_otp', 
+              {
+                  email: email,
+                  otp_code: otp,
+                  stan: stan,
+                  trx_id: trx
+              },
+              {
+                headers: {
+                    "Access-Control-Allow-Headers": "X-Requested-With, content-type, x-token",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Credentials": "true",
+                    'x-token': registerToken,
+                }
+              }
+              ).then(response => {
+                if(response.data.code === 1) {
+                    localStorage.setItem('logged_in', '1');
+
+                    alert('You are now registered!');
+
+                    // if (localStorage.getItem('logged_in') === '1') {
+                    //     window.location.href = '/kyc';
+                    // }
+                } else if(response.data.code === 0) {
+                    $('.errorDiv').text('Invalid/Expired OTP Code');
+                    $('.errorDiv').removeClass('hide');
+                }
+              }).catch(err => {
+                  console.log(err);
+              });
           }
+      });
+
+      $('.resendOtp').click(function () {
+          let email = localStorage.getItem('registerEmail');
+          let stan = localStorage.getItem('stan');
+          let trx = localStorage.getItem('trx');
+          let registerToken = localStorage.getItem('registerToken');
+          axios.get('https://dev.seedbox.ph/core/lite/v1/generate_otp', 
+          {
+            email: email,
+            stan: stan,
+            trx_id: trx
+          },
+          {
+            headers: {
+                'x-token': registerToken,
+            }
+          }
+          ).then(response => {
+              console.log(response);
+              localStorage.setItem('stan', response.data.stan);
+          }).catch(err => {
+              console.log(error);
+          });
       });
 
       $('.loginlink').click(function() {
