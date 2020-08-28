@@ -1,9 +1,19 @@
 import Head from 'next/head';
 import Router from 'next/router';
 import { openNav, closeNav } from '../functions/kyc';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function Navbar() {
+  const [loggedin, setLoggedin] = useState(false);
+  useEffect(() => {
+    setLoggedin(localStorage.getItem('logged_in'));
+
+    $(document).ready(function() {
+      if(localStorage.getItem('logged_in')) {
+        $('.logout').text(localStorage.getItem('sessionEmail'));
+      }
+    });
+  }, []);
     return (
         <div className="container con" style={{padding: '20px 15px'}}>
         <span style={{fontSize: '30px', cursor: 'pointer', position: 'absolute', zIndex: 1111111, color: '#13C95C', display: 'none'}} onClick={openNav} className="span">☰</span>
@@ -36,12 +46,26 @@ function Navbar() {
                 </ul>
               </li>
               <li><a className="nav-link navigate btncontact" href="contact.html" data-toggle="modal" data-target="#contactModal">CONTACT US</a></li>
-              <li><a className="nav-link navigate btnlogin" href="contact.html" data-toggle="modal" data-target="#exampleModal">LOG IN</a>
-              </li>
-              <li>
+              {!loggedin && (
+                <li><a className="nav-link navigate btnlogin" href="contact.html" data-toggle="modal" data-target="#exampleModal">LOG IN</a>
+                </li>                
+              )}
+              <li className="dropdown">
+                {!loggedin && (
+                  <div className="signup-button">
+                    <a className="nav-link signup" href="contact.html" data-toggle="modal" data-target="#exampleModal1">SIGN UP</a>
+                  </div>
+                )}
+                {loggedin && (
                 <div className="signup-button">
-                  <a className="nav-link signup" href="contact.html" data-toggle="modal" data-target="#exampleModal1">SIGN UP</a>
-                </div>
+                  {/* <a className="nav-link logout" href="#">LOG OUT</a> */}
+                  <a className="nav-link logout dropdown-toggle" data-toggle="dropdown" href="#">Email</a>
+                  <ul className="dropdown-menu dropdownBox animate slideIn">
+                      <li><a className="dropdownItem" href="/kyc">KYC FORM</a></li>
+                      <li><a className="dropdownItem logout-button" href="#">LOG OUT</a></li>
+                  </ul>
+                </div>               
+                )}
               </li>
               </ul>
             </div>

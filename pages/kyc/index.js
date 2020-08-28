@@ -10,21 +10,11 @@ import { useEffect } from 'react';
 import KycForm from './kycForm';
 import Navbar from '../../components/navbar';
 import Sidebar from '../../components/sidebar';
+import { RedirectIfUnauthenticated } from '../../functions/auth-checker';
 
 export default function Kyc() {
-
   useEffect(() => {
-
-    // Removes the local storage data on page load
-    // function isAuthenticated() {
-    //   if (localStorage.getItem('logged_in') !== '1') { // this can be from redux, localStorage, however you manage it 
-    //       // this would go into `this.props.allowed` for the page
-    //       window.location.href = '/';
-    //   }
-    // }
-    
-   // isAuthenticated();
-    //localStorage.clear();
+    RedirectIfUnauthenticated();
 
     $(window)
     .resize(function () {

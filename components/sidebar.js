@@ -1,13 +1,14 @@
 import Head from 'next/head';
 import Router from 'next/router';
 import { openNav, closeNav, isEmail } from '../functions/kyc';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { registerValidation, contactUsValidation, loginValidation } from '../functions/validators';
 import axios from 'axios';
 
 function Sidebar() {
     
     useEffect(() => {
+
         $(document).ready(function () {
           $(window).scroll(function () { // check if scroll event happened
               if ($(document).scrollTop() > 50) { // check if user scrolled more than 50 from top of the browser window
@@ -46,6 +47,11 @@ function Sidebar() {
     if(location.pathname === '/work') {
         $('.how-dropdown .how-link').attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C;');
         $('.work').attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C;');
+        $('.home-link').removeClass('btnhome');
+    }
+
+    if(location.pathname === '/kyc') {
+        $('.logout').siblings('.dropdown-menu li a').attr('style', 'font-family: "Proxima Extrabold" !important; color: #13C95C;');
         $('.home-link').removeClass('btnhome');
     }
   
@@ -276,12 +282,52 @@ function Sidebar() {
             }
 
             if(validEmail) {
-               // alert('Your message has been sent!');
+               let email = $('.loginemail').val();
+               let password = $('.loginpassword').val();
+
+               axios.post('https://dev.seedbox.ph/core/lite/v1/login', {
+                   email_address: email,
+                   password: password
+               }).then(response => {
+                   if(response.data.code === 1) {
+                       localStorage.setItem('logged_in', true);
+                       localStorage.setItem('loginToken', response.data.token);
+                       localStorage.setItem('sessionEmail', response.data.user_email);
+                       location.reload();
+                   }
+               }).catch(err => {
+                   $('.pErrorLPassword').text('Incorrect credentials.');
+                   $('.pErrorLPassword').removeClass('hide');
+               });
             }
          } else {
              return false;
          }
       });
+
+      
+        $(document).ready(function() {
+            $('.logout-button').click(function() {
+                let token = localStorage.getItem('loginToken');
+                axios.post('https://dev.seedbox.ph/core/lite/v1/logout', {
+                    headers: {
+                        'x-token': token
+                    }
+                }).then(response => {
+                    console.log(response);
+                    localStorage.removeItem('logged_in');
+                    localStorage.removeItem('sessionEmail');
+                    localStorage.removeItem('loginToken');
+                    location.reload();
+                }).catch(err => {
+                    console.log(err);
+                });
+            });
+
+            if(localStorage.getItem('logged_in')) {
+                $('.logout')
+            }
+        });
   
       // OTP
       $('.otplink').click(function() {
@@ -304,28 +350,29 @@ function Sidebar() {
               },
               {
                 headers: {
-                    "host": 'dev.seedbox.ph',
-                    "Access-Control-Request-Headers": "x-token",
-                    "Access-Control-Request-Method": "POST",
-                    "Origin": "https://seedbox-react.vercel.app/",
                     'x-token': registerToken
                 }
               }
               ).then(response => {
-                if(response.data.code === 1) {
-                    localStorage.setItem('logged_in', '1');
+                console.log(response.data);
+                if(response.data.code === 0) {
+                    // localStorage.setItem('logged_in', true);
+                    localStorage.removeItem('trx');
+                    localStorage.removeItem('stan');
+                    localStorage.removeItem('registerEmail');
+                    localStorage.removeItem('registerToken');
+                    alert('Account registered, you can now log in.');
 
-                    alert('You are now registered!');
-
+                    location.reload();
                     // if (localStorage.getItem('logged_in') === '1') {
                     //     window.location.href = '/kyc';
                     // }
-                } else if(response.data.code === 0) {
-                    $('.errorDiv').text('Invalid/Expired OTP Code');
-                    $('.errorDiv').removeClass('hide');
                 }
               }).catch(err => {
-                  console.log(err);
+                  if(err.response.data.code === 0) {
+                    $('.errorDiv').text('Invalid/Expired OTP Code');
+                    $('.errorDiv').removeClass('hide');
+                  }
               });
           }
       });
@@ -337,20 +384,20 @@ function Sidebar() {
           let registerToken = localStorage.getItem('registerToken');
           axios.get('https://dev.seedbox.ph/core/lite/v1/generate_otp', 
           {
-            email: email,
-            stan: stan,
-            trx_id: trx
-          },
-          {
-            headers: {
+              params: {
+                email: email,
+                stan: stan,
+                trx_id: trx
+              },
+              headers: {
                 'x-token': registerToken,
-            }
-          }
+              }
+        }
           ).then(response => {
               console.log(response);
-              localStorage.setItem('stan', response.data.stan);
+              localStorage.setItem('stan', response.data.data.stan);
           }).catch(err => {
-              console.log(error);
+              console.log(err);
           });
       });
 

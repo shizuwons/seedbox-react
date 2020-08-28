@@ -395,6 +395,16 @@ a.nav-link:hover {
   .signup:hover {
     color: white !important;
   }
+  
+  .logout {
+    background: #13C95C;
+    border-radius: 13px;
+    color: white;
+  }
+
+  .logout:hover {
+    color: white !important;
+  }
 
 .pHow {
     font-family: "Proxima Bold";
@@ -467,9 +477,8 @@ textarea {
   }
 
   .otp-caption {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-align: center;
-    margin: 0 80px;
     color: #13C95C;
   }
 
@@ -517,6 +526,11 @@ textarea {
   }
 
   .otplink a:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  .resendOtp {
     color: white;
     text-decoration: none;
   }
