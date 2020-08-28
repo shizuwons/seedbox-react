@@ -304,10 +304,11 @@ function Sidebar() {
               },
               {
                 headers: {
-                    "Access-Control-Allow-Headers": "X-Requested-With, content-type, x-token",
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Credentials": "true",
-                    'x-token': registerToken,
+                    "host": 'dev.seedbox.ph',
+                    "Access-Control-Request-Headers": "x-token",
+                    "Access-Control-Request-Method": "POST",
+                    "Origin": "https://seedbox-react.vercel.app/",
+                    'x-token': registerToken
                 }
               }
               ).then(response => {
