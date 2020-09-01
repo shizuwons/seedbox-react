@@ -405,6 +405,12 @@ function Sidebar() {
         $('#exampleModal1').modal('hide');
         $('#exampleModal').modal('show');
       });
+
+      $('.forgotTrigger').click(function() {
+          $('.loginForm').addClass('hide');
+          $('.forgotPasswordForm').removeClass('hide');
+          $('.loginCaption').text('Forgot Password?');
+      });
       }, []);
     return (
         <div id="mySidenav" className="sidenav">

@@ -93,37 +93,50 @@ export default function Home() {
                     <div className="modal-content">
                     <div className="modal-body" style={{border: '0px', margin: '0 auto'}}>
                         <img src="Image/leaf.png" className="img-fluid mx-auto d-flex imgLeaf" style={{width: '80px'}} />
-                        <p className="pLogin">Log In</p>
-                        <input type="text" className="txtEmail loginemail" placeholder="email" />
-                        <p className="pErrorLEmail pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
-                        <input type="password" className="txtEmail txtPassword loginpassword" placeholder="password" style={{marginTop: '20px'}} />
-                        <p className="pErrorLPassword pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
-                        <div className="row align-items-center" style={{marginTop: '15px'}}>
-                        <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div style={{ textAlign: "center" }}>
-                                <input type="button" defaultValue="SUBMIT" className="btnSubmit loginSubmit" />
+                        <p className="pLogin loginCaption">Log In</p>
+                        <div className="loginForm">
+                            <input type="text" className="txtEmail loginemail" placeholder="email" />
+                            <p className="pErrorLEmail pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
+                            <input type="password" className="txtEmail txtPassword loginpassword" placeholder="password" style={{marginTop: '20px'}} />
+                            <p className="pErrorLPassword pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
+                            <div className="row align-items-center" style={{marginTop: '15px'}}>
+                            <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div style={{ textAlign: "center" }}>
+                                    <input type="button" defaultValue="SUBMIT" className="btnSubmit loginSubmit" />
+                                </div>
+                            </div>
+                            <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+                                <p className="pForgot forgotTrigger" style={{ textAlign: "center" }}>Forgot password?</p>
+                            </div>
+                            </div>
+                            <div className="row align-items-center">
+                            <div className="col-lg-5 col-md-5 col-sm-5 col-5">
+                                <hr />
+                            </div>
+                            <div className="col-lg-2 col-md-2 col-sm-2 col-2">
+                                <p className="pOr">or</p>
+                            </div>
+                            <div className="col-lg-5 col-md-5 col-sm-5 col-5">
+                                <hr style={{marginLeft: '-20%'}} />
+                            </div>
+                            </div>
+                            {/* <button className="btnFacebook"><img src="Image/facebook.png" style={{width: '20px', marginRight: '5px'}} />Log-in with Facebook</button>
+                            <button className="btnGoogle"><img src="Image/google.png" style={{width: '20px', marginRight: '5px'}} />Log-in
+                            with Google</button> */}
+                            <p className="pDont">Don't have an account?</p>
+                            <p className="pSignup" data-toggle="modal" data-target="#exampleModal1" data-backdrop="false" data-keyboard="false">SIGN UP</p>
+                        </div>
+                        <div className="forgotPasswordForm hide">
+                            <input type="text" className="txtEmail forgotemail" placeholder="email" />
+                            <p className="pErrorFEmail pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
+                            <div className="row align-items-center" style={{marginTop: '15px'}}>
+                                <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div style={{ textAlign: "center" }}>
+                                        <input type="button" defaultValue="SUBMIT" className="btnSubmit forgotSubmit" style={{marginTop: '30px', marginBottom: '35px'}} />
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <p className="pForgot" style={{ textAlign: "center" }}>Forgot password?</p>
-                        </div>
-                        </div>
-                        <div className="row align-items-center">
-                        <div className="col-lg-5 col-md-5 col-sm-5 col-5">
-                            <hr />
-                        </div>
-                        <div className="col-lg-2 col-md-2 col-sm-2 col-2">
-                            <p className="pOr">or</p>
-                        </div>
-                        <div className="col-lg-5 col-md-5 col-sm-5 col-5">
-                            <hr style={{marginLeft: '-20%'}} />
-                        </div>
-                        </div>
-                        {/* <button className="btnFacebook"><img src="Image/facebook.png" style={{width: '20px', marginRight: '5px'}} />Log-in with Facebook</button>
-                        <button className="btnGoogle"><img src="Image/google.png" style={{width: '20px', marginRight: '5px'}} />Log-in
-                        with Google</button> */}
-                        <p className="pDont">Don't have an account?</p>
-                        <p className="pSignup" data-toggle="modal" data-target="#exampleModal1" data-backdrop="false" data-keyboard="false">SIGN UP</p>
                     </div>
                     </div>
                 </div>
