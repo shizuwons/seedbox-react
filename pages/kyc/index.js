@@ -11,6 +11,7 @@ import KycForm from './kycForm';
 import Navbar from '../../components/navbar';
 import Sidebar from '../../components/sidebar';
 import { RedirectIfUnauthenticated } from '../../functions/auth-checker';
+import { saveImage } from '../../functions/saveToDB';
 
 export default function Kyc() {
   useEffect(() => {
@@ -239,39 +240,49 @@ export default function Kyc() {
       $('#imguploadsig').trigger('click'); 
     });
 
-    $("#imguploadid").change(function(){
-      let ext = $(this).val().split('.').pop().toLowerCase();
-      console.log(ext);
-
-      if(ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'bmp') {
-        alert('Please upload image file only.');
-        return false;
+    $("#imguploadid").change(function(e){
+      if(e.originalEvent === undefined) {
+        let image = e.target.files[0];
+        saveImage(image, 'DocTyp01');
+      } else {
+        let ext = $(this).val().split('.').pop().toLowerCase();
+        console.log(ext);
+  
+        if(ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'bmp') {
+          alert('Please upload image file only.');
+          return false;
+        }
+  
+        if(this.files[0].size > 3145728){
+          alert("Please upload a file lesser than 3MB.");
+          return false;
+       };
+  
+        readURL(this, '.idimage');
       }
-
-      if(this.files[0].size > 3145728){
-        alert("Please upload a file lesser than 3MB.");
-        return false;
-     };
-
-      readURL(this, '.idimage');
     });
 
-    $("#imguploadsig").change(function(){
-      let ext = $(this).val().split('.').pop().toLowerCase();
-      //console.log(ext);
+    $("#imguploadsig").change(function(e){
+      if(e.originalEvent === undefined) {
+        let image = e.target.files[0];
+        saveImage(image, 'DocTyp03');
+      } else {
+        let ext = $(this).val().split('.').pop().toLowerCase();
+        //console.log(ext);
 
-      if(ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'bmp') {
-        alert('Please upload image file only.');
-        return false;
+        if(ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'bmp') {
+          alert('Please upload image file only.');
+          return false;
+        }
+
+        //console.log(this.files[0].size);
+        if(this.files[0].size > 3145728){
+          alert("Please upload a file lesser than 3MB.");
+          return false;
+      };
+
+        readURL(this, '.signatureimage');
       }
-
-      //console.log(this.files[0].size);
-      if(this.files[0].size > 3145728){
-        alert("Please upload a file lesser than 3MB.");
-        return false;
-     };
-
-      readURL(this, '.signatureimage');
     });
 
     // Personal Info select fields
@@ -1048,6 +1059,9 @@ export default function Kyc() {
         step = 6;
       } else if (step === 6) {
         let validated = uploadValidation();
+
+        $('#imguploadid').trigger('change');
+        $('#imguploadsig').trigger('change');
 
         saveToLocalStorage('.uploadForm');
         // if(!validated) {
