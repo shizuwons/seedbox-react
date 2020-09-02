@@ -93,6 +93,7 @@ export default function Kyc() {
   
     // Function that will copy the current address to permanent address
     $("#cbx").click(function (event) {
+      console.log($(this).val());
       if(this.checked) {
         let current = $('.current').val();
         let currentcity = $('.currentcity').val();
@@ -101,15 +102,15 @@ export default function Kyc() {
         let currenttext = $('.current option:selected').text();
         let currentcitytext = $('.currentcity option:selected').text();
         let currentregiontext = $('.currentregion option:selected').text();
-        $('.presentregion').empty();
+        // $('.presentregion').empty();
 
-        let selectedOption = new Option(currentregiontext, currentregion, false, false);
-        $('.presentregion').append(selectedOption);
+        // let selectedOption = new Option(currentregiontext, currentregion, false, false);
+        // $('.presentregion').append(selectedOption);
 
-        $('.presentcity').empty();
+        // $('.presentcity').empty();
 
-        let selectedOption2 = new Option(currentcitytext, currentcity, false, false);
-        $('.presentcity').append(selectedOption2);
+        // let selectedOption2 = new Option(currentcitytext, currentcity, false, false);
+        // $('.presentcity').append(selectedOption2);
       }
       $('.present').val($('.current').val()).trigger('change.select2');
       $('.presentcity').val($('.currentcity').val()).trigger('change.select2');
@@ -934,11 +935,11 @@ export default function Kyc() {
           $(".txtPermaProvince").val($(".txtCurrentProvince").val());
           $(".present").val($('.current').val()).change();
         } else if ($(this).is(":not(:checked)")) {
-          $(".txtPermaAdd1").val("");
-          $(".txtPermaAdd2").val("");
-          $(".txtPermaCity").val("");
-          $(".txtPermaProvince").val("");
-          $(".present").val("").change();
+          // $(".txtPermaAdd1").val("");
+          // $(".txtPermaAdd2").val("");
+          // $(".txtPermaCity").val("");
+          // $(".txtPermaProvince").val("");
+          // $(".present").val("").change();
         }
         $(".divWhite").css("top", "195px");
         $(".colmid").css({ height: $(".conContent").height() + "px" });

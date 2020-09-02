@@ -153,7 +153,7 @@ export default function Home() {
                             <p className="pErrorName pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
                             <input type="text" className="txtEmail email" name="email" placeholder="email" style={{marginTop: '20px'}} />
                             <p className="pErrorEmail pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
-                            <input type="text" className="txtEmail contact" name="contact" placeholder="contact number" style={{marginTop: '20px'}} />
+                            <input type="text" className="txtEmail contact" name="contact" placeholder="contact number (eg. 63-912...)" style={{marginTop: '20px'}} />
                             <p className="pErrorContact pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
                             <input type="password" className="txtEmail password" name="password" placeholder="password" style={{marginTop: '20px'}} />
                             <p className="pErrorPassword pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>

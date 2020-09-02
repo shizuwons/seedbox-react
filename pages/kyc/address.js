@@ -134,19 +134,23 @@ function Address() {
          });
 
          $('.present').on("change", function(e) { 
-            let id = $('.present option:selected').val();
-            let attribute = 'present';
-            if(id !== '') {
-                getProvinces(id, attribute);
+            if(e.originalEvent === undefined) {
+                let id = $('.present option:selected').val();
+                let attribute = 'present';
+                if(id !== '') {
+                    getProvinces(id, attribute);
+                }
             }
          });
 
          $('.presentregion').on("change", function(e) {
-             let id = ($('.presentregion option:selected').val());
-             let attribute = 'present';
-
-             if(id !== '') {
-                getCities(id, attribute);
+             if(e.originalEvent === undefined) {
+                let id = ($('.presentregion option:selected').val());
+                let attribute = 'present';
+   
+                if(id !== '') {
+                   getCities(id, attribute);
+                }
              }
          });
     }, []);

@@ -1,13 +1,14 @@
 import Head from 'next/head';
 import Router from 'next/router';
-import { openNav, closeNav, isEmail } from '../functions/kyc';
+import { openNav, closeNav, isEmail, isMobileNumber } from '../functions/kyc';
 import { useEffect, useState } from 'react';
 import { registerValidation, contactUsValidation, loginValidation } from '../functions/validators';
 import axios from 'axios';
 
 function Sidebar() {
-    
+    const [loggedin, setLoggedin] = useState(false);    
     useEffect(() => {
+        setLoggedin(localStorage.getItem('logged_in'));
 
         $(document).ready(function () {
           $(window).scroll(function () { // check if scroll event happened
@@ -184,6 +185,7 @@ function Sidebar() {
             let email = $('.email').val();
             let validEmail = false;
             let validPassword = false;
+            let validMobile = false;
 
             if(!isEmail(email)) {
                 $('.pErrorEmail').text('This is not a valid email.');
@@ -203,7 +205,16 @@ function Sidebar() {
                 validPassword = true;
             }
 
-            if(validPassword && validEmail) {
+            if(!isMobileNumber(contactNumber)) {
+                $('.pErrorContact').text('Invalid mobile number.');
+                $('.pErrorContact').removeClass('hide');
+            } else {
+                $('.pErrorConfirm').addClass('hide');
+                $('.pErrorConfirm').text('This field is required.');
+                validMobile = true;
+            }
+
+            if(validPassword && validEmail && validMobile) {
                 axios.post('https://dev.seedbox.ph/core/lite/v1/register', 
                 {
                     personal_information: {
@@ -324,9 +335,9 @@ function Sidebar() {
                 });
             });
 
-            if(localStorage.getItem('logged_in')) {
-                $('.logout')
-            }
+            // if(localStorage.getItem('logged_in')) {
+            //     $('.logout')
+            // }
         });
   
       // OTP
@@ -415,7 +426,13 @@ function Sidebar() {
     return (
         <div id="mySidenav" className="sidenav">
             <a href="#" className="closebtn" onClick={closeNav}>×</a>
-            <a href="#" data-toggle="modal" data-target="#exampleModal">LOG IN</a>
+            {!loggedin && (
+                <a href="#" data-toggle="modal" data-target="#exampleModal">LOG IN</a>
+            )}
+
+            {loggedin && (
+                <a href="#" className="logout-button">LOG OUT</a>
+            )}
             <a href="index.html">HOME</a>
             <li className="sidebarNav collapsed active" data-toggle="collapse" data-target="#products">
                 <a href="#">HOW DOES SEEDBOX WORK <span className="arrow"></span></a>
@@ -434,7 +451,12 @@ function Sidebar() {
                 <li><a className="" href="#">BLOGS</a></li>
             </ul>
             <a href="#" data-toggle="modal" data-target="#contactModal">CONTACT</a>
-            <a href="#" data-toggle="modal" data-target="#exampleModal1">SIGN UP</a>
+            {!loggedin && (
+                <a href="#" data-toggle="modal" data-target="#exampleModal1">SIGN UP</a>
+            )}
+            {loggedin && (
+                <a href="/kyc">KYC FORM</a>
+            )}
         </div>
     );
 }
