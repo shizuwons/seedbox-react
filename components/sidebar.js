@@ -305,9 +305,12 @@ function Sidebar() {
                        localStorage.setItem('loginToken', response.data.token);
                        localStorage.setItem('sessionEmail', response.data.user_email);
                        location.reload();
+                   } else if(response.data.code === 0) {
+                        $('.pErrorLPassword').text('Incorrect user account or password.');
+                        $('.pErrorLPassword').removeClass('hide');
                    }
                }).catch(err => {
-                   $('.pErrorLPassword').text('Incorrect credentials.');
+                   $('.pErrorLPassword').text('Incorrect user account or password.');
                    $('.pErrorLPassword').removeClass('hide');
                });
             }
