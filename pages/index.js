@@ -27,7 +27,7 @@ export default function Home() {
                 <div className="container con h-100 conMainBody" style={{padding: '20px 15px', backgroundColor: '#fafafa'}}>
                     <div className="row align-items-center" style={{height: '80vh'}}>
                     <div className="col-lg-6">
-                        <img src="Image/seedbox.gif" className="img-fluid mx-auto d-flex" />
+                        <img src="Image/seedbox-Final.gif" className="img-fluid mx-auto d-flex" />
                     </div>
                     <div className="col-lg-6 text-center conContent">
                         <p className="pTitle">Investing </p>
