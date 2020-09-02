@@ -61,7 +61,7 @@ function Personal({ submitPersonal }) {
         loadData();
 
         $(document).ready(function() {
-          $('.email').val('seedbox@seedbox.ph');
+          $('.email').val(localStorage.getItem('sessionEmail'));
         });
     }, []);
     return (
