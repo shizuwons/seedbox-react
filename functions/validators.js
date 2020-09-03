@@ -13,8 +13,8 @@ export function personalValidation() {
         'year',
         'birthplace',
         'citizenship',
-        'tin',
-        'agent-code'
+        'tin'
+        //'agent-code'
     ];
     let validated = true;
 
