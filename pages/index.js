@@ -74,7 +74,7 @@ export default function Home() {
                     </div>
                     </div>
                     <div className="row align-items-center row1" style={{marginTop: '150px', paddingBottom: '100px'}}>
-                    <div className="col-lg-6 text-center">
+                    <div className="col-lg-7 text-center">
                         <p className="pTitle">Seedbox</p>
                         <p className="pTitle" style={{marginTop: '-40px'}}>at Work</p>
                         <p className="pSubtitle">Bring the benefits of Seedbox to your workplace. 
@@ -82,7 +82,7 @@ export default function Home() {
                         plan via payroll deduction. We can also offer financial literacy seminars 
                         for your group. Interested? Email us at support@seedbox.ph to find out more.</p>
                     </div>
-                    <div className="col-lg-6 colImage">
+                    <div className="col-lg-5 colImage">
                         <img src="Image/gif2.gif" className="img-fluid mx-auto d-flex" />
                     </div>
                     </div>
@@ -92,7 +92,7 @@ export default function Home() {
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                     <div className="modal-body" style={{border: '0px', margin: '0 auto'}}>
-                        <img src="Image/leaf.png" className="img-fluid mx-auto d-flex imgLeaf" style={{width: '80px'}} />
+                    <img src="Image/Seedbox-Logo-updated.png" className="img-fluid mx-auto d-flex" style={{width: '210px', margin: '20px 0'}} />
                         <p className="pLogin loginCaption">Log In</p>
                         <div className="loginForm">
                             <input type="text" className="txtEmail loginemail" placeholder="email" />
@@ -145,7 +145,7 @@ export default function Home() {
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                     <div className="modal-body" style={{border: '0px', margin: '0 auto'}}>
-                        <img src="Image/leaf.png" className="img-fluid mx-auto d-flex" style={{width: '80px'}} />
+                        <img src="Image/Seedbox-Logo-updated.png" className="img-fluid mx-auto d-flex" style={{width: '210px', margin: '20px 0'}} />
                         <p className="pLogin">Sign Up</p>
                         <div className="signup-form">
                             <form className="registerForm">
@@ -232,6 +232,7 @@ export default function Home() {
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                     <div className="modal-body" style={{border: '0px', margin: '0 auto'}}>
+                        <img src="Image/Seedbox-Logo-updated.png" className="img-fluid mx-auto d-flex" style={{width: '210px', margin: '20px 0'}} />
                         <p className="pLogin">Contact Us</p>
                         <input type="text" className="txtEmail contactname" name="contactname" placeholder="name *" />
                         <p className="pErrorCName pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>

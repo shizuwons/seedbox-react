@@ -249,7 +249,7 @@ export default function Kyc() {
         console.log(ext);
   
         if(ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'bmp') {
-          alert('Please upload image file only.');
+          alert('Please upload accepted file type only.');
           return false;
         }
   
@@ -271,7 +271,7 @@ export default function Kyc() {
         //console.log(ext);
 
         if(ext !== 'jpg' && ext !== 'jpeg' && ext !== 'png' && ext !== 'bmp') {
-          alert('Please upload image file only.');
+          alert('Please upload accepted file type only.');
           return false;
         }
 

@@ -22,7 +22,7 @@ function Navbar() {
             <span className="navbar-toggler-icon" />
           </button>
           <nav className="navbar-brand" href="">
-            <a href="/" onClick={() => Router.push("/")}><img src="Image/Seedbox-Logo-updated.png" className="img-fluid imgLogo" style={{width: '170px'}}/></a>
+            <a href="/" onClick={() => Router.push("/")}><img src="Image/Seedbox-Logo-updated.png" className="img-fluid imgLogo" style={{width: '200px'}}/></a>
           </nav>
           <div className="collapse navbar-collapse" id="collapse">
             <div className="col2 ml-auto">

@@ -166,7 +166,7 @@ export default function Summary() {
                         </div>
                     </div>
                 </div>
-                <div className="container con conContent summaryMobile" style={{backgroundColor: 'white', width: '63%', borderRadius: '25px', boxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', WebkitBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', MozBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', height: 'auto'}}>
+                <div className="container con conContent summaryMobile" style={{backgroundColor: 'white', width: '63%', borderRadius: '25px', boxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', WebkitBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', MozBoxShadow: '2px 2px 10px 2px rgba(0,0,0,0.19)', height: 'auto !important'}}>
                     <div className="row align-items-center" style={{height: '100%'}}>
                         <div className="col-lg-4 col-md-4 colStep colmid" style={{borderRadius: '25px'}}>
                             <div className="row rowHide" style={{display: 'none'}}>

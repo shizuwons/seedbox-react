@@ -452,6 +452,8 @@ function Sidebar() {
             </li>
             <ul className="sub-menu collapse sidebarNav-dropdown" id="learnmore">
                 <li><a className="" href="#">BLOGS</a></li>
+                <li><a className="" href="#">ABOUT US</a></li>
+                <li><a className="" href="#">FAQS</a></li>
             </ul>
             <a href="#" data-toggle="modal" data-target="#contactModal">CONTACT</a>
             {!loggedin && (
