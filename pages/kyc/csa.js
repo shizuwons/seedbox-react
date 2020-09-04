@@ -1,6 +1,41 @@
 import Head from 'next/head';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function Csa() {
+    const [purposes, setPurpose] = useState([]);
+    const [horizons, setHorizon] = useState([]);
+    const [principles, setPrinciple] = useState([]);
+    const [knowledges, setKnowledge] = useState([]);
+    const [others, setOthers] = useState([]);
+    const [liquidities, setLiquidities] = useState([]);
+    const [risks, setRisk] = useState([]);
+    useEffect(() => {
+        async function loadData() {
+            const lookupDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/lookups');
+            const lookups = lookupDataLoad.data;
+            
+            // Lookups
+            const purpose = lookups.filter(el => el.category === 'INVESTMENT_PURPOSE');
+            const horizon = lookups.filter(el => el.category === 'INVESTMENT_HORIZON');
+            const principle = lookups.filter(el => el.category === 'INVESTMENT_PRINCIPLE');
+            const knowledge = lookups.filter(el => el.category === 'INVESTMENT_KNOWLEDGE');
+            const other = lookups.filter(el => el.category === 'INVESTMENT_OTHERS');
+            const liquidity = lookups.filter(el => el.category === 'INVESTMENT_LIQUIDITY_REQ');
+            const risk = lookups.filter(el => el.category === 'INVESTMENT_RISK_SCENARIO');
+
+            setPurpose(purpose);
+            setHorizon(horizon);
+            setPrinciple(principle);
+            setKnowledge(knowledge);
+            setOthers(other);
+            setLiquidities(liquidity);
+            setRisk(risk);
+
+        }
+
+        loadData();
+    }, []);
     return (
         <div className="divCsa divForm" style={{display: 'none'}}>
             <form className="csaForm">
@@ -41,19 +76,18 @@ function Csa() {
                     <select autoComplete="off" className="select2 investment" name="investment" defaultValue="">
                         <option value="" title="Please fill out this field." disabled> What is the purpose of your investment?
                         </option>
-                        <option value="A1">To prevent capital loss while generating income.</option>
-                        <option value="A2">To have a regular income source.</option>
-                        <option value="A3">To generate significant capital appreciation.</option>
+                        {purposes.map((e, index) =>(
+                            <option key={index} value={e.code}>{e.value}</option>
+                        ))}
                     </select>
                     </div>
                     <div className="selectdiv">
                     <div className="select-placeholder">How long are you investing for?</div>
                     <select autoComplete="off" className="select2 investing" name="investing" defaultValue="">
                         <option value="" title="Please fill out this field." disabled> How long are you investing for?</option>
-                        <option value="A1">Up to two years</option>
-                        <option value="A2">3-5 Years</option>
-                        <option value="A3">5-7 Years</option>
-                        <option value="A4">7 years and up</option>
+                        {horizons.map((e, index) =>(
+                            <option key={index} value={e.code}>{e.value}</option>
+                        ))}
                     </select>
                     </div>
                     <div className="selectdiv">
@@ -61,12 +95,9 @@ function Csa() {
                     <select autoComplete="off" className="select2 for-investment" name="forInvestment" defaultValue="">
                         <option value="" title="Please fill out this field." disabled> For this investment, you are?
                         </option>
-                        <option value="A1">"Willing to accept low to no risk for general stability of your money"
-                        </option>
-                        <option value="A2">"Willing to accept moderate risk in return for some growth
-                        opportunity"
-                        </option>
-                        <option value="A3">"Willing to accept high risk for potentially higher return"</option>
+                        {principles.map((e, index) =>(
+                            <option key={index} value={e.code}>{e.value}</option>
+                        ))}                   
                     </select>
                     </div>
                     <div className="selectdiv">
@@ -75,10 +106,9 @@ function Csa() {
                         <option value="" title="Please fill out this field." disabled> How knowledgeable are you as an
                         investor?
                         </option>
-                        <option value="A1">I am a new or novice investor</option>
-                        <option value="A2">I have some knowledge about investing</option>
-                        <option value="A3">I am generally knowledgeable about investing</option>
-                        <option value="A4">I am very knowledgeable about investing</option>
+                        {knowledges.map((e, index) =>(
+                            <option key={index} value={e.code}>{e.value}</option>
+                        ))}
                     </select>
                     </div>
                     <div className="selectdiv">
@@ -87,16 +117,9 @@ function Csa() {
                         <option value="" title="Please fill out this field." disabled> Which of the following have you invested
                         in?
                         </option>
-                        <option value="A1">Cash and deposit products (e.g. time deposit, SDA)</option>
-                        <option value="A2">Government securities or corporate fixed-income securities</option>
-                        <option value="A3">Stocks</option>
-                        <option value="A4">Mutual funds or UITFs</option>
-                        <option value="A5">Insurance products (including variable unit linked products and
-                        pre-need)</option>
-                        <option value="A6">Offshore funds (including ETFs, REITs)</option>
-                        <option value="A7">Structured financial products</option>
-                        <option value="A8">Commodities</option>
-                        <option value="A9">Real estate</option>
+                        {others.map((e, index) =>(
+                            <option key={index} value={e.code}>{e.value}</option>
+                        ))}                    
                     </select>
                     </div>
                     <div className="selectdiv">
@@ -105,8 +128,9 @@ function Csa() {
                         <option value="" title="Please fill out this field." disabled> Do you have a regular liquidity
                         requirement?
                         </option>
-                        <option value="true">Yes</option>
-                        <option value="false">No</option>
+                        {liquidities.map((e, index) =>(
+                            <option key={index} value={e.code}>{e.value}</option>
+                        ))}  
                     </select>
                     </div>
                     <div className="selectdiv">
@@ -115,10 +139,9 @@ function Csa() {
                         <option value="" title="Please fill out this field." disabled> How much drop/loss 
                         in the value of your investment can you accept?
                         </option>
-                        <option value="A1">0%</option>
-                        <option value="A2">Up to 10%</option>
-                        <option value="A3">Up to 15%</option>
-                        <option value="A4">More than 15%</option>
+                        {risks.map((e, index) =>(
+                            <option key={index} value={e.code}>{e.value}</option>
+                        ))} 
                     </select>
                     </div>
                 </div>

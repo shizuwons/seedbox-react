@@ -346,7 +346,7 @@ function Personal({ submitPersonal }) {
                   <option value="default" title="Please fill out this field." disabled>Civil Status
                   </option>
                   {marital.map((e, index) =>(
-                    <option key={index} value={e.value}>{e.value}</option>
+                    <option key={index} value={e.code}>{e.value}</option>
                   ))}
                 </select>
               </div>
@@ -358,7 +358,7 @@ function Personal({ submitPersonal }) {
                   <option value="default" title="Please fill out this field." disabled>Gender
                   </option>
                   {gender.map((e, index) =>(
-                    <option key={index} value={e.value}>{e.value}</option>
+                    <option key={index} value={e.code}>{e.value}</option>
                   ))}
                 </select>
               </div>

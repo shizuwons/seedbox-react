@@ -11,7 +11,7 @@ import KycForm from './kycForm';
 import Navbar from '../../components/navbar';
 import Sidebar from '../../components/sidebar';
 import { RedirectIfUnauthenticated } from '../../functions/auth-checker';
-import { saveImage } from '../../functions/saveToDB';
+import { saveImage, savePersonalInformation, saveAddressInformation, saveProfessionalInformation } from '../../functions/saveToDB';
 
 export default function Kyc() {
   useEffect(() => {
@@ -103,27 +103,42 @@ export default function Kyc() {
         let currenttext = $('.current option:selected').text();
         let currentcitytext = $('.currentcity option:selected').text();
         let currentregiontext = $('.currentregion option:selected').text();
-        // $('.presentregion').empty();
 
-        // let selectedOption = new Option(currentregiontext, currentregion, false, false);
-        // $('.presentregion').append(selectedOption);
+        if(currentregion !== null) {
+          $('.presentregion').empty();
 
-        // $('.presentcity').empty();
+          let selectedOption = new Option(currentregiontext, currentregion, false, false);
+          $('.presentregion').append(selectedOption);
+        }
 
-        // let selectedOption2 = new Option(currentcitytext, currentcity, false, false);
-        // $('.presentcity').append(selectedOption2);
+        $('.presentcity').empty();
+
+        let selectedOption2 = new Option(currentcitytext, currentcity, false, false);
+        $('.presentcity').append(selectedOption2);
       }
-      $('.present').val($('.current').val()).trigger('change.select2');
-      $('.presentcity').val($('.currentcity').val()).trigger('change.select2');
+
+      if($('.current').val() !== null) {
+        $('.present').val($('.current').val()).trigger('change.select2');
+        $('.present').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $('.present').siblings(".select-placeholder").css({ opacity: "1" });
+      }
+
+      if($('.currentcity').val() !== null) {
+        $('.presentcity').val($('.currentcity').val()).trigger('change.select2');
+        $('.presentcity').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $('.presentcity').siblings(".select-placeholder").css({ opacity: "1" });
+      }
+
+      if($('.currentregion').val() !== null) {
+        $('.presentregion').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $('.presentregion').siblings(".select-placeholder").css({ opacity: "1" });
+      } 
+
+      if($(".currentaddress").val() !== "" || $(".currentaddress").val().length > 0) {
+        $(".presentaddress").val($(".currentaddress").val());
+        $(".presentaddress").css({borderColor: 'green'});
+      }
      // $('.presentregion').val($('.currentregion').val()).trigger('change.select2');
-      $(".presentaddress").val($(".currentaddress").val());
-      $(".presentaddress").css({borderColor: 'green'});
-      $('.present').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-      $('.present').siblings(".select-placeholder").css({ opacity: "1" });
-      $('.presentcity').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-      $('.presentcity').siblings(".select-placeholder").css({ opacity: "1" });
-      $('.presentregion').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-      $('.presentregion').siblings(".select-placeholder").css({ opacity: "1" });
       if (!this.checked) {
         $(".presentaddress").val("");
         $(".presentaddress").removeAttr('style');
@@ -882,7 +897,9 @@ export default function Kyc() {
       if (step === 0) {
         let validated = personalValidation();
 
-        saveToLocalStorage('.personalForm');
+        savePersonalInformation();
+
+        //saveToLocalStorage('.personalForm');
         // if(!validated) {
         //   return false;
         // }
@@ -914,7 +931,9 @@ export default function Kyc() {
       } else if (step === 1) {
         let validated = addressValidation();
 
-        saveToLocalStorage('.addressForm');
+        saveAddressInformation();
+
+        //saveToLocalStorage('.addressForm');
 
         // if(!validated) {
         //   return false;
@@ -944,7 +963,7 @@ export default function Kyc() {
           $(".txtPermaAdd2").val($(".txtCurrentAdd2").val());
           $(".txtPermaCity").val($(".txtCurrentCity").val());
           $(".txtPermaProvince").val($(".txtCurrentProvince").val());
-          $(".present").val($('.current').val()).change();
+         // $(".present").val($('.current').val()).trigger('change');
         } else if ($(this).is(":not(:checked)")) {
           // $(".txtPermaAdd1").val("");
           // $(".txtPermaAdd2").val("");
@@ -958,7 +977,9 @@ export default function Kyc() {
       } else if (step === 2) {
         let validated = professionalValidation();
 
-        saveToLocalStorage('.professionalForm');
+        saveProfessionalInformation();
+
+        //saveToLocalStorage('.professionalForm');
 
         // if(!validated) {
         //   return false;
@@ -987,7 +1008,7 @@ export default function Kyc() {
       } else if (step === 3) {
         let validated = csaValidation();
 
-        saveToLocalStorage('.csaForm');
+        //saveToLocalStorage('.csaForm');
 
         // if(!validated) {
         //   return false;
@@ -1011,7 +1032,7 @@ export default function Kyc() {
       } else if (step === 4) {
         let validated = pepValidation();
 
-        saveToLocalStorage('.pepForm');
+        //saveToLocalStorage('.pepForm');
 
         // if(!validated) {
         //   return false;
@@ -1063,7 +1084,7 @@ export default function Kyc() {
         $('#imguploadid').trigger('change');
         $('#imguploadsig').trigger('change');
 
-        saveToLocalStorage('.uploadForm');
+        //saveToLocalStorage('.uploadForm');
         // if(!validated) {
         //   return false;
         // }
@@ -1085,7 +1106,7 @@ export default function Kyc() {
         step = 7;
       } else if(step === 7) {
         let validated = settlementValidation();
-        saveToLocalStorage('.settlementForm');
+        //saveToLocalStorage('.settlementForm');
 
         // if(!validated) {
         //   return false;
