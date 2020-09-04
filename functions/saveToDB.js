@@ -122,11 +122,32 @@ export function saveImage(img, type) {
             'x-token': localStorage.getItem('loginToken')
         }
     }).then(response => {
-        //console.log(response);
+        if(response.data.data.document_type === 'DocTyp01') {
+            localStorage.setItem('iddocType', response.data.data.document_type);
+            localStorage.setItem('idfileKey', response.data.data.file_key);
+            localStorage.setItem('idfileLocation', response.data.data.file_location);
+            localStorage.setItem('idfileName', response.data.data.file_name);
+            localStorage.setItem('idfileSize', response.data.data.file_size);
+            localStorage.setItem('idfileType', response.data.data.file_type);
+            localStorage.setItem('idsourceType', response.data.data.source_type);
+            if($('#imguploadsig').val() !== '' || $('#imguploadsig').val() !== null) {
+                saveToDB();
+            }
+        } else if(response.data.data.document_type === 'DocTyp03') {
+            localStorage.setItem('sigdocType', response.data.data.document_type);
+            localStorage.setItem('sigfileKey', response.data.data.file_key);
+            localStorage.setItem('sigfileLocation', response.data.data.file_location);
+            localStorage.setItem('sigfileName', response.data.data.file_name);
+            localStorage.setItem('sigfileSize', response.data.data.file_size);
+            localStorage.setItem('sigfileType', response.data.data.file_type);
+            localStorage.setItem('sigsourceType', response.data.data.source_type);
+            saveToDB();
+        }
     });
 }
 
-export function savePersonalInformation() {
+export function saveToDB() {
+    /** Personal Info */
     sessionEmail = localStorage.getItem('sessionEmail');
 
     let firstName = $('.firstname').val();
@@ -172,102 +193,7 @@ export function savePersonalInformation() {
         sss_gsis: sssGsis
     };
 
-    let currentData, presentData, professionalData, financialData, csaData, pepData, fatcaData, uploadData, settlementData;
-
-    // Address
-    if(localStorage.getItem('currentData') === null) {
-        currentData = blankCurrent;
-    } else {
-        currentData = JSON.parse(localStorage.getItem('currentData'));
-    }
-
-    if(localStorage.getItem('presentData') === null) {
-        presentData = blankPresent;
-    } else {
-        currentData = JSON.parse(localStorage.getItem('presentData'));
-    }
-
-    // Professional
-    if(localStorage.getItem('professionalData') === null) {
-        professionalData = blankProfessional;
-    } else {
-        professionalData = JSON.parse(localStorage.getItem('professionalData'));
-    }
-
-    if(localStorage.getItem('financialData') === null) {
-        financialData = blankFinancial;
-    } else {
-        financialData = JSON.parse(localStorage.getItem('financialData'));
-    }
-
-    // CSA
-    if(localStorage.getItem('csaData') === null) {
-        csaData = blankCsa;
-    } else {
-        csaData = JSON.parse(localStorage.getItem('csaData'));
-    }
-
-    // PEP
-    if(localStorage.getItem('pepData') === null) {
-        pepData = blankPep;
-    } else {
-        pepData = JSON.parse(localStorage.getItem('pepData'));
-    }
-
-    // Fatca
-    if(localStorage.getItem('fatcaData') === null) {
-        fatcaData = blankFatca;
-    } else {
-        fatcaData = JSON.parse(localStorage.getItem('fatcaData'));
-    }
-
-    // Upload
-    if(localStorage.getItem('uploadData') === null) {
-        uploadData = blankUpload;
-    } else {
-        uploadData = JSON.parse(localStorage.getItem('uploadData'));
-    }
-
-    // Settlement
-    if(localStorage.getItem('settlementData') === null) {
-        settlementData = blankSettlement;
-    } else {
-        settlementData = JSON.parse(localStorage.getItem('settlementData'));
-    }
-
-    let data = {
-        personal_information: personalData,
-        current_address: currentData,
-        permanent_address: presentData,
-        professional_details: professionalData,
-        financial_profile: financialData,
-        csa: csaData,
-        pep_declaration: pepData,
-        fatca: fatcaData,
-        settlement_information: settlementData,
-        id_information: uploadData
-    };
-
-    //console.log(data);
-    localStorage.setItem('personalData', JSON.stringify(personalData));
-
-    axios.post('https://dev.seedbox.ph/core/lite/v1/customer', 
-    data, 
-    {
-        headers: {
-            'x-token': localStorage.getItem('loginToken')
-        }
-    }).then(response => {
-        console.log(response);
-        if(response.data.code === "100") {
-            alert('Session has expired, please log out and log in again.');
-        }
-    }).catch(err => {
-        alert('Session has expired, please log out and log in again.');
-    });
-}
-
-export function saveAddressInformation() {
+    /** Address Info */
     let currentAddress = $('.currentaddress').val();
     let currentCountry = $('.current').val();
     let currentRegion = $('.currentregion').val();
@@ -292,97 +218,7 @@ export function saveAddressInformation() {
         city: presentCity
     };
 
-    let personalData, professionalData, financialData, csaData, pepData, fatcaData, uploadData, settlementData;
-
-    // Personal
-    if(localStorage.getItem('personalData') === null) {
-        personalData = blankProfessional;
-    } else {
-        personalData = JSON.parse(localStorage.getItem('personalData'));
-    }
-
-    // Professional
-    if(localStorage.getItem('professionalData') === null) {
-        professionalData = blankProfessional;
-    } else {
-        professionalData = JSON.parse(localStorage.getItem('professionalData'));
-    }
-
-    if(localStorage.getItem('financialData') === null) {
-        financialData = blankFinancial;
-    } else {
-        financialData = JSON.parse(localStorage.getItem('financialData'));
-    }
-
-    // CSA
-    if(localStorage.getItem('csaData') === null) {
-        csaData = blankCsa;
-    } else {
-        csaData = JSON.parse(localStorage.getItem('csaData'));
-    }
-
-    // PEP
-    if(localStorage.getItem('pepData') === null) {
-        pepData = blankPep;
-    } else {
-        pepData = JSON.parse(localStorage.getItem('pepData'));
-    }
-
-    // Fatca
-    if(localStorage.getItem('fatcaData') === null) {
-        fatcaData = blankFatca;
-    } else {
-        fatcaData = JSON.parse(localStorage.getItem('fatcaData'));
-    }
-
-    // Upload
-    if(localStorage.getItem('uploadData') === null) {
-        uploadData = blankUpload;
-    } else {
-        uploadData = JSON.parse(localStorage.getItem('uploadData'));
-    }
-
-    // Settlement
-    if(localStorage.getItem('settlementData') === null) {
-        settlementData = blankSettlement;
-    } else {
-        settlementData = JSON.parse(localStorage.getItem('settlementData'));
-    }
-
-    let data = {
-        personal_information: personalData,
-        current_address: currentData,
-        permanent_address: presentData,
-        professional_details: professionalData,
-        financial_profile: financialData,
-        csa: csaData,
-        pep_declaration: pepData,
-        fatca: fatcaData,
-        settlement_information: settlementData,
-        id_information: uploadData
-    };
-
-    //console.log(data);
-    localStorage.setItem('currentData', JSON.stringify(currentData));
-    localStorage.setItem('presentData', JSON.stringify(presentData));
-
-    axios.post('https://dev.seedbox.ph/core/lite/v1/customer', 
-    data, 
-    {
-        headers: {
-            'x-token': localStorage.getItem('loginToken')
-        }
-    }).then(response => {
-        console.log(response);
-        if(response.data.code === "100") {
-            alert('Session has expired, please log out and log in again.');
-        }
-    }).catch(err => {
-        alert('Session has expired, please log out and log in again.');
-    });
-}
-
-export function saveProfessionalInformation() {
+    /** Professional Info */
     let natureOfWork = $('.nature-work').val();
     let natureOfBusiness = $('.nature-business').val();
     let businessName = $('.naturebusinessname').val();
@@ -413,62 +249,154 @@ export function saveProfessionalInformation() {
         source_of_funds: sourceOfFunds
     }
 
-    let personalData, currentData, presentData, csaData, pepData, fatcaData, uploadData, settlementData;
+    /** CSA */
+    let amount = $('.invest-much').val();
+    let frequent = $('.frequent-invest').val();
+    let purpose = $('.investment').val();
+    let horizon = $('.investing').val();
+    let principle = $('.for-investment').val();
+    let knowledge = $('.investor').val();
+    let other = $('.invested').val();
+    let liquidity = $('.liquidity').val();
+    let risk = $('.droploss').val();
 
-    // Personal
-    if(localStorage.getItem('personalData') === null) {
-        personalData = blankProfessional;
-    } else {
-        personalData = JSON.parse(localStorage.getItem('personalData'));
+    let csaData = {
+        investment_purpose: purpose,
+        investment_amount: "",
+        investment_frequency: "",
+        investment_horizon: horizon,
+        investment_principle: principle,
+        investment_knowledge: knowledge,
+        investment_others: other,
+        investment_liquidity_req: liquidity,
+        investment_risk_scenario: risk
     }
 
-    // Address
-    if(localStorage.getItem('currentData') === null) {
-        currentData = blankCurrent;
-    } else {
-        currentData = JSON.parse(localStorage.getItem('currentData'));
+    /** PEP */
+    let workedInGovt = $('.government').val();
+    let relativeInGovt = $('.relative').val();
+
+    if(workedInGovt === '') {
+        workedInGovt = "false";
     }
 
-    if(localStorage.getItem('presentData') === null) {
-        presentData = blankPresent;
-    } else {
-        currentData = JSON.parse(localStorage.getItem('presentData'));
+    if(relativeInGovt === '') {
+        relativeInGovt = "false";
     }
 
-    // CSA
-    if(localStorage.getItem('csaData') === null) {
-        csaData = blankCsa;
-    } else {
-        csaData = JSON.parse(localStorage.getItem('csaData'));
+    let pepData = {
+        worked_in_govt: workedInGovt,
+        has_relative_in_govt: relativeInGovt
     }
 
-    // PEP
-    if(localStorage.getItem('pepData') === null) {
-        pepData = blankPep;
-    } else {
-        pepData = JSON.parse(localStorage.getItem('pepData'));
+    /** FATCA */
+    let usCitizen = "false";
+    let usResident = "false";
+    let usResidentAlien = "false";
+    let usTelephone = "false";
+    let usBorn = "false";
+    let usAddress = "false";
+    let usMailing = "false";
+    let transferFunds = "false";
+    let usAttorney = "false";
+    let usCareOf = "false";
+
+    if($("input[name='USCitizen']").is(':checked')) {
+        usCitizen = "true";
     }
 
-    // Fatca
-    if(localStorage.getItem('fatcaData') === null) {
-        fatcaData = blankFatca;
-    } else {
-        fatcaData = JSON.parse(localStorage.getItem('fatcaData'));
+    if($("input[name='USResident']").is(':checked')) {
+        usResident = "true";
     }
 
-    // Upload
-    if(localStorage.getItem('uploadData') === null) {
-        uploadData = blankUpload;
-    } else {
-        uploadData = JSON.parse(localStorage.getItem('uploadData'));
+    if($("input[name='USResidentAlien']").is(':checked')) {
+        usResidentAlien = "true";
     }
 
-    // Settlement
-    if(localStorage.getItem('settlementData') === null) {
-        settlementData = blankSettlement;
-    } else {
-        settlementData = JSON.parse(localStorage.getItem('settlementData'));
+    if($("input[name='USTelephone']").is(':checked')) {
+        usTelephone = "true";
     }
+
+    if($("input[name='USBorn']").is(':checked')) {
+        usBorn = "true";
+    }
+
+    if($("input[name='USAddress']").is(':checked')) {
+        usAddress = "true";
+    }
+
+    if($("input[name='USMailing']").is(':checked')) {
+        usMailing = "true";
+    }
+
+    if($("input[name='TransferFunds']").is(':checked')) {
+        transferFunds = "true";
+    }
+
+    if($("input[name='USPowerOfAttorney']").is(':checked')) {
+        usAttorney = "true";
+    }
+
+    if($("input[name='USCareOfAddress']").is(':checked')) {
+        usCareOf = "true";
+    }
+
+    let fatcaData = {
+        us_resident: usResident,
+        us_citizen: usCitizen,
+        us_power_of_attorney: usAttorney,
+        us_care_of_address: usCareOf,
+        us_resident_alien: usResidentAlien,
+        us_phone_number: usTelephone,
+        us_born: usBorn,
+        us_current_address: usAddress,
+        us_mailing_address: usMailing,
+        us_maintained_account: transferFunds
+    }
+
+    /** Upload Data */
+    let idType = $('.idtype').val();
+    let idNumber = $('.id-number').val();
+    let expiremonth = $('.month').val();
+    let expireday = $('.day').val();
+    let expireyear = $('.year').val();
+
+    let expiredate = "";
+    if(expiremonth !== null && expireday !== null && expireyear !== null) {
+        expiredate = `${year}-${month}-${day}`;
+    }
+
+    let idData = {
+        imageIdCardName: localStorage.getItem('idfileName'),
+        documentTypeIdCard: localStorage.getItem('iddocType'),
+        sourceTypeIdCard: localStorage.getItem('idsourceType'),
+        fileSizeIdCard: localStorage.getItem('idfileSize'),
+        fileKeyIdCard: localStorage.getItem('idfileKey'),
+        fileLocationIdCard: localStorage.getItem('idfileLocation'),
+        fileTypeIdCard: localStorage.getItem('idfileType')
+    }
+
+    let sigData = {
+        imageSignatureName: localStorage.getItem('sigfileName'),
+        documentTypeSignature: localStorage.getItem('sigdocType'),
+        sourceTypeSignature: localStorage.getItem('sigsourceType'),
+        fileSizeSignature: localStorage.getItem('sigfileSize'),
+        fileKeySignature: localStorage.getItem('sigfileKey'),
+        fileLocationSignature: localStorage.getItem('sigfileLocation'),
+        fileTypeSignature: localStorage.getItem('sigfileType')
+    }
+
+    let uploadData = {
+        id_type: idType,
+        idNumber: idNumber,
+        id_expiry_date: expiredate,
+        upload_id: idData,
+        upload_signature: sigData
+    };
+
+    /** Settlement Information */
+    
+    let settlementData = blankSettlement;
 
     let data = {
         personal_information: personalData,
@@ -483,10 +411,10 @@ export function saveProfessionalInformation() {
         id_information: uploadData
     };
 
-    //console.log(data);
-    localStorage.setItem('professionalData', JSON.stringify(professionalData));
-    localStorage.setItem('financialData', JSON.stringify(financialData));
+    toEndpoint(data);
+}
 
+function toEndpoint(data) {
     axios.post('https://dev.seedbox.ph/core/lite/v1/customer', 
     data, 
     {

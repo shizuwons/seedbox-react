@@ -18,20 +18,20 @@ function Pep() {
                         <option value="" title="Please fill out this field." disabled>Have you worked in a government agency or
                         institution?
                         </option>
-                        <option>Yes</option>
-                        <option>No</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
                     </select>
                     </div>
                     <div className="selectdiv">
                     <div className="select-placeholder">Do you have any relative who is/was an elected/appoi...</div>
-                    <select autoComplete="off" className="select2 relative" name="relative" defaultValue="default">
-                        <option value="default" title="Please fill out this field." disabled>Do you have any relative who is/was
+                    <select autoComplete="off" className="select2 relative" name="relative" defaultValue="">
+                        <option value="" title="Please fill out this field." disabled>Do you have any relative who is/was
                         an elected/appointed government official up to second degree
                         of
                         consanguinity or affinity?
                         </option>
-                        <option>Yes</option>
-                        <option>No</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
                     </select>
                     </div>
                 </div>

@@ -11,7 +11,7 @@ import KycForm from './kycForm';
 import Navbar from '../../components/navbar';
 import Sidebar from '../../components/sidebar';
 import { RedirectIfUnauthenticated } from '../../functions/auth-checker';
-import { saveImage, savePersonalInformation, saveAddressInformation, saveProfessionalInformation } from '../../functions/saveToDB';
+import { saveImage, saveToDB } from '../../functions/saveToDB';
 
 export default function Kyc() {
   useEffect(() => {
@@ -897,7 +897,7 @@ export default function Kyc() {
       if (step === 0) {
         let validated = personalValidation();
 
-        savePersonalInformation();
+        saveToDB();
 
         //saveToLocalStorage('.personalForm');
         // if(!validated) {
@@ -931,7 +931,7 @@ export default function Kyc() {
       } else if (step === 1) {
         let validated = addressValidation();
 
-        saveAddressInformation();
+        saveToDB();
 
         //saveToLocalStorage('.addressForm');
 
@@ -977,7 +977,7 @@ export default function Kyc() {
       } else if (step === 2) {
         let validated = professionalValidation();
 
-        saveProfessionalInformation();
+        saveToDB();
 
         //saveToLocalStorage('.professionalForm');
 
@@ -1008,7 +1008,7 @@ export default function Kyc() {
       } else if (step === 3) {
         let validated = csaValidation();
 
-        //saveToLocalStorage('.csaForm');
+        saveToDB();
 
         // if(!validated) {
         //   return false;
@@ -1032,7 +1032,7 @@ export default function Kyc() {
       } else if (step === 4) {
         let validated = pepValidation();
 
-        //saveToLocalStorage('.pepForm');
+        saveToDB();
 
         // if(!validated) {
         //   return false;
@@ -1061,7 +1061,9 @@ export default function Kyc() {
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         step = 5;
       } else if (step === 5) {
-        saveToLocalStorage('.fatcaForm');
+        //saveToLocalStorage('.fatcaForm');
+        saveToDB();
+
         $(".pMore").text("Upload Documents");
         $(".pTitle").text("Upload Documents");
         $(".pSubtitle").html("Please ensure your ID type and number corresponds to the VALID ID (w/ photo) you will upload. <br/><br/>The details you provided on the Personal Info should be the same as the details found on your government issued ID (w/photo).");
@@ -1081,8 +1083,13 @@ export default function Kyc() {
       } else if (step === 6) {
         let validated = uploadValidation();
 
-        $('#imguploadid').trigger('change');
-        $('#imguploadsig').trigger('change');
+        if($('#imguploadid').val() !== '') {
+          $('#imguploadid').trigger('change');
+        }
+
+        if($('#imguploadsig').val() !== '') {
+          $('#imguploadsig').trigger('change');
+        }
 
         //saveToLocalStorage('.uploadForm');
         // if(!validated) {
@@ -1106,6 +1113,8 @@ export default function Kyc() {
         step = 7;
       } else if(step === 7) {
         let validated = settlementValidation();
+
+        saveToDB();
         //saveToLocalStorage('.settlementForm');
 
         // if(!validated) {
