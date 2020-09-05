@@ -899,7 +899,7 @@ export default function Kyc() {
 
         saveToDB();
 
-        //saveToLocalStorage('.personalForm');
+        saveToLocalStorage('.personalForm');
         // if(!validated) {
         //   return false;
         // }
@@ -933,7 +933,7 @@ export default function Kyc() {
 
         saveToDB();
 
-        //saveToLocalStorage('.addressForm');
+        saveToLocalStorage('.addressForm');
 
         // if(!validated) {
         //   return false;
@@ -979,7 +979,7 @@ export default function Kyc() {
 
         saveToDB();
 
-        //saveToLocalStorage('.professionalForm');
+        saveToLocalStorage('.professionalForm');
 
         // if(!validated) {
         //   return false;
@@ -1009,6 +1009,7 @@ export default function Kyc() {
         let validated = csaValidation();
 
         saveToDB();
+        saveToLocalStorage('.csaForm');
 
         // if(!validated) {
         //   return false;
@@ -1033,6 +1034,7 @@ export default function Kyc() {
         let validated = pepValidation();
 
         saveToDB();
+        saveToLocalStorage('.pepForm');
 
         // if(!validated) {
         //   return false;
@@ -1061,7 +1063,7 @@ export default function Kyc() {
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         step = 5;
       } else if (step === 5) {
-        //saveToLocalStorage('.fatcaForm');
+        saveToLocalStorage('.fatcaForm');
         saveToDB();
 
         $(".pMore").text("Upload Documents");
@@ -1091,7 +1093,7 @@ export default function Kyc() {
           $('#imguploadsig').trigger('change');
         }
 
-        //saveToLocalStorage('.uploadForm');
+        saveToLocalStorage('.uploadForm');
         // if(!validated) {
         //   return false;
         // }
@@ -1115,7 +1117,7 @@ export default function Kyc() {
         let validated = settlementValidation();
 
         saveToDB();
-        //saveToLocalStorage('.settlementForm');
+        saveToLocalStorage('.settlementForm');
 
         // if(!validated) {
         //   return false;

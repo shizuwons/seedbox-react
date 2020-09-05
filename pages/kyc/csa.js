@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 function Csa() {
+    const [amounts, setAmount] = useState([]);
+    const [frequencies, setFrequency] = useState([]);
     const [purposes, setPurpose] = useState([]);
     const [horizons, setHorizon] = useState([]);
     const [principles, setPrinciple] = useState([]);
@@ -16,6 +18,8 @@ function Csa() {
             const lookups = lookupDataLoad.data;
             
             // Lookups
+            const amount = lookups.filter(el => el.category === 'INVESTMENT_AMOUNT');
+            const frequency = lookups.filter(el => el.category === 'INVESTMENT_FREQUENCY');
             const purpose = lookups.filter(el => el.category === 'INVESTMENT_PURPOSE');
             const horizon = lookups.filter(el => el.category === 'INVESTMENT_HORIZON');
             const principle = lookups.filter(el => el.category === 'INVESTMENT_PRINCIPLE');
@@ -24,6 +28,8 @@ function Csa() {
             const liquidity = lookups.filter(el => el.category === 'INVESTMENT_LIQUIDITY_REQ');
             const risk = lookups.filter(el => el.category === 'INVESTMENT_RISK_SCENARIO');
 
+            setAmount(amount);
+            setFrequency(frequency);
             setPurpose(purpose);
             setHorizon(horizon);
             setPrinciple(principle);
@@ -51,12 +57,9 @@ function Csa() {
                     <select autoComplete="off" className="select2 invest-much" name="investMuch" defaultValue="">
                         <option value="" title="Please fill out this field." disabled> How much do you see yourself investing?
                         </option>
-                        <option value="A1">P1,000 or less</option>
-                        <option value="A2">P1,001 - P50,000</option>
-                        <option value="A3">P50,001 - P100,000</option>
-                        <option value="A4">P100,001 - P500,000</option>
-                        <option value="A5">P500,001 - P1,000,000</option>
-                        <option value="A6">More than P1,000,000</option>
+                        {amounts.map((e, index) =>(
+                            <option key={index} value={e.code}>{e.value}</option>
+                        ))}
                     </select>
                     </div>
                     <div className="selectdiv">
@@ -64,11 +67,9 @@ function Csa() {
                     <select autoComplete="off" className="select2 frequent-invest" name="frequentInvest" defaultValue="">
                         <option value="" title="Please fill out this field." disabled> How frequently do you see yourself investing?
                         </option>
-                        <option value="A1">Only when I have available cash</option>
-                        <option value="A2">Quarterly</option>
-                        <option value="A3">Monthly</option>
-                        <option value="A4">Weekly</option>
-                        <option value="A5">More frequently than once a week</option>
+                        {frequencies.map((e, index) =>(
+                            <option key={index} value={e.code}>{e.value}</option>
+                        ))}
                     </select>
                     </div>
                     <div className="selectdiv">

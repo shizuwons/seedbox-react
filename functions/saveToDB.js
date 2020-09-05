@@ -1,114 +1,5 @@
 import axios from 'axios';
 
-let sessionEmail = "";
-
-let blankPersonal = {
-    first_name: "",
-    last_name: "",
-    mothers_maiden_name: "",
-    email: sessionEmail,
-    mobile_phone_number: "",
-    referral_agent_code: "",
-    gender: "",
-    civil_status: "",
-    birthdate: "",
-    birthplace: "",
-    citizenship: "",
-    tin: "",
-    sss_gsis: ""
-};
-
-let blankCurrent = {
-    address: "",
-    country: "",
-    province_region: "",
-    city: ""
-};
-
-let blankPresent = {
-    address: "",
-    country: "",
-    province_region: "",
-    city: ""
-}
-
-let blankProfessional = {
-    employer_name: "",
-    country: "",
-    address: "",
-    city: "",
-    province: ""
-}
-
-let blankFinancial = {
-    nature_of_business: "",
-    nature_of_work: "",
-    annual_gross_income: "",
-    net_worth: "",
-    is_director_officer_shareholder: "",
-    source_of_funds: ""
-}
-
-let blankCsa = {
-    investment_purpose: "",
-    investment_amount: "",
-    investment_frequency: "",
-    investment_horizon: "",
-    investment_principle: "",
-    investment_knowledge: "",
-    investment_others: [],
-    investment_liquidity_req: "",
-    investment_risk_scenario: ""
-}
-
-let blankPep = {
-    worked_in_govt: "false",
-    has_relative_in_govt: "false"
-}
-
-let blankFatca = {
-    us_resident: "false",
-    us_citizen: "false",
-    us_power_of_attorney: "false",
-    us_care_of_address: "false",
-    us_resident_alien: "false",
-    us_phone_number: "false",
-    us_born: "false",
-    us_current_address: "false",
-    us_mailing_address: "false",
-    us_maintained_account: "false"
-}
-
-let blankSettlement = {
-    bank_name: "",
-    account_number: "",
-    account_name: ""
-}
-
-let blankUpload = {
-    id_type: "",
-    id_number: "",
-    id_expiry_date: "",
-    upload_id: {
-        imageIdCardName: "",
-        documentTypeIdCard: "",
-        sourceTypeIdCard: "",
-        fileSizeIdCard: "",
-        fileKeyIdCard: "",
-        fileLocationIdCard: "",
-        fileTypeIdCard: ""
-    },
-    upload_signature: {
-        imageSignatureName: "",
-        documentTypeSignature: "",
-        sourceTypeSignature: "",
-        fileSizeSignature: "",
-        fileKeySignature: "",
-        fileLocationSignature: "",
-        fileTypeSignature: ""
-    }
-}
-
 export function saveImage(img, type) {
     let idformData = new FormData();
     idformData.set("upload_type", type);
@@ -130,7 +21,7 @@ export function saveImage(img, type) {
             localStorage.setItem('idfileSize', response.data.data.file_size);
             localStorage.setItem('idfileType', response.data.data.file_type);
             localStorage.setItem('idsourceType', response.data.data.source_type);
-            if($('#imguploadsig').val() !== '' || $('#imguploadsig').val() !== null) {
+            if($('#imguploadsig').val() !== '') {
                 saveToDB();
             }
         } else if(response.data.data.document_type === 'DocTyp03') {
@@ -148,7 +39,6 @@ export function saveImage(img, type) {
 
 export function saveToDB() {
     /** Personal Info */
-    sessionEmail = localStorage.getItem('sessionEmail');
 
     let firstName = $('.firstname').val();
     let lastName = $('.lastname').val();
@@ -256,14 +146,20 @@ export function saveToDB() {
     let horizon = $('.investing').val();
     let principle = $('.for-investment').val();
     let knowledge = $('.investor').val();
-    let other = $('.invested').val();
+    let otherVals = $('.invested').val();
     let liquidity = $('.liquidity').val();
     let risk = $('.droploss').val();
 
+    // let otherStr = otherVals.join();
+    let other = [];
+    otherVals.forEach(element => {
+        other.push(parseInt(element));
+    });
+
     let csaData = {
         investment_purpose: purpose,
-        investment_amount: "",
-        investment_frequency: "",
+        investment_amount: amount,
+        investment_frequency: frequent,
         investment_horizon: horizon,
         investment_principle: principle,
         investment_knowledge: knowledge,
@@ -395,8 +291,15 @@ export function saveToDB() {
     };
 
     /** Settlement Information */
+    let bankName = $('.bank-name').val();
+    let accountName = $('.account-name').val();
+    let accountNumber = $('.account-number').val();
     
-    let settlementData = blankSettlement;
+    let settlementData = {
+        bank_name: bankName,
+        account_number: accountNumber,
+        account_name: accountName
+    };
 
     let data = {
         personal_information: personalData,
