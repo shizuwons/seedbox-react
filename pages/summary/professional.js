@@ -55,7 +55,7 @@ export default function Professional() {
                 funds.push(others);
             }
 
-            const networthIndex = networth.findIndex(x => x.code === 119);
+            const networthIndex = networth.findIndex(x => x.code === 604);
             const less = (networth[networthIndex]);
             if (networthIndex !== undefined) {
                 networth.splice(networthIndex, 1);
