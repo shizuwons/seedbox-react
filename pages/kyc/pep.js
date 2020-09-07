@@ -1,6 +1,11 @@
 import Head from 'next/head';
+import { useEffect } from 'react';
+import { prefillPEP } from '../../functions/prefillForm';
 
 function Pep() {
+    useEffect(() => {
+        prefillPEP();
+    }, [])
     return (
         <div className="divPep divForm" style={{display: 'none'}}>
             <form className="pepForm">

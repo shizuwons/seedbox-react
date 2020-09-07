@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { compareStrings } from '../../functions/functions';
+import { prefillSettlementInfo } from '../../functions/prefillForm';
 
 function Settlement() {
     const [bank, setBank] = useState([]);
@@ -18,6 +19,7 @@ function Settlement() {
             
             setBank(banks);
 
+            prefillSettlementInfo();
         }
 
         loadData();
@@ -36,7 +38,7 @@ function Settlement() {
                     <select autoComplete="off" className="select2 bank-name" id="BankName" name="bankName" defaultValue="default">
                         <option value="default" title="Please fill out this field." disabled>Bank Name</option>
                         {bank.map((e, index) =>(
-                            <option key={index} value={e.bank_name}>{e.bank_name}</option>
+                            <option key={index} value={e.bank_id}>{e.bank_name}</option>
                         ))}
                     </select>
                     </div>

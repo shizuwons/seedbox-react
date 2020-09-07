@@ -12,6 +12,7 @@ import Navbar from '../../components/navbar';
 import Sidebar from '../../components/sidebar';
 import { RedirectIfUnauthenticated } from '../../functions/auth-checker';
 import { saveImage, saveToDB } from '../../functions/saveToDB';
+import { prefillForm } from '../../functions/prefillForm';
 
 export default function Kyc() {
   useEffect(() => {
@@ -731,7 +732,6 @@ export default function Kyc() {
     //     return false;
     //   }
     // });
-    $(".checkOther").click();
 
     // If screen is mobile
     if($(window).width() < 440) {
@@ -1085,12 +1085,16 @@ export default function Kyc() {
       } else if (step === 6) {
         let validated = uploadValidation();
 
-        if($('#imguploadid').val() !== '') {
+        if($('#imguploadid').get(0).files.length !== 0) {
           $('#imguploadid').trigger('change');
         }
 
-        if($('#imguploadsig').val() !== '') {
+        if($('#imguploadsig').get(0).files.length !== 0) {
           $('#imguploadsig').trigger('change');
+        }
+
+        if($('#imguploadid').get(0).files.length === 0 && $('#imguploadsig').get(0).files.length === 0) {
+          saveToDB();
         }
 
         saveToLocalStorage('.uploadForm');
@@ -1123,6 +1127,13 @@ export default function Kyc() {
         //   return false;
         // }
       }
+    });
+
+    $(document).ready(function() {
+      $('.select2').change(function(e) {
+        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+        $(this).siblings(".select-placeholder").css({ opacity: "1" });   
+      });
     });
   }, []);
   

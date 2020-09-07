@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { compareStrings, sortById, sortIncome } from '../../functions/functions';
+import { prefillProvince, prefillCity, prefillProfessionalDetails } from '../../functions/prefillForm';
 
 function Professional() {
     const [country, setCountry] = useState([]);
@@ -70,6 +71,7 @@ function Professional() {
             setNetworth(networth);
             setIncome(income);
 
+            prefillProfessionalDetails();
         }
 
         async function getProvinces(id) {
@@ -83,7 +85,7 @@ function Professional() {
             };
 
             let defaultOption = new Option(defaultValue.name, defaultValue.ids, false, false);
-            $('.workregion').append(defaultOption).trigger('change');
+            $('.workregion').append(defaultOption);
 
             $('.workregion option:selected').prop('disabled', true);
 
@@ -110,6 +112,8 @@ function Professional() {
                 let newOption = new Option(value.name, value.ids, false, false);
                 $('.workregion').append(newOption);
             }
+
+            prefillProvince('work');
         }
 
         async function getCities(id) {
@@ -124,7 +128,7 @@ function Professional() {
             };
 
             let defaultOption = new Option(defaultValue.name, defaultValue.ids, false, false);
-            $('.workcity').append(defaultOption).trigger('change');
+            $('.workcity').append(defaultOption);
 
             $('.workcity option:selected').prop('disabled', true);
 
@@ -150,25 +154,49 @@ function Professional() {
                 let newOption = new Option(value.name, value.ids, false, false);
                 $('.workcity').append(newOption);
             }
+
+            prefillCity('work');
         }
 
         loadData();
 
-        $('.nature-country').on("change", function(e) { 
-            let id = $('.nature-country option:selected').val();
+        // $('.nature-country').on("change", function(e) { 
+        //     let id = $('.nature-country option:selected').val();
 
-            if(id !== '') {
-                getProvinces(id);
-            }
-         });
+        //     if(id !== '') {
+        //         alert(id);
+        //         getProvinces(id);
+        //     }
+        //  });
 
-         $('.workregion').on("change", function(e) {
-             let id = ($('.workregion option:selected').val())
+        //  $('.workregion').on("change", function(e) {
+        //      let id = ($('.workregion option:selected').val())
 
-             if(id !== '') {
-                getCities(id);
-             }
-         });
+        //      if(id !== '') {
+        //         getCities(id);
+        //      }
+        //  });
+
+        $(document).ready(function() {
+            $('.nature-country').on("change", function(e) { 
+                if(e.originalEvent === undefined) {
+                    let id = $('.nature-country option:selected').val();
+                    if(id !== '') {
+                        getProvinces(id);
+                    }
+                }
+             });
+    
+             $('.workregion').on("change", function(e) {
+                 if(e.originalEvent === undefined) {
+                    let id = ($('.workregion option:selected').val());
+       
+                    if(id !== '') {
+                       getCities(id);
+                    }
+                 }
+             });
+        });
     }, []);
     return (
         <div className="divAdrress1 divForm" style={{display: 'none'}}>

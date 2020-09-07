@@ -104,7 +104,7 @@ export function saveToDB() {
     let presentData = {
         address: presentAddress,
         country: presentCountry,
-        region: presentRegion,
+        province: presentRegion,
         city: presentCity
     };
 
@@ -128,7 +128,7 @@ export function saveToDB() {
         address: workAddress,
         city: workCity,
         province: workRegion
-    }
+    };
 
     let financialData = {
         nature_of_business: natureOfBusiness,
@@ -137,7 +137,7 @@ export function saveToDB() {
         net_worth: netWorth,
         is_director_officer_shareholder: dos,
         source_of_funds: sourceOfFunds
-    }
+    };
 
     /** CSA */
     let amount = $('.invest-much').val();
@@ -253,13 +253,13 @@ export function saveToDB() {
     /** Upload Data */
     let idType = $('.idtype').val();
     let idNumber = $('.id-number').val();
-    let expiremonth = $('.month').val();
-    let expireday = $('.day').val();
-    let expireyear = $('.year').val();
+    let expiremonth = $('.expirymonth').val();
+    let expireday = $('.expiryday').val();
+    let expireyear = $('.expiryyear').val();
 
     let expiredate = "";
     if(expiremonth !== null && expireday !== null && expireyear !== null) {
-        expiredate = `${year}-${month}-${day}`;
+        expiredate = `${expireyear}-${expiremonth}-${expireday}`;
     }
 
     let idData = {
@@ -284,7 +284,7 @@ export function saveToDB() {
 
     let uploadData = {
         id_type: idType,
-        idNumber: idNumber,
+        id_number: idNumber,
         id_expiry_date: expiredate,
         upload_id: idData,
         upload_signature: sigData
@@ -313,6 +313,8 @@ export function saveToDB() {
         settlement_information: settlementData,
         id_information: uploadData
     };
+
+    console.log(data);
 
     toEndpoint(data);
 }

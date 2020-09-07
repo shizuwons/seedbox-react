@@ -1,6 +1,13 @@
 import Head from 'next/head';
+import { useEffect } from 'react';
+import { prefillFatca } from '../../functions/prefillForm';
 
 function Fatca() {
+    useEffect(() => {
+        $(".checkOther").click();
+        
+        prefillFatca();
+    }, []);
     return (
         <div className="divFatca divForm" style={{display: 'none'}}>
             <form className="fatcaForm">

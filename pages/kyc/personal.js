@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { compareStrings } from '../../functions/functions';
+import { prefillPersonalForm, prefillBirthdate } from '../../functions/prefillForm';
 
 function Personal({ submitPersonal }) {
     const [country, setCountry] = useState([]);
@@ -55,10 +56,11 @@ function Personal({ submitPersonal }) {
             }
 
             setYear(years);
-
+            prefillBirthdate();
         }
 
         loadData();
+        prefillPersonalForm();
 
         $(document).ready(function() {
           $('.email').val(localStorage.getItem('sessionEmail'));

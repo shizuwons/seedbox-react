@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { prefillCSA } from '../../functions/prefillForm';
 
 function Csa() {
     const [amounts, setAmount] = useState([]);
@@ -38,6 +39,7 @@ function Csa() {
             setLiquidities(liquidity);
             setRisk(risk);
 
+            prefillCSA();
         }
 
         loadData();

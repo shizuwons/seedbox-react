@@ -2,6 +2,7 @@ import Head from 'next/head';
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import { compareStrings } from '../../functions/functions';
+import { prefillAddressInfo, prefillProvince, prefillCity } from '../../functions/prefillForm';
  
 function Address() {
     const [country, setCountry] = useState([]);
@@ -41,7 +42,7 @@ function Address() {
             };
 
             let defaultOption = new Option(defaultValue.name, defaultValue.ids, false, false);
-            $('.' + attribute + 'region').append(defaultOption).trigger('change');
+            $('.' + attribute + 'region').append(defaultOption);
 
             $('.' + attribute + 'region option:selected').prop('disabled', true);
 
@@ -71,6 +72,12 @@ function Address() {
                 let newOption = new Option(value.name, value.ids, false, false);
                 $('.' + attribute + 'region').append(newOption);
             }
+
+            if(attribute === 'current') {
+                prefillProvince('current');
+            } else {
+                prefillProvince('present');
+            }
         }
 
         async function getCities(id, attribute) {
@@ -85,7 +92,7 @@ function Address() {
             };
 
             let defaultOption = new Option(defaultValue.name, defaultValue.ids, false, false);
-            $('.' + attribute + 'city').append(defaultOption).trigger('change');
+            $('.' + attribute + 'city').append(defaultOption);
 
             $('.' + attribute + 'city option:selected').prop('disabled', true);
 
@@ -110,6 +117,12 @@ function Address() {
 
                 let newOption = new Option(value.name, value.ids, false, false);
                 $('.' + attribute + 'city').append(newOption);
+            }
+
+            if(attribute === 'current') {
+                prefillCity('current');
+            } else {
+                prefillCity('present');
             }
         }
 
@@ -153,6 +166,8 @@ function Address() {
                 }
              }
          });
+
+         prefillAddressInfo();
     }, []);
 
     return (
