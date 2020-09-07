@@ -186,6 +186,15 @@ function Sidebar() {
             let validEmail = false;
             let validPassword = false;
             let validMobile = false;
+            let validName = false;
+
+            // if(firstName)
+            if(firstName === '' || lastName === '') {
+                $('.pErrorName').text('Please enter your full name.');
+                $('.pErrorName').removeClass('hide');
+            } else {
+                validName = true;
+            }
 
             if(!isEmail(email)) {
                 $('.pErrorEmail').text('This is not a valid email.');
@@ -214,7 +223,7 @@ function Sidebar() {
                 validMobile = true;
             }
 
-            if(validPassword && validEmail && validMobile) {
+            if(validPassword && validEmail && validMobile && validName) {
                 axios.post('https://dev.seedbox.ph/core/lite/v1/register', 
                 {
                     personal_information: {
