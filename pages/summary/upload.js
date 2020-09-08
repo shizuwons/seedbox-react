@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { prefillIDData } from '../../functions/prefillForm';
 
 export default function Upload() {
     const [type, setType] = useState([]);
@@ -28,44 +29,8 @@ export default function Upload() {
 
             setYear(years);
 
-            reloadSelect();
+            prefillIDData();
         }
-
-        function reloadSelect() {
-            $(document).ready(function() {
-                if(localStorage.getItem("idType") !== null) {
-                    $("select[name='idType']").val(localStorage.getItem("idType")).trigger('change');
-                    $("select[name='idType']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='idType']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }
-    
-                if(localStorage.getItem("idExpiryYear") !== null) {
-                    $("select[name='idExpiryYear']").val(localStorage.getItem("idExpiryYear")).trigger('change.select2');
-                    $("select[name='idExpiryYear']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='idExpiryYear']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }
-            });
-        }
-
-        $(document).ready(function() {
-            if(localStorage.getItem("idExpiryMonth") !== null) {
-                $("select[name='idExpiryMonth']").val(localStorage.getItem("idExpiryMonth")).trigger('change.select2');
-                $("select[name='idExpiryMonth']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                $("select[name='idExpiryMonth']").siblings(".select-placeholder").css({ opacity: "1" });    
-            }  
-    
-            if(localStorage.getItem("idExpiryDay") !== null) {
-                $("select[name='idExpiryDay']").val(localStorage.getItem("idExpiryDay")).trigger('change.select2');
-                $("select[name='idExpiryDay']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                $("select[name='idExpiryDay']").siblings(".select-placeholder").css({ opacity: "1" });    
-            }  
-        });
-
-        if(localStorage.getItem("idNumber") !== null) {
-            $("input[name='idNumber']").val(localStorage.getItem("idNumber"));
-            $("input[name='idNumber']").css({ borderColor: "green"});
-        }
-
 
         loadData();
 
@@ -75,29 +40,15 @@ export default function Upload() {
               $('.expirymonth').prop('disabled', true);
               $('.expiryday').prop('disabled', true);
               $('.expiryyear').prop('disabled', true);
-
-              $("select[name='idExpiryMonth']").siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
-              $("select[name='idExpiryDay']").siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
-              $("select[name='idExpiryYear']").siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
             }
         });
-
-        if(localStorage.getItem('idImage').indexOf('http') === -1) {
-            let setImage = localStorage.getItem('idImage');
-            $('.idimage').attr('src', setImage);
-        }
-
-        if(localStorage.getItem('signatureImage').indexOf('http') === -1) {
-            let setImage = localStorage.getItem('signatureImage');
-            $('.signatureimage').attr('src', setImage);
-        }
     }, []);
     return (
         <div className="divUpload divForm" style={{ marginTop: "30px"}}>
             <form className="uploadForm">
                 <div className="row">
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
-                        <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px', fontSize: '1.5em'}}>Upload Documents</p>
+                        <p className="pInfoTitle" id="uploadStepScroll" style={{marginTop: '0px', marginBottom: '15px', fontSize: '1.5em'}}>Upload Documents</p>
                     </div>
                     <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                         <div className="selectdiv" style={{marginTop: '0px'}}>

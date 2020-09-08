@@ -144,10 +144,10 @@ function Upload() {
                 </div>
                 <div className="row" style={{marginTop: '10px'}}>
                     <div className="col-lg-6 col-md-6 col-sm-6 col-6">
-                        <img className="img-fluid idimagepreview" />
+                        <img className="img-fluid idimagepreview" id="idPreview" />
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-6 col-6">
-                        <img className="img-fluid signatureimagepreview" />
+                        <img className="img-fluid signatureimagepreview" id="sigPreview" />
                     </div>
                 </div>
                 <div className="col-lg-12 col-md-12 col-sm-12 col-12">

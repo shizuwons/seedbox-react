@@ -2,6 +2,7 @@ import Head from 'next';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { compareStrings } from '../../functions/functions';
+import { prefillPersonalForm, prefillBirthdate } from '../../functions/prefillForm';
 
 export default function Personal() {
     const [country, setCountry] = useState([]);
@@ -52,129 +53,39 @@ export default function Personal() {
 
             setYear(years);
 
-            reloadSelect();
+            //reloadSelect();
+            prefillBirthdate();
 
-        }
-
-        function reloadSelect() {
-            $(document).ready(function() {
-                if(localStorage.getItem("civilStatus") !== null) {
-                    $("select[name='civilStatus']").val(localStorage.getItem("civilStatus")).trigger('change.select2');
-                    $("select[name='civilStatus']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='civilStatus']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }
-    
-                if(localStorage.getItem("gender") !== null) {
-                    $("select[name='gender']").val(localStorage.getItem("gender")).trigger('change.select2');
-                    $("select[name='gender']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='gender']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }    
-
-                if(localStorage.getItem("birthPlace") !== null) {
-                    $("select[name='birthPlace']").val(localStorage.getItem("birthPlace")).trigger('change.select2');
-                    $("select[name='birthPlace']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='birthPlace']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }    
-
-                if(localStorage.getItem("citizenship") !== null) {
-                    $("select[name='citizenship']").val(localStorage.getItem("citizenship")).trigger('change.select2');
-                    $("select[name='citizenship']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='citizenship']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }    
-
-                if(localStorage.getItem("birthYear") !== null) {
-                    $("select[name='birthYear']").val(localStorage.getItem("birthYear")).trigger('change.select2');
-                    $("select[name='birthYear']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='birthYear']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }  
-            });
         }
 
         loadData();
 
-        if(localStorage.getItem("lastName") !== null) {
-            $("input[name='lastName']").val(localStorage.getItem("lastName"));
-            $("input[name='lastName']").css({ borderColor: "green"});
-        }
-
-        if(localStorage.getItem("firstName") !== null) {
-            $("input[name='firstName']").val(localStorage.getItem("firstName"));
-            $("input[name='firstName']").css({ borderColor: "green"});
-        }
-
-        if(localStorage.getItem("maidenName") !== null) {
-            $("input[name='maidenName']").val(localStorage.getItem("maidenName"));
-            $("input[name='maidenName']").css({ borderColor: "green"});
-        }
-
-        if(localStorage.getItem("mobile") !== null) {
-            $("input[name='mobile']").val(localStorage.getItem("mobile"));
-            $("input[name='mobile']").css({ borderColor: "green"});
-        }
-
-        if(localStorage.getItem("email") !== null) {
-            $("input[name='email']").val(localStorage.getItem("email"));
-            $("input[name='email']").css({ borderColor: "green"});
-        }
-
-        if(localStorage.getItem("tin") !== null) {
-            $("input[name='tin']").val(localStorage.getItem("tin"));
-            $("input[name='tin']").css({ borderColor: "green"});
-        }
-
-        if(localStorage.getItem("sssGsis") !== null) {
-            $("input[name='sssGsis']").val(localStorage.getItem("sssGsis"));
-            $("input[name='sssGsis']").css({ borderColor: "green"});
-        }
-
-        if(localStorage.getItem("agentCode") !== null) {
-            $("input[name='agentCode']").val(localStorage.getItem("agentCode"));
-            $("input[name='agentCode']").css({ borderColor: "green"});
-        }
+        prefillPersonalForm();
 
         $(document).ready(function() {
-            if(localStorage.getItem("countryCode") !== null) {
-                $("select[name='countryCode']").val(localStorage.getItem("countryCode")).trigger('change.select2');
-                $("select[name='countryCode']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                $("select[name='countryCode']").siblings(".select-placeholder").css({ opacity: "1" });                    
-            }
-
-            if(localStorage.getItem("birthMonth") !== null) {
-                $("select[name='birthMonth']").val(localStorage.getItem("birthMonth")).trigger('change.select2');
-                $("select[name='birthMonth']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                $("select[name='birthMonth']").siblings(".select-placeholder").css({ opacity: "1" });                    
-            }
-
-            if(localStorage.getItem("birthDay") !== null) {
-                $("select[name='birthDay']").val(localStorage.getItem("birthDay")).trigger('change.select2');
-                $("select[name='birthDay']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                $("select[name='birthDay']").siblings(".select-placeholder").css({ opacity: "1" });                    
-            }
+            $('.select2').change(function(e) {
+              $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+              $(this).siblings(".select-placeholder").css({ opacity: "1" });   
+            });
 
             $('.select2').each(function() {
-                if($(this).val() === "" || $(this).val() === null) {
-                    $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important');  
+                if($(this).val() === null || $(this).val() === "") {
+                    $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important');      
                 }
             });
 
-            $('.select2').each(function() {
-                $(this).change(function () {
-                    if($(this).val() !== null) {
-                        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');  
-                        $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                        $(this).siblings(".select-placeholder").css({ opacity: "1" });                            
-                    }
-                });
+            $('.invested').each(function() {
+                if($(this).val() === null || $(this).val() === "" || $(this).val === []) {
+                    $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important');      
+                }
             });
-
-            if($('.invested').val().length === 0) {
-                $('.invested').siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid red !important');  
-            }
-        });
+          });
 
         $('.txtusername').each(function() {
-            if($(this).val().length <= 0) {
-                $(this).css({ borderColor: "red"});
+            if(!$(this).hasClass('sss-gsis') || !$(this).hasClass('agent-code')) {
+                if($(this).val().length <= 0) {
+                    $(this).css({ borderColor: "red"});
+                }
             }
         });
 
@@ -186,26 +97,26 @@ export default function Personal() {
             }
         });
 
-        $('.btnSubmit').click(function() {
-            $('.txtusername').each(function() {
-                if($(this).val().length <= 0) {
-                    alert('Please fill up remaining fields!');
-                    return false;
-                }
-            });
+        // $('.btnSubmit').click(function() {
+        //     $('.txtusername').each(function() {
+        //         if($(this).val().length <= 0) {
+        //             alert('Please fill up remaining fields!');
+        //             return false;
+        //         }
+        //     });
 
-            $('.select2').each(function() {
-                if($(this).val() === "" || $(this).val() === null) {
-                    alert('Please fill up remaining fields!');
-                    return false;
-                }
-            });
+        //     $('.select2').each(function() {
+        //         if($(this).val() === "" || $(this).val() === null) {
+        //             alert('Please fill up remaining fields!');
+        //             return false;
+        //         }
+        //     });
 
-            if($('.invested').val() === null) {
-                alert('Please fill up remaining fields!');
-                return false;
-            }
-        });
+        //     if($('.invested').val() === null) {
+        //         alert('Please fill up remaining fields!');
+        //         return false;
+        //     }
+        // });
 
         if($('.txtusername').val().length > 0) {
             $('.txtusername').prop('readonly', true);
@@ -219,7 +130,7 @@ export default function Personal() {
             <form className="personalForm">
                 <div className="row">
                     <div className="col-lg-12">
-                        <p className="pInfoTitle" style={{marginBottom: '15px', fontSize: '1.5em'}}>Personal Info</p>
+                        <p className="pInfoTitle" id="personalStepScroll" style={{marginBottom: '15px', fontSize: '1.5em'}}>Personal Info</p>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                         <input required type="text" className="txtusername lastname" name="lastName" style={{marginTop: '-10px'}} />
@@ -535,7 +446,7 @@ export default function Personal() {
                                 <option>6</option>
                                 <option>7</option>
                                 <option>8</option>
-                                <option>8</option>
+                                <option>9</option>
                                 <option>10</option>
                                 <option>11</option>
                                 <option>12</option>

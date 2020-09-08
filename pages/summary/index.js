@@ -17,6 +17,7 @@ import Upload from './upload';
 import Settlement from './settlement';
 import Terms from './terms';
 import Privacy from './privacy';
+import { personalValidation, addressValidation, professionalValidation, csaValidation, pepValidation, uploadValidation, settlementValidation } from '../../functions/validators';
 
 export default function Summary() {
     useEffect(() => {
@@ -55,6 +56,128 @@ export default function Summary() {
             }
         })
 
+        $('input[type="checkbox"]').click(function () {
+            $(this)
+              .parents()
+              .eq(2)
+              .find('input[type="checkbox"]')
+              .not(this)
+              .prop("checked", false);
+          });
+
+        // Scroll on press
+        $("#personalStep").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#personalStepScroll").offset().top
+            }, 500);
+
+            $(".divWhite").css("top", "85px");
+        });
+
+        $("#addressStep").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#addressStepScroll").offset().top
+            }, 500);
+
+            $(".divWhite").css("top", "160px");
+        });
+
+        $("#professionalStep").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#professionalStepScroll").offset().top
+            }, 500);
+
+            $(".divWhite").css("top", "228px");
+        });
+
+        $("#csaStep").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#csaStepScroll").offset().top
+            }, 500);
+
+            $(".divWhite").css("top", "297px");
+        });
+
+        $("#pepStep").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#pepStepScroll").offset().top
+            }, 500);
+
+            $(".divWhite").css("top", "365px");
+        });
+
+        $("#fatcaStep").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#fatcaStepScroll").offset().top
+            }, 500);
+
+            $(".divWhite").css("top", "440px");
+        });
+
+        $("#uploadStep").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#uploadStepScroll").offset().top
+            }, 500);
+
+            $(".divWhite").css("top", "505px");
+        });
+
+        $("#settlementStep").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#settlementStepScroll").offset().top
+            }, 500);
+
+            $(".divWhite").css("top", "575px");
+        });
+
+        $('.invested').on("change", function(e) { 
+            let value = $('.invested').val();
+      
+            if(value.length !== 0) {
+              $(this).siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
+              $(this).siblings(".select-placeholder").css({ opacity: "1" });
+            } else {
+              $(this).siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+              $(this).siblings(".select-placeholder").css({ opacity: "0" });
+            }
+          });
+
+        $('.btnSubmit').click(function(e) {
+            let verified = verifiedFields();
+
+            if(verified) {
+                if($('#imguploadid').get(0).files.length !== 0) {
+                    $('#imguploadid').trigger('change');
+                  }
+          
+                  if($('#imguploadsig').get(0).files.length !== 0) {
+                    $('#imguploadsig').trigger('change');
+                  }
+          
+                  if($('#imguploadid').get(0).files.length === 0 && $('#imguploadsig').get(0).files.length === 0) {
+                    saveToDB();
+                }
+            } else {
+                alert('Form is not complete.');
+            }
+        });  
+        
+        function verifiedFields() {
+            let pForm = personalValidation();
+            let aForm = addressValidation();
+            let prForm = professionalValidation();
+            let csaForm = csaValidation();
+            let pepForm = pepValidation();
+            let upForm = uploadValidation();
+            let setForm = settlementValidation();
+
+            if(pForm && aForm && prForm && csaForm && pepForm && upForm && setForm) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
     }, []);
 
     return(
@@ -92,7 +215,7 @@ export default function Summary() {
                             </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-9 col-9 colStepText">
-                            <p className="pSteps">Personal Info &gt; </p>
+                            <p className="pSteps" id="personalStep">Personal Info &gt; </p>
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-3 col">
                             <div className="divCircle" style={{position: 'relative'}}>
@@ -102,7 +225,7 @@ export default function Summary() {
                             </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
-                            <p className="pSteps">Address Info &gt;</p>
+                            <p className="pSteps" id="addressStep">Address Info &gt;</p>
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-3 col">
                             <div className="divCircle" style={{position: 'relative'}}>
@@ -112,7 +235,7 @@ export default function Summary() {
                             </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
-                            <p className="pSteps">Professional Details &gt;</p>
+                            <p className="pSteps" id="professionalStep">Professional Details &gt;</p>
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-3 col">
                             <div className="divCircle" style={{position: 'relative'}}>
@@ -122,7 +245,7 @@ export default function Summary() {
                             </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
-                            <p className="pSteps">CSA &gt;</p>
+                            <p className="pSteps" id="csaStep">CSA &gt;</p>
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-3 col">
                             <div className="divCircle" style={{position: 'relative'}}>
@@ -132,7 +255,7 @@ export default function Summary() {
                             </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
-                            <p className="pSteps">PEP Declaration &gt;</p>
+                            <p className="pSteps" id="pepStep">PEP Declaration &gt;</p>
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-3 col">
                             <div className="divCircle" style={{position: 'relative'}}>
@@ -142,7 +265,7 @@ export default function Summary() {
                             </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
-                            <p className="pSteps">FATCA &gt;</p>
+                            <p className="pSteps" id="fatcaStep">FATCA &gt;</p>
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-3 col colCircleLast">
                             <div className="divCircle" style={{position: 'relative'}}>
@@ -152,7 +275,7 @@ export default function Summary() {
                             </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
-                            <p className="pSteps">Upload Documents &gt;</p>
+                            <p className="pSteps" id="uploadStep">Upload Documents &gt;</p>
                             </div>
                             <div className="col-lg-3 col-md-3 col-sm-3 col colCircleLast">
                             <div className="divCircle" style={{position: 'relative'}}>
@@ -161,7 +284,7 @@ export default function Summary() {
                             </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-9 col-9  colStepText">
-                            <p className="pSteps">Settlement Info &gt;</p>
+                            <p className="pSteps" id="settlementStep">Settlement Info &gt;</p>
                             </div>
                         </div>
                     </div>
@@ -275,7 +398,7 @@ export default function Summary() {
                             <div className="row agreeTerms" style={{ width: "80%", margin: "20px auto" }}>
                                 <div className="col-1">
                                     <label className="checkbox bounce">
-                                    <input type="checkbox" className="checkOther" name="agree"/>
+                                    <input type="checkbox" className="checkAgree" name="agree"/>
                                     <svg viewBox="0 0 21 21">
                                         <polyline points="5 10.75 8.5 14.25 16 6" />
                                     </svg>

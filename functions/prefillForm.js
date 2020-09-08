@@ -21,6 +21,7 @@ export function prefillPersonalForm() {
         $('.lastname').val(data.last_name);
         $('.firstname').val(data.first_name);
         $('.maidenname').val(data.mothers_maiden_name);
+        $('.email').val(data.email);
         $('.mobile').val(mobileNumArr[1]);
         $('.country-code').val(mobileNumArr[0]).trigger('change');
         $('.civil-status').val(civilStatus).trigger('change');
@@ -241,13 +242,14 @@ export function prefillCSA() {
     }).then(response => {
         let csaData = response.data.csa;
 
+        console.log(csaData.investment_others);
         $('.invest-much').val(csaData.investment_amount).trigger('change');
         $('.frequent-invest').val(csaData.investment_frequency).trigger('change');
         $('.investment').val(csaData.investment_purpose).trigger('change');
         $('.investing').val(csaData.investment_horizon).trigger('change');
         $('.for-investment').val(csaData.investment_principle).trigger('change');
         $('.investor').val(csaData.investment_knowledge).trigger('change');
-
+        $('.invested').val(csaData.investment_others).trigger('change');
         $('.liquidity').val(csaData.investment_liquidity_req).trigger('change');
         $('.droploss').val(csaData.investment_risk_scenario).trigger('change');
     });
@@ -369,6 +371,17 @@ export function prefillIDData() {
                 $('.expiryday').val(expiryDayArr[0].substring(0, 2)).trigger('change');
             }
         }
+
+        // Image
+       // console.log(idData.upload_id.fileKeyIdCard);
+        axios.get('https://dev.seedbox.ph/core/lite/v1/download?id=' + idData.upload_id.fileKeyIdCard, {
+            headers: {
+                'x-token': token,
+            }
+        })
+        .then(response => {
+         //  console.log(btoa(unescape(encodeURIComponent(response.data))));
+         });
 
     });
 }

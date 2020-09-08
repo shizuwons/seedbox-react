@@ -24,6 +24,7 @@ export default function Kyc() {
         $(".pMore").text("Personal Information");
         $(".colStep").removeClass("colmid");
         $(".rowStep").addClass("colmid");
+        // $('.select-placeholder').css({width: '87%'});
       } else {
         $(".pMore").text("Personal Information");
         $(".colStep").addClass("colmid");
@@ -745,7 +746,7 @@ export default function Kyc() {
     // Click function for back button
     $(".btnBack").click(function () {
       if (step === 7) {
-        saveToLocalStorage('.settlementForm');
+      //  saveToLocalStorage('.settlementForm');
 
         $(".conContent").css("height", "82vh");
         $(".colForm").css("padding-top", "0px");
@@ -763,7 +764,7 @@ export default function Kyc() {
         $(".divWhite").css("top", "470px");
         step = 6;
       } else if (step === 6) {
-        saveToLocalStorage('.uploadForm');
+       // saveToLocalStorage('.uploadForm');
 
         $(".conContent").attr(
           "style",
@@ -786,7 +787,7 @@ export default function Kyc() {
         $(".divWhite").css("top", "400px");
         step = 5;
       } else if (step === 5) {
-        saveToLocalStorage('.fatcaForm');
+        //saveToLocalStorage('.fatcaForm');
 
         $(".conContent").css("height", "82vh");
         $(".colForm").css("padding-top", "0px");
@@ -805,7 +806,7 @@ export default function Kyc() {
         $(".divWhite").css("top", "330px");
         step = 4;
       } else if (step === 4) {
-        saveToLocalStorage('.pepForm');
+      //  saveToLocalStorage('.pepForm');
 
         $(".conContent").css("height", "auto");
         $(".colForm").css("padding-top", "0px");
@@ -824,7 +825,7 @@ export default function Kyc() {
         $(".divWhite").css("top", "260px");
         step = 3;
       } else if (step === 3) {
-        saveToLocalStorage('.csaForm');
+      //  saveToLocalStorage('.csaForm');
 
         $(".conContent").attr(
           "style",
@@ -847,7 +848,7 @@ export default function Kyc() {
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         step = 2;
       } else if (step === 2) {
-        saveToLocalStorage('.professionalForm');
+      //  saveToLocalStorage('.professionalForm');
 
         $(".conContent").attr(
           "style",
@@ -870,7 +871,7 @@ export default function Kyc() {
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         step = 1;
       } else if (step === 1) {
-        saveToLocalStorage('.addressForm');
+      //  saveToLocalStorage('.addressForm');
 
         $(".conContent").css("height", "82vh");
         $(".colForm").css("padding-top", "0px");
@@ -899,7 +900,7 @@ export default function Kyc() {
 
         saveToDB();
 
-        saveToLocalStorage('.personalForm');
+      //  saveToLocalStorage('.personalForm');
         // if(!validated) {
         //   return false;
         // }
@@ -933,7 +934,7 @@ export default function Kyc() {
 
         saveToDB();
 
-        saveToLocalStorage('.addressForm');
+      //  saveToLocalStorage('.addressForm');
 
         // if(!validated) {
         //   return false;
@@ -979,7 +980,7 @@ export default function Kyc() {
 
         saveToDB();
 
-        saveToLocalStorage('.professionalForm');
+      //  saveToLocalStorage('.professionalForm');
 
         // if(!validated) {
         //   return false;
@@ -1009,7 +1010,7 @@ export default function Kyc() {
         let validated = csaValidation();
 
         saveToDB();
-        saveToLocalStorage('.csaForm');
+      //  saveToLocalStorage('.csaForm');
 
         // if(!validated) {
         //   return false;
@@ -1034,7 +1035,7 @@ export default function Kyc() {
         let validated = pepValidation();
 
         saveToDB();
-        saveToLocalStorage('.pepForm');
+      //  saveToLocalStorage('.pepForm');
 
         // if(!validated) {
         //   return false;
@@ -1063,7 +1064,7 @@ export default function Kyc() {
         $(".colmid").css({ height: $(".conContent").height() + "px" });
         step = 5;
       } else if (step === 5) {
-        saveToLocalStorage('.fatcaForm');
+       // saveToLocalStorage('.fatcaForm');
         saveToDB();
 
         $(".pMore").text("Upload Documents");
@@ -1097,7 +1098,7 @@ export default function Kyc() {
           saveToDB();
         }
 
-        saveToLocalStorage('.uploadForm');
+      //  saveToLocalStorage('.uploadForm');
         // if(!validated) {
         //   return false;
         // }
@@ -1121,7 +1122,7 @@ export default function Kyc() {
         let validated = settlementValidation();
 
         saveToDB();
-        saveToLocalStorage('.settlementForm');
+       // saveToLocalStorage('.settlementForm');
 
         // if(!validated) {
         //   return false;

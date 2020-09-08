@@ -2,17 +2,16 @@ import Head from 'next/head';
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import { compareStrings } from '../../functions/functions';
+import { prefillAddressInfo, prefillCity, prefillProvince } from '../../functions/prefillForm';
 
 export default function Address() {
     const [country, setCountry] = useState([]);
-    const [provinces, setProvinces] = useState([]);
-    const [cities, setCities] = useState([]);
     const [countryId, setCountryId] = useState([]);
     useEffect(() => {
         async function loadData() {
             const countryDataLoad = await axios.get('https://dev.seedbox.ph/core/lite/v1/countries');
             let countries = await countryDataLoad.data;
-            
+
             countries = JSON.stringify(countries);
             countries = JSON.parse(countries, (key, value) => Array.isArray(value) ? value.filter(e => e.country_name !== null) : value);
             
@@ -29,8 +28,6 @@ export default function Address() {
 
             setCountry(countries);
             //console.log(country);
-
-            reloadSelect();
         }
 
         async function getProvinces(id, attribute) {
@@ -45,7 +42,7 @@ export default function Address() {
             };
 
             let defaultOption = new Option(defaultValue.name, defaultValue.ids, false, false);
-            $('.' + attribute + 'region').append(defaultOption).trigger('change');
+            $('.' + attribute + 'region').append(defaultOption);
 
             $('.' + attribute + 'region option:selected').prop('disabled', true);
 
@@ -76,7 +73,11 @@ export default function Address() {
                 $('.' + attribute + 'region').append(newOption);
             }
 
-            reloadProvince(attribute);
+            if(attribute === 'current') {
+                prefillProvince('current');
+            } else {
+                prefillProvince('present');
+            }
         }
 
         async function getCities(id, attribute) {
@@ -91,7 +92,7 @@ export default function Address() {
             };
 
             let defaultOption = new Option(defaultValue.name, defaultValue.ids, false, false);
-            $('.' + attribute + 'city').append(defaultOption).trigger('change');
+            $('.' + attribute + 'city').append(defaultOption);
 
             $('.' + attribute + 'city option:selected').prop('disabled', true);
 
@@ -118,78 +119,14 @@ export default function Address() {
                 $('.' + attribute + 'city').append(newOption);
             }
 
-            reloadCity(attribute);
-        }
-
-        function reloadSelect() {
-            $(document).ready(function() {
-                if(localStorage.getItem("currentCountry") !== null) {
-                    $("select[name='currentCountry']").val(localStorage.getItem("currentCountry")).trigger('change');
-                    $("select[name='currentCountry']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='currentCountry']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }
-    
-                if(localStorage.getItem("presentCountry") !== null) {
-                    $("select[name='presentCountry']").val(localStorage.getItem("presentCountry")).trigger('change');
-                    $("select[name='presentCountry']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='presentCountry']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }      
-            });
-        }
-
-        function reloadProvince(attribute) {
-            $(document).ready(function() {
-                if(attribute === 'current') {
-                    if(localStorage.getItem("currentRegion") !== null) {
-                        $("select[name='currentRegion']").val(localStorage.getItem("currentRegion")).trigger('change');
-                        $("select[name='currentRegion']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                        $("select[name='currentRegion']").siblings(".select-placeholder").css({ opacity: "1" });    
-                    }    
-                } 
-                
-                
-                if(attribute === 'present') {
-                    if(localStorage.getItem("presentRegion") !== null) {
-                        $("select[name='presentRegion']").val(localStorage.getItem("presentRegion")).trigger('change');
-                        $("select[name='presentRegion']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                        $("select[name='presentRegion']").siblings(".select-placeholder").css({ opacity: "1" });    
-                    }    
-                }
-            });
-        }
-
-        function reloadCity(attribute) {
-            $(document).ready(function() {
-                if(attribute === 'current') {
-                    if(localStorage.getItem("currentCity") !== null) {
-                        $("select[name='currentCity']").val(localStorage.getItem("currentCity")).trigger('change');
-                        $("select[name='currentCity']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                        $("select[name='currentCity']").siblings(".select-placeholder").css({ opacity: "1" });    
-                    }    
-                } 
-                
-                console.log(attribute);
-                if(attribute === 'present') {
-                    if(localStorage.getItem("presentCity") !== null) {
-                        $("select[name='presentCity']").val(localStorage.getItem("presentCity")).trigger('change');
-                        $("select[name='presentCity']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                        $("select[name='presentCity']").siblings(".select-placeholder").css({ opacity: "1" });    
-                    }    
-                }  
-            });
+            if(attribute === 'current') {
+                prefillCity('current');
+            } else {
+                prefillCity('present');
+            }
         }
 
         loadData();
-
-        if(localStorage.getItem("currentAddress") !== null) {
-            $("input[name='currentAddress']").val(localStorage.getItem("currentAddress"));
-            $("input[name='currentAddress']").css({ borderColor: "green"});
-        }
-
-        if(localStorage.getItem("presentAddress") !== null) {
-            $("input[name='presentAddress']").val(localStorage.getItem("presentAddress"));
-            $("input[name='presentAddress']").css({ borderColor: "green"});
-        }
 
         $('.current').on("change", function(e) { 
             let id = $('.current option:selected').val();
@@ -210,22 +147,27 @@ export default function Address() {
          });
 
          $('.present').on("change", function(e) { 
-            let id = $('.present option:selected').val();
-            let attribute = 'present';
-
-            if(id !== '') {
-                getProvinces(id, attribute);
+            if(e.originalEvent === undefined) {
+                let id = $('.present option:selected').val();
+                let attribute = 'present';
+                if(id !== '') {
+                    getProvinces(id, attribute);
+                }
             }
          });
 
          $('.presentregion').on("change", function(e) {
-             let id = ($('.presentregion option:selected').val());
-             let attribute = 'present';
-
-             if(id !== '') {
-                getCities(id, attribute);
+             if(e.originalEvent === undefined) {
+                let id = ($('.presentregion option:selected').val());
+                let attribute = 'present';
+   
+                if(id !== '') {
+                   getCities(id, attribute);
+                }
              }
          });
+
+         prefillAddressInfo();
     }, []);
 
     return (
@@ -233,7 +175,7 @@ export default function Address() {
             <form className="addressForm">
                 <div className="row align-items-center">
                     <div className="col-lg-12">
-                        <p className="pInfoTitle" style={{marginBottom: '15px', fontSize: '1.5em'}}>Current Address</p>
+                        <p className="pInfoTitle" id="addressStepScroll" style={{marginBottom: '15px', fontSize: '1.5em'}}>Current Address</p>
                     </div>
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
                         <input required type="text" className="txtusername txtCurrentAdd1 currentaddress" name="currentAddress" />

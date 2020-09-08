@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { compareStrings, sortById, sortIncome } from '../../functions/functions';
+import { prefillProvince, prefillCity, prefillProfessionalDetails } from '../../functions/prefillForm';
 
 export default function Professional() {
     const [country, setCountry] = useState([]);
@@ -72,7 +73,7 @@ export default function Professional() {
             setNetworth(networth);
             setIncome(income);
 
-            reloadSelect();
+            prefillProfessionalDetails();
 
         }
 
@@ -87,7 +88,7 @@ export default function Professional() {
             };
 
             let defaultOption = new Option(defaultValue.name, defaultValue.ids, false, false);
-            $('.workregion').append(defaultOption).trigger('change');
+            $('.workregion').append(defaultOption);
 
             $('.workregion option:selected').prop('disabled', true);
 
@@ -115,7 +116,7 @@ export default function Professional() {
                 $('.workregion').append(newOption);
             }
 
-            reloadProvince();
+            prefillProvince('work');
         }
 
         async function getCities(id) {
@@ -130,7 +131,7 @@ export default function Professional() {
             };
 
             let defaultOption = new Option(defaultValue.name, defaultValue.ids, false, false);
-            $('.workcity').append(defaultOption).trigger('change');
+            $('.workcity').append(defaultOption);
 
             $('.workcity option:selected').prop('disabled', true);
 
@@ -157,112 +158,38 @@ export default function Professional() {
                 $('.workcity').append(newOption);
             }
 
-            reloadCity();
-        }
-
-        function reloadSelect() {
-            $(document).ready(function() {
-                if(localStorage.getItem("workCountry") !== null) {
-                    $("select[name='workCountry']").val(localStorage.getItem("workCountry")).trigger('change');
-                    $("select[name='workCountry']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='workCountry']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }
-    
-                if(localStorage.getItem("natureOfWork") !== null) {
-                    $("select[name='natureOfWork']").val(localStorage.getItem("natureOfWork")).trigger('change');
-                    $("select[name='natureOfWork']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='natureOfWork']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }      
-
-                if(localStorage.getItem("natureOfBusiness") !== null) {
-                    $("select[name='natureOfBusiness']").val(localStorage.getItem("natureOfBusiness")).trigger('change');
-                    $("select[name='natureOfBusiness']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='natureOfBusiness']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }   
-
-                if(localStorage.getItem("sourceOfFunds") !== null) {
-                    $("select[name='sourceOfFunds']").val(localStorage.getItem("sourceOfFunds")).trigger('change');
-                    $("select[name='sourceOfFunds']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='sourceOfFunds']").siblings(".select-placeholder").css({ opacity: "1" });    
-                } 
-
-                if(localStorage.getItem("netWorth") !== null) {
-                    $("select[name='netWorth']").val(localStorage.getItem("netWorth")).trigger('change');
-                    $("select[name='netWorth']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='netWorth']").siblings(".select-placeholder").css({ opacity: "1" });    
-                } 
-
-                if(localStorage.getItem("annualGrossIncome") !== null) {
-                    $("select[name='annualGrossIncome']").val(localStorage.getItem("annualGrossIncome")).trigger('change');
-                    $("select[name='annualGrossIncome']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='annualGrossIncome']").siblings(".select-placeholder").css({ opacity: "1" });    
-                } 
-            });
-        }
-
-        function reloadProvince() {
-            $(document).ready(function() {
-                if(localStorage.getItem("workRegion") !== null) {
-                    $("select[name='workRegion']").val(localStorage.getItem("workRegion")).trigger('change');
-                    $("select[name='workRegion']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='workRegion']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }    
-            });
-        }
-
-        function reloadCity() {
-            $(document).ready(function() {
-                if(localStorage.getItem("workCity") !== null) {
-                    $("select[name='workCity']").val(localStorage.getItem("workCity")).trigger('change');
-                    $("select[name='workCity']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='workCity']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }    
-            });
+            prefillCity('work');
         }
 
         loadData();
 
-        if(localStorage.getItem("businessName") !== null) {
-            $("input[name='businessName']").val(localStorage.getItem("businessName"));
-            $("input[name='businessName']").css({ borderColor: "green"});
-        }
-
-        if(localStorage.getItem("workAddress") !== null) {
-            $("input[name='workAddress']").val(localStorage.getItem("workAddress"));
-            $("input[name='workAddress']").css({ borderColor: "green"});
-        }
-
         $(document).ready(function() {
-            console.log(localStorage.getItem("dos"));
-            if(localStorage.getItem("dos") !== null) {
-                $("select[name='dos']").val(localStorage.getItem("dos")).trigger('change');
-                $("select[name='dos']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                $("select[name='dos']").siblings(".select-placeholder").css({ opacity: "1" });                    
-            }
+            $('.nature-country').on("change", function(e) { 
+                if(e.originalEvent === undefined) {
+                    let id = $('.nature-country option:selected').val();
+                    if(id !== '') {
+                        getProvinces(id);
+                    }
+                }
+             });
+    
+             $('.workregion').on("change", function(e) {
+                 if(e.originalEvent === undefined) {
+                    let id = ($('.workregion option:selected').val());
+       
+                    if(id !== '') {
+                       getCities(id);
+                    }
+                 }
+             });
         });
-
-        $('.nature-country').on("change", function(e) { 
-            let id = $('.nature-country option:selected').val();
-
-            if(id !== '') {
-                getProvinces(id);
-            }
-         });
-
-         $('.workregion').on("change", function(e) {
-             let id = ($('.workregion option:selected').val())
-
-             if(id !== '') {
-                getCities(id);
-             }
-         });
     }, []);
     return (
         <div className="divAdrress1 divForm" style={{ marginTop: "30px"}}>
             <form className="professionalForm">
                 <div className="row" style={{marginTop: '-10px'}}>
                     <div className="col-lg-12">
-                        <p className="pInfoTitle" style={{marginTop: '10px', fontSize: '1.5em'}}>Professional Details</p>
+                        <p className="pInfoTitle" id="professionalStepScroll" style={{marginTop: '10px', fontSize: '1.5em'}}>Professional Details</p>
                     </div>
                     <div className="col-lg-12">
                         <div className="selectdiv" style={{marginTop: '10px'}}>
@@ -270,7 +197,7 @@ export default function Professional() {
                             <select autoComplete="off" className="select2 nature-work" name="natureOfWork" defaultValue="default">
                                 <option value="default" title="Please fill out this field." disabled>Nature of Work</option>
                                 {work.map((e, index) =>(
-                                    <option key={index} value={e.value}>{e.value}</option>
+                                    <option key={index} value={e.code}>{e.value}</option>
                                 ))}
                             </select>
                         </div>
@@ -281,7 +208,7 @@ export default function Professional() {
                         <select autoComplete="off" className="select2 nature-business" name="natureOfBusiness" defaultValue="default">
                             <option value="default" title="Please fill out this field." disabled>Nature of Business/Employer</option>
                             {business.map((e, index) =>(
-                                <option key={index} value={e.value}>{e.value}</option>
+                                <option key={index} value={e.code}>{e.value}</option>
                             ))}
                         </select>
                         </div>
@@ -296,8 +223,8 @@ export default function Professional() {
                         <select autoComplete="off" className="select2 dos" name="dos" defaultValue="default">
                             <option value="default" title="Please fill out this field." disabled>Are you a Director/Officer/Shareholder?
                             </option>
-                            <option>Yes</option>
-                            <option>No</option>
+                            <option value="t">Yes</option>
+                            <option value="f">No</option>
                         </select>
                         </div>
                     </div>
@@ -342,7 +269,7 @@ export default function Professional() {
                             <option value="default" disabled>Source of Funds</option>
                             <option value="" title="Please fill out this field." disabled>Source of Funds</option>
                             {funds.map((e, index) =>(
-                                <option key={index} value={e.value}>{e.value}</option>
+                                <option key={index} value={e.code}>{e.value}</option>
                             ))}
                         </select>
                         </div>
@@ -354,7 +281,7 @@ export default function Professional() {
                             <option value="default" title="Please fill out this field." disabled> Net Worth
                             </option>
                             {networth.map((e, index) =>(
-                                <option key={index} value={e.value}>{e.value}</option>
+                                <option key={index} value={e.code}>{e.value}</option>
                             ))}
                         </select>
                         </div>
@@ -366,7 +293,7 @@ export default function Professional() {
                             <option value="default" title="Please fill out this field." disabled> Annual Gross Income
                             </option>
                             {income.map((e, index) =>(
-                                <option key={index} value={e.value}>{e.value}</option>
+                                <option key={index} value={e.code}>{e.value}</option>
                             ))}
                         </select>
                         </div>

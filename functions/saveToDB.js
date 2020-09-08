@@ -327,9 +327,13 @@ function toEndpoint(data) {
             'x-token': localStorage.getItem('loginToken')
         }
     }).then(response => {
-        console.log(response);
+        //console.log(response);
         if(response.data.code === "100") {
             alert('Session has expired, please log out and log in again.');
+        } else {
+            if(window.location.href.indexOf("summary") > -1) {
+                alert('Thank you for filling out our KYC form!');
+            }
         }
     }).catch(err => {
         alert('Session has expired, please log out and log in again.');

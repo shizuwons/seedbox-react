@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { compareStrings } from '../../functions/functions';
+import { prefillSettlementInfo } from '../../functions/prefillForm';
 
 export default function Settlement() {
     const [bank, setBank] = useState([]);
@@ -15,28 +16,8 @@ export default function Settlement() {
             });
             
             setBank(banks);
-            reloadSelect();
+            prefillSettlementInfo();
 
-        }
-
-        function reloadSelect() {
-            $(document).ready(function() {
-                if(localStorage.getItem("bankName") !== null) {
-                    $("select[name='bankName']").val(localStorage.getItem("bankName")).trigger('change.select2');
-                    $("select[name='bankName']").siblings(".select2-container").find(".selection").find(".select2-selection").attr('style', 'border: 1px solid green !important');
-                    $("select[name='bankName']").siblings(".select-placeholder").css({ opacity: "1" });    
-                }
-            });
-        }
-
-        if(localStorage.getItem("accountName") !== null && localStorage.getItem("accountName") !== '') {
-            $("input[name='accountName']").val(localStorage.getItem("accountName"));
-            $("input[name='accountName']").css({ borderColor: "green"});
-        }
-
-        if(localStorage.getItem("accountNumber") !== null && localStorage.getItem("accountNumber") !== '') {
-            $("input[name='accountNumber']").val(localStorage.getItem("accountNumber"));
-            $("input[name='accountNumber']").css({ borderColor: "green"});
         }
 
         loadData();
@@ -46,7 +27,7 @@ export default function Settlement() {
             <form className="settlementForm">
                 <div className="row">
                     <div className="col-lg-12" style={{marginTop: '10px'}}>
-                        <p className="pInfoTitle" style={{marginTop: '0px', marginBottom: '15px', fontSize: '1.5em'}}>Settlement
+                        <p className="pInfoTitle" id="settlementStepScroll" style={{marginTop: '0px', marginBottom: '15px', fontSize: '1.5em'}}>Settlement
                         Information</p>
                     </div>
                     <div className="col-lg-12">
@@ -55,7 +36,7 @@ export default function Settlement() {
                         <select autoComplete="off" className="select2 bank-name" id="BankName" name="bankName" defaultValue="default">
                             <option value="default" title="Please fill out this field." disabled>Bank Name</option>
                             {bank.map((e, index) =>(
-                                <option key={index} value={e.bank_name}>{e.bank_name}</option>
+                                <option key={index} value={e.bank_id}>{e.bank_name}</option>
                             ))}
                         </select>
                         </div>
