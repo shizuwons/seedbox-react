@@ -18,6 +18,7 @@ import Settlement from './settlement';
 import Terms from './terms';
 import Privacy from './privacy';
 import { personalValidation, addressValidation, professionalValidation, csaValidation, pepValidation, uploadValidation, settlementValidation } from '../../functions/validators';
+import { saveToDB } from '../../functions/saveToDB';
 
 export default function Summary() {
     useEffect(() => {
@@ -141,41 +142,61 @@ export default function Summary() {
               $(this).siblings(".select-placeholder").css({ opacity: "0" });
             }
           });
-
-        $('.btnSubmit').click(function(e) {
-            let verified = verifiedFields();
-
-            if(verified) {
-                if($('#imguploadid').get(0).files.length !== 0) {
-                    $('#imguploadid').trigger('change');
-                  }
-          
-                  if($('#imguploadsig').get(0).files.length !== 0) {
-                    $('#imguploadsig').trigger('change');
-                  }
-          
-                  if($('#imguploadid').get(0).files.length === 0 && $('#imguploadsig').get(0).files.length === 0) {
-                    saveToDB();
-                }
-            } else {
-                alert('Form is not complete.');
-            }
-        });  
         
-        function verifiedFields() {
-            let pForm = personalValidation();
-            let aForm = addressValidation();
-            let prForm = professionalValidation();
-            let csaForm = csaValidation();
-            let pepForm = pepValidation();
-            let upForm = uploadValidation();
-            let setForm = settlementValidation();
+          $(document).ready(function() {
+            let tFields = true;
+            let sFields = true;
+            let investedfield = true;
+            $('.btnSubmit').click(function() {
+                $('.txtusername').each(function() {
+                    if(!$(this).hasClass('sss-gsis') && !$(this).hasClass('agent-code')) {
+                        if($(this).val().length <= 0) {
+                            alert('Please fill up remaining fields!');
+                            tFields = false;
+                            return false;
+                        } else {
+                            tFields = true;
+                        }
+                    }
+                });
+    
+                $('.select2').each(function() {
+                    if($(this).parent().find("select.select2").val() === "" || $(this).parent().find("select.select2").val() === null) {
+                        alert('Please fill up remaining fields!');
+                        sFields = false;
+                        return false;
+                    } else {
+                        sFields = true;
+                    }
+                });
+    
+                if($('.invested').val() === null) {
+                    alert('Please fill up remaining fields!');
+                    investedfield = false;
+                    return false;
+                } else {
+                    investedfield = true;
+                }
+    
+                if(tFields && sFields && investedfield) {
+                    if($('#imguploadid').get(0).files.length !== 0) {
+                        $('#imguploadid').trigger('change');
+                    }
+            
+                    if($('#imguploadsig').get(0).files.length !== 0) {
+                        $('#imguploadsig').trigger('change');
+                    }
+            
+                    if($('#imguploadid').get(0).files.length === 0 && $('#imguploadsig').get(0).files.length === 0) {
+                        saveToDB();
+                    }
+                }
+            });
+          });
 
-            if(pForm && aForm && prForm && csaForm && pepForm && upForm && setForm) {
-                return true;
-            } else {
-                return false;
-            }
+        if($('.txtusername').val().length > 0) {
+            $('.txtusername').prop('readonly', true);
+            $('.txtusername').addClass('kyc-email');
         }
 
     }, []);

@@ -82,7 +82,7 @@ export default function Personal() {
           });
 
         $('.txtusername').each(function() {
-            if(!$(this).hasClass('sss-gsis') || !$(this).hasClass('agent-code')) {
+            if(!$(this).hasClass('sss-gsis') && !$(this).hasClass('agent-code')) {
                 if($(this).val().length <= 0) {
                     $(this).css({ borderColor: "red"});
                 }
@@ -96,33 +96,6 @@ export default function Personal() {
                 $(this).css({ borderColor: "green"});
             }
         });
-
-        // $('.btnSubmit').click(function() {
-        //     $('.txtusername').each(function() {
-        //         if($(this).val().length <= 0) {
-        //             alert('Please fill up remaining fields!');
-        //             return false;
-        //         }
-        //     });
-
-        //     $('.select2').each(function() {
-        //         if($(this).val() === "" || $(this).val() === null) {
-        //             alert('Please fill up remaining fields!');
-        //             return false;
-        //         }
-        //     });
-
-        //     if($('.invested').val() === null) {
-        //         alert('Please fill up remaining fields!');
-        //         return false;
-        //     }
-        // });
-
-        if($('.txtusername').val().length > 0) {
-            $('.txtusername').prop('readonly', true);
-            $('.txtusername').addClass('kyc-email');
-        }
-
 
     }, []);
     return (
@@ -389,7 +362,7 @@ export default function Personal() {
                                 <option value="default" title="Please fill out this field." disabled>Civil Status
                                 </option>
                                 {marital.map((e, index) =>(
-                                    <option key={index} value={e.value}>{e.value}</option>
+                                    <option key={index} value={e.code}>{e.value}</option>
                                 ))}
                             </select>
                         </div>
@@ -401,7 +374,7 @@ export default function Personal() {
                                 <option value="default" title="Please fill out this field." disabled>Gender
                                 </option>
                                 {gender.map((e, index) =>(
-                                    <option key={index} value={e.value}>{e.value}</option>
+                                    <option key={index} value={e.code}>{e.value}</option>
                                 ))}
                             </select>
                         </div>
