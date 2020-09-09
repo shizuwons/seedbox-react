@@ -1,4 +1,5 @@
 import axios from 'axios';
+import iso88592 from 'iso-8859-2';
 
 export function prefillPersonalForm() {
     let email = localStorage.getItem('sessionEmail');
@@ -16,7 +17,6 @@ export function prefillPersonalForm() {
         
         let mobileNumStr = data.mobile_phone_number;
         let mobileNumArr = mobileNumStr.split("-");
-        let civilStatus = data.civil_status;
         
         $('.lastname').val(data.last_name);
         $('.firstname').val(data.first_name);
@@ -24,10 +24,7 @@ export function prefillPersonalForm() {
         $('.email').val(data.email);
         $('.mobile').val(mobileNumArr[1]);
         $('.country-code').val(mobileNumArr[0]).trigger('change');
-        $('.civil-status').val(civilStatus).trigger('change');
-        $('.gender').val(data.gender).trigger('change');
         $('.birthplace').val(data.birthplace).trigger('change');
-        $('.citizenship').val(data.citizenship).trigger('change');
         $('.tin').val(data.tin);
         $('.sssGsis').val(data.sss_gsis);
         $('.agent-code').val(data.referral_agent_code);
@@ -55,9 +52,18 @@ export function prefillBirthdate() {
     }).then(response => {
         let birthDateStr = response.data.personal_information.birthdate;
         let birthdateArr = birthDateStr.split("-");
+        //let civilStatus = response.data.personal_information.civil_status;
         $('.year').val(birthdateArr[0]).trigger('change');
         $('.month').val(birthdateArr[1].toString()).trigger('change');
         $('.day').val(birthdateArr[2].toString()).trigger('change');
+        if(birthdateArr[2].substring(0, 1) === "0") {
+            $('.day').val(birthdateArr[2].substring(1, 2)).trigger('change');
+        } else {
+            $('.day').val(birthdateArr[2].substring(0, 2)).trigger('change');
+        }
+        $('.gender').val(response.data.personal_information.gender).trigger('change');
+        $('.citizenship').val(response.data.personal_information.citizenship).trigger('change');
+        $('.civil-status').val(response.data.personal_information.civil_status).trigger('change');
     });
 }
 
@@ -195,7 +201,7 @@ export function prefillProfessionalDetails() {
         //     alert(this.text + ' ' + this.value);
         // });
 
-        if(financialData.nature_of_work !== "" && financialData.nature_of_work !== null && financialData.nature_of_work !== "null") {
+        if(financialData.nature_of_business !== "" && financialData.nature_of_business !== null && financialData.nature_of_business !== "null") {
             $('.nature-business').val(financialData.nature_of_business).trigger('change');
         }
 
@@ -374,14 +380,48 @@ export function prefillIDData() {
 
         // Image
        // console.log(idData.upload_id.fileKeyIdCard);
-        axios.get('https://dev.seedbox.ph/core/lite/v1/download?id=' + idData.upload_id.fileKeyIdCard, {
+        // axios.get('https://dev.seedbox.ph/core/lite/v1/download?id=' + idData.upload_id.fileKeyIdCard, {
+        //     headers: {
+        //         'x-token': token,
+        //     }
+        // })
+        // .then(response => {
+        //   console.log(btoa(unescape(encodeURIComponent(response.data))));
+
+        //   $('.idimage').attr('src', 'data:image/jpeg;base64,' + btoa(unescape(encodeURIComponent(response.data))));
+        //  });
+
+        axios.request({
+            method: 'GET',
+            url: 'https://dev.seedbox.ph/core/lite/v1/download?id=' + idData.upload_id.fileKeyIdCard,
+            responseType: 'arraybuffer',
+            responseEncoding: 'binary',
             headers: {
                 'x-token': token,
             }
-        })
-        .then(response => {
-         //  console.log(btoa(unescape(encodeURIComponent(response.data))));
-         });
+        }).then(response => {
+            if(window.location.href.indexOf("summary") > -1) {
+                $('.idimage').attr('src', 'data:image/jpeg;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(response.data))));
+            } else if(window.location.href.indexOf("kyc") > -1) {
+                $('#idPreview').attr('src', 'data:image/jpeg;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(response.data))));
+            }
+        });
+
+        axios.request({
+            method: 'GET',
+            url: 'https://dev.seedbox.ph/core/lite/v1/download?id=' + idData.upload_signature.fileKeySignature,
+            responseType: 'arraybuffer',
+            responseEncoding: 'binary',
+            headers: {
+                'x-token': token,
+            }
+        }).then(response => {
+            if(window.location.href.indexOf("summary") > -1) {
+                $('.signatureimage').attr('src', 'data:image/jpeg;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(response.data))));
+            } else if(window.location.href.indexOf("kyc") > -1) {
+                $('#sigPreview').attr('src', 'data:image/jpeg;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(response.data))));
+            }
+        });
 
     });
 }
