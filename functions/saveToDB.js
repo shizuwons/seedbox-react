@@ -130,12 +130,19 @@ export function saveToDB() {
         province: workRegion
     };
 
+    let dosVal = true;
+    if(dos === "true") {
+        dosVal = true;
+    } else if(dos === "false") {
+        dosVal = false;
+    }
+
     let financialData = {
         nature_of_business: natureOfBusiness,
         nature_of_work: natureOfWork,
         annual_gross_income: annualGross,
         net_worth: netWorth,
-        is_director_officer_shareholder: dos,
+        is_director_officer_shareholder: dosVal,
         source_of_funds: sourceOfFunds
     };
 
@@ -171,18 +178,32 @@ export function saveToDB() {
     /** PEP */
     let workedInGovt = $('.government').val();
     let relativeInGovt = $('.relative').val();
+    let govt = true;
+    let rel = true;
 
     if(workedInGovt === '') {
-        workedInGovt = "false";
+        govt = false;
     }
 
     if(relativeInGovt === '') {
-        relativeInGovt = "false";
+        rel = false;
+    }
+
+    if(workedInGovt === "true") {
+        govt = true;
+    } else {
+        govt = false;
+    }
+
+    if(relativeInGovt === "true") {
+        rel = true;
+    } else {
+        rel = false;
     }
 
     let pepData = {
-        worked_in_govt: workedInGovt,
-        has_relative_in_govt: relativeInGovt
+        worked_in_govt: govt,
+        has_relative_in_govt: rel
     }
 
     /** FATCA */

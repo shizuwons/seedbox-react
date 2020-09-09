@@ -205,10 +205,12 @@ export function prefillProfessionalDetails() {
             $('.nature-business').val(financialData.nature_of_business).trigger('change');
         }
 
+        console.log(financialData.is_director_officer_shareholder);
         if(financialData.is_director_officer_shareholder) {
-            $('.dos').val("t").trigger('change');
+            alert('aaa');
+            $('.dos').val("true").trigger('change');
         } else {
-            $('.dos').val("f").trigger('change');
+            $('.dos').val("false").trigger('change');
         }
 
         if(financialData.source_of_funds !== "" && financialData.source_of_funds !== null && financialData.source_of_funds !== "null") {
@@ -400,10 +402,18 @@ export function prefillIDData() {
                 'x-token': token,
             }
         }).then(response => {
+            // let imgStr = String.fromCharCode.apply(null, new Uint8Array(response.data));
+            // let imgData = btoa(imgStr);
+            let imgData = btoa(new Uint8Array(response.data).reduce(
+                function (data, byte) {
+                    return data + String.fromCharCode(byte);
+                },
+                ''
+            ));
             if(window.location.href.indexOf("summary") > -1) {
-                $('.idimage').attr('src', 'data:image/jpeg;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(response.data))));
+                $('.idimage').attr('src', 'data:image/jpeg;base64,' + imgData);
             } else if(window.location.href.indexOf("kyc") > -1) {
-                $('#idPreview').attr('src', 'data:image/jpeg;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(response.data))));
+                $('#idPreview').attr('src', 'data:image/jpeg;base64,' + imgData);
             }
         });
 
@@ -416,10 +426,19 @@ export function prefillIDData() {
                 'x-token': token,
             }
         }).then(response => {
+            // let imgStr = String.fromCharCode.apply(null, new Uint8Array(response.data));
+            // let imgData = btoa(imgStr);
+
+            let imgData = btoa(new Uint8Array(response.data).reduce(
+                function (data, byte) {
+                    return data + String.fromCharCode(byte);
+                },
+                ''
+            ));
             if(window.location.href.indexOf("summary") > -1) {
-                $('.signatureimage').attr('src', 'data:image/jpeg;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(response.data))));
+                $('.signatureimage').attr('src', 'data:image/jpeg;base64,' + imgData);
             } else if(window.location.href.indexOf("kyc") > -1) {
-                $('#sigPreview').attr('src', 'data:image/jpeg;base64,' + btoa(String.fromCharCode.apply(null, new Uint8Array(response.data))));
+                $('#sigPreview').attr('src', 'data:image/jpeg;base64,' + imgData);
             }
         });
 
