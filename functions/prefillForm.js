@@ -207,7 +207,6 @@ export function prefillProfessionalDetails() {
 
         console.log(financialData.is_director_officer_shareholder);
         if(financialData.is_director_officer_shareholder) {
-            alert('aaa');
             $('.dos').val("true").trigger('change');
         } else {
             $('.dos').val("false").trigger('change');
