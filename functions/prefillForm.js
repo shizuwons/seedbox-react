@@ -1,6 +1,39 @@
 import axios from 'axios';
 import iso88592 from 'iso-8859-2';
 
+export function checkIfTokenValid() {
+    let email = localStorage.getItem('sessionEmail');
+    let token = localStorage.getItem('loginToken');
+
+    axios.get('https://dev.seedbox.ph/core/lite/v1/customer', 
+    {
+        params: {
+          email: email,
+        },
+        headers: {
+          'x-token': token,
+        }
+    }).then(response => {
+        console.log(response);
+        console.log('response');
+    }).catch(err => {
+        alert('Login session has expired, please log in again.');
+        axios.post('https://dev.seedbox.ph/core/lite/v1/logout', {
+            headers: {
+                'x-token': token
+            }
+        }).then(response => {
+            console.log(response);
+            localStorage.removeItem('logged_in');
+            localStorage.removeItem('sessionEmail');
+            localStorage.removeItem('loginToken');
+            window.location = "/";
+        }).catch(err => {
+            console.log(err);
+        });
+    });
+}
+
 export function prefillPersonalForm() {
     let email = localStorage.getItem('sessionEmail');
     let token = localStorage.getItem('loginToken');
@@ -61,9 +94,18 @@ export function prefillBirthdate() {
         } else {
             $('.day').val(birthdateArr[2].substring(0, 2)).trigger('change');
         }
-        $('.gender').val(response.data.personal_information.gender).trigger('change');
-        $('.citizenship').val(response.data.personal_information.citizenship).trigger('change');
-        $('.civil-status').val(response.data.personal_information.civil_status).trigger('change');
+
+        if(response.data.personal_information.gender !== "" && response.data.personal_information.gender !== null && response.data.personal_information.gender !== "null") {
+            $('.gender').val(response.data.personal_information.gender).trigger('change');
+        }
+
+        if(response.data.personal_information.citizenship !== "" && response.data.personal_information.citizenship !== null && response.data.personal_information.citizenship !== "null") {
+            $('.citizenship').val(response.data.personal_information.citizenship).trigger('change');
+        }
+
+        if(response.data.personal_information.civil_status !== "" && response.data.personal_information.civil_status !== null && response.data.personal_information.civil_status !== "null") {
+            $('.civil-status').val(response.data.personal_information.civil_status).trigger('change');
+        }
     });
 }
 

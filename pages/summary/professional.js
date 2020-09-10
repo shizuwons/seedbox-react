@@ -223,8 +223,8 @@ export default function Professional() {
                         <select autoComplete="off" className="select2 dos" name="dos" defaultValue="default">
                             <option value="default" title="Please fill out this field." disabled>Are you a Director/Officer/Shareholder?
                             </option>
-                            <option value="t">Yes</option>
-                            <option value="f">No</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
                         </select>
                         </div>
                     </div>

@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { prefillCSA } from '../../functions/prefillForm';
+import { arrangeValues } from '../../functions/functions';
 
 export default function Csa() {
     const [amounts, setAmount] = useState([]);
@@ -19,15 +20,51 @@ export default function Csa() {
             const lookups = lookupDataLoad.data;
             
             // Lookups
-            const amount = lookups.filter(el => el.category === 'INVESTMENT_AMOUNT');
-            const frequency = lookups.filter(el => el.category === 'INVESTMENT_FREQUENCY');
-            const purpose = lookups.filter(el => el.category === 'INVESTMENT_PURPOSE');
-            const horizon = lookups.filter(el => el.category === 'INVESTMENT_HORIZON');
-            const principle = lookups.filter(el => el.category === 'INVESTMENT_PRINCIPLE');
-            const knowledge = lookups.filter(el => el.category === 'INVESTMENT_KNOWLEDGE');
-            const other = lookups.filter(el => el.category === 'INVESTMENT_OTHERS');
-            const liquidity = lookups.filter(el => el.category === 'INVESTMENT_LIQUIDITY_REQ');
-            const risk = lookups.filter(el => el.category === 'INVESTMENT_RISK_SCENARIO');
+            let amount = lookups.filter(el => el.category === 'INVESTMENT_AMOUNT');
+            let frequency = lookups.filter(el => el.category === 'INVESTMENT_FREQUENCY');
+            let purpose = lookups.filter(el => el.category === 'INVESTMENT_PURPOSE');
+            let horizon = lookups.filter(el => el.category === 'INVESTMENT_HORIZON');
+            let principle = lookups.filter(el => el.category === 'INVESTMENT_PRINCIPLE');
+            let knowledge = lookups.filter(el => el.category === 'INVESTMENT_KNOWLEDGE');
+            let other = lookups.filter(el => el.category === 'INVESTMENT_OTHERS');
+            let liquidity = lookups.filter(el => el.category === 'INVESTMENT_LIQUIDITY_REQ');
+            let risk = lookups.filter(el => el.category === 'INVESTMENT_RISK_SCENARIO');
+
+            amount = arrangeValues(amount, 138);
+            amount = arrangeValues(amount, 139);
+            amount = arrangeValues(amount, 140);
+            amount = arrangeValues(amount, 141);
+            amount = arrangeValues(amount, 142);
+            amount = arrangeValues(amount, 143); 
+            
+            frequency = arrangeValues(frequency, 148);
+            frequency = arrangeValues(frequency, 147);
+            frequency = arrangeValues(frequency, 146);
+            frequency = arrangeValues(frequency, 145);
+            frequency = arrangeValues(frequency, 144);
+
+            purpose = arrangeValues(purpose, 135);
+            purpose = arrangeValues(purpose, 136);
+            purpose = arrangeValues(purpose, 137);
+
+            horizon = arrangeValues(horizon, 149);
+            horizon = arrangeValues(horizon, 150);
+            horizon = arrangeValues(horizon, 152);
+            horizon = arrangeValues(horizon, 151);
+
+            principle = arrangeValues(principle, 107);
+            principle = arrangeValues(principle, 108);
+            principle = arrangeValues(principle, 109);
+
+            knowledge = arrangeValues(knowledge, 131);
+            knowledge = arrangeValues(knowledge, 132);
+            knowledge = arrangeValues(knowledge, 133);
+            knowledge = arrangeValues(knowledge, 134);
+
+            risk = arrangeValues(risk, 103);
+            risk = arrangeValues(risk, 104);
+            risk = arrangeValues(risk, 105);
+            risk = arrangeValues(risk, 106);
 
             setAmount(amount);
             setFrequency(frequency);

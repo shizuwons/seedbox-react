@@ -12,11 +12,13 @@ import Navbar from '../../components/navbar';
 import Sidebar from '../../components/sidebar';
 import { RedirectIfUnauthenticated } from '../../functions/auth-checker';
 import { saveImage, saveToDB } from '../../functions/saveToDB';
-import { prefillForm } from '../../functions/prefillForm';
+import { prefillForm, checkIfTokenValid } from '../../functions/prefillForm';
 
 export default function Kyc() {
   useEffect(() => {
     RedirectIfUnauthenticated();
+
+    checkIfTokenValid();
 
     $(window)
     .resize(function () {
@@ -640,9 +642,23 @@ export default function Kyc() {
     $('.idtype').change(function() {
       let value = $('.idtype').val();
       if(value === 'PHU' || value === 'TIN' || value === 'INT' || value === 'NCD' || value === 'SEN' || value === 'SSS') {
+        $('.expirymonth').val("default").trigger('change');
+        $('.expiryday').val("default").trigger('change');
+        $('.expiryyear').val("default").trigger('change');
         $('.expirymonth').prop('disabled', true);
         $('.expiryday').prop('disabled', true);
         $('.expiryyear').prop('disabled', true);
+
+        $('.expirymonth').siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+        $('.expiryday').siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+        $('.expiryyear').siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+        $('.expirymonth').siblings(".select-placeholder").css({ opacity: "0" });
+        $('.expiryday').siblings(".select-placeholder").css({ opacity: "0" });
+        $('.expiryyear').siblings(".select-placeholder").css({ opacity: "0" });
+
+        // $('.expirymonth').val(null);
+        // $('.expiryday').val(null);
+        // $('.expiryyear').val(null);
       } else {
         $('.expirymonth').prop('disabled', false);
         $('.expiryday').prop('disabled', false);

@@ -19,9 +19,15 @@ import Terms from './terms';
 import Privacy from './privacy';
 import { personalValidation, addressValidation, professionalValidation, csaValidation, pepValidation, uploadValidation, settlementValidation } from '../../functions/validators';
 import { saveToDB } from '../../functions/saveToDB';
+import { RedirectIfUnauthenticated } from '../../functions/auth-checker';
+import { checkIfTokenValid } from '../../functions/prefillForm';
 
 export default function Summary() {
     useEffect(() => {
+        RedirectIfUnauthenticated();
+
+        checkIfTokenValid();
+
         $(window)
         .resize(function () {
           if ($(window).width() < 500) {
@@ -66,6 +72,33 @@ export default function Summary() {
               .prop("checked", false);
           });
 
+          $('.idtype').change(function() {
+            let value = $('.idtype').val();
+            if(value === 'PHU' || value === 'TIN' || value === 'INT' || value === 'NCD' || value === 'SEN' || value === 'SSS') {
+              $('.expirymonth').val("default").trigger('change');
+              $('.expiryday').val("default").trigger('change');
+              $('.expiryyear').val("default").trigger('change');
+              $('.expirymonth').prop('disabled', true);
+              $('.expiryday').prop('disabled', true);
+              $('.expiryyear').prop('disabled', true);
+      
+              $('.expirymonth').siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+              $('.expiryday').siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+              $('.expiryyear').siblings(".select2-container").find(".selection").find(".select2-selection").removeAttr('style');
+              $('.expirymonth').siblings(".select-placeholder").css({ opacity: "0" });
+              $('.expiryday').siblings(".select-placeholder").css({ opacity: "0" });
+              $('.expiryyear').siblings(".select-placeholder").css({ opacity: "0" });
+      
+              // $('.expirymonth').val(null);
+              // $('.expiryday').val(null);
+              // $('.expiryyear').val(null);
+            } else {
+              $('.expirymonth').prop('disabled', false);
+              $('.expiryday').prop('disabled', false);
+              $('.expiryyear').prop('disabled', false);
+            }
+          });
+
         // Scroll on press
         $("#personalStep").click(function() {
             $([document.documentElement, document.body]).animate({
@@ -73,6 +106,21 @@ export default function Summary() {
             }, 500);
 
             $(".divWhite").css("top", "85px");
+        });
+
+        // Check agree terms on click of I Agree in modal
+        $('.btnAgree').click(function() {
+            if($('.checkAgree').is(':not(:checked)')) {
+                $('.checkAgree').click();
+            }
+        });
+
+        $('#thankYouModal').on('hidden.bs.modal', function (e) {
+            window.location = "/";
+        });
+
+        $('.btnCloseTy').click(function() {
+            $('#thankYouModal').modal('hide');
         });
 
         $("#addressStep").click(function() {
@@ -161,12 +209,65 @@ export default function Summary() {
                 });
     
                 $('.select2').each(function() {
-                    if($(this).parent().find("select.select2").val() === "" || $(this).parent().find("select.select2").val() === null) {
-                        alert('Please fill up remaining fields!');
-                        sFields = false;
-                        return false;
+                    // If not disabled, go through with the validation of select 2
+                    let clName = $(this).parent().find("select.select2").attr('class');
+                    let isExpiryField = false;
+                    let isDisabledField = false;
+                    let expiryField = "";
+
+                    if(clName !== undefined) {
+                        if(clName.indexOf("expiryday") > -1) {
+                            isExpiryField = true;
+                            expiryField = "expiryday";
+                            
+                            if($('.' + expiryField).is(':not(:disabled)')) {
+                                if($('.' + expiryField).val() === "" || $('.' + expiryField).val() === null || $('.' + expiryField).val() === "null") {
+                                    alert('Please fill up remaining fields!');
+                                    sFields = false;
+                                    return false;
+                                }
+                            }
+                        } else if(clName.indexOf("expirymonth") > -1) {
+                            isExpiryField = true;
+                            expiryField = "expirymonth";
+    
+                            if($('.' + expiryField).is(':not(:disabled)')) {
+                                if($('.' + expiryField).val() === "" || $('.' + expiryField).val() === null || $('.' + expiryField).val() === "null") {
+                                    alert('Please fill up remaining fields!');
+                                    sFields = false;
+                                    return false;
+                                }
+                            }
+                        } else if(clName.indexOf("expiryyear") > -1) {
+                            isExpiryField = true;
+                            expiryField = "expiryyear";
+
+                            if($('.' + expiryField).is(':not(:disabled)')) {
+                                if($('.' + expiryField).val() === "" || $('.' + expiryField).val() === null || $('.' + expiryField).val() === "null") {
+                                    alert('Please fill up remaining fields!');
+                                    sFields = false;
+                                    return false;
+                                }
+                            }
+                        } else {
+                            if($(this).parent().find("select.select2").val() === "" || $(this).parent().find("select.select2").val() === null || $(this).parent().find("select.select2").val() === "default") {
+                                console.log($(this).parent().find("select.select2").attr('class'));
+                                alert('Please fill up remaining fields!');
+                                sFields = false;
+                                return false;
+                            } else {
+                                sFields = true;
+                            }
+                        }
                     } else {
-                        sFields = true;
+                        if($(this).parent().find("select.select2").val() === "" || $(this).parent().find("select.select2").val() === null) {
+                            console.log($(this).parent().find("select.select2").attr('class'));
+                            alert('Please fill up remaining fields!');
+                            sFields = false;
+                            return false;
+                        } else {
+                            sFields = true;
+                        }
                     }
                 });
     
@@ -478,6 +579,20 @@ export default function Summary() {
                         <div className="row agreeWrapper" style={{marginBottom: '50px'}}>
                             <div className="col-lg-12">
                                 <input type="button" className="btnNext btnProceed btnAgree" defaultValue="I AGREE" data-dismiss="modal"/>                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="modal fade" id="thankYouModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" role="document" style={{ maxWidth: "80%" }}>
+                    <div className="modal-content">
+                        <div className="modal-body" style={{border: '0px', margin: '0 auto', width: '100%', padding: '1rem 5rem'}}>
+                            <p className="pCaption" style={{ fontSize: '1.3rem'}}>Thank you for completing your account information. Your account is now pending and waiting for approval.</p>
+                        </div>
+                        <div className="row agreeWrapper" style={{marginBottom: '50px'}}>
+                            <div className="col-lg-12" style={{ textAlign: 'center' }}>
+                                <input type="button" className="btnNext btnProceed btnCloseTy" style={{ float: 'none' }} defaultValue="CLOSE" data-dismiss="modal"/>                              
                             </div>
                         </div>
                     </div>

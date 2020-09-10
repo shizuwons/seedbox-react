@@ -95,7 +95,7 @@ function Upload() {
                         <option>6</option>
                         <option>7</option>
                         <option>8</option>
-                        <option>8</option>
+                        <option>9</option>
                         <option>10</option>
                         <option>11</option>
                         <option>12</option>

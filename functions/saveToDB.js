@@ -353,10 +353,11 @@ function toEndpoint(data) {
             alert('Session has expired, please log out and log in again.');
         } else {
             if(window.location.href.indexOf("summary") > -1) {
-                alert('Thank you for filling out our KYC form!');
+                $('#thankYouModal').modal('show');
             }
         }
     }).catch(err => {
+        console.log(err);
         alert('Session has expired, please log out and log in again.');
     });
 }
