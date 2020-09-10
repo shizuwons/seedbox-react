@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { compareStrings, sortById, sortIncome } from '../../functions/functions';
+import { compareStrings, sortById, sortIncome, arrangeValues } from '../../functions/functions';
 import { prefillProvince, prefillCity, prefillProfessionalDetails } from '../../functions/prefillForm';
 
 export default function Professional() {
@@ -42,7 +42,7 @@ export default function Professional() {
             const work = lookups.filter(el => el.category === 'OCCUPATION');
             const business = lookups.filter(el => el.category === 'NATURE_OF_BUSINESS');
             const funds = lookups.filter(el => el.category === 'SOURCE_OF_INCOME');
-            const networth = lookups.filter(el => el.category === 'NET_WORTH');
+            let networth = lookups.filter(el => el.category === 'NET_WORTH');
             const income = lookups.filter(el => el.category === 'ANNUAL_INCOME');
 
             work.sort(function(a, b) {
@@ -56,12 +56,17 @@ export default function Professional() {
                 funds.push(others);
             }
 
-            const networthIndex = networth.findIndex(x => x.code === 604);
-            const less = (networth[networthIndex]);
-            if (networthIndex !== undefined) {
-                networth.splice(networthIndex, 1);
-                networth.unshift(less);
-            }
+            // let code = 604;
+            // const networthIndex = networth.findIndex(x => x.code === code);
+            // const less = (networth[networthIndex]);
+            // if (networthIndex !== undefined) {
+            //     networth.splice(networthIndex, 1);
+            //     networth.unshift(less);
+            // }
+            networth = arrangeValues(networth, 68);
+            networth = arrangeValues(networth, 67);
+            networth = arrangeValues(networth, 66);
+            networth = arrangeValues(networth, 604);
 
             income.sort(function(a, b) {
                 return sortIncome(a.code, b.code);
