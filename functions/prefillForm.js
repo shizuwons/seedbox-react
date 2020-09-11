@@ -59,7 +59,7 @@ export function prefillPersonalForm() {
         $('.country-code').val(mobileNumArr[0]).trigger('change');
         $('.birthplace').val(data.birthplace).trigger('change');
         $('.tin').val(data.tin);
-        $('.sssGsis').val(data.sss_gsis);
+        $('.sss-gsis').val(data.sss_gsis);
         $('.agent-code').val(data.referral_agent_code);
     
         // Field borders when has value

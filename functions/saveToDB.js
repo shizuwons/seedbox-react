@@ -37,7 +37,7 @@ export function saveImage(img, type) {
     });
 }
 
-export function saveToDB() {
+export function saveToDB(type = "") {
     /** Personal Info */
 
     let firstName = $('.firstname').val();
@@ -337,10 +337,10 @@ export function saveToDB() {
 
     console.log(data);
 
-    toEndpoint(data);
+    toEndpoint(data, type);
 }
 
-function toEndpoint(data) {
+function toEndpoint(data, type) {
     axios.post('https://dev.seedbox.ph/core/lite/v1/customer', 
     data, 
     {
@@ -353,7 +353,11 @@ function toEndpoint(data) {
             alert('Session has expired, please log out and log in again.');
         } else {
             if(window.location.href.indexOf("summary") > -1) {
-                $('#thankYouModal').modal('show');
+                if(type !== 'save') {
+                    $('#thankYouModal').modal('show');
+                } else {
+                    alert('Account information has been saved.');
+                }
             }
         }
     }).catch(err => {

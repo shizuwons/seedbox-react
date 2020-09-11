@@ -293,6 +293,10 @@ export default function Summary() {
                     }
                 }
             });
+
+            $('.btnSave').click(function() {
+                saveToDB('save');
+            });
           });
 
         if($('.txtusername').val().length > 0) {
