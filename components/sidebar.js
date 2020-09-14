@@ -313,6 +313,7 @@ function Sidebar() {
                        localStorage.setItem('logged_in', true);
                        localStorage.setItem('loginToken', response.data.token);
                        localStorage.setItem('sessionEmail', response.data.user_email);
+                       localStorage.setItem('userStatus', response.data.user_status);
                        location.reload();
                    } else if(response.data.code === 0) {
                         $('.pErrorLPassword').text('Incorrect user account or password.');
@@ -346,6 +347,12 @@ function Sidebar() {
                     console.log(err);
                 });
             });
+
+            $('.showOtp').click(function() {
+              $('.signup-form').addClass('hide');
+              $('.otpform').removeClass('hide');
+              $("#exampleModal1").modal('show');
+            })
 
             // if(localStorage.getItem('logged_in')) {
             //     $('.logout')

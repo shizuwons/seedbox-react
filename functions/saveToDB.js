@@ -356,7 +356,8 @@ function toEndpoint(data, type) {
                 if(type !== 'save') {
                     $('#thankYouModal').modal('show');
                 } else {
-                    alert('Account information has been saved.');
+                    alert('Your changes have been saved but your KYC information is not yet complete. You can finish your KYC information later and submit to activate your account.');
+                    window.location = '/';
                 }
             }
         }

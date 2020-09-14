@@ -5,8 +5,13 @@ import { useEffect, useState } from 'react';
 
 function Navbar() {
   const [loggedin, setLoggedin] = useState(false);
+  const [verified, setVerified] = useState(false);
   useEffect(() => {
     setLoggedin(localStorage.getItem('logged_in'));
+
+    if(localStorage.getItem('userStatus') !== 'REG') {
+      setVerified(true);
+    }
 
     $(document).ready(function() {
       if(localStorage.getItem('logged_in')) {
@@ -62,8 +67,13 @@ function Navbar() {
                   {/* <a className="nav-link logout" href="#">LOG OUT</a> */}
                   <a className="nav-link logout dropdown-toggle" data-toggle="dropdown" href="#">Email</a>
                   <ul className="dropdown-menu dropdownBox animate slideIn">
+                    {!verified && (
+                      <li><a className="dropdownItem showOtp" href="#">VERIFY OTP</a></li>
+                    )}
+                    {verified && (
                       <li><a className="dropdownItem" href="/kyc">KYC FORM</a></li>
-                      <li><a className="dropdownItem logout-button" href="#">LOG OUT</a></li>
+                    )}
+                    <li><a className="dropdownItem logout-button" href="#">LOG OUT</a></li>
                   </ul>
                 </div>               
                 )}
