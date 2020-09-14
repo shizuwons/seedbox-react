@@ -30,3 +30,21 @@ export function arrangeValues(arr, code) {
 
     return arr;
 }
+
+export function calculateAge(year, month, day) { // birthday is a date
+    let age =  18;
+    
+    let mydate = new Date();
+    mydate.setFullYear(year, month-1, day);
+    
+    let currdate = new Date();
+    currdate.setFullYear(currdate.getFullYear() - age);
+    
+    if(currdate < mydate)
+    {
+        return false;
+    } else {
+        return true;
+    }
+}
+

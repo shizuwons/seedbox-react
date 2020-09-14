@@ -46,7 +46,6 @@ export default function Summary() {
     
         $(".select2").select2({
           width: "element",
-          minimumResultsForSearch: -1,
         });
 
         let height = $(".conContent").height() + 24;
@@ -99,15 +98,6 @@ export default function Summary() {
             }
           });
 
-        // Scroll on press
-        $("#personalStep").click(function() {
-            $([document.documentElement, document.body]).animate({
-                scrollTop: $("#personalStepScroll").offset().top
-            }, 500);
-
-            $(".divWhite").css("top", "85px");
-        });
-
         // Check agree terms on click of I Agree in modal
         $('.btnAgree').click(function() {
             if($('.checkAgree').is(':not(:checked)')) {
@@ -121,6 +111,66 @@ export default function Summary() {
 
         $('.btnCloseTy').click(function() {
             $('#thankYouModal').modal('hide');
+        });
+
+        // Change position of functional bar when scrolled
+//         var distance = $('div').offset().top,
+//     $window = $(window);
+
+// $window.scroll(function() {
+//     if ( $window.scrollTop() >= distance ) {
+//         // Your div has reached the top
+//     }
+// });
+        $(window).scroll(function() {
+            let personalDistance = $('#personalStepScroll').offset().top;
+            let addressDistance = $('#addressStepScroll').offset().top;
+            let professionalDistance = $('#professionalStepScroll').offset().top;
+            let csaDistance = $('#csaStepScroll').offset().top;
+            let pepDistance = $('#pepStepScroll').offset().top;
+            let fatcaDistance = $('#fatcaStepScroll').offset().top;
+            let uploadDistance = $('#uploadStepScroll').offset().top;
+
+            if($(this).scrollTop() >= personalDistance) {
+                $(".divWhite").css("top", "85px");
+            }
+
+            if($(this).scrollTop() >= addressDistance) {
+                $(".divWhite").css("top", "160px");
+            }
+
+            if($(this).scrollTop() >= professionalDistance) {
+                $(".divWhite").css("top", "228px");
+            }
+
+            if($(this).scrollTop() >= csaDistance) {
+                $(".divWhite").css("top", "297px");
+            }
+
+            if($(this).scrollTop() >= pepDistance) {
+                $(".divWhite").css("top", "365px");
+            }
+
+            if($(this).scrollTop() >= fatcaDistance) {
+                $(".divWhite").css("top", "440px");
+            }
+
+            if($(this).scrollTop() >= uploadDistance) {
+                $(".divWhite").css("top", "505px");
+            }
+
+            if($(this).scrollTop() + $(this).height() == $(document).height()) {
+                $(".divWhite").css("top", "575px");
+            }
+        });
+
+        // Scroll on press
+        $("#personalStep").click(function() {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $("#personalStepScroll").offset().top
+            }, 500);
+
+            $(".divWhite").css("top", "85px");
         });
 
         $("#addressStep").click(function() {

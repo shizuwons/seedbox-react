@@ -13,6 +13,7 @@ import Sidebar from '../../components/sidebar';
 import { RedirectIfUnauthenticated } from '../../functions/auth-checker';
 import { saveImage, saveToDB } from '../../functions/saveToDB';
 import { prefillForm, checkIfTokenValid } from '../../functions/prefillForm';
+import { calculateAge } from '../../functions/functions';
 
 export default function Kyc() {
   useEffect(() => {
@@ -227,6 +228,8 @@ export default function Kyc() {
         }
       }
     });
+
+
 
     // Evertime the user change the id type the id number will be null
     $("#IdType").change(function (event) {
@@ -911,6 +914,19 @@ export default function Kyc() {
 
     // Click function for next button
     $(".btnProceed").click(function () {
+
+      // Verify if 18 years of age
+      let month = $('.month').val();
+      let day = $('.day').val();
+      let year = $('.year').val();
+
+      let validAge = calculateAge(year, month, day);
+
+      if(!validAge) {
+        alert('You have to be at least 18 years of age.');
+        return false;
+      }
+
       if (step === 0) {
         let validated = personalValidation();
 
