@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import Navbar from '../components/navbar';
 import Sidebar from '../components/sidebar';
 import axios from 'axios';
+import Privacy from './summary/privacy';
+import Terms from './summary/terms';
 
 export default function Home() {
     return (
@@ -93,8 +95,8 @@ export default function Home() {
                     <div className="modal-content">
                     <div className="modal-body" style={{border: '0px', margin: '0 auto'}}>
                     <img src="Image/Seedbox-Logo-updated.png" className="img-fluid mx-auto d-flex" style={{width: '210px', margin: '20px 0'}} />
-                        <p className="pLogin loginCaption">Log In</p>
                         <div className="loginForm">
+                            <p className="pLogin loginCaption">Log In</p>
                             <input type="text" className="txtEmail loginemail" placeholder="email" />
                             <p className="pErrorLEmail pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
                             <input type="password" className="txtEmail txtPassword loginpassword" placeholder="password" style={{marginTop: '20px'}} />
@@ -126,7 +128,48 @@ export default function Home() {
                             <p className="pDont">Don't have an account?</p>
                             <p className="pSignup" data-toggle="modal" data-target="#exampleModal1" data-backdrop="false" data-keyboard="false">SIGN UP</p>
                         </div>
+                        <div className="otpformlogin row hide">
+                            <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div className="pLogin otp-caption" style={{ marginBottom: "20px" }}>
+                                    We have sent an OTP to your email.
+                                </div>
+                            </div>
+                            <div className="col-xs-5ths col-sm-5ths col-md-5ths col-lg-5ths">
+                                <input type="text" className="txtotp txtotp-1" maxLength="1"/>
+                            </div>
+                            <div className="col-xs-5ths col-sm-5ths col-md-5ths col-lg-5ths">
+                                <input type="text" className="txtotp txtotp-2" maxLength="1"/>
+                            </div>
+                            <div className="col-xs-5ths col-sm-5ths col-md-5ths col-lg-5ths">
+                                <input type="text" className="txtotp txtotp-3" maxLength="1"/>
+                            </div>
+                            <div className="col-xs-5ths col-sm-5ths col-md-5ths col-lg-5ths">
+                                <input type="text" className="txtotp txtotp-4" maxLength="1"/>
+                            </div>
+                            <div className="col-xs-5ths col-sm-5ths col-md-5ths col-lg-5ths">
+                                <input type="text" className="txtotp txtotp-5" maxLength="1"/>
+                            </div>
+                            <div className="col-xs-5ths col-sm-5ths col-md-5ths col-lg-5ths">
+                                <input type="text" className="txtotp txtotp-6" maxLength="1"/>
+                            </div>
+                            <div className="col-lg-12 text-center errorDiv hide" style={{marginTop: "30px"}}>
+                                <div className="pError errorMessage">Fill up missing fields.</div>
+                            </div>
+                            <div className="col-lg-12 text-center" style={{marginTop: "30px"}}>
+                                {/* <input type="button" defaultValue="SUBMIT" className="btnSubmit otpSubmit mx-auto"/> */}
+                                <button className="btnSubmit otplink mx-auto">
+                                    <a href="#" className=" otpSubmit2">SUBMIT</a>
+                                </button>
+                            </div>
+                            <div className="col-lg-12 text-center" style={{marginTop: "30px"}}>
+                                {/* <input type="button" defaultValue="SUBMIT" className="btnSubmit otpSubmit mx-auto"/> */}
+                                <button className="btnSubmit mx-auto" disabled="disabled">
+                                    <a href="#" className=" resendOtp">RESEND OTP</a>
+                                </button>
+                            </div>
+                        </div>
                         <div className="forgotPasswordForm hide">
+                            <p className="pLogin loginCaption">Forgot Password?</p>
                             <input type="text" className="txtEmail forgotemail" placeholder="email" />
                             <p className="pErrorFEmail pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p>
                             <div className="row align-items-center" style={{marginTop: '15px'}}>
@@ -182,7 +225,7 @@ export default function Home() {
                             with Google</button> */}
                             <p className="pDont">Already have an account?</p>
                             <p className="pSignup loginlink">LOG IN</p>
-                            <p className="pDont" style={{ fontSize: '12px' }}>By registering or signing in, you agree to our <br/>TERMS &amp; CONDITIONS  PRIVACY POLICIES</p>
+                            <p className="pDont">By submitting, you agree to our <br/><span className="signupterms termsmodal">Terms and Conditions of Use</span> and <span className="signupterms privacymodal">Data Privacy Policy.</span></p>
                         </div>
                         <div className="otpform row hide">
                             <div className="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -250,6 +293,40 @@ export default function Home() {
                     </div>
                     </div>
                 </div>
+                </div>
+                <div className="modal fade" id="termsModalHome" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered" role="document" style={{ maxWidth: "80%" }}>
+                        <div className="modal-content terms-content">
+                            <div className="modal-body" style={{border: '0px', margin: '0 auto', width: '100%', padding: '1rem 5rem'}}>
+                                <p className="pCaption">Terms and Conditions of Use</p>
+                                <div className="pTextbody">
+                                    <Terms></Terms>
+                                </div>
+                            </div>
+                            <div className="row agreeWrapper" style={{marginBottom: '50px'}}>
+                                <div className="col-lg-12">
+                                    <input type="button" className="btnNext btnProceed btnAgree termsAgree" defaultValue="I AGREE" data-dismiss="modal"/>                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="modal fade" id="privacyModalHome" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered" role="document" style={{ maxWidth: "80%" }}>
+                        <div className="modal-content terms-content">
+                            <div className="modal-body" style={{border: '0px', margin: '0 auto', width: '100%', padding: '1rem 5rem'}}>
+                                <p className="pCaption">Data Privacy Policy</p>
+                                <div className="pTextbody">
+                                    <Privacy></Privacy>
+                                </div>
+                            </div>
+                            <div className="row agreeWrapper" style={{marginBottom: '50px'}}>
+                                <div className="col-lg-12">
+                                    <input type="button" className="btnNext btnProceed btnAgree privacyAgree" defaultValue="I AGREE" data-dismiss="modal"/>                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </Default>

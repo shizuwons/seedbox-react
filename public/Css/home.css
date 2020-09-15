@@ -79,7 +79,7 @@ body, html {
         font-size: 1.4rem !important;
     }
 
-    .otpform {
+    .otpform, .otpformlogin {
         margin: 0 !important;
         margin-bottom: 40px !important;
     }
@@ -101,7 +101,7 @@ body, html {
         width: 100% !important;
     }
     
-    .otpform {
+    .otpform, .otpformlogin {
         margin: 0 !important;
         margin-bottom: 40px !important;
     }
@@ -432,6 +432,59 @@ textarea {
     margin-left: 5px;
 }
 
+.signupterms {
+    cursor: pointer;
+    color: #13C95C;
+}
+
+.signupterms:hover {
+    text-decoration: underline;
+}
+
+.terms-content {
+    border: 0px !important;
+    border-radius: 73px !important;
+    box-shadow: 0px 5px 6px #00000029;
+}
+
+.pCaption {
+    font-family: "Open Sans";
+    color: #13C95C;
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.pTextbody {
+    width: 100%;
+    height: 450px;
+    border: 1px solid #404040;
+    border-radius: 12px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.bodyContainer {
+    padding: 30px;
+}
+
+.btnNext {
+    margin-top: 0px;
+    float: right;
+    width: 113px;
+    background: #13C95C;
+    padding: 5px;
+    box-shadow: 0px 5px 6px #00000029;
+    opacity: 1;
+    border: 0px;
+    color: white;
+    font-family: "Proxima Regular";
+    border-radius: 25px;
+    cursor: pointer;
+    margin-right: 80px;
+}
+
 .navlinkActive {
     font-family: "Proxima Extrabold" !important;
     color: #13C95C !important;
@@ -486,7 +539,7 @@ textarea {
     display: none;
   }
 
-  .otpform {
+  .otpform, .otpformlogin {
     margin: 0 50px;
     margin-bottom: 80px;
   }

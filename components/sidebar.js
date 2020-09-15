@@ -147,9 +147,24 @@ function Sidebar() {
   
       $('#contactModal').on('hidden.bs.modal', function (e) {
           $(".conMainBody").css("filter", "blur(0px)");
-          $('.btncontact').removeAttr('style');
       });
   
+      $('#termsModalHome').on('shown.bs.modal', function (e) {
+        $(".conMainBody").css("filter", "blur(50px)");
+    });
+
+    $('#termsModalHome').on('hidden.bs.modal', function (e) {
+        $(".conMainBody").css("filter", "blur(0px)");
+    });
+
+    $('#privacyModalHome').on('shown.bs.modal', function (e) {
+        $(".conMainBody").css("filter", "blur(50px)");
+    });
+
+    $('#privacyModalHome').on('hidden.bs.modal', function (e) {
+        $(".conMainBody").css("filter", "blur(0px)");
+    });
+
       $('.txtotp-1').keyup(function() {
           $('.txtotp-2').focus();
       });
@@ -438,8 +453,32 @@ function Sidebar() {
 
       $('.forgotTrigger').click(function() {
           $('.loginForm').addClass('hide');
-          $('.forgotPasswordForm').removeClass('hide');
-          $('.loginCaption').text('Forgot Password?');
+          $('.otpformlogin').removeClass('hide');
+      });
+
+      $('.otpSubmit2').click(function() {
+        $('.otpformlogin').addClass('hide');
+        $('.forgotPasswordForm').removeClass('hide');
+      });
+
+      $('.termsmodal').click(function() {
+        $('#exampleModal1').modal('hide');
+        $('#termsModalHome').modal('show');
+      });
+
+      $('.privacymodal').click(function() {
+        $('#exampleModal1').modal('hide');
+        $('#privacyModalHome').modal('show');
+      });
+
+      $('.termsAgree').click(function() {
+        $('#termsModalHome').modal('hide');
+        $('#exampleModal1').modal('show');
+      });
+
+      $('.privacyAgree').click(function() {
+        $('#privacyModalHome').modal('hide');
+        $('#exampleModal1').modal('show');
       });
       }, []);
     return (
