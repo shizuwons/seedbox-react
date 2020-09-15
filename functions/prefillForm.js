@@ -14,8 +14,7 @@ export function checkIfTokenValid() {
           'x-token': token,
         }
     }).then(response => {
-        console.log(response);
-        console.log('response');
+        console.log('Token is valid.');
     }).catch(err => {
         alert('Login session has expired, please log in again.');
         axios.post('https://dev.seedbox.ph/core/lite/v1/logout', {
@@ -60,7 +59,10 @@ export function prefillPersonalForm() {
         $('.birthplace').val(data.birthplace).trigger('change');
         $('.tin').val(data.tin);
         $('.sss-gsis').val(data.sss_gsis);
-        $('.agent-code').val(data.referral_agent_code);
+
+        if(data.referral_agent_code !== "INVPTL") {
+            $('.agent-code').val(data.referral_agent_code);
+        }
     
         // Field borders when has value
         $('.txtusername').each(function() {
@@ -86,13 +88,16 @@ export function prefillBirthdate() {
         let birthDateStr = response.data.personal_information.birthdate;
         let birthdateArr = birthDateStr.split("-");
         //let civilStatus = response.data.personal_information.civil_status;
-        $('.year').val(birthdateArr[0]).trigger('change');
-        $('.month').val(birthdateArr[1].toString()).trigger('change');
-        $('.day').val(birthdateArr[2].toString()).trigger('change');
-        if(birthdateArr[2].substring(0, 1) === "0") {
-            $('.day').val(birthdateArr[2].substring(1, 2)).trigger('change');
-        } else {
-            $('.day').val(birthdateArr[2].substring(0, 2)).trigger('change');
+
+        if(birthDateStr !== null && birthDateStr !== "") {
+            $('.year').val(birthdateArr[0]).trigger('change');
+            $('.month').val(birthdateArr[1].toString()).trigger('change');
+            $('.day').val(birthdateArr[2].toString()).trigger('change');
+            if(birthdateArr[2].substring(0, 1) === "0") {
+                $('.day').val(birthdateArr[2].substring(1, 2)).trigger('change');
+            } else {
+                $('.day').val(birthdateArr[2].substring(0, 2)).trigger('change');
+            }
         }
 
         if(response.data.personal_information.gender !== "" && response.data.personal_information.gender !== null && response.data.personal_information.gender !== "null") {
@@ -247,7 +252,7 @@ export function prefillProfessionalDetails() {
             $('.nature-business').val(financialData.nature_of_business).trigger('change');
         }
 
-        console.log(financialData.is_director_officer_shareholder);
+        //console.log(financialData.is_director_officer_shareholder);
         if(financialData.is_director_officer_shareholder) {
             $('.dos').val("true").trigger('change');
         } else {
@@ -291,7 +296,7 @@ export function prefillCSA() {
     }).then(response => {
         let csaData = response.data.csa;
 
-        console.log(csaData.investment_others);
+        //console.log(csaData.investment_others);
         $('.invest-much').val(csaData.investment_amount).trigger('change');
         $('.frequent-invest').val(csaData.investment_frequency).trigger('change');
         $('.investment').val(csaData.investment_purpose).trigger('change');
@@ -434,54 +439,58 @@ export function prefillIDData() {
         //   $('.idimage').attr('src', 'data:image/jpeg;base64,' + btoa(unescape(encodeURIComponent(response.data))));
         //  });
 
-        axios.request({
-            method: 'GET',
-            url: 'https://dev.seedbox.ph/core/lite/v1/download?id=' + idData.upload_id.fileKeyIdCard,
-            responseType: 'arraybuffer',
-            responseEncoding: 'binary',
-            headers: {
-                'x-token': token,
-            }
-        }).then(response => {
-            // let imgStr = String.fromCharCode.apply(null, new Uint8Array(response.data));
-            // let imgData = btoa(imgStr);
-            let imgData = btoa(new Uint8Array(response.data).reduce(
-                function (data, byte) {
-                    return data + String.fromCharCode(byte);
-                },
-                ''
-            ));
-            if(window.location.href.indexOf("summary") > -1) {
-                $('.idimage').attr('src', 'data:image/jpeg;base64,' + imgData);
-            } else if(window.location.href.indexOf("kyc") > -1) {
-                $('#idPreview').attr('src', 'data:image/jpeg;base64,' + imgData);
-            }
-        });
+        if(idData.upload_id.fileKeyIdCard !== null && idData.upload_id.fileKeyIdCard !== undefined && idData.upload_id.fileKeyIdCard !== "") {
+            axios.request({
+                method: 'GET',
+                url: 'https://dev.seedbox.ph/core/lite/v1/download?id=' + idData.upload_id.fileKeyIdCard,
+                responseType: 'arraybuffer',
+                responseEncoding: 'binary',
+                headers: {
+                    'x-token': token,
+                }
+            }).then(response => {
+                // let imgStr = String.fromCharCode.apply(null, new Uint8Array(response.data));
+                // let imgData = btoa(imgStr);
+                let imgData = btoa(new Uint8Array(response.data).reduce(
+                    function (data, byte) {
+                        return data + String.fromCharCode(byte);
+                    },
+                    ''
+                ));
+                if(window.location.href.indexOf("summary") > -1) {
+                    $('.idimage').attr('src', 'data:image/jpeg;base64,' + imgData);
+                } else if(window.location.href.indexOf("kyc") > -1) {
+                    $('#idPreview').attr('src', 'data:image/jpeg;base64,' + imgData);
+                }
+            });
+        }
 
-        axios.request({
-            method: 'GET',
-            url: 'https://dev.seedbox.ph/core/lite/v1/download?id=' + idData.upload_signature.fileKeySignature,
-            responseType: 'arraybuffer',
-            responseEncoding: 'binary',
-            headers: {
-                'x-token': token,
-            }
-        }).then(response => {
-            // let imgStr = String.fromCharCode.apply(null, new Uint8Array(response.data));
-            // let imgData = btoa(imgStr);
-
-            let imgData = btoa(new Uint8Array(response.data).reduce(
-                function (data, byte) {
-                    return data + String.fromCharCode(byte);
-                },
-                ''
-            ));
-            if(window.location.href.indexOf("summary") > -1) {
-                $('.signatureimage').attr('src', 'data:image/jpeg;base64,' + imgData);
-            } else if(window.location.href.indexOf("kyc") > -1) {
-                $('#sigPreview').attr('src', 'data:image/jpeg;base64,' + imgData);
-            }
-        });
+        if(idData.upload_id.fileKeySignature !== null && idData.upload_id.fileKeySignature !== undefined && idData.upload_id.fileKeySignature !== "") {
+            axios.request({
+                method: 'GET',
+                url: 'https://dev.seedbox.ph/core/lite/v1/download?id=' + idData.upload_signature.fileKeySignature,
+                responseType: 'arraybuffer',
+                responseEncoding: 'binary',
+                headers: {
+                    'x-token': token,
+                }
+            }).then(response => {
+                // let imgStr = String.fromCharCode.apply(null, new Uint8Array(response.data));
+                // let imgData = btoa(imgStr);
+    
+                let imgData = btoa(new Uint8Array(response.data).reduce(
+                    function (data, byte) {
+                        return data + String.fromCharCode(byte);
+                    },
+                    ''
+                ));
+                if(window.location.href.indexOf("summary") > -1) {
+                    $('.signatureimage').attr('src', 'data:image/jpeg;base64,' + imgData);
+                } else if(window.location.href.indexOf("kyc") > -1) {
+                    $('#sigPreview').attr('src', 'data:image/jpeg;base64,' + imgData);
+                }
+            });
+        }
 
     });
 }

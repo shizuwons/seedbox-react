@@ -57,6 +57,10 @@ export function saveToDB(type = "") {
     let sssGsis = $('.sss-gsis').val();
     let agentCode = $('.agent-code').val();
 
+    if(agentCode === "" || agentCode.length <= 0) {
+        agentCode = "INVPTL";
+    }
+
     let mobileNumber = "";
     let birthdate = "";
     if(countrycode !== null) {

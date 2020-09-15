@@ -4,6 +4,7 @@ import { openNav, closeNav, isEmail, isMobileNumber } from '../functions/kyc';
 import { useEffect, useState } from 'react';
 import { registerValidation, contactUsValidation, loginValidation } from '../functions/validators';
 import axios from 'axios';
+import Cookie from 'js-cookie';
 
 function Sidebar() {
     const [loggedin, setLoggedin] = useState(false);    
@@ -19,6 +20,13 @@ function Sidebar() {
               }
           });
       });
+
+      Cookie.remove('otp1');
+      Cookie.remove('otp2');
+      Cookie.remove('otp3');
+      Cookie.remove('otp4');
+      Cookie.remove('otp5');
+      Cookie.remove('otp6');
   
       $(".btnlogin").click(function () {
           $(".conMainBody").css("filter", "blur(50px)");
@@ -165,25 +173,74 @@ function Sidebar() {
         $(".conMainBody").css("filter", "blur(0px)");
     });
 
-      $('.txtotp-1').keyup(function() {
-          $('.txtotp-2').focus();
-      });
-  
-      $('.txtotp-2').keyup(function() {
-          $('.txtotp-3').focus();
-      });
-  
-      $('.txtotp-3').keyup(function() {
-          $('.txtotp-4').focus();
-      });
-  
-      $('.txtotp-4').keyup(function() {
-          $('.txtotp-5').focus();
+      $('.txtotp-1').on('input keypress', function(event) {   
+        if (event.type == "keypress" && (event.shiftKey || event.which <= 47 || event.which >= 58))
+        return false; 
+
+        if (event.currentTarget.value.length >= 1)
+        Cookie.set('otp1', $(this).val());
+        $('.txtotp-2').focus();
       });
 
-      $('.txtotp-5').keyup(function() {
+      $('.txtotp-2').on('input keypress', function(event) {   
+        if (event.type == "keypress" && (event.shiftKey || event.which <= 47 || event.which >= 58))
+        return false; 
+
+        if (event.currentTarget.value.length >= 1)
+        Cookie.set('otp2', $(this).val());
+        $('.txtotp-3').focus();
+      });
+
+      $('.txtotp-3').on('input keypress', function(event) {   
+        if (event.type == "keypress" && (event.shiftKey || event.which <= 47 || event.which >= 58))
+        return false; 
+
+        if (event.currentTarget.value.length >= 1)
+        Cookie.set('otp3', $(this).val());
+        $('.txtotp-4').focus();
+      });
+
+      $('.txtotp-4').on('input keypress', function(event) {   
+        if (event.type == "keypress" && (event.shiftKey || event.which <= 47 || event.which >= 58))
+        return false; 
+
+        if (event.currentTarget.value.length >= 1)
+        Cookie.set('otp4', $(this).val());
+        $('.txtotp-5').focus();
+      });
+
+      $('.txtotp-5').on('input keypress', function(event) {   
+        if (event.type == "keypress" && (event.shiftKey || event.which <= 47 || event.which >= 58))
+        return false; 
+
+        if (event.currentTarget.value.length >= 1)
+        Cookie.set('otp5', $(this).val());
         $('.txtotp-6').focus();
-    });
+      });
+
+      $('.txtotp-6').on('input keypress', function(event) {   
+        if (event.type == "keypress" && (event.shiftKey || event.which <= 47 || event.which >= 58))
+        return false; 
+
+        if (event.currentTarget.value.length >= 1)
+        Cookie.set('otp6', $(this).val());
+      });
+  
+    //   $('.txtotp-2').keypress(function() {
+    //       $('.txtotp-3').focus();
+    //   });
+  
+    //   $('.txtotp-3').keypress(function() {
+    //       $('.txtotp-4').focus();
+    //   });
+  
+    //   $('.txtotp-4').keypress(function() {
+    //       $('.txtotp-5').focus();
+    //   });
+
+    //   $('.txtotp-5').keypress(function() {
+    //     $('.txtotp-6').focus();
+    // });
   
       $('.signupSubmit').click(function() {
         let validated = registerValidation();
@@ -257,7 +314,8 @@ function Sidebar() {
                     } else if(response.data.code === 0) {
                         $('.signup-form').addClass('hide');
                         $('.otpform').removeClass('hide');
-
+                        
+                        Cookie.set('registerPassword', $(".password").val(), {expires: 0.042})
                         localStorage.setItem('registerToken', response.data.user.token);
                         localStorage.setItem('trx', response.data.data.trx_id);
                         localStorage.setItem('stan', response.data.data.stan);
@@ -329,6 +387,8 @@ function Sidebar() {
                        localStorage.setItem('loginToken', response.data.token);
                        localStorage.setItem('sessionEmail', response.data.user_email);
                        localStorage.setItem('userStatus', response.data.user_status);
+
+                       Cookie.set('loginPassword', $('.loginpassword').val());
                        location.reload();
                    } else if(response.data.code === 0) {
                         $('.pErrorLPassword').text('Incorrect user account or password.');
@@ -357,6 +417,7 @@ function Sidebar() {
                     localStorage.removeItem('logged_in');
                     localStorage.removeItem('sessionEmail');
                     localStorage.removeItem('loginToken');
+                    localStorage.removeItem('userStatus');
                     location.reload();
                 }).catch(err => {
                     console.log(err);
@@ -364,6 +425,24 @@ function Sidebar() {
             });
 
             $('.showOtp').click(function() {
+                let email = localStorage.getItem('sessionEmail');
+                let token = localStorage.getItem('loginToken');
+                axios.get('https://dev.seedbox.ph/core/lite/v1/generate_otp', 
+                {
+                    params: {
+                      email: email,
+                    },
+                    headers: {
+                      'x-token': token,
+                    }
+              }
+                ).then(response => {
+                    console.log(response);
+                    localStorage.setItem('stan', response.data.data.stan);
+                    localStorage.setItem('trx', response.data.data.trx_id);
+                }).catch(err => {
+                    console.log(err);
+                });
               $('.signup-form').addClass('hide');
               $('.otpform').removeClass('hide');
               $("#exampleModal1").modal('show');
@@ -376,15 +455,36 @@ function Sidebar() {
   
       // OTP
       $('.otplink').click(function() {
-          if(!$('.txtotp-1').val() || !$('.txtotp-2').val() || !$('.txtotp-3').val()  || !$('.txtotp-4').val() || !$('.txtotp-5').val() || !$('.txtotp-6').val()) {
+        let otp1 = Cookie.get('otp1');
+        let otp2 = Cookie.get('otp2');
+        let otp3 = Cookie.get('otp3');
+        let otp4 = Cookie.get('otp4');
+        let otp5 = Cookie.get('otp5');
+        let otp6 = Cookie.get('otp6');
+          if(otp1.length <= 0 || otp2.length <= 0 || otp3.length <= 0 || otp4.length <= 0 || otp5.length <= 0 || otp6.length <= 0 ) {
+              $('.errorDiv').text('Fill up missing fields.');
               $('.errorDiv').removeClass('hide');
               return false;
           } else {
-              let otp = $('.txtotp-1').val() + $('.txtotp-2').val() + $('.txtotp-3').val() + $('.txtotp-4').val() + $('.txtotp-5').val() + $('.txtotp-6').val();
-              let email = localStorage.getItem('registerEmail');
+              let otp = otp1 + otp2 + otp3 + otp4 + otp5 + otp6;
+              let token = "";
+              let email = "";
+
+              let loggedIn = false;
+
+              if(localStorage.getItem('logged_in') || localStorage.getItem('logged_in') !== null) {
+                  loggedIn = true;
+              }
+    
+              if(loggedIn) {
+                  token = localStorage.getItem('loginToken');
+                  email = localStorage.getItem('sessionEmail');
+              } else {
+                  email = localStorage.getItem('registerEmail');
+                  token = localStorage.getItem('registerToken');
+              }
               let trx = localStorage.getItem('trx');
               let stan = localStorage.getItem('stan');
-              let registerToken = localStorage.getItem('registerToken');
 
               axios.post('https://dev.seedbox.ph/core/lite/v1/verify_otp', 
               {
@@ -395,25 +495,44 @@ function Sidebar() {
               },
               {
                 headers: {
-                    'x-token': registerToken
+                    'x-token': token
                 }
               }
               ).then(response => {
                 console.log(response.data);
                 if(response.data.code === 0) {
                     // localStorage.setItem('logged_in', true);
-                    localStorage.removeItem('trx');
-                    localStorage.removeItem('stan');
-                    localStorage.removeItem('registerEmail');
-                    localStorage.removeItem('registerToken');
-                    alert('Account registered, you can now log in.');
+                    let loggedIn = false;
 
-                    location.reload();
+                    if(localStorage.getItem('logged_in') || localStorage.getItem('logged_in') !== null) {
+                        loggedIn = true;
+                    }
+
+                    if(!loggedIn) {
+                        let registerPassword = Cookie.get('registerPassword');
+                        let registerEmail = localStorage.getItem('registerEmail');
+                        localStorage.removeItem('trx');
+                        localStorage.removeItem('stan');
+                        localStorage.removeItem('registerEmail');
+                        localStorage.removeItem('registerToken');
+
+                        alert('Your account is now registered.');
+
+                        login(registerEmail, registerPassword);
+                    } else {
+                        let loginPassword = Cookie.get('loginPassword');
+                        let loginEmail = localStorage.getItem('sessionEmail');
+                        alert('Your account is now verified.');
+                        login(loginEmail, loginPassword);
+                    }
+
+                    //location.reload();
                     // if (localStorage.getItem('logged_in') === '1') {
                     //     window.location.href = '/kyc';
                     // }
                 }
               }).catch(err => {
+                  console.log(err);
                   if(err.response.data.code === 0) {
                     $('.errorDiv').text('Invalid/Expired OTP Code');
                     $('.errorDiv').removeClass('hide');
@@ -424,23 +543,32 @@ function Sidebar() {
 
       $('.resendOtp').click(function () {
           let email = localStorage.getItem('registerEmail');
-          let stan = localStorage.getItem('stan');
-          let trx = localStorage.getItem('trx');
-          let registerToken = localStorage.getItem('registerToken');
+          let token = "";
+
+          let loggedIn = false;
+
+          if(localStorage.getItem('logged_in') || localStorage.getItem('logged_in') !== null) {
+              loggedIn = true;
+          }
+
+          if(loggedIn) {
+              token = localStorage.getItem('loginToken');
+          } else {
+              token = localStorage.getItem('registerToken');
+          }
           axios.get('https://dev.seedbox.ph/core/lite/v1/generate_otp', 
           {
               params: {
                 email: email,
-                stan: stan,
-                trx_id: trx
               },
               headers: {
-                'x-token': registerToken,
+                'x-token': token,
               }
         }
           ).then(response => {
               console.log(response);
               localStorage.setItem('stan', response.data.data.stan);
+              localStorage.setItem('trx', response.data.data.trx_id);
           }).catch(err => {
               console.log(err);
           });
@@ -488,6 +616,29 @@ function Sidebar() {
         $('#privacyModalHome').modal('hide');
         $('#exampleModal1').modal('show');
       });
+
+      function login(user, pass) {
+        axios.post('https://dev.seedbox.ph/core/lite/v1/login', {
+            email_address: user,
+            password: pass
+        }).then(response => {
+            console.log(response);
+            if(response.data.code === 1) {
+                localStorage.setItem('logged_in', true);
+                localStorage.setItem('loginToken', response.data.token);
+                localStorage.setItem('sessionEmail', response.data.user_email);
+                localStorage.setItem('userStatus', response.data.user_status);
+
+                Cookie.remove('loginPassword');
+                Cookie.remove('registerPassword');
+                window.location = '/kyc';
+            } else if(response.data.code === 0) {
+                console.log('error');
+            }
+        }).catch(err => {
+            console.log(err);
+        });
+      }
       }, []);
     return (
         <div id="mySidenav" className="sidenav">
