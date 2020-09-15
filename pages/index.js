@@ -180,6 +180,20 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
+                        <div className="changePasswordForm hide">
+                            <p className="pLogin loginCaption">Enter your new Password</p>
+                            <input type="text" className="txtEmail forgotemail" placeholder="old password" />
+                            <input type="text" className="txtEmail forgotemail" placeholder="new password" />
+                            <input type="text" className="txtEmail forgotemail" placeholder="confirm new password" />
+                            {/* <p className="pErrorFEmail pError hide" style={{ fontSize: '0.9rem', color: 'red'}}>This field is required.</p> */}
+                            <div className="row align-items-center" style={{marginTop: '15px'}}>
+                                <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div style={{ textAlign: "center" }}>
+                                        <input type="button" defaultValue="SUBMIT" className="btnSubmit passwordSubmit" style={{marginTop: '30px', marginBottom: '35px'}} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     </div>
                 </div>

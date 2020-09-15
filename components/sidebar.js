@@ -451,14 +451,22 @@ function Sidebar() {
         $('#exampleModal').modal('show');
       });
 
+      // clicking forgot password will go to email form
       $('.forgotTrigger').click(function() {
           $('.loginForm').addClass('hide');
-          $('.otpformlogin').removeClass('hide');
+          $('.forgotPasswordForm').removeClass('hide');
       });
 
+      // clicking submit email will go to otp page
+      $('.forgotSubmit').click(function() {
+        $('.forgotPasswordForm').addClass('hide');
+        $('.otpformlogin').removeClass('hide');
+      });
+
+      // submitting otp will go to new password form
       $('.otpSubmit2').click(function() {
         $('.otpformlogin').addClass('hide');
-        $('.forgotPasswordForm').removeClass('hide');
+        $('.changePasswordForm').removeClass('hide');
       });
 
       $('.termsmodal').click(function() {
