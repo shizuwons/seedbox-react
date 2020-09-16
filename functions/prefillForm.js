@@ -59,10 +59,7 @@ export function prefillPersonalForm() {
         $('.birthplace').val(data.birthplace).trigger('change');
         $('.tin').val(data.tin);
         $('.sss-gsis').val(data.sss_gsis);
-
-        if(data.referral_agent_code !== "INVPTL") {
-            $('.agent-code').val(data.referral_agent_code);
-        }
+        $('.agent-code').val(data.referral_agent_code);
     
         // Field borders when has value
         $('.txtusername').each(function() {
@@ -294,6 +291,7 @@ export function prefillCSA() {
           'x-token': token,
         }
     }).then(response => {
+        console.log(response);
         let csaData = response.data.csa;
 
         //console.log(csaData.investment_others);
@@ -465,7 +463,7 @@ export function prefillIDData() {
             });
         }
 
-        if(idData.upload_id.fileKeySignature !== null && idData.upload_id.fileKeySignature !== undefined && idData.upload_id.fileKeySignature !== "") {
+        if(idData.upload_signature.fileKeySignature !== null && idData.upload_signature.fileKeySignature !== undefined && idData.upload_signature.fileKeySignature !== "") {
             axios.request({
                 method: 'GET',
                 url: 'https://dev.seedbox.ph/core/lite/v1/download?id=' + idData.upload_signature.fileKeySignature,
