@@ -642,9 +642,13 @@ textarea {
         border-bottom: 1px solid #13C95C;
       }
       
-      .accordion a:hover,
-      .accordion a:hover::after {
+      .accordion a:hover {
         font-family: "Proxima Bold";
+        cursor: pointer;
+        color: #13C95C !important;
+      }
+
+      .accordion a:hover::after {
         cursor: pointer;
         color: #13C95C !important;
       }
