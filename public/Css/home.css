@@ -146,6 +146,11 @@ body, html {
     src: url("../Fonts/OpenSans-Bold.otf");
 }
 
+@font-face {
+    font-family: "Ionicons";
+    src: url("../Fonts/Ionicons.ttf");
+}
+
 .nav-link {
     font-family: "Proxima Regular" !important;
     color: #404040;
@@ -186,6 +191,14 @@ body, html {
     width: 150px;
     margin-top: 10px;
     cursor: pointer;
+}
+
+.btnLearnmore a {
+    color: #FAFAFA;
+}
+
+.btnLearnmore a:hover {
+    text-decoration: none;
 }
 
 .box {
@@ -602,6 +615,94 @@ textarea {
         width: 16.666%;
         float: left;
     }
+
+    .pPageTitle {
+        font-family: "Proxima Extrabold";
+        font-size: 1.8rem;
+        color: #13C95C;
+        padding: 1.3rem;
+        margin: 0;
+    }
+
+    .accordion a {
+        font-family: "Proxima Regular";
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 3rem 1rem 1rem;
+        color: #7288a2;
+        font-size: 1.15rem;
+        font-weight: 400;
+        border-bottom: 1px solid #13C95C;
+      }
+      
+      .accordion a:hover,
+      .accordion a:hover::after {
+        font-family: "Proxima Bold";
+        cursor: pointer;
+        color: #13C95C !important;
+      }
+      
+      .accordion a:hover::after {
+        border: 1px solid #13C95C;
+      }
+      
+      .accordion a.active {
+        font-family: "Proxima Bold";
+        color: #13C95C;
+        border-bottom: 1px solid #13C95C;
+      }
+      
+      .accordion a::after {
+        font-family: 'Ionicons';
+        content: '\f218';
+        position: absolute;
+        float: right;
+        right: 1rem;
+        font-size: 0.8rem;
+        color: #13C95C;
+        padding: 5px;
+        width: 30px;
+        height: 30px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        border: 1px solid #13C95C;
+        text-align: center;
+      }
+      
+      .accordion a.active::after {
+        font-family: 'Ionicons';
+        content: '\f209';
+        color: #13C95C;
+        border: 1px solid #13C95C;
+      }
+      
+      .accordion .content {
+        display: none;
+        padding: 1rem;
+        border-bottom: 1px solid #13C95C;
+        overflow: hidden;
+      }
+      
+      .accordion .content p {
+        font-size: 1rem;
+        font-weight: 300;
+      }
+
+      .strong {
+          font-family: "Proxima Bold";
+      }
+
+      .content-padding {
+          padding-left: 20px;
+      }
 
     @media (min-width: 768px) {
         .col-sm-5ths {

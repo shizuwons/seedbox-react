@@ -48,7 +48,7 @@ function Navbar() {
                 <ul className="dropdown-menu dropdownBox animate slideIn">
                     <li><a className="dropdownItem" href="#">BLOGS</a></li>
                     <li><a className="dropdownItem" href="#">ABOUT US</a></li>
-                    <li><a className="dropdownItem" href="#">FAQS</a></li>
+                    <li><a className="dropdownItem" href="/faq">FAQS</a></li>
                 </ul>
               </li>
               <li><a className="nav-link navigate btncontact" href="contact.html" data-toggle="modal" data-target="#contactModal">CONTACT US</a></li>

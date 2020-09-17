@@ -37,7 +37,8 @@ export default function Home() {
                         <p className="pSubtitle">Seedbox Philippines is a service that lets you invest in funds online,</p>
                         <p className="pSubtitle">whether on your phone or through your desktop. Sign up once and you’re good to
                         go.</p>
-                        <input type="button" className="btnLearnmore" defaultValue="LEARN MORE" />
+                        {/* <input type="button" className="btnLearnmore" defaultValue="LEARN MORE" /> */}
+                        <button type="button" className="btnLearnmore"><a href="/faq">LEARN MORE</a></button>
                     </div>
                     </div>
                 </div>
