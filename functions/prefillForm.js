@@ -295,15 +295,34 @@ export function prefillCSA() {
         let csaData = response.data.csa;
 
         //console.log(csaData.investment_others);
-        $('.invest-much').val(csaData.investment_amount).trigger('change');
-        $('.frequent-invest').val(csaData.investment_frequency).trigger('change');
-        $('.investment').val(csaData.investment_purpose).trigger('change');
-        $('.investing').val(csaData.investment_horizon).trigger('change');
-        $('.for-investment').val(csaData.investment_principle).trigger('change');
-        $('.investor').val(csaData.investment_knowledge).trigger('change');
+        if(csaData.investment_amount !== null & csaData.investment_amount !== "") {
+            $('.invest-much').val(csaData.investment_amount).trigger('change');
+        }
+        if(csaData.investment_frequency !== null & csaData.investment_frequency !== "") {
+            $('.frequent-invest').val(csaData.investment_frequency).trigger('change');
+        }
+        if(csaData.investment_horizon !== null & csaData.investment_horizon !== "") {
+            $('.investing').val(csaData.investment_horizon).trigger('change');
+        }
+        if(csaData.investment_principle !== null & csaData.investment_principle !== "") {
+            $('.for-investment').val(csaData.investment_principle).trigger('change');
+        }
+        if(csaData.investment_knowledge !== null & csaData.investment_knowledge !== "") {
+            $('.investor').val(csaData.investment_knowledge).trigger('change');
+        }
+        if(csaData.investment_liquidity_req !== null & csaData.investment_liquidity_req !== "") {
+            $('.liquidity').val(csaData.investment_liquidity_req).trigger('change');
+        }
+        if(csaData.investment_purpose !== null & csaData.investment_purpose !== "") {
+            $('.investment').val(csaData.investment_liquidity_req).trigger('change');
+        }
+        if(csaData.investment_risk_scenario !== null & csaData.investment_risk_scenario !== "") {
+            $('.droploss').val(csaData.investment_risk_scenario).trigger('change');
+        }
+        
         $('.invested').val(csaData.investment_others).trigger('change');
-        $('.liquidity').val(csaData.investment_liquidity_req).trigger('change');
-        $('.droploss').val(csaData.investment_risk_scenario).trigger('change');
+        
+       
     });
 }
 
